@@ -1,6 +1,6 @@
 # Phoenix Framework
 
-![Title](images\title.png)
+![Title](https://github.com/ozrien/Phoenix-Documentation/blob/master/images/title.png)
 
 The software framework for all CTR-Electronics robot components.
 
