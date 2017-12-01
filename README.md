@@ -1,6 +1,6 @@
 # Phoenix Framework
 
-![Title](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/images/title.png)
+![Title](images/title.png)
 
 The software framework for all CTR-Electronics robot components.
 
@@ -61,7 +61,7 @@ Text here.
 The first step of controlling a motor controller is to instantiate the controller in your robot controller software.
 
 If using LabVIEW, use the Open VI corresponding to your motor controller.  Here we are creating an object for the Talon with device ID 15.
-![](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/images/lVOpenTalon.png)
+![](images/lVOpenTalon.png)
 
 If using a programming language, create a TalonSRX object using the appropriate class name.
 ` private TalonSRX m_Wheel = new TalonSRX(15); `
