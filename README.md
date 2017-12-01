@@ -8,7 +8,7 @@ See what control components make sense for your robotic needs at [CTR-Electronic
 
 ---
 
-Need info? Check the [Wiki](https://todo.com) | or [Create an issue](https://todo.com) | Check [our Store](https://todo.com)
+Need info? Check the [Wiki](https://github.com/ozrien/Phoenix-Documentation/blob/master/README.md) | or [Create an issue](https://github.com/ozrien/Phoenix-Documentation/blob/master/README.md) | Check [our Store](https://ctr-electronics.com)
 
 ---
 ## Table of Contents
@@ -24,7 +24,7 @@ Need info? Check the [Wiki](https://todo.com) | or [Create an issue](https://tod
   - [Pick the device names](https://github.com/ozrien/Phoenix-Documentation#todo)
   - [Self-Test the hardware](https://github.com/ozrien/Phoenix-Documentation#todo)
 - [Hardware Object Model](https://github.com/ozrien/Phoenix-Documentation#todo)
-  - [Motor Controllers](https://github.com/ozrien/Phoenix-Documentation#todo)
+  - [Motor Controllers](https://github.com/ozrien/Phoenix-Documentation#motor-controllers)
     - [Where to begin?](https://github.com/ozrien/Phoenix-Documentation#todo)
     - [Open-Loop (No Sensor) Control](https://github.com/ozrien/Phoenix-Documentation#todo)
       - [Pick your direction](https://github.com/ozrien/Phoenix-Documentation#todo)
@@ -33,7 +33,7 @@ Need info? Check the [Wiki](https://todo.com) | or [Create an issue](https://tod
       - [When and how to ramp](https://github.com/ozrien/Phoenix-Documentation#todo)
       - [Make one MC follow another](https://github.com/ozrien/Phoenix-Documentation#todo)
     - [Limit Switches](https://github.com/ozrien/Phoenix-Documentation#todo)
-    - [Closed-Loop (Sensored) Control](https://github.com/ozrien/Phoenix-Documentation#todo)
+    - [Closed-Loop (Using Sensor) Control](https://github.com/ozrien/Phoenix-Documentation#todo)
       - [Sensors](https://github.com/ozrien/Phoenix-Documentation#todo)
         - [Why bother with sensors?](https://github.com/ozrien/Phoenix-Documentation#todo)
         - [How do I choose the sensor?](https://github.com/ozrien/Phoenix-Documentation#todo)
