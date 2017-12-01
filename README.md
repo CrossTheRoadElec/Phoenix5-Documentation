@@ -61,7 +61,7 @@ Text here.
 The first step of controlling a motor controller is to instantiate the controller in your robot controller software.
 
 
-[](https://github.com/ozrien/Phoenix-Documentation/blob/master/images/lVOpenTalon.png)
+![](https://github.com/ozrien/Phoenix-Documentation/blob/master/images/lVOpenTalon.png)
 
 Regardless of the what the motor controller is used for, the first step is always open-loop (no sensor) control.  This is to ensure the mechanism is functional and that the motor and motor controller is wired correctly.
 
