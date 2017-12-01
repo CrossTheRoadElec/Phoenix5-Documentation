@@ -27,11 +27,11 @@ Need info? Check the [Wiki](https://github.com/ozrien/Phoenix-Documentation/blob
   - [Motor Controllers](https://github.com/ozrien/Phoenix-Documentation#motor-controllers)
     - [Where to begin?](https://github.com/ozrien/Phoenix-Documentation#todo)
     - [Open-Loop (No Sensor) Control](https://github.com/ozrien/Phoenix-Documentation#todo)
-      - [Pick your direction](https://github.com/ozrien/Phoenix-Documentation#todo)
+      - [Pick your direction](https://github.com/ozrien/Phoenix-Documentation#pick-your-neutral-mode)
       - [Pick your neutral mode](https://github.com/ozrien/Phoenix-Documentation#todo)
       - [Current limiting](https://github.com/ozrien/Phoenix-Documentation#todo)
-      - [When and how to ramp](https://github.com/ozrien/Phoenix-Documentation#todo)
-      - [Make one MC follow another](https://github.com/ozrien/Phoenix-Documentation#todo)
+      - [Ramping](https://github.com/ozrien/Phoenix-Documentation#Ramping)
+      - [Follower](https://github.com/ozrien/Phoenix-Documentation#Follower)
     - [Limit Switches](https://github.com/ozrien/Phoenix-Documentation#todo)
     - [Closed-Loop (Using Sensor) Control](https://github.com/ozrien/Phoenix-Documentation#todo)
       - [Sensors](https://github.com/ozrien/Phoenix-Documentation#todo)
@@ -53,4 +53,28 @@ Need info? Check the [Wiki](https://github.com/ozrien/Phoenix-Documentation/blob
 Text here.
 
 ### Motor Controllers
+ CTRE provides two CAN/PWM motor controller options...
+- Victor SPX
+- [Talon SRX](http://www.ctr-electronics.com/talon-srx.html)
+
+#### Where to begin?
+The first step of controlling a motor controller is to instantiate the controller in your robot controller software.
+
+
+[](https://github.com/ozrien/Phoenix-Documentation/blob/master/images/lVOpenTalon.png)
+
+Regardless of the what the motor controller is used for, the first step is always open-loop (no sensor) control.  This is to ensure the mechanism is functional and that the motor and motor controller is wired correctly.
+
+Start with the open-loop features below and configure each setting that is applicable.
+#### Open-Loop (No Sensor) Control
+These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
+#### Pick your direction
+The
+#### Pick your neutral mode
+Text here.
+#### Current limiting
+Text here.
+#### Ramping
+Text here.
+#### Follower
 Text here.
