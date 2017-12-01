@@ -57,13 +57,16 @@ Text here.
 - Victor SPX
 - [Talon SRX](http://www.ctr-electronics.com/talon-srx.html)
 
-#### Where to begin?
+#### Where to begin? Create the object.
 The first step of controlling a motor controller is to instantiate the controller in your robot controller software.
 
-
+If using LabVIEW, use the Open VI corresponding to your motor controller.  Here we are creating an object for the Talon with device ID 15.
 ![](https://github.com/ozrien/Phoenix-Documentation/blob/master/images/lVOpenTalon.png)
 
-Regardless of the what the motor controller is used for, the first step is always open-loop (no sensor) control.  This is to ensure the mechanism is functional and that the motor and motor controller is wired correctly.
+If using a programming language, create a TalonSRX object using the appropriate class name.
+` private TalonSRX m_Wheel = new TalonSRX(15); `
+
+Regardless of the what the motor controller is used for, the next step is usually open-loop (no sensor) control.  This is to ensure the mechanism is functional and that the motor and motor controller is wired correctly.
 
 Start with the open-loop features below and configure each setting that is applicable.
 #### Open-Loop (No Sensor) Control
