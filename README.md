@@ -13,6 +13,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 ---
 ## Table of Contents
 
+- [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
 - [Hardware setup](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-hardware-is-supported)
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Installing Phoenix Framework into PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
@@ -52,7 +53,8 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
       - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
     - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [Status Frames and how to tweak them](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Sensors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+    - [Accessing the raw signals on the Gadgeteer port](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Multi-purpose/Sensor Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [Pigeon IMU](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
       - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [CANifier](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
@@ -61,6 +63,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
       - [Error handling](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
       - [Detecting error conditions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
         - [Did my device reset?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+        - [Is the device on the CAN bus?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
       - [Configuration Parameters - General Guide lines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
         - [Configuration Parameters - Why the timeout?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
         - [Configuration Parameters - Why the general API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
@@ -81,6 +84,9 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 - [Driver Station / Logger errors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
 - [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+
+## Purpose of this guide
+Really compelling stuff goes here.
 
 ## Hardware setup
 Text here.
