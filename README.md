@@ -17,7 +17,8 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Installing Phoenix Framework into PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Installing Phoenix Framework into your robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Test the install](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Test the install](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-install)
 - [Everything is installed, can I write software now?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Check the web-based configuration](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Set your device IDs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
@@ -37,7 +38,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
       - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
       - [Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Ramping)
       - [Follower](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Follower)
-    - [Limit Switches](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+    - [Setup Limit Switches](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [Closed-Loop (Using Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
       - [Sensors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
         - [Why bother with sensors?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
@@ -45,21 +46,59 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
         - [How do I know the sensor works?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
         - [Sensor phase and why it matters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
         - [What are the units?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-      - [Closed-Loop Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+        - [Setup the soft limits](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
+      - [Closed-Loop/Firmware Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+        - [Current closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
+    - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [Status Frames and how to tweak them](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Sensors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [Pigeon IMU](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [CANifier](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-- [Drivetrain Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-- [Servo Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Common Device API](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Error handling](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Detecting error conditions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+        - [Did my device reset?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Configuration Parameters - General Guide lines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+        - [Configuration Parameters - Why the timeout?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+        - [Configuration Parameters - Why the general API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+- [Software Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Gearbox Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Why use Gearbox objects?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Drivetrain Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Why use Gearbox objects?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [Servo Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+    - [Programming language Servo Walkthroughs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Language: Velocity Servo walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Language: Motion Magic/Position Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [Language: Motion Magic with Arc Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+    - [LabVIEW Servo walkthroughs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [LabVIEW: Velocity Servo walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [LabVIEW: Motion Magic/Position Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+      - [LabVIEW: Motion Magic with Arc Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+- [Driver Station / Logger errors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+  - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
 - [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
 
 ## Hardware setup
 Text here.
 
+## Before you write any software!
+Installation explanation
+
+## Installing Phoenix Framework into your robot
+Installation instructions
+
+## Test the install
+Eclipse Screenshot of Phoenix library.
+Eclipse Screenshot of LV pallete.
+
+
 ### Motor Controllers
  CTRE provides two CAN/PWM motor controller options...
-- Victor SPX
+- [Victor SPX](http://www.ctr-electronics.com/victor-spx.html)
 - [Talon SRX](http://www.ctr-electronics.com/talon-srx.html)
 
 #### Where to begin? Create the object.
