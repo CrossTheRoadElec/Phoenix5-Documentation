@@ -33,6 +33,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 - [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Motor Controllers](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
     - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+    - [Factory Default the Configuration Parameters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
     - [Open-Loop (No Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
       - [Pick your direction](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-your-neutral-mode)
       - [Pick your neutral mode](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
