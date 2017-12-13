@@ -14,20 +14,20 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 ## Table of Contents
 
 - [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
-- [Hardware setup](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-hardware-is-supported)
-- [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Installing Phoenix Framework into PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Installing Phoenix Framework into your robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
+- [Hardware setup](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-setup)
+- [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
+  - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Installing-Phoenix-Framework-onto-PC)
+  - [Installing Phoenix Framework into your robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Installing-Phoenix-Framework-into-your-robot)
+  - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Install-Internet-Explorer-11)
   - [Test the install](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-install)
-- [Everything is installed, can I write software now?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Check the web-based configuration](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Set your device IDs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Update your CAN Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Pick the device names](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-  - [Self-Test the hardware](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
-- [Where is the API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
-  - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
+- [Everything is installed, can I write software now?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Everything-is-installed,-can-I-write-software-now?)
+  - [Check the web-based configuration](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Check-the-web-based-configuration)
+  - [Set your device IDs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Set-your-device-IDs)
+  - [Update your CAN Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Update-your-CAN-Devices)
+  - [Pick the device names](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Pick-the-device-names)
+  - [Self-Test the hardware](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Self-Test-the-hardware)
+- [Where is the API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Where-is-the-API?)
+  - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
   - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
   - [LabVIEW - Where are the VIs? ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
 - [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
@@ -86,23 +86,36 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
 - [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#todo)
 
-## Purpose of this guide
+## **Purpose of this guide**
 Really compelling stuff goes here.
 
-## Hardware setup
+## **Hardware setup**
 Text here.
 
-## Before you write any software!
+## **Before you write any software!**
 Installation explanation
-
-## Installing Phoenix Framework into your robot
+### Installing Phoenix Framework onto PC
+### Installing Phoenix Framework into your robot
 Installation instructions
-
-## Test the install
+### Installing Internet Explorer 11
+### Test the install
 Eclipse Screenshot of Phoenix library.
-Eclipse Screenshot of LV pallete.
+Eclipse Screenshot of LabVIEW palette.
+
+## **Everything is installed, can I write software now?**
+### Check the web-based configuration
+### Set your device IDs
+### Update your CAN Devices
+### Pick the device names
+### Self-Test the hardware
+
+## **Where is the API**
+### C++ - How to intellisense/What header
+### Java - How to intellisense/What to import
+### LabVIEW - Where are the VIs?
 
 
+## **Hardware Object Model**
 ### Motor Controllers
  CTRE provides two CAN/PWM motor controller options...
 - [Victor SPX](http://www.ctr-electronics.com/victor-spx.html)
@@ -114,21 +127,135 @@ The first step of controlling a motor controller is to instantiate the controlle
 If using LabVIEW, use the Open VI corresponding to your motor controller.  Here we are creating an object for the Talon with device ID 15.
 ![](images/lVOpenTalon.png)
 
-If using a programming language, create a TalonSRX object using the appropriate class name.
+If using a programming language, create a Talon SRX object using the appropriate class name.
+
 ` private TalonSRX m_Wheel = new TalonSRX(15); `
 
 Regardless of the what the motor controller is used for, the next step is usually open-loop (no sensor) control.  This is to ensure the mechanism is functional and that the motor and motor controller is wired correctly.
 
 Start with the open-loop features below and configure each setting that is applicable.
+
+#### Factory Default the Configuration Parameters
+Can be done by holding down the boot/calibration (B/C Cal) button on the Talon and Victor. **Will need images here**
+
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
-#### Pick your direction
-The
-#### Pick your neutral mode
-Text here.
+##### Pick your direction
+Direction of output from a motor controller can be set by calling the `setInverted()` function as seen below. LEDs, sensor phase, and limit switches will also be inverted as well to match the direction of output.
+
+Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction. Forward or positive values should provide a green LED.
+
+Java - `Hardware.Talon.setInverted(false);`
+
+C++ -
+
+LabVIEW -
+##### Pick your neutral mode
+Mode of operation during Neutral throttle output may be set by using the `setNeutralMode()` function.
+As of right now, there are two options when setting the neutral mode of a motor controller, brake and coast.
+
+Java - `Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Coast);`
+
+C++ -
+
+LabVIEW -
+##### Current limiting
+Current limiting configuration and enabling can be controlled by the following API.
+
+First, set the ContinousCurrentLimit as that configures the value to limit the current to. Second, set the PeakCurrentLimit as that sets what current will enforce the current limit, if set to 0, current limiting will be enforced at the ContinousCurrentLimit value.
+Third, set the PeakCurrentDuration as that sets how long the current can be over the peak before enforcing current limiting, if set to 0, always enforce immediately. Lastly, Enable the current limiting.
+
+Java - The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms.
+`Hardware.rightMaster.configContinuousCurrentLimit(10, 0);`
+`Hardware.rightMaster.configPeakCurrentLimit(15, 0);`
+`Hardware.leftMaster.configPeakCurrentDuration(100, 0);`
+`Hardware.rightMaster.enableCurrentLimit(true);`
+
+C++ -
+
+LabVIEW -
+##### Ramping
+The open-loop ramp rate of a motor controller can be configured by using the `configOpenloopramp();` function. The functino takes two parameters and returns a Error code generated by the function.
+
+secondsFromNeutralToFull is the minimum desired time in seconds to go from neutral to full throttle, and if 0 is passed in, ramping will be disabled.
+
+timeoutMS is the timeout provided to the function, where an error is generated if the configuration is not successful within timeout.
+
+Java - `Hardware.Talon.configOpenloopRamp(1, 0);`
+
+C++ -
+
+LabVIEW -
+##### Follower
+Both the Talon SRX and Victor SPX has a follower feature that allows the motor controllers to mimic another mother controller' s output. Users will still need to set the motor controller direction, neutral mode, and ???
+
+There are two methods for creating a follower motor controller. The first method `set(ControlMode.Follower, int IDofMotorToFollow)` allows users to create a motor controller follower of the same model, talon to talon, or victor to victor.
+
+The second method `follow(IMotorcontroller MasterToFollow)` allows users to create a motor controller follower of not only the same model, but also other models, talon to talon, victor to victor, talon to victor, and victor to talon.
+
+Java - 		
+`Hardware.rightFollower.follow(Hardware.rightMaster);`
+`Hardware.leftFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);`
+
+C++ -
+
+LabVIEW -
+
+#### Setup Limit switches
+Not my forte
+
+#### Closed-Loop (Using Sensor) Control
+##### Sensors
+###### Why bother with sensors?
+###### How do I choose the sensor?
+###### How do I know the sensor works?
+###### Sensor phase and why it matters
+###### What are the units of my sensor?
+###### Setup the soft limits
+Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take
+effect.
+##### Closed-loop/Firmware Control Modes
+Start here...
+###### Position close-loop walkthrough
+###### Current closed-loop walkthrough
+
+##### I Want to process the sensor myself, How do I do that?
+
 #### Current limiting
-Text here.
-#### Ramping
-Text here.
-#### Follower
-Text here.
+#### Status Frames and how to tweak them
+#### Accessing the raw signals on the Gadgeteer port
+
+### Multi-purpose/sensor Devices
+#### Pigeon IMU
+##### Where to begin?
+#### CANifier
+##### Where to begin?
+
+### Common Device API
+#### Error handling
+#### Detecting error conditions
+##### Did my device reset?
+##### Is the device on the CAN bus?
+#### Configuration Parameters - General Guide lines
+##### Configuration Parameters - Why the timeout?
+##### Configuration Parameters - Why the general API?
+
+## **Software Object Model**
+### Gearbox Model
+#### Why use Gearbox objects?
+### Drivetrain Model
+#### Why use Drivetrain objects?
+### Servo Object Model
+#### Programming language Servo Walkthroughs
+##### Language: Velocity Servo walkthrough
+##### Language: Motion Magic/Position Servo Walkthrough
+##### Language: Motion Magic with Arc Servo Walkthrough
+#### LabVIEW Servo walkthroughs
+##### LabVIEW: Velocity Servo walkthrough
+##### LabVIEW: Motion Magic/Position Servo Walkthrough
+##### LabVIEW: Motion Magic with Arc Servo Walkthrough
+
+## **Driver Station / Logger errors**
+### What do I do when I see errors in Driver Station?
+
+## **CRF Firmware Version**
