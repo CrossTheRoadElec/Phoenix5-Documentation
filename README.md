@@ -119,7 +119,7 @@ Eclipse Screenshot of LabVIEW palette.
 The CTRE Palette is located in:
 - WPI Robotics Library -> Third Party.
 
-![](images\CTRETopLevelPaletteLocation.png)
+![](images/CTRETopLevelPaletteLocation.png)
 
 This palette can also be found in:
 - WPI Robotics Library -> RobotDrive -> MotorControl -> CanMotor
@@ -127,11 +127,11 @@ This palette can also be found in:
 - WPI Robotics Library -> Actuators -> Third Party
 
 #### Motor Controller VIs - What are MC and E-MC?
-There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Controller (or "MC") ![](images\MotorControllerTemplate.png)  and Enhanced Motor Controller (or "E-MC") ![](images\EnhancedMotorControllerTemplate.png) .
+There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Controller (or "MC") ![](images/MotorControllerTemplate.png)  and Enhanced Motor Controller (or "E-MC") ![](images/EnhancedMotorControllerTemplate.png) .
 
-![](images\MotorControllerTemplate.png) Motor Controller VIs work for all CTRE/VEX motor controllers.
+![](images/MotorControllerTemplate.png) Motor Controller VIs work for all CTRE/VEX motor controllers.
 
-![](images\EnhancedMotorControllerTemplate.png) Enhanced Motor Controller VIs work only for motor controllers with a data port (currently Talon SRX).
+![](images/EnhancedMotorControllerTemplate.png) Enhanced Motor Controller VIs work only for motor controllers with a data port (currently Talon SRX).
 
 
 ## **Hardware Object Model**
