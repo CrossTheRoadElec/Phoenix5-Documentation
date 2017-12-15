@@ -30,6 +30,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
   - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
   - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#java---how-to-intellisensewhat-to-import)
   - [LabVIEW - Where are the VIs? ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview---where-are-the-vis)
+    - [Motor Controller VIs - What are MC and E-MC?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-montroller-vis---what-are-mc-and-e-mc)
 - [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-object-model)
   - [Motor Controllers](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
     - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-to-begin)
@@ -50,7 +51,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
         - [What are the units?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units)
         - [Setup the soft limits](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
       - [Closed-Loop/Firmware Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loopfirmware-control-modes)
-        - [Postion closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-close-loop-walkthrough)
+        - [Position closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-close-loop-walkthrough)
         - [Current closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-closed-loop-walkthrough)
       - [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented)
       - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#i-want-to-process-the-sensor-myself-how-do-i-do-that)
@@ -115,11 +116,27 @@ Eclipse Screenshot of LabVIEW palette.
 ### C++ - How to intellisense/What header
 ### Java - How to intellisense/What to import
 ### LabVIEW - Where are the VIs?
+The CTRE Palette is located in:
+- WPI Robotics Library -> Third Party.
+
+![](images\CTRETopLevelPaletteLocation.png)
+
+This palette can also be found in:
+- WPI Robotics Library -> RobotDrive -> MotorControl -> CanMotor
+- WPI Robotics Library -> Sensors -> Third Party
+- WPI Robotics Library -> Actuators -> Third Party
+
+#### Motor Controller VIs - What are MC and E-MC?
+There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Controller (or "MC") ![](images\MotorControllerTemplate.png)  and Enhanced Motor Controller (or "E-MC") ![](images\EnhancedMotorControllerTemplate.png) .
+
+![](images\MotorControllerTemplate.png) Motor Controller VIs work for all CTRE/VEX motor controllers.
+
+![](images\EnhancedMotorControllerTemplate.png) Enhanced Motor Controller VIs work only for motor controllers with a data port (currently Talon SRX).
 
 
 ## **Hardware Object Model**
 ### Motor Controllers
- CTRE provides two CAN/PWM motor controller options...
+ CTRE/VEX provide two CAN/PWM motor controller options...
 - [Victor SPX](http://www.ctr-electronics.com/victor-spx.html)
 - [Talon SRX](http://www.ctr-electronics.com/talon-srx.html)
 
@@ -127,6 +144,7 @@ Eclipse Screenshot of LabVIEW palette.
 The first step of controlling a motor controller is to instantiate the controller in your robot controller software.
 
 If using LabVIEW, use the Open VI corresponding to your motor controller.  Here we are creating an object for the Talon with device ID 15.
+
 ![](images/lVOpenTalon.png)
 
 If using a programming language, create a Talon SRX object using the appropriate class name.
@@ -247,7 +265,7 @@ An “out of the box” Talon SRX or Victor SPX will default with the limit swit
 Limit switch features can be disabled or changed to “Normally Closed” in the roboRIO web-based configuration. Changing the settings will take effect once the “Save” button is pressed. The settings are saved
 in persistent memory.
 
-![Webdash image](images/README-d3c40698.png) 
+![Webdash image](images/README-d3c40698.png)
 
 If the neutral mode or limit switch mode is changed in the roboRIO web-based configuration, the motor controller will momentarily disable then resume motor drive. All other settings can be changed
 without impacting the motor drive or enabled-state of the Talon SRX
