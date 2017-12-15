@@ -54,6 +54,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
       - [Closed-Loop/Firmware Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loopfirmware-control-modes)
         - [Postion closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-close-loop-walkthrough)
         - [Current closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-closed-loop-walkthrough)
+      - [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented)
       - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#i-want-to-process-the-sensor-myself-how-do-i-do-that)
     - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting-1)
     - [Status Frames and how to tweak them](https://github.com/CrossTheRoadElec/Phoenix-Documentation#status-frames-and-how-to-tweak-them)
@@ -90,7 +91,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 - [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-version)
 
 ## **Purpose of this guide**
-Really compelling stuff goes here.
+To provide that knowledge.
 
 ## **Hardware setup**
 Text here.
@@ -149,6 +150,8 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
   ![Talon SRX's B/C Button](images/README-e92dd4b0.png)
 </p>
 
+**Need image for Victor SPX's button?**
+
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
@@ -156,58 +159,85 @@ Direction of output from a motor controller can be set by calling the `setInvert
 
 Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction.
 
-Java - `Hardware.Talon.setInverted(false);`
+Java -
+```java
+/* Talon Direction has been inverted */
+Hardware.Talon.setInverted(true);
+```
 
 C++ -
 
 LabVIEW -
+
 ##### Pick your neutral mode
 Mode of operation during Neutral throttle output may be set by using the `setNeutralMode()` function.
+
 As of right now, there are two options when setting the neutral mode of a motor controller, brake and coast.
 
-Java - `Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Coast);`
-`Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Brake);`
+Java -
+```java
+/* Displaying the two neutral mode options that both the Talon and Victor have */
+Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Coast);
+Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Brake);
+```
+
 
 C++ -
 
 LabVIEW -
 ##### Current limiting
+<!-- Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
+
 Current limiting configuration and enabling can be controlled by the following API.
 
-1. Set the ContinousCurrentLimit as that configures the value to limit the current to.
-2. Second, set the PeakCurrentLimit as that sets what current threshold will enforce the current limit. If PeakCurrentLimit is set to 0, current limiting will be enforced at the ContinousCurrentLimit value.
-3. Set the PeakCurrentDuration as that sets how long the current can be over the peak before enforcing current limiting. If PeakCurrentDuration is set to 0, always enforce current limiting .
-4. Enable the current limiting.
+1. Set the continuous current limit to the value that you desire the current be limited to.
+2. Set the peak current limit to the current threshold value that will enforce the current limiting. If the peak current limit is set to 0, current limiting will be enforced at the continuous current limit value.
+3. Set the peak current duration as that sets how long the current can be over the peak before enforcing current limiting. If peak current duration is set to 0, always enforce current limiting .
+4. Enable current limiting.
 
-Java - The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms.
-`Hardware.Talon.configContinuousCurrentLimit(10, 0);`
-`Hardware.rightMaster.configPeakCurrentLimit(15, 0);`
-`Hardware.leftMaster.configPeakCurrentDuration(100, 0);`
-`Hardware.rightMaster.enableCurrentLimit(true);`
+```Java
+/* The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms */
+Hardware.Talon.configContinuousCurrentLimit(10, 0);
+Hardware.Talon.configPeakCurrentLimit(15, 0);
+Hardware.Talon.configPeakCurrentDuration(100, 0);
+Hardware.Talon.enableCurrentLimit(true);
+```
 
-C++ - The following C++ example limits current to 15 amps at all times, working the same way as the 2017 Framework. **Do this with Victor SPX**
+C++ -
+```c++
+/* The following C++ example limits current to 15 amps at all times, working the same way as the 2017 Framework. */
+Somecode here
+```
 
-LabVIEW -
+LabVIEW - -->
 ##### Ramping
 The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
 
 The open-loop ramp rate of a motor controller can be configured by using the `configOpenloopRamp();` function. The function takes two parameters and returns a Error code generated by the function if the configuration fails to complete within the timeout.
 
-Java - Talon is configured to ramp from neutral to full within a 5 seconds. `Hardware.Talon.configOpenloopRamp(5, 0);`
+Java -
+```java
+/* Talon is configure to ramp from neutral to full within 5 seconds */
+Hardware.Talon.configOpenloopRamp(5, 0);
+```
 
 C++ -
 
 LabVIEW -
 ##### Follower
-Both the Talon SRX and Victor SPX has a follower feature that allows the motor controllers to mimic another motor controller's output. Users will still need to set the motor controller's direction, neutral mode, and **??**
+Both the Talon SRX and Victor SPX has a follower feature that allows the motor controllers to mimic another motor controller's output. Users will still need to set the motor controller's direction, and neutral mode.
 
-There are two methods for creating a follower motor controller. The first method `set(ControlMode.Follower, int IDofMotorToFollow)` allows users to create a motor controller follower of the same model, talon to talon, or victor to victor.
+There are two methods for creating a follower motor controller. The first method `set(ControlMode.follower, IDofMotorController)` allows users to create a motor controller follower of the same model, talon to talon, or victor to victor.
 
-The second method `follow(IMotorcontroller MasterToFollow)` allows users to create a motor controller follower of not only the same model, but also other models, talon to talon, victor to victor, talon to victor, and victor to talon.
+The second method `follow()` allows users to create a motor controller follower of not only the same model, but also other models, talon to talon, victor to victor, talon to victor, and victor to talon.
 
-Java - 		
-`Hardware.VictorFollower.follow(Hardware.TalonMaster);`
-`Hardware.TalonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);`
+Java -
+```java
+/* The first line, we have a Victor following a Talon. The follow() function may also be used to create Talon follower for a Victor */
+Hardware.VictorFollower.follow(Hardware.TalonMaster);
+/* In the second line, we have a Talon following Talon. The set(ControlMode.Follower, MotorcontrollerID) creates followers of the same model. */
+Hardware.TalonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
+```
 
 C++ -
 
@@ -216,29 +246,34 @@ LabVIEW -
 #### Setup Limit switches
 An “out of the box” Talon SRX or Victor SPX will default with the limit switch setting of “Normally Open” for both forward and reverse. This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground). When a limit switch input is closed (is connected to ground) the Talon SRX/Victor SPX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault)
 
-
 <p align = "center">
 ![Chart for limit switching](images/README-da0f78d6.png)
 </p>
 
-Limit switch features can be disabled or changed to “Normally Closed” in the RoboRIO web-based configuration. Changing the settings will take effect once the “Save” button is pressed. The settings are saved
+Limit switch features can be disabled or changed to “Normally Closed” in the roboRIO web-based configuration. Changing the settings will take effect once the “Save” button is pressed. The settings are saved
 in persistent memory.
 
 <p align = "center">
 ![Webdash image](images/README-d3c40698.png)
 </p>  
 
-If the neutral mode or limit switch mode is changed in the RoboRIO web-based configuration, the motor controller will momentarily disable then resume motor drive. All other settings can be changed
+If the neutral mode or limit switch mode is changed in the roboRIO web-based configuration, the motor controller will momentarily disable then resume motor drive. All other settings can be changed
 without impacting the motor drive or enabled-state of the Talon SRX
 
 #### Closed-Loop (Using Sensor) Control
 These features and configurations influence the behavior of the motor controller when encoders/sensors are being used to provide feedback to a maneuver.
 ##### Sensors
 Sensors for motor controllers provide feedback about the position, velocity, and acceleration of the system using that motor controller. The Talon SRX supports a wide variety of sensors while the Victor SPX is able to grab sensor data from another motor controller, which we call remote source.
+
+**NotSureHowThisIsGoingToWorkYet**
+
+
 ###### Why bother with sensors?
-Sensors allows both the motor controller and user to receive data and feedback. That information allows us to act upon different situations by giving us information about the motors position, speed, and acceleration. This information is especially important when implementing a close loop control, such as a PID control loop.
+Sensors allows both the motor controller and user to receive data and feedback. That information allows us to act upon different situations by giving us information about the motors position, speed, and acceleration. This information is especially important when implementing a closed-loop control, such as a PID control loop.
+
 ###### How do I choose the sensor?
-***Not sure what to type here***
+**NotSureHowThisIsGoingToWorkYet**
+
 ###### How do I know the sensor works?
 There are multiple methods of ensuring the connected sensor is active and returning meaningful data. The best method is to plot the signal and watch the plot, looking for continuous data that is responsive. Another, but less reliable method is to print your values to a console and check for values, which makes it harder to see if there is noise in the values.
 
@@ -246,7 +281,7 @@ Java/C++ - For the FRC languages, the easiest way to produce a plot is to use th
 
 Java -
 ```java
-/* Setup */
+/* Setup sensors to check status, can also be used for phasing */
 Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0);
 Hardware.rightMaster.setSensorPhase(false);
 Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0);
@@ -257,7 +292,7 @@ SmartDashboard.putNumber("Right Sensor position", Hardware.rightMaster.getSelect
 SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelectedSensorVelocity());
 ```
 
-Once you have deployed the code and opened SmartDashboard from the FRC Driver Station, you may reveal the values by going under the view tab and revealing the values which will be listed as their key name. You can then change the numerical indicator the a line-plot and generate the plot by driving the motor controller.
+Once you have deployed the code and opened SmartDashboard from the FRC Driver Station, you may reveal the values by going under the view tab and revealing the values which will be listed by their key name. You may then change the numerical indicator the a line-plot and generate the plot by driving the motor controller.
 
 <p align = "center">
 ![Image of the plots generated from driving](images/README-5726bb08.png)
@@ -265,25 +300,163 @@ Once you have deployed the code and opened SmartDashboard from the FRC Driver St
 
 ###### Sensor phase and why it matters
 Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive throttle. To test this, first drive the motor manually (using
-gamepad axis for example). Watch the sensor position either in the ro boRIO web-based configuration Self-Test, plot using the method explained in the sub-section above, or by calling GetSensorPosition() and printing it to console.
+gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
 
-**Not sure if this is still needed** |||||
+Sensor phase can be set by using `setSensorPhase()`. If the sensor is out of phase, set true.
 
-In the special case of using the EncRising feedback device, "Reverse Feedback Sensor" will need to be false. This Feedback Device is guaranteed to be positive since it increments per rising edge, and never decrements. "Reverse Closed-Loop Output" can then be used to output
-a negative motor duty-cycle. "Reverse Closed-Loop Output" can also be used to reverse a slave Talon SRX to be the signed opposite of the master Talon SRX.
+Java -
+```Java
+/* Sensor was out of phase, invert the sensor */
+Hardware.Talon.setSensorPhase(true);
+```
 
+C++ -
+
+LabVIEW -
 
 ###### What are the units of my sensor?
 **NotSureHowThisIsGoingToWorkYet**
 
 ###### Setup the soft limits
-Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take
-effect.
+Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
 
+Java -
+
+C++ -
+
+LabVIEW -
 ##### Closed-loop/Firmware Control Modes
-Start here...
-###### Position close-loop walkthrough
+When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop control mode options to choose from. Below is a list with an explanation of each supported closed-loop type.
+
+**Position closed-loop -**
+The Talon's closed-loop logic can be used to maintain a target position. Target and sampled position is passed into the equation in native units, which can be found in the section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented).
+
+**Velocity closed-loop -**
+The Talon's closed-loop logic can be used to maintain a target velocity. Target and sampled velocity is passed into the equation in native units per 100ms, which can be found in section[How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented). For more information on native units, go to section [blah blah blah blah](whatever.com).
+
+**Current closed-loop -**
+The Talon's closed-loop logic can be used to approach a target current-draw. Target and
+sampled current is passed into the equation in milliamperes, which can be found in section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented). API expresses the target current in amperes.
+
+Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting).
+
+**Motion profiling - Not tested/implemented yet**
+
+**Motion Magic - Not tested/implemented yet**
+
+**Motion Magic Arc -Not tested/implemented yet**
+
+###### Position closed-loop walkthrough
+Below is a full example for position closed-looping using the HERO development
+board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW.
+
+
+
 ###### Current closed-loop walkthrough
+
+
+##### How is the closed-loop-implemented?
+The closed-loop logic is the same regardless of which feedback sensor or closed-loop mode is selected. The verbatim implementation in the Talon firmware is displayed below.
+
+Note: The `PID_Mux_Unsigned()` and `PID_Mux_Sign()` routines are merely multiply functions.
+
+```c++
+/**
+* 1ms process for PIDF closed-loop.
+* @param pid ptr to pid object
+* @param pos signed integral position (or velocity when in velocity mode).
+* The target pos/velocity is ramped into the target member from caller's 'in'.
+* If the CloseLoopRamp in the selected Motor Controller Profile is zero then
+* there is no ramping applied. (throttle units per ms)
+* PIDF is traditional, unsigned coefficients for P,i,D, signed for F.
+* Target pos/velocity is feed forward.
+*
+* Izone gives the abilty to autoclear the integral sum if error is wound up.
+* @param revMotDuringCloseLoopEn nonzero to reverse PID output direction.
+* @param oneDirOnly when using positive only sensor, keep the closed-loop from outputing negative throttle.
+*/
+void PID_Calc1Ms(pid_t * pid, int32_t pos,uint8_t revMotDuringCloseLoopEn, uint8_t oneDirOnly)
+{
+  /* grab selected slot */
+  MotorControlProfile_t * slot = MotControlProf_GetSlot();
+  /* calc error : err = target - pos*/
+  int32_t err = pid->target - pos;
+  pid->err = err;
+  /*abs error */
+  int32_t absErr = err;
+  if(err < 0)
+    absErr = -absErr;
+
+  /* integrate error */
+  if(0 == pid->notFirst){
+    /* first pass since reset/init */
+    pid->iAccum = 0;
+    /* also tare the before ramp throt */
+    pid->out = BDC_GetThrot(); /* the save the current ramp */
+  }else if((!slot->IZone) || (absErr < slot->IZone) ){
+    /* izone is not used OR absErr is within iZone */
+    pid->iAccum += err;
+  }else{
+    pid->iAccum = 0;
+  }
+
+  /* dErr/dt */
+  if(pid->notFirst){
+    /* calc dErr */
+    pid->dErr = (err - pid->prevErr);
+  }else{
+    /* clear dErr */
+    pid->dErr = 0;
+  }
+
+  /* P gain X the distance away from where we want */
+  pid->outBeforRmp = PID_Mux_Unsigned(err, slot->P);
+  if(pid->iAccum && slot->I){
+    /* our accumulated error times I gain. If you want the robot to creep up then pass a nonzero Igain */
+    pid->outBeforRmp += PID_Mux_Unsigned(pid->iAccum, slot->I);
+  }
+    /* derivative gain, if you want to react to sharp changes in error (smooth things out). */
+    pid->outBeforRmp += PID_Mux_Unsigned(pid->dErr, slot->D);
+    /* feedforward on the set point */
+    pid->outBeforRmp += PID_Mux_Signed(pid->target, slot->F);
+    /* arm for next pass */
+  {
+    pid->prevErr = err; /* save the prev error for D */
+    pid->notFirst = 1; /* already serviced first pass */
+  }
+
+  /* if we are using one-direction sensor, only allow throttle in one dir.
+  217-8080 TALON SRX Software Reference Manual 3/06/2017
+  Cross The Road Electronics Page 142 3/06/2017
+  If it's the wrong direction, use revMotDuringCloseLoopEn to flip it */
+  if(oneDirOnly){
+    if(pid->outBeforRmp < 0)
+      pid->outBeforRmp = 0;
+  }
+  /* honor the direction flip from control */
+  if(revMotDuringCloseLoopEn)
+    pid->outBeforRmp = -pid->outBeforRmp;
+
+  /* honor closelooprampratem, ramp out towards outBeforRmp */
+  if(0 != slot->CloseLoopRampRate){
+    if(pid->outBeforRmp >= pid->out){
+      /* we want to increase our throt */
+      int32_t deltaUp = pid->outBeforRmp - pid->out;
+      if(deltaUp > slot->CloseLoopRampRate)
+      deltaUp = slot->CloseLoopRampRate;
+      pid->out += deltaUp;
+    }else{
+      /* we want to decrease our throt */
+      int32_t deltaDn = pid->out - pid->outBeforRmp;
+      if(deltaDn > slot->CloseLoopRampRate)
+      deltaDn = slot->CloseLoopRampRate;
+      pid->out -= deltaDn;
+    }
+  }else{
+    pid->out = pid->outBeforRmp;
+  }
+}
+```
 
 ##### I Want to process the sensor myself, How do I do that?
 
@@ -306,7 +479,7 @@ Start here...
 ##### Configuration Parameters - Why the timeout?
 ##### Configuration Parameters - Why the general API?
 
-## **Software Object Model**
+## Software Object Model
 ### Gearbox Model
 #### Why use Gearbox objects?
 ### Drivetrain Model
