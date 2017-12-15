@@ -1,7 +1,5 @@
 # Phoenix Framework
-<p align = "center">
-  ![Title](images/title.png)
-</p>
+![Title](images/title.png)
 
 
 The software framework for all CTR-Electronics robot components.
@@ -146,9 +144,7 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 2. Release the B/C CAL button.
 3. If the Talon SRX was calibrated properly, the status LEDs will blink green several times. If the calibration failed, the status LEDs will blink red and the previous calibration will be kept.
 
-<p align = "center">
-  ![Talon SRX's B/C Button](images/README-e92dd4b0.png)
-</p>
+![Talon SRX's B/C Button](images/README-e92dd4b0.png)
 
 **Need image for Victor SPX's button?**
 
@@ -246,16 +242,12 @@ LabVIEW -
 #### Setup Limit switches
 An “out of the box” Talon SRX or Victor SPX will default with the limit switch setting of “Normally Open” for both forward and reverse. This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground). When a limit switch input is closed (is connected to ground) the Talon SRX/Victor SPX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault)
 
-<p align = "center">
 ![Chart for limit switching](images/README-da0f78d6.png)
-</p>
 
 Limit switch features can be disabled or changed to “Normally Closed” in the roboRIO web-based configuration. Changing the settings will take effect once the “Save” button is pressed. The settings are saved
 in persistent memory.
 
-<p align = "center">
-![Webdash image](images/README-d3c40698.png)
-</p>  
+![Webdash image](images/README-d3c40698.png) 
 
 If the neutral mode or limit switch mode is changed in the roboRIO web-based configuration, the motor controller will momentarily disable then resume motor drive. All other settings can be changed
 without impacting the motor drive or enabled-state of the Talon SRX
@@ -266,7 +258,6 @@ These features and configurations influence the behavior of the motor controller
 Sensors for motor controllers provide feedback about the position, velocity, and acceleration of the system using that motor controller. The Talon SRX supports a wide variety of sensors while the Victor SPX is able to grab sensor data from another motor controller, which we call remote source.
 
 **NotSureHowThisIsGoingToWorkYet**
-
 
 ###### Why bother with sensors?
 Sensors allows both the motor controller and user to receive data and feedback. That information allows us to act upon different situations by giving us information about the motors position, speed, and acceleration. This information is especially important when implementing a closed-loop control, such as a PID control loop.
@@ -294,9 +285,7 @@ SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelected
 
 Once you have deployed the code and opened SmartDashboard from the FRC Driver Station, you may reveal the values by going under the view tab and revealing the values which will be listed by their key name. You may then change the numerical indicator the a line-plot and generate the plot by driving the motor controller.
 
-<p align = "center">
 ![Image of the plots generated from driving](images/README-5726bb08.png)
-</p>
 
 ###### Sensor phase and why it matters
 Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive throttle. To test this, first drive the motor manually (using
