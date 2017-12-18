@@ -30,7 +30,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
   - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
   - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#java---how-to-intellisensewhat-to-import)
   - [LabVIEW - Where are the VIs? ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview---where-are-the-vis)
-    - [Motor Controller VIs - What are MC and E-MC?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-montroller-vis---what-are-mc-and-e-mc)
+    - [Motor Controller VIs - What are MC and E-MC?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controller-vis---what-are-mc-and-e-mc)
 - [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-object-model)
   - [Motor Controllers](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
     - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-to-begin)
@@ -144,6 +144,7 @@ There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Co
 The first step of controlling a motor controller is to instantiate the controller in your robot controller software.
 
 If using LabVIEW, use the Open VI corresponding to your motor controller.  Here we are creating an object for the Talon with device ID 15.
+Notice that with LabVIEW you can also pick your motor direction on open.
 
 ![](images/lVOpenTalon.png)
 
@@ -182,6 +183,9 @@ Hardware.Talon.setInverted(true);
 C++ -
 
 LabVIEW -
+You can pick your direction in the open VI.  Use the Set Invert VI if you need to change it again.
+
+![](images/LV-Invert.png)
 
 ##### Pick your neutral mode
 Mode of operation during Neutral throttle output may be set by using the `setNeutralMode()` function.
@@ -199,6 +203,9 @@ Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Brake);
 C++ -
 
 LabVIEW -
+
+![](images/LV-NeutralMode.png)
+
 ##### Current limiting
 <!-- Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
 
@@ -256,6 +263,10 @@ Hardware.TalonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6
 C++ -
 
 LabVIEW -
+
+![](images/LV-FollowTalon.png)
+
+![](images/LV-FollowEither.png)
 
 #### Setup Limit switches
 An “out of the box” Talon SRX or Victor SPX will default with the limit switch setting of “Normally Open” for both forward and reverse. This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground). When a limit switch input is closed (is connected to ground) the Talon SRX/Victor SPX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault)
