@@ -89,6 +89,10 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
       - [LabVIEW: Velocity Servo walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-velocity-servo-walkthrough)
       - [LabVIEW: Motion Magic/Position Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-motion-magicposition-servo-walkthrough)
       - [LabVIEW: Motion Magic with Arc Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-motion-magic-with-arc-servo-walkthrough)
+  - [WPILib SpeedController/Drivetrain Objects](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-speedcontrollerdrivetrain-objects)
+    - [WPILib: Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-java)
+    - [WPILib: C++](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-c++)
+    - [WPILib: LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-labview)
 - [Driver Station / Logger errors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station--logger-errors)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
 - [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-version)
@@ -485,6 +489,22 @@ The closed-loop logic is the same regardless of which feedback sensor or closed-
 ##### LabVIEW: Velocity Servo walkthrough
 ##### LabVIEW: Motion Magic/Position Servo Walkthrough
 ##### LabVIEW: Motion Magic with Arc Servo Walkthrough
+### WPILib SpeedController/Drivetrain Objects
+The Victor SPX and Talon SRX hardware objects can be converted to be used for any WPILib class or VI requiring a WPILib "SpeedController".
+PercentOutput is the only control mode of Victor SPX and Talon SRX that is supported for the WPILib objects.  If your motor controller is not already in PercentOutput mode, its mode will be changed to Percent Output when it is controlled from any WPILib object.
+
+#### WPILib: Java
+
+#### WPILib: C++
+
+#### WPILib: LabVIEW
+Using the WPI Motor Set VI in Teleop.vi:
+
+![](images/LV-victorWPIset.png)
+
+Opening Multiple Motors for a Drivetrain in Begin.vi:
+
+![](images/LV-open4motors.png)
 
 ## **Driver Station / Logger errors**
 ### What do I do when I see errors in Driver Station?
