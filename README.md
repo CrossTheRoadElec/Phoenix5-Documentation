@@ -259,23 +259,22 @@ Talon SRX has the ability to limit the output current to a specified maximum thr
 
 Current limiting configuration and enabling can be controlled by the following API.
 
-1. Set the continuous current limit to the value that you desire the current be limited to.
-2. Set the peak current limit to the current threshold value that will enforce the current limiting. If the peak current limit is set to 0, current limiting will be enforced at the continuous current limit value.
-3. Set the peak current duration as that sets how long the current can be over the peak before enforcing current limiting. If peak current duration is set to 0, always enforce current limiting .
+1. Configure the continuous current limit to the amperage that you desire the current be limited to.
+2. Configure the peak current limit to the current threshold amperage that will enforce the current limiting. If the peak current limit is set to 0, current limiting will be enforced at the continuous current limit.
+3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, enforce current limiting as soon as current surpasses the peak current threshold.
 4. Enable current limiting.
 
-```Java
+<!-- ```Java
 /* The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms */
 Hardware.Talon.configContinuousCurrentLimit(10, 0);
 Hardware.Talon.configPeakCurrentLimit(15, 0);
 Hardware.Talon.configPeakCurrentDuration(100, 0);
 Hardware.Talon.enableCurrentLimit(true);
-```
+``` -->
 
 C++ -
 ```c++
 /* The following C++ example limits current to 15 amps at all times, working the same way as the 2017 Framework. */
-Somecode here
 ```
 
 LabVIEW -
@@ -435,6 +434,13 @@ LabVIEW -
 Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
 
 Java -
+```Java
+/* Talon configured to have soft limits 10000 native units in either direction and enabled */
+Hardware.rightMaster.configForwardSoftLimitThreshold(10000, 0);
+Hardware.rightMaster.configReverseSoftLimitThreshold(-10000, 0);
+Hardware.rightMaster.configForwardSoftLimitEnable(true, 0);
+Hardware.rightMaster.configReverseSoftLimitEnable(true, 0);
+```
 
 C++ -
 
@@ -462,8 +468,7 @@ Note: Current Control Mode is separate from Current Limit. Current limit can be 
 **Motion Magic Arc -Not tested/implemented yet**
 
 ###### Position closed-loop walkthrough
-Below is a full example for position closed-looping using the HERO development
-board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW.
+Below is a full example for position closed-looping using the HERO development board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW.
 
 
 
