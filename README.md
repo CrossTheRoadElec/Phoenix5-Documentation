@@ -26,9 +26,10 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
   - [Update your CAN Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices)
   - [Pick the device names](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-the-device-names)
   - [Self-Test the hardware](https://github.com/CrossTheRoadElec/Phoenix-Documentation#self-test-the-hardware)
+  - [Add Javadoc if using Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Add-Javadoc-if-using-Java)
 - [Where is the API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-is-the-api)
-  - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
   - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#java---how-to-intellisensewhat-to-import)
+  - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
   - [LabVIEW - Where are the VIs? ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview---where-are-the-vis)
     - [Motor Controller VIs - What are MC and E-MC?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controller-vis---what-are-mc-and-e-mc)
 - [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-object-model)
@@ -101,30 +102,63 @@ Text here.
 ## **Before you write any software!**
 Installation explanation
 ### Installing Phoenix Framework onto PC
+Some steps Here
 ### Installing Phoenix Framework into your robot
 Installation instructions
 ### Installing Internet Explorer 11
+Install and Verify
 ### Test the install
 Eclipse Screenshot of Phoenix library.
 Eclipse Screenshot of LabVIEW palette.
 
 ## **Everything is installed, can I write software now?**
+Before writing software, Users should test the following **things** as these are important to programing and will be harder to handle/debug when programming begins.
+
 ### Check the web-based configuration
+The roboRIO web-based configuration can be accessed when the computer is connected to the roboRIO through either a USB-connection or Wifi. You will then want to open Internet Explorer as Silverlight is required and only supported by windows. Internet Explorer 11 will be needed, verification and installation steps can be found [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
+![](images/Webdash-CheckWebdash.png)
+
+You should see a general screen along with all the CTRE devices if they are connected. If your devices are not being shown, ensure that the roboRIO's Web-based Config has been updated through the HERO LifeBoat Imager application that was installed with Phoenix Framework.
+![](images/LifeBoat-WebdashUpdate.png)
+
+The roboRIO web-based configuration will allow you to set device IDs, names, persistent settings, and if logged in, you should be able to update the devices' firmware.
+
 ### Set your device IDs
+Device IDs of the CTRE product line can be set through either of the following methods.
+
+**Using HERO LifeBoat Imager(Make this a header?)**
+**Using roboRIO web-based Configuration**
 ### Update your CAN Devices
 ### Pick the device names
 ### Self-Test the hardware
+### Add Javadoc if using Java
+Java users will have to add the Javadoc manually whenever creating or working with a new project to fully utilize the intellisense when programming. Steps can be found below.
+
+1. Using the Package Explorer in the Java view, navigate through your new project to the "Referenced Libraries" tab. From there, you will find CTRE_Phoenix.jar, **not CTRE_Phoenix-sources.jar.**
+![](images/Java-AddingJavadocReferencedLibraries.png)
+
+2. Right click on CTRE_Phoenix.jar and select preferences. From there, you will navigate to the "Java Source Attachment" window.
+![](images/Java-AddingJavadocProperties.png)
+
+3. Click on the "Variable" button and Create a new variable by clicking on "New..."
+![](images/Java-AddingJavadocVariable.PNG)
+
+4. From there you should see a "Edit Variable" window as seen below. Start off by using the exact name of "CTRE_Phoenix.sources". Then clicking on "File..", navigate to the CTRE_Phoenix-sources.jar file, which is generally found within C:\Users\'AccountName'\wpilib\user\java\lib
+![](images/Java-AddingJavadocEditVariable.png)
+
+5. Now exit all windows by clicking on "OK". Verify that the Javadoc has been installed by hovering over any of the Phoenix Framework API which should bring up a small window with information about the API's functionality, parameters, return. It also grants the ability to go to the API's source location.
+![](images/Java-AddingJavadocVerify.png)
+
 
 ## **Where is the API**
-### C++ - How to intellisense/What header
 ### Java - How to intellisense/What to import
-The java libraries our phoenix framework can be imported with the following line `import com.ctre.phoenix.`
+The java libraries for the phoenix framework can be imported by starting the import with `import com.ctre.phoenix.` the line can be finished off by manually typing in the package wanted or by using intellisense. Intellisense can be brought up by pressing CTRL + Spacebar at the . (dot). This will show all the sub-packages, classes, and interfaces available within the current package as seen below.
+![](images/Java-Intellisense.png)
+![](images/Java-IntellisenseSymbols.png)
 
-Notice how there is a . (dot) placed right after the word phoenix. If you are unsure about what packages are included within the current package/folder, you may you CTRL + spacebar to bring up intellisense, which is the window seen below.
-
-**ADD image here**
-
-As for when trying to find what classes can be found within a package,
+If the Javadoc was installed properly, which was explained in the ["Add Javadoc if using Java"](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Add-Javadoc-if-using-Java) section, you should have the ability to hover over the Phoenix Framework API and find it's functionality details, parameters and return.
+![](images/java-IntellisenseCheck.png)
+### C++ - How to intellisense/What header
 ### LabVIEW - Where are the VIs?
 The CTRE Palette is located in:
 - WPI Robotics Library -> Third Party.
@@ -137,11 +171,11 @@ This palette can also be found in:
 - WPI Robotics Library -> Actuators -> Third Party
 
 #### Motor Controller VIs - What are MC and E-MC?
-There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Controller (or "MC") ![](images/MotorControllerTemplate.png)  and Enhanced Motor Controller (or "E-MC") ![](images/EnhancedMotorControllerTemplate.png) .
+There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Controller (or "MC") ![](images/LV-MotorControllerTemplate.png)  and Enhanced Motor Controller (or "E-MC") ![](images/LV-EnhancedMotorControllerTemplate.png) .
 
-![](images/MotorControllerTemplate.png) Motor Controller VIs work for all CTRE/VEX motor controllers.
+![](images/LV-MotorControllerTemplate.png) Motor Controller VIs work for all CTRE/VEX motor controllers.
 
-![](images/EnhancedMotorControllerTemplate.png) Enhanced Motor Controller VIs work only for motor controllers with a data port (currently Talon SRX).
+![](images/LV-EnhancedMotorControllerTemplate.png) Enhanced Motor Controller VIs work only for motor controllers with a data port (currently Talon SRX).
 
 
 ## **Hardware Object Model**
@@ -156,7 +190,7 @@ The first step of controlling a motor controller is to instantiate the controlle
 If using LabVIEW, use the Open VI corresponding to your motor controller.  Here we are creating an object for the Talon with device ID 15.
 Notice that with LabVIEW you can also pick your motor direction on open.
 
-![](images/lVOpenTalon.png)
+![](images/LV-OpenTalon.png)
 
 If using a programming language, create a Talon SRX object using the appropriate class name.
 
@@ -173,11 +207,9 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 2. Release the B/C CAL button.
 3. If the Talon SRX was calibrated properly, the status LEDs will blink green several times. If the calibration failed, the status LEDs will blink red and the previous calibration will be kept.
 
-![Talon SRX's B/C Button](images/README-e92dd4b0.png)
+![Talon SRX's B/C Button](images/TalonBootCalButton.png)
 
-![Victor SPX's B/C buttton](AnotherPic.jpg)
-
-**Need image for Victor SPX's button?**
+[**Need image for Victor SPX's button?**](AnotherPic.jpg)
 
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
@@ -219,7 +251,7 @@ LabVIEW -
 ![](images/LV-NeutralMode.png)
 
 ##### Current limiting
-Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
+<!-- Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
 
 Current limiting configuration and enabling can be controlled by the following API.
 
@@ -242,7 +274,7 @@ C++ -
 Somecode here
 ```
 
-LabVIEW -
+LabVIEW - -->
 ##### Ramping
 The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
 
@@ -288,12 +320,12 @@ LabVIEW -
 #### Setup Limit switches
 An “out of the box” Talon SRX or Victor SPX will default with the limit switch setting of “Normally Open” for both forward and reverse. This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground). When a limit switch input is closed (is connected to ground) the Talon SRX/Victor SPX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault)
 
-![Chart for limit switching](images/README-da0f78d6.png)
+![Chart for limit switching](images/General-LimitSwitches.png)
 
 Limit switch features can be disabled or changed to “Normally Closed” in the roboRIO web-based configuration. Changing the settings will take effect once the “Save” button is pressed. The settings are saved
 in persistent memory.
 
-![Webdash image](images/README-d3c40698.png)
+![Webdash image](images/Webdash-NeutralModeAndLimitSwitches.png)
 
 If the neutral mode or limit switch mode is changed in the roboRIO web-based configuration, the motor controller will momentarily disable then resume motor drive. All other settings can be changed
 without impacting the motor drive or enabled-state of the Talon SRX
@@ -333,7 +365,7 @@ SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelected
 
 Once you have deployed the code and opened SmartDashboard from the FRC Driver Station, you may reveal the values by going under the view tab and revealing the values which will be listed by their key name. You may then change the numerical indicator the a line-plot and generate the plot by driving the motor controller.
 
-![Image of the plots generated from driving](images/README-5726bb08.png)
+![Image of the plots generated from driving](images/Java-SensorCheck.png)
 
 ###### Sensor phase and why it matters
 Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive throttle. To test this, first drive the motor manually (using
@@ -395,106 +427,6 @@ board. These functions are also available in FRC C++/Java, and comparable VIs ar
 
 ##### How is the closed-loop-implemented?
 The closed-loop logic is the same regardless of which feedback sensor or closed-loop mode is selected. The verbatim implementation in the Talon firmware is displayed below.
-
-Note: The `PID_Mux_Unsigned()` and `PID_Mux_Sign()` routines are merely multiply functions.
-
-```c++
-/**
-* 1ms process for PIDF closed-loop.
-* @param pid ptr to pid object
-* @param pos signed integral position (or velocity when in velocity mode).
-* The target pos/velocity is ramped into the target member from caller's 'in'.
-* If the CloseLoopRamp in the selected Motor Controller Profile is zero then
-* there is no ramping applied. (throttle units per ms)
-* PIDF is traditional, unsigned coefficients for P,i,D, signed for F.
-* Target pos/velocity is feed forward.
-*
-* Izone gives the abilty to autoclear the integral sum if error is wound up.
-* @param revMotDuringCloseLoopEn nonzero to reverse PID output direction.
-* @param oneDirOnly when using positive only sensor, keep the closed-loop from outputing negative throttle.
-*/
-void PID_Calc1Ms(pid_t * pid, int32_t pos,uint8_t revMotDuringCloseLoopEn, uint8_t oneDirOnly)
-{
-  /* grab selected slot */
-  MotorControlProfile_t * slot = MotControlProf_GetSlot();
-  /* calc error : err = target - pos*/
-  int32_t err = pid->target - pos;
-  pid->err = err;
-  /*abs error */
-  int32_t absErr = err;
-  if(err < 0)
-    absErr = -absErr;
-
-  /* integrate error */
-  if(0 == pid->notFirst){
-    /* first pass since reset/init */
-    pid->iAccum = 0;
-    /* also tare the before ramp throt */
-    pid->out = BDC_GetThrot(); /* the save the current ramp */
-  }else if((!slot->IZone) || (absErr < slot->IZone) ){
-    /* izone is not used OR absErr is within iZone */
-    pid->iAccum += err;
-  }else{
-    pid->iAccum = 0;
-  }
-
-  /* dErr/dt */
-  if(pid->notFirst){
-    /* calc dErr */
-    pid->dErr = (err - pid->prevErr);
-  }else{
-    /* clear dErr */
-    pid->dErr = 0;
-  }
-
-  /* P gain X the distance away from where we want */
-  pid->outBeforRmp = PID_Mux_Unsigned(err, slot->P);
-  if(pid->iAccum && slot->I){
-    /* our accumulated error times I gain. If you want the robot to creep up then pass a nonzero Igain */
-    pid->outBeforRmp += PID_Mux_Unsigned(pid->iAccum, slot->I);
-  }
-    /* derivative gain, if you want to react to sharp changes in error (smooth things out). */
-    pid->outBeforRmp += PID_Mux_Unsigned(pid->dErr, slot->D);
-    /* feedforward on the set point */
-    pid->outBeforRmp += PID_Mux_Signed(pid->target, slot->F);
-    /* arm for next pass */
-  {
-    pid->prevErr = err; /* save the prev error for D */
-    pid->notFirst = 1; /* already serviced first pass */
-  }
-
-  /* if we are using one-direction sensor, only allow throttle in one dir.
-  217-8080 TALON SRX Software Reference Manual 3/06/2017
-  Cross The Road Electronics Page 142 3/06/2017
-  If it's the wrong direction, use revMotDuringCloseLoopEn to flip it */
-  if(oneDirOnly){
-    if(pid->outBeforRmp < 0)
-      pid->outBeforRmp = 0;
-  }
-  /* honor the direction flip from control */
-  if(revMotDuringCloseLoopEn)
-    pid->outBeforRmp = -pid->outBeforRmp;
-
-  /* honor closelooprampratem, ramp out towards outBeforRmp */
-  if(0 != slot->CloseLoopRampRate){
-    if(pid->outBeforRmp >= pid->out){
-      /* we want to increase our throt */
-      int32_t deltaUp = pid->outBeforRmp - pid->out;
-      if(deltaUp > slot->CloseLoopRampRate)
-      deltaUp = slot->CloseLoopRampRate;
-      pid->out += deltaUp;
-    }else{
-      /* we want to decrease our throt */
-      int32_t deltaDn = pid->out - pid->outBeforRmp;
-      if(deltaDn > slot->CloseLoopRampRate)
-      deltaDn = slot->CloseLoopRampRate;
-      pid->out -= deltaDn;
-    }
-  }else{
-    pid->out = pid->outBeforRmp;
-  }
-}
-```
 
 ##### I Want to process the sensor myself, How do I do that?
 
