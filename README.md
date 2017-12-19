@@ -115,6 +115,13 @@ Eclipse Screenshot of LabVIEW palette.
 ## **Where is the API**
 ### C++ - How to intellisense/What header
 ### Java - How to intellisense/What to import
+The java libraries our phoenix framework can be imported with the following line `import com.ctre.phoenix.`
+
+Notice how there is a . (dot) placed right after the word phoenix. If you are unsure about what packages are included within the current package/folder, you may you CTRL + spacebar to bring up intellisense, which is the window seen below.
+
+**ADD image here**
+
+As for when trying to find what classes can be found within a package,
 ### LabVIEW - Where are the VIs?
 The CTRE Palette is located in:
 - WPI Robotics Library -> Third Party.
@@ -164,6 +171,8 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 
 ![Talon SRX's B/C Button](images/README-e92dd4b0.png)
 
+![Victor SPX's B/C buttton](AnotherPic.jpg)
+
 **Need image for Victor SPX's button?**
 
 #### Open-Loop (No Sensor) Control
@@ -200,7 +209,7 @@ C++ -
 
 LabVIEW -
 ##### Current limiting
-<!-- Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
+Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
 
 Current limiting configuration and enabling can be controlled by the following API.
 
@@ -223,7 +232,7 @@ C++ -
 Somecode here
 ```
 
-LabVIEW - -->
+LabVIEW -
 ##### Ramping
 The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
 
