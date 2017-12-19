@@ -445,6 +445,20 @@ Hardware.rightMaster.configReverseSoftLimitEnable(true, 0);
 C++ -
 
 LabVIEW -
+
+![](images/LV-softLimits.png)
+
+###### Override the Soft Limit Enable
+After the soft limits have been configured, at any point you can override the enable to turn the soft limit functionality on or off.
+
+Java -
+
+C++ -
+
+LabVIEW - 
+
+![](images/LV-softLimOverride.png)
+
 ##### Closed-loop Ramping
 ##### Closed-loop/Firmware Control Modes
 When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop control mode options to choose from. Below is a list with an explanation of each supported closed-loop type.
