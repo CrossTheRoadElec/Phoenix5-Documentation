@@ -42,8 +42,8 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
       - [Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#ramping)
       - [Follower](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower)
     - [Setup Limit Switches](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-limit-switches)
-      - [Limit Switch Source](https://github.com/CrossTheRoadElec/Phoenix-Documentation#)
-      - [Limit Switch Override Enable](https://github.com/CrossTheRoadElec/Phoenix-Documentation#)
+      - [Limit Switch Source](https://github.com/CrossTheRoadElec/Phoenix-Documentation#limit-switch-source)
+      - [Limit Switch Override Enable](https://github.com/CrossTheRoadElec/Phoenix-Documentation#limit-switch-override-enable)
     - [Closed-Loop (Using Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loop-using-sensor-control)
       - [Sensors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#sensors)
         - [Why bother with sensors?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#why-bother-with-sensors)
@@ -299,7 +299,29 @@ If the neutral mode or limit switch mode is changed in the roboRIO web-based con
 without impacting the motor drive or enabled-state of the Talon SRX
 
 ##### Limit Switch Source
+The source of the forward and reverse limit switches are configurable in software.  For Talon SRX you can choose the default feedback connector (data port), and for both controllers you can choose a remote source or to deactiviate the limit switch.  You must also indicate whether this limit switch is normally open, normally closed, or disabled, which overrides the setting from the web-based configuration page.  This override is not permanent and will be reset when the device is power cycled.
+If you are choosing a remote source, you must also specify the device ID of the remote CAN device.
+
+Java -
+
+C++ -
+
+LabVIEW -
+
+![](images/LV-configFwdLim.png)
+
 ##### Limit Switch Override Enable
+
+The enable state of the limit switches can be overridden in software.  This can be called at any time to enable or disable both limit switches.
+
+Java -
+
+C++ -
+
+LabVIEW -
+
+![](images/LV-overrideLimitEnable.png)
+
 #### Closed-Loop (Using Sensor) Control
 These features and configurations influence the behavior of the motor controller when encoders/sensors are being used to provide feedback to a maneuver.
 ##### Sensors
