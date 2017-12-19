@@ -132,13 +132,13 @@ At a minimum, you must select the components for the programming language you ar
 
 ![](images/Phoenix-installerComponents.png)
 
-After the installation finished, you must restart any programming environment you are using (Eclipse or LabVIEW).
+After the installation is finished, you must restart any programming environment you are using (Eclipse or LabVIEW).
 #### Phoenix Framework for Non-Windows Machines
 A zip file containing the Phoenix Framework libraries is available [here](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources).
 
 Download the latest non-windows zip file and follow the README it contains to install the Phoenix API.
 
-### Installing Phoenix Framework into your robot
+### Installing Phoenix Framework onto your FRC robot
 Installation instructions
 ### Installing Internet Explorer 11
 Install and Verify
