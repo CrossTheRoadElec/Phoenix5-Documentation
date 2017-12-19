@@ -1,5 +1,5 @@
 # Phoenix Framework
-![Title](images/title.png)
+![Title](images/General-Title.png)
 
 
 The software framework for all CTR-Electronics robot components.
