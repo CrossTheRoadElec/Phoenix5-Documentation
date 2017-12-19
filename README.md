@@ -427,6 +427,8 @@ C++ -
 
 LabVIEW -
 
+![](images/LV-sensorPhase.png)
+
 ###### What are the units of my sensor?
 **NotSureHowThisIsGoingToWorkYet**
 
@@ -455,7 +457,7 @@ Java -
 
 C++ -
 
-LabVIEW - 
+LabVIEW -
 
 ![](images/LV-softLimOverride.png)
 
