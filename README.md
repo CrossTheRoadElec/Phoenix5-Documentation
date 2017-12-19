@@ -500,22 +500,23 @@ When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop co
 The Talon's closed-loop logic can be used to maintain a target position. Target and sampled position is passed into the equation in native units, which can be found in the section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented).
 
 **Velocity closed-loop -**
-The Talon's closed-loop logic can be used to maintain a target velocity. Target and sampled velocity is passed into the equation in native units per 100ms, which can be found in section[How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented). For more information on native units, go to section [blah blah blah blah](whatever.com).
+The Talon's closed-loop logic can be used to maintain a target velocity. Target and sampled velocity is passed into the equation in native units per 100ms, which can be found in section[How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented).
 
 **Current closed-loop -**
-The Talon's closed-loop logic can be used to approach a target current-draw. Target and
-sampled current is passed into the equation in milliamperes, which can be found in section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented). API expresses the target current in amperes.
+The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes, which can be found in section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented). API expresses the target current in amperes.
 
 Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting).
 
 **Motion profiling - Not tested/implemented yet**
+A recent addition to the Talon SRX is the motion profile mode. With this, a savvy developer can actually stream motion profile trajectory points into the Talon’s internal buffer (even while executing the profile). This allows fine control of position and speed throughout the entire movement. Since this is an advanced feature addition, documentation can be found here [**TempLink**](http://www.ctr-electronics.com/)
 
 **Motion Magic - Not tested/implemented yet**
 
 **Motion Magic Arc -Not tested/implemented yet**
 
 ###### Position closed-loop walkthrough
-Below is a full example for position closed-looping using the HERO development board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW.
+Below is a full example for position closed-looping using the HERO development board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW. The position closed-loop examples can also be found below.
+Java - 
 
 
 
