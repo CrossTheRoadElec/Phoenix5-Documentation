@@ -17,6 +17,9 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 - [Hardware setup](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-setup)
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
   - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-pc)
+    - [Download the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#download-the-installer)
+    - [Running the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#running-the-installer)
+    - [Phoenix Framework for Non-Windows Machines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines)
   - [Installing Phoenix Framework into your robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-into-your-robot)
   - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
   - [Test the install](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-install)
@@ -106,7 +109,35 @@ Text here.
 ## **Before you write any software!**
 Installation explanation
 ### Installing Phoenix Framework onto PC
-Some steps Here
+The Phoenix Framework installer is the Windows Executable Installer that provides all software and API Libraries required to support CTRE products.
+
+**FRC Teams:** Phoenix Framework should be installed after all other FRC software, including LabVIEW and/or Eclipse and the Driver Station update.  See the [FRC Screensteps](http://wpilib.screenstepslive.com/s/currentCS) for instructions on FRC Software.
+
+If your computer is not running a Windows operating system, see the [non-windows](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines) section.
+#### Download the Installer
+The installer can be found [here](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources).
+Download and unzip the latest version of the CTRE Phoenix Framework Installer.
+
+This page also contains some installer archives, so if you need an older version you can find it here as well.
+
+**FRC Teams:** For the 2018 competition season, the minimum installer version that will work with the current control system is version 5.X.X.X.
+#### Running the Installer
+**Note:** You will need administrative privileges to run the installer.
+
+Run the executable that was downloaded in the previous step.
+
+![](images/Phoenix-installerSplash.png)
+
+At a minimum, you must select the components for the programming language you are using.
+
+![](images/Phoenix-installerComponents.png)
+
+After the installation finished, you must restart any programming environment you are using (Eclipse or LabVIEW).
+#### Phoenix Framework for Non-Windows Machines
+A zip file containing the Phoenix Framework libraries is available [here](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources).
+
+Download the latest non-windows zip file and follow the README it contains to install the Phoenix API.
+
 ### Installing Phoenix Framework into your robot
 Installation instructions
 ### Installing Internet Explorer 11
@@ -116,7 +147,7 @@ Eclipse Screenshot of Phoenix library.
 Eclipse Screenshot of LabVIEW palette.
 
 ## **Everything is installed, can I write software now?**
-Before writing software, Users should test the following **things** as these are important to programing and will be harder to handle/debug when programming begins.
+Before writing software, Users should test the following **things** as these are important to programming and will be harder to handle/debug when programming begins.
 
 ### Check the web-based configuration
 The roboRIO web-based configuration can be accessed when the computer is connected to the roboRIO through either a USB-connection or Wifi. You will then want to open Internet Explorer as Silverlight is required and only supported by windows. Internet Explorer 11 will be needed, verification and installation steps can be found [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
@@ -427,6 +458,8 @@ C++ -
 
 LabVIEW -
 
+![](images/LV-sensorPhase.png)
+
 ###### What are the units of my sensor?
 **NotSureHowThisIsGoingToWorkYet**
 
@@ -445,6 +478,20 @@ Hardware.rightMaster.configReverseSoftLimitEnable(true, 0);
 C++ -
 
 LabVIEW -
+
+![](images/LV-softLimits.png)
+
+###### Override the Soft Limit Enable
+After the soft limits have been configured, at any point you can override the enable to turn the soft limit functionality on or off.
+
+Java -
+
+C++ -
+
+LabVIEW -
+
+![](images/LV-softLimOverride.png)
+
 ##### Closed-loop Ramping
 ##### Closed-loop/Firmware Control Modes
 When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop control mode options to choose from. Below is a list with an explanation of each supported closed-loop type.
