@@ -139,7 +139,13 @@ A zip file containing the Phoenix Framework libraries is available [here](http:/
 Download the latest non-windows zip file and follow the README it contains to install the Phoenix API.
 
 ### Installing Phoenix Framework onto your FRC robot
-Installation instructions
+It is necessary to install Phoenix onto you roboRIO in order to use the Web-Based Configuration Page.
+
+Additionally, LabVIEW teams must install Phoenix on the roboRIO for their robot programs using Phoenix to run properly.
+
+Open the Phoenix LifeBoat utility and select the "roboRIO Upgrade" tab.
+Follow the instructions on the tab to install Phoenix on your roboRIO.
+
 ### Installing Internet Explorer 11
 Install and Verify
 ### Test the install
@@ -153,7 +159,7 @@ Before writing software, Users should test the following **things** as these are
 The roboRIO web-based configuration can be accessed when the computer is connected to the roboRIO through either a USB-connection or Wifi. You will then want to open Internet Explorer as Silverlight is required and only supported by windows. Internet Explorer 11 will be needed, verification and installation steps can be found [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
 ![](images/Webdash-CheckWebdash.png)
 
-You should see a general screen along with all the CTRE devices if they are connected. If your devices are not being shown, ensure that the roboRIO's Web-based Config has been updated through the HERO LifeBoat Imager application that was installed with Phoenix Framework.
+You should see a general screen along with all the CTRE devices if they are connected. If your devices are not being shown, ensure that the roboRIO's Web-based Configuration has been updated through the HERO LifeBoat Imager application that was installed with Phoenix Framework.
 ![](images/LifeBoat-WebdashUpdate.png)
 
 The roboRIO web-based configuration will allow you to set device IDs, names, persistent settings, and if logged in, you should be able to update the devices' firmware.
@@ -516,7 +522,7 @@ A recent addition to the Talon SRX is the motion profile mode. With this, a savv
 
 ###### Position closed-loop walkthrough
 Below is a full example for position closed-looping using the HERO development board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW. The position closed-loop examples can also be found below.
-Java - 
+Java -
 
 
 
