@@ -14,7 +14,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 ## Table of Contents
 
 - [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
-- [Hardware setup](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-setup)
+- Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Initial-Hardware-Testing)
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
   - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-pc)
     - [Download the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#download-the-installer)
@@ -101,10 +101,18 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 - [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-version)
 
 ## **Purpose of this guide**
-To provide that knowledge.
+To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
 
-## **Hardware setup**
-Text here.
+## **Initial Hardware Testing**
+For your competition team to have the best chance of success, hardware components should be tested as soon as they are received.  This is generally done by...
+- Powering up the device and confirming LED states.
+- Ensuring hardware shows up in the web-based config if wired to CAN Bus.
+- Drive outputs / drive motor in both directions (if motor controller).
+- Factory default using the B/C calibration button to default persistent settings.
+This is explained in the sections below, but it is worth pointing out how important this step is.  It is in your team's best interest to test ALL purchased robot components immediately and in isolation.
+- Robot replacement components should be in a state of readiness.  Otherwise a replacement during competition can yield erroneous behavior.
+- Many robot components (in general) have fixed warranty periods, and replacements must be done within them.
+- Confirming devices are functional before handing them to students ensures best chance of success.
 
 ## **Before you write any software!**
 Installation explanation
