@@ -211,6 +211,12 @@ This palette can also be found in:
 - WPI Robotics Library -> Sensors -> Third Party
 - WPI Robotics Library -> Actuators -> Third Party
 
+#### Where are the VIs on disk?
+The Phoenix VIs are installed inside a folder in the main installation directory.
+This would be: "C:\Users\Public\Documents\Cross The Road Electronics".
+
+If your Public Documents folder is on different drive, your drive letter may be different.
+
 #### Motor Controller VIs - What are MC and E-MC?
 There are two types of VI when it comes to CTRE/VEX motor controllers - Motor Controller (or "MC") ![](images/LV-MotorControllerTemplate.png)  and Enhanced Motor Controller (or "E-MC") ![](images/LV-EnhancedMotorControllerTemplate.png) .
 
