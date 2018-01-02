@@ -9,13 +9,13 @@ Below are several examples of the API changes done in Phoenix Framework.
 |General|
 |timeoutMs parameter|talon.func(XXX)|talon.func(XXX, timeoutMs)|Some routines can optionally wait for a response from the device up to a timeout.  If the response is never received, an error code is returned and the Drive Station will receive an error message.  Pass 0 to avoid blocking at all. When initializing device on robot-boot, we recommend passing 10ms.  When calling routines in the loop of the robot, pass zero to avoid blocking.|
 |class name change|CANTalon|TalonSRX (com.ctre.phoenix. motorcontrol.can.TalonSRX)|Talon SRX are predominantly used on CAN Bus, therefore the CAN prefix was redundant.  
-|class name change|TalonSRX| PWMTalonSRX (edu.wpi.first. wpilibj.PWMTalonSRX)|Talon SRX still supports PWM.  This class is still maintained by the WPILIB team.
+|class name change|TalonSRX| PWMTalonSRX (edu.wpi. first.wpilibj.PWMTalonSRX)|Talon SRX still supports PWM.  This class is still maintained by the WPILIB team.
 |Voltage Compensation|
-|...is not a Control Mode|setControlMode (CANTalon::kVoltage)| enableVoltageCompensation()|Voltage Compensation can be enabled/disabled in parallel to any control mode.|
-|Setting compensation value for "full" output.||configVoltageCompSaturation (voltage, timeoutMs)| This is the voltage that the motor controller will compensate "full" output to.  For example, if 10V is configured for the saturation point, when the motor controller is commanded 50%, it will modulate until the output is 5V.  This applies to closed-loop modes as well.
+|...is not a Control Mode|setControlMode (CANTalon::kVoltage)| enableVoltage Compensation()|Voltage Compensation can be enabled/disabled in parallel to any control mode.|
+|Setting compensation value for "full" output.||configVoltageComp Saturation (voltage, timeoutMs)| This is the voltage that the motor controller will compensate "full" output to.  For example, if 10V is configured for the saturation point, when the motor controller is commanded 50%, it will modulate until the output is 5V.  This applies to closed-loop modes as well.
 |Low level sensor API (without sensor selection)|
-|Accessing low level feedback sensor. |  talon.getPulseWidthPosition() | talon.getSensorCollection(). getPulseWidthPosition()| Low level functions that access sensor data directly are now tucked under the sensor collection object.
-|Setting low level sensor.|talon.setEncPosition(newValue)|talon.getSensorCollection(). setQuadraturePosition (pos, 10);|Same as above.  Also note that "Enc" has changed to "Quadrature".|
+|Accessing low level feedback sensor. |  getPulseWidthPosition() | getSensorCollection(). getPulseWidthPosition()| Low level functions that access sensor data directly are now tucked under the sensor collection object.
+|Setting low level sensor.|talon.setEncPosition(newValue)|getSensorCollection(). setQuadraturePosition (pos, 10);|Same as above.  Also note that "Enc" has changed to "Quadrature".|
 |Direction / sensor phase / follower  |
 |Direction/Sensor flipping|talon.reverseSensor / talon.reverseOutput / talon.setInvert/ (similar reverse functions)|talon.SetInvert / talon.SetSensorPhase| Use sensor phase to align positive sensor velocity to positive motor output.  Once this is done you will never have to call any reverse function for the purpose of alignment.  Use SetInvert to choose what motor direction to apply when positive output is applied (green LEDs)|
 |Sensor Units|
