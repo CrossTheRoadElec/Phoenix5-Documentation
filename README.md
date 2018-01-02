@@ -14,7 +14,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 ## Table of Contents
 
 - [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
-- Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Initial-Hardware-Testing)
+- [Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Initial-Hardware-Testing)
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
   - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-pc)
     - [Download the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#download-the-installer)
