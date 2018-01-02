@@ -4,7 +4,7 @@
 
 The software framework for all CTR-Electronics robot components.
 
-See what control components make sense for your robotic needs at [CTR-Electronics](https://www.ctr-electroniocs.com).
+See what control components make sense for your robotic needs at [CTR-Electronics](https://www.ctr-electronics.com).
 
 ---
 
