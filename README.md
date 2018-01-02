@@ -183,7 +183,7 @@ Device IDs of the CTRE product line can be set through either of the following m
 ### Add Javadoc if using Java
 Java users will have to add the Javadoc manually whenever creating or working with a new project to fully utilize the intellisense when programming. Steps can be found below.
 
-1. Using the Package Explorer in the Java view, navigate through your new project to the "Referenced Libraries" tab. From there, you will find CTRE_Phoenix.jar, **not CTRE_Phoenix-sources.jar.**
+1. Using the Package Explorer in the Java view, navigate through your new project to the "Referenced Libraries" tab. From there, you will both find **CTRE_Phoenix.jar and CTRE_Phoenix-sources.jar.**
 ![](images/Java-AddingJavadocReferencedLibraries.png)
 
 2. Right click on CTRE_Phoenix.jar and select preferences. From there, you will navigate to the "Java Source Attachment" window.
