@@ -20,9 +20,10 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
     - [Download the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#download-the-installer)
     - [Running the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#running-the-installer)
     - [Phoenix Framework for Non-Windows Machines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines)
-  - [Installing Phoenix Framework into your robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-into-your-robot)
+  - [Installing Phoenix Framework onto your FRC robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-your-frc-robot)
   - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
-  - [Test the install](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-install)
+  - [Test the Phoenix Install in Eclipse](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-phoenix-install-in-eclipse)
+  - [Test the Phoenix Install in LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-phoenix-install-in-labview)
 - [Everything is installed, can I write software now?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#everything-is-installed-can-i-write-software-now)
   - [Check the web-based configuration](https://github.com/CrossTheRoadElec/Phoenix-Documentation#check-the-web-based-configuration)
   - [Set your device IDs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#set-your-device-ids)
@@ -147,36 +148,64 @@ A zip file containing the Phoenix Framework libraries is available [here](http:/
 Download the latest non-windows zip file and follow the README it contains to install the Phoenix API.
 
 ### Installing Phoenix Framework onto your FRC robot
-It is necessary to install Phoenix onto you roboRIO in order to use the Web-Based Configuration Page.
+It is necessary to install Phoenix onto your roboRIO in order to use the Web-Based Configuration Page.
 
 Additionally, LabVIEW teams must install Phoenix on the roboRIO for their robot programs using Phoenix to run properly.
 
 Open the Phoenix LifeBoat utility and select the "roboRIO Upgrade" tab.
 Follow the instructions on the tab to install Phoenix on your roboRIO.
-
-### Installing Internet Explorer 11
-Install and Verify
-### Test the install
-Eclipse Screenshot of Phoenix library.
-Eclipse Screenshot of LabVIEW palette.
-
-## **Everything is installed, can I write software now?**
-Before writing software, Users should test the following **things** as these are important to programming and will be harder to handle/debug when programming begins.
-
-### Check the web-based configuration
-The roboRIO web-based configuration can be accessed when the computer is connected to the roboRIO through either a USB-connection or Wifi. You will then want to open Internet Explorer as Silverlight is required and only supported by windows. Internet Explorer 11 will be needed, verification and installation steps can be found [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
-![](images/Webdash-CheckWebdash.png)
-
-You should see a general screen along with all the CTRE devices if they are connected. If your devices are not being shown, ensure that the roboRIO's Web-based Configuration has been updated through the HERO LifeBoat Imager application that was installed with Phoenix Framework.
 ![](images/LifeBoat-WebdashUpdate.png)
 
-The roboRIO web-based configuration will allow you to set device IDs, names, persistent settings, and if logged in, you should be able to update the devices' firmware.
+When the upgrade is complete, a prompt will appear instructing LabVIEW teams restart their application.
+Java teams are also asked to redeploy their application to ensure the correct Phoenix library is installed (development PC vs robot controller).
+
+![LifeBoat-WebdashUpdateComplete](images\lifeboat-webdashupdatecomplete.png)
+### Installing Internet Explorer 11
+Internet Explorer 11 is necessary to use the roboRIO web-based configuration.  
+In the future, CTRE will be replacing this interface, but for the time being this is the primary means of checking the presence of your CAN devices.  This also allows for field-upgrade, device ID setting, etc.
+
+**Windows 7** and **Windows 10** already have Internet Explorer 11 installed.  
+
+It can be manually installed here...
+https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads
+
+To test if Internet Explorer 11 is already installed, try running "iexplore" in the Windows start menu.
+Press Windows Key + 'R' to open Run window.  Type "iexplore" and press enter.
+![Windows-Run](images\windows-run.png)
+
+### Test the Phoenix Install in Eclipse
+Eclipse Screenshot of Phoenix library.
+
+### Test the Phoenix Install in LabVIEW
+Open LabVIEW.  This can be done by opening an existing project or creating a new one.
+
+Make sure the CTRE VIs appear.  Their palette and file locations can be found [here](#labview---where-are-the-vis)
+
+## **Everything is installed, can I write software now?**
+Nope, there is still more to do.  Follow each subsection to ensure device communication is healthy.  Otherwise troubleshooting your software will become unnecessarily difficult.
+
+### Check the web-based configuration
+
+A useful diagnostic feature in the FRC Control system is the roboRIO's Web-based Configuration and Monitoring page.  This provides diagnostic information on all discovered CTRE CAN devices.  CTRE devices can also be field-upgraded using this interface.  This feature is accessible by entering the mDNS name of your robot in a web browser, typically **roborio-XXXX-frc.local** where XXXX is the team number (no leading zeros for three digit team numbers).
+
+When connected via **USB**, you can generally type **172.22.11.2** to quickly reach web-based config.
+![](images/Webdash-CheckWebdash.png)
+
+Because the interface uses Silverlight, the user must use Internet Explorer 11.  Instructions on installing Internet Explorer can be found  [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
+
+### Missing "CAN Interface"
+If "CAN Interface" is missing, then the web-based config plugin is likely not installed.
+
+![Webdash-BadCanInterface](images\webdash-badcaninterface.png)
+
+Instructions for upgrading the roboRIO are [here](#installing-phoenix-framework-onto-your-frc-robot)
 
 ### Set your device IDs
-Device IDs of the CTRE product line can be set through either of the following methods.
 
-**Using HERO LifeBoat Imager(Make this a header?)**
-**Using roboRIO web-based Configuration**
+A CTRE CAN Device can have a device ID from 0 to 62.  63 and above are not allowed.  If you select an invalid ID, you will get an immediate prompt.
+
+![Webdash-BadId](images\webdash-badid.png)
+
 ### Update your CAN Devices
 ### Pick the device names
 ### Self-Test the hardware
@@ -208,6 +237,12 @@ The java libraries for the phoenix framework can be imported by starting the imp
 If the Javadoc was installed properly, which was explained in the ["Add Javadoc if using Java"](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Add-Javadoc-if-using-Java) section, you should have the ability to hover over the Phoenix Framework API and find it's functionality details, parameters and return.
 ![](images/java-IntellisenseCheck.png)
 ### C++ - How to intellisense/What header
+C++ modules simply need to include one header
+```
+#include "ctre/Phoenix.h"
+```
+This single header will include several of the Phoenix header files and brings several Phoenix namespaces into scope.  Advanced C++ programmers may wish to avoid including many namespaces, in which case they can probe the contents of the header and pick out what they need.
+
 ### LabVIEW - Where are the VIs?
 The CTRE Palette is located in:
 - WPI Robotics Library -> Third Party.
