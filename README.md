@@ -196,7 +196,7 @@ Because the interface uses Silverlight, the user must use Internet Explorer 11. 
 ### Missing "CAN Interface"
 If "CAN Interface" is missing, then the web-based config plugin is likely not installed.
 
-![Webdash-BadCanInterface](images\webdash-badcaninterface.png)
+![Webdash-BadCanInterface](images/webdash-badcaninterface.png)
 
 Instructions for upgrading the roboRIO are [here](#installing-phoenix-framework-onto-your-frc-robot)
 
@@ -204,7 +204,7 @@ Instructions for upgrading the roboRIO are [here](#installing-phoenix-framework-
 
 A CTRE CAN Device can have a device ID from 0 to 62.  63 and above are not allowed.  If you select an invalid ID, you will get an immediate prompt.
 
-![Webdash-BadId](images\webdash-badid.png)
+![Webdash-BadId](images/webdash-badid.png)
 
 ### Update your CAN Devices
 ### Pick the device names
