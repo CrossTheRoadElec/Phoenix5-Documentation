@@ -599,14 +599,23 @@ Coming soon.  This exists in last year's documentation and will be merge in acco
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
 
 ### WPILib SpeedController/Drivetrain Objects
-The Victor SPX and Talon SRX hardware objects can be converted to be used for any WPILib class or VI requiring a WPILib "SpeedController".
-PercentOutput is the only control mode of Victor SPX and Talon SRX that is supported for the WPILib objects.  If your motor controller is not already in PercentOutput mode, its mode will be changed to Percent Output when it is controlled from any WPILib object.
+The Phoenix framework supports an adapter class for Victor SPX and Talon SRX hardware objects.  Depending on language, the developer needs to be made aware of the following sections below to utilize certain WPILIB classes/VIs.
 
-#### WPILib: Java
+#### WPILib: Java/C++
+The WPI_TalonSRX and WPI_VictorSPX classes implement several WPILIB interfaces.  
+WPILIB motor controllers generally support...
+- Live Window/Sendable features
+- Test Mode
+- Motor Safety
+- SpeedController interface (which assumes motor controller is "simple")
+- a single parameter set(), (which assume motor controller is "simple")
 
-#### WPILib: C++
+WPI_TalonSRX and WPI_VictorSPX can also be subclassed/forked/modified for advanced teams that want to use the WPILIB drivetrain classes (which are primarily designed for simple motor controllers), while using the advanced features of the Talon/Victor.
+
+Additionally future release of Phoenix will include CTRE developed drivetrain objects that natively support our motor controllers. 
 
 #### WPILib: LabVIEW
+LabVIEW's NI/WPILIB objects will natively work the Talon SRX/Victor SPX motor references.
 Using the WPI Motor Set VI in Teleop.vi:
 
 ![](images/LV-victorWPIset.png)
@@ -615,7 +624,7 @@ Opening Multiple Motors for a Drivetrain in Begin.vi:
 
 ![](images/LV-open4motors.png)
 
-## **Driver Station **
+## **Driver Station**
 ### What do I do when I see errors in Driver Station?
 DS Errors should be addressed as soon as they appear. This is because...
 - Phoenix API will report if a device is missing, not functioning, has too-old firmware, etc.
