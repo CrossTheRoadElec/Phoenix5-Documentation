@@ -388,12 +388,10 @@ The second method `follow()` allows users to create a motor controller follower 
 Java -
 ```java
 /* The first line, we have a Victor following a Talon. The follow() function may also be used to create Talon follower for a Victor */
-Hardware.VictorFollower.follow(Hardware.TalonMaster);
+victorFollower.follow(Hardware.TalonMaster);
 /* In the second line, we have a Talon following Talon. The set(ControlMode.Follower, MotorcontrollerID) creates followers of the same model. */
-Hardware.TalonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
+talonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
 ```
-
-C++ -
 
 LabVIEW -
 
@@ -428,8 +426,6 @@ Hardware.rightVictorMaster.configForwardLimitSwitchSource(RemoteLimitSwitchSourc
 Hardware.rightVictorMaster.configReverseLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed, 3, 0);
 ```
 
-C++ -
-
 LabVIEW -
 
 ![](images/LV-configFwdLim.png)
@@ -443,10 +439,7 @@ Java -
 /* Limit switches are forced disabled on Talon and forced enabled on Victor */
 Hardware.leftTalonMaster.overrideLimitSwitchesEnable(false);
 Hardware.rightVictorMaster.overrideLimitSwitchesEnable(true);
-
 ```
-
-C++ -
 
 LabVIEW -
 
@@ -457,13 +450,12 @@ These features and configurations influence the behavior of the motor controller
 ##### Sensors
 Sensors for motor controllers provide feedback about the position, velocity, and acceleration of the system using that motor controller. The Talon SRX supports a wide variety of sensors while the Victor SPX is able to grab sensor data from another motor controller, which we call remote source.
 
-**NotSureHowThisIsGoingToWorkYet**
-
 ###### Why bother with sensors?
 Sensors allows both the motor controller and user to receive data and feedback. That information allows us to act upon different situations by giving us information about the motors position, speed, and acceleration. This information is especially important when implementing a closed-loop control, such as a PID control loop.
 
 ###### How do I choose the sensor?
-**NotSureHowThisIsGoingToWorkYet**
+Java/C++ - Use the configSelectedFeedbackSensor routine.  Example below..
+LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on motor controller).
 
 ###### How do I know the sensor works?
 There are multiple methods of ensuring the connected sensor is active and returning meaningful data. The best method is to plot the signal and watch the plot, looking for continuous data that is responsive. Another, but less reliable method is to print your values to a console and check for values, which makes it harder to see if there is noise in the values.
