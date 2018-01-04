@@ -498,7 +498,15 @@ LabVIEW -
 ![](images/LV-sensorPhase.png)
 
 ###### What are the units of my sensor?
-**NotSureHowThisIsGoingToWorkYet**
+Position units are in the natural units of the sensor.  This ensures the best resolution possible when performing closed-loops in firmware.  
+| Sensor Psition        | Units per rotatoin|
+| ------------- |:-------------:|
+| Quadrature Encoder : US Digital 1024 CPR      | 4096 (because Talon/CANifer counts every edge)
+| CTRE Magnetic Encoder (relative)  | 4096 |
+| CTRE Magnetic Encoder (absolute) | 4096 |
+| Any pulse width encoded position | 4096 represents 100% duty cycle |
+| AndyMark CIM Coder| 80 (because 20 pulses => 80 edges)
+
 
 ###### Setup the soft limits
 Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
