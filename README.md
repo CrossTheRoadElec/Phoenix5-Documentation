@@ -520,24 +520,18 @@ Soft limits can be used to disable motor drive when the “Sensor Position” is
 Java -
 ```Java
 /* Talon configured to have soft limits 10000 native units in either direction and enabled */
-Hardware.rightMaster.configForwardSoftLimitThreshold(10000, 0);
-Hardware.rightMaster.configReverseSoftLimitThreshold(-10000, 0);
-Hardware.rightMaster.configForwardSoftLimitEnable(true, 0);
-Hardware.rightMaster.configReverseSoftLimitEnable(true, 0);
+rightMaster.configForwardSoftLimitThreshold(10000, 0);
+rightMaster.configReverseSoftLimitThreshold(-10000, 0);
+rightMaster.configForwardSoftLimitEnable(true, 0);
+rightMaster.configReverseSoftLimitEnable(true, 0);
 ```
-
-C++ -
 
 LabVIEW -
 
 ![](images/LV-softLimits.png)
 
 ###### Override the Soft Limit Enable
-After the soft limits have been configured, at any point you can override the enable to turn the soft limit functionality on or off.
-
-Java -
-
-C++ -
+After the soft limits have been configured, at any point you can override the enable to turn the soft limit functionality off.
 
 LabVIEW -
 
@@ -547,71 +541,38 @@ LabVIEW -
 ##### Closed-loop/Firmware Control Modes
 When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop control mode options to choose from. Below is a list with an explanation of each supported closed-loop type.
 
-**Position closed-loop -**
-The Talon's closed-loop logic can be used to maintain a target position. Target and sampled position is passed into the equation in native units, which can be found in the section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented).
+**Position closed-loop**
+The Talon's closed-loop logic can be used to maintain a target position. Target and sampled position is passed into the equation in native units.
 
-**Velocity closed-loop -**
-The Talon's closed-loop logic can be used to maintain a target velocity. Target and sampled velocity is passed into the equation in native units per 100ms, which can be found in section[How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented).
+**Velocity closed-loop**
+The Talon's closed-loop logic can be used to maintain a target velocity. Target and sampled velocity is passed into the equation in native units per 100ms.
 
-**Current closed-loop -**
-The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes, which can be found in section [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented). API expresses the target current in amperes.
+**Current closed-loop**
+The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes.
 
 Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting).
 
-**Motion profiling - Not tested/implemented yet**
-A recent addition to the Talon SRX is the motion profile mode. With this, a savvy developer can actually stream motion profile trajectory points into the Talon’s internal buffer (even while executing the profile). This allows fine control of position and speed throughout the entire movement. Since this is an advanced feature addition, documentation can be found here [**TempLink**](http://www.ctr-electronics.com/)
+**Motion Magic**
+Talon will closed-loop to target position while honoring an maximum "cruise" velocity and specified acceleration.
 
-**Motion Magic - Not tested/implemented yet**
+**Motion Magic (Arc)**
+This is an advanced control mode that will allow for simultaneous servoing of a distance and heading.  This will be released in a future update.
 
-**Motion Magic Arc -Not tested/implemented yet**
+**Motion profiling / Motion profiling (Arc)**
+With this, a savvy developer can actually stream motion profile trajectory points into the Talon’s internal buffer (even while executing the profile). This allows fine control of position and speed throughout the entire movement. 
+
+This feature is being reimplemented to allow for simulataneous servoing of a distance and heading (using Pigeon IMU) and will be released shortly.
 
 ###### Position closed-loop walkthrough
 Below is a full example for position closed-looping using the HERO development board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW. The position closed-loop examples can also be found below.
 Java -
 
-
-
 ###### Current closed-loop walkthrough
-
-
-##### How is the closed-loop-implemented?
-The closed-loop logic is the same regardless of which feedback sensor or closed-loop mode is selected. The verbatim implementation in the Talon firmware is displayed below.
+Coming soon.  This exists in last year's documentation and will be merge in accordingly.
 
 ##### I Want to process the sensor myself, How do I do that?
+All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
 
-#### Current limiting
-#### Status Frames and how to tweak them
-#### Accessing the raw signals on the Gadgeteer port
-
-### Multi-purpose/sensor Devices
-#### Pigeon IMU
-##### Where to begin?
-#### CANifier
-##### Where to begin?
-
-### Common Device API
-#### Error handling
-#### Detecting error conditions
-##### Did my device reset?
-##### Is the device on the CAN bus?
-#### Configuration Parameters - General Guide lines
-##### Configuration Parameters - Why the timeout?
-##### Configuration Parameters - Why the general API?
-
-## Software Object Model
-### Gearbox Model
-#### Why use Gearbox objects?
-### Drivetrain Model
-#### Why use Drivetrain objects?
-### Servo Object Model
-#### Programming language Servo Walkthroughs
-##### Language: Velocity Servo walkthrough
-##### Language: Motion Magic/Position Servo Walkthrough
-##### Language: Motion Magic with Arc Servo Walkthrough
-#### LabVIEW Servo walkthroughs
-##### LabVIEW: Velocity Servo walkthrough
-##### LabVIEW: Motion Magic/Position Servo Walkthrough
-##### LabVIEW: Motion Magic with Arc Servo Walkthrough
 ### WPILib SpeedController/Drivetrain Objects
 The Victor SPX and Talon SRX hardware objects can be converted to be used for any WPILib class or VI requiring a WPILib "SpeedController".
 PercentOutput is the only control mode of Victor SPX and Talon SRX that is supported for the WPILib objects.  If your motor controller is not already in PercentOutput mode, its mode will be changed to Percent Output when it is controlled from any WPILib object.
@@ -629,7 +590,13 @@ Opening Multiple Motors for a Drivetrain in Begin.vi:
 
 ![](images/LV-open4motors.png)
 
-## **Driver Station / Logger errors**
+## **Driver Station **
 ### What do I do when I see errors in Driver Station?
+DS Errors should be addressed as soon as they appear. This is because...
+- Phoenix API will report if a device is missing, not functioning, has too-old firmware, etc.
+- If errors are numerous and typical, then users cannot determine if there is a new problem to address.
+- A large stream of errors can bog down the Driverstation/roboRIO.  Phoenix Framework has a debouncing strategy to ensure this does not happen, but not all libraries do this.
 
-## **CRF Firmware Version**
+Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.  
+
+
