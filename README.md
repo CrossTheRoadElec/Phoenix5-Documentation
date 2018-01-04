@@ -311,9 +311,6 @@ Java -
 /* Talon Direction has been inverted */
 Hardware.Talon.setInverted(true);
 ```
-
-C++ -
-
 LabVIEW -
 You can pick your direction in the open VI.  Use the Set Invert VI if you need to change it again.
 
@@ -330,10 +327,6 @@ Java -
 Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Coast);
 Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Brake);
 ```
-
-
-C++ -
-
 LabVIEW -
 
 ![](images/LV-NeutralMode.png)
