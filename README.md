@@ -203,15 +203,48 @@ Instructions for upgrading the roboRIO are [here](#installing-phoenix-framework-
 
 ### Set your device IDs
 
-A CTRE CAN Device can have a device ID from 0 to 62.  63 and above are not allowed.  If you select an invalid ID, you will get an immediate prompt.
+A CTRE CAN Device can have a device ID from 0 to 62.  63 and above are not allowed.  If you select an invalid ID, you will get an immediate prompt.  
 
+Two dissimilar CAN models can use the same device ID.  For example, Talon SRX 1 and Victor SPX 1 can coexist on the same CAN bus.  However two models must not use the same device ID.  Set the device ID of each device in isolation or use the web-based config to change the default ID from '0' to a unique number, then duplicate/close-reopn the internet explorer page to re-populate the device tree.
+
+Since all devices default with a 
 ![Webdash-BadId](images/webdash-badid.png)
 
 ### Update your CAN Devices
+Select a CAN device in the device tree and press the "Update firmware button".  Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
+- C:\users\Public\Documents\FRC (or similar).
+- C:\users\Public\Documents\Cross The Road Electronics\LifeBoat\HERO Firmware Files
+
+Firmware files are named Product-Application-Version-Suffix.crf.
+
+At the time of writing the latest firmware files are...
+- Pigeon-Application-0.41-FixedParamResp.crf
+- CANifier-Application-0.40-FirmVers.crf
+- TalonSrx-Application-3.1.crf
+- VictorSpx-Application-3.1.crf
+
+NOTE: Firmware versions are read as MAJOR-DOT-MINOR. 
+E.g. 1.23 => One-dot-twenty-three
+E.g. 1.4 => One-dot-four
+Therefore 1.23 is *newer* than 1.4.
+
 ### Pick the device names
+Each device can be named uniquely to identify it's purpose or unique characteristics.  Feel free to change the contents of the name of a selected CAN device, and press Save.  If you clear the Name text entry and press save, the name will default to "Device (Device Number)" 
+
 ### Self-Test the hardware
+Press the self-test button to acquire a snapshot of the device's signals.  This can be used to determine various configuration information, sensor health, and reliability of the device.
+
+## **Where is the API**
+
+The API is available in several forms....
+- The LabVIEW/C++/Java API source is available on github.
+- HTML documentation for C++/Java is generally available on ctr-electronics.com and on the developer's PC after Phoenix install.
+- Eclipse supports intellisense/auto-coding features.
+
+The following sections should be followed to ensure the best software-developing experience.
+
 ### Add Javadoc if using Java
-Java users will have to add the Javadoc manually whenever creating or working with a new project to fully utilize the intellisense when programming. Steps can be found below.
+Eclipse Java users will have to add the Javadoc manually whenever creating or working with a new project to fully utilize the intellisense when programming. Steps can be found below.
 
 1. Using the Package Explorer in the Java view, navigate through your new project to the "Referenced Libraries" tab. From there, you will both find **CTRE_Phoenix.jar and CTRE_Phoenix-sources.jar.**
 ![](images/Java-AddingJavadocReferencedLibraries.png)
@@ -228,8 +261,6 @@ Java users will have to add the Javadoc manually whenever creating or working wi
 5. Now exit all windows by clicking on "OK". Verify that the Javadoc has been installed by hovering over any of the Phoenix Framework API which should bring up a small window with information about the API's functionality, parameters, return. It also grants the ability to go to the API's source location.
 ![](images/Java-AddingJavadocVerify.png)
 
-
-## **Where is the API**
 ### Java - How to intellisense/What to import
 The java libraries for the phoenix framework can be imported by starting the import with `import com.ctre.phoenix.` The line can be finished off by manually typing in the package wanted or by using intellisense. Intellisense can be brought up by pressing CTRL + Spacebar at the . (dot). This will show all the sub-packages, classes, and interfaces available within the current package as seen below.
 ![](images/Java-Intellisense.png)
