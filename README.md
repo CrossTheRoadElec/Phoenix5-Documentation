@@ -129,11 +129,11 @@ Download and unzip the latest version of the CTRE Phoenix Framework Installer.
 
 This page also contains some installer archives, so if you need an older version you can find it here as well.
 
-**FRC Teams:** For the 2018 competition season, the minimum installer version that will work with the current control system is version 5.X.X.X.
+**FRC Teams:** For the 2018 competition season, the minimum installer version that will work with the current control system is version 5.1.1.1.
 #### Running the Installer
 **Note:** You will need administrative privileges to run the installer.
 
-Run the executable that was downloaded in the previous step.
+Run the executable that was downloaded in the previous step.  If Windows prompts with an "unpublished" dialog box, press "More Info" and "Allow App to Run".
 
 ![](images/Phoenix-installerSplash.png)
 
@@ -159,7 +159,7 @@ Follow the instructions on the tab to install Phoenix on your roboRIO.
 When the upgrade is complete, a prompt will appear instructing LabVIEW teams restart their application.
 Java teams are also asked to redeploy their application to ensure the correct Phoenix library is installed (development PC vs robot controller).
 
-![LifeBoat-WebdashUpdateComplete](images\lifeboat-webdashupdatecomplete.png)
+![LifeBoat-WebdashUpdateComplete](images/lifeboat-webdashupdatecomplete.png)
 ### Installing Internet Explorer 11
 Internet Explorer 11 is necessary to use the roboRIO web-based configuration.  
 In the future, CTRE will be replacing this interface, but for the time being this is the primary means of checking the presence of your CAN devices.  This also allows for field-upgrade, device ID setting, etc.
@@ -299,8 +299,6 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 
 ![Talon SRX's B/C Button](images/TalonBootCalButton.png)
 
-[**Need image for Victor SPX's button?**](AnotherPic.jpg)
-
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
@@ -350,20 +348,15 @@ Current limiting configuration and enabling can be controlled by the following A
 3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, enforce current limiting as soon as current surpasses the peak current threshold.
 4. Enable current limiting.
 
-<!-- ```Java
+```Java
 /* The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms */
-Hardware.Talon.configContinuousCurrentLimit(10, 0);
-Hardware.Talon.configPeakCurrentLimit(15, 0);
-Hardware.Talon.configPeakCurrentDuration(100, 0);
-Hardware.Talon.enableCurrentLimit(true);
-``` -->
-
-C++ -
-```c++
-/* The following C++ example limits current to 15 amps at all times, working the same way as the 2017 Framework. */
+talon.configContinuousCurrentLimit(10, 0);
+talon.configPeakCurrentLimit(15, 0);
+talon.configPeakCurrentDuration(100, 0);
+talon.enableCurrentLimit(true);
 ```
+LabVIEW and C++ have similar function/VIs.
 
-LabVIEW -
 ##### Ramping
 The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
 
@@ -376,14 +369,11 @@ The open-loop ramp rate of a motor controller can be configured by using the `co
 Java -
 ```java
 /* Talon is configured to ramp from neutral to full within 2 seconds, and followers are configured to 0*/
-Hardware.leftMaster.configOpenloopRamp(2, 0);
-Hardware.leftFollower.configOpenloopRamp(0, 0);
-Hardware.rightMaster.configOpenloopRamp(2, 0);
-Hardware.rightFollower.configOpenloopRamp(0, 0);
+leftMaster.configOpenloopRamp(2, 0);
+leftFollower.configOpenloopRamp(0, 0); /* no need since master ramps */
+rightMaster.configOpenloopRamp(2, 0);
+rightFollower.configOpenloopRamp(0, 0); /* no need since master ramps */
 ```
-
-C++ -
-
 LabVIEW -
 
 ![](images/LV-openloopRamp.png)
