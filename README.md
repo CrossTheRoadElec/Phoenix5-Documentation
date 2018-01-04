@@ -598,6 +598,24 @@ Coming soon.  This exists in last year's documentation and will be merge in acco
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
 
+### Multi-purpose/sensor Devices
+#### Pigeon IMU
+##### Where to begin?
+Documentation will be updated soon.  
+In the meantime the pre-Phoenix API is relatively close.  See the software portion of the User's Guide.
+[Pigeon Tech Resources](http://www.ctr-electronics.com/gadgeteer-imu-module-pigeon.html#product_tabs_technical_resources)
+Additionally the example repositories can be used for reference.
+[Phoenix-Examples-Languages](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)
+[Phoenix-Examples-LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW)
+
+#### CANifier
+Documentation will be updated soon.  
+In the meantime the pre-Phoenix API is relatively close.  See the software portion of the User's Guide.
+[CANifier Tech Resources](http://www.ctr-electronics.com/can-can-canifier-driver-led-driver-gpio.html#product_tabs_technical_resources)
+Additionally the example repositories can be used for reference.
+[Phoenix-Examples-Languages](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)
+[Phoenix-Examples-LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW)
+
 ### WPILib SpeedController/Drivetrain Objects
 The Phoenix framework supports an adapter class for Victor SPX and Talon SRX hardware objects.  Depending on language, the developer needs to be made aware of the following sections below to utilize certain WPILIB classes/VIs.
 
