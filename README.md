@@ -499,14 +499,20 @@ LabVIEW -
 
 ###### What are the units of my sensor?
 Position units are in the natural units of the sensor.  This ensures the best resolution possible when performing closed-loops in firmware.  
-| Sensor Psition        | Units per rotatoin|
+
+| Sensor Type       | Units per rotation|
 | ------------- |:-------------:|
-| Quadrature Encoder : US Digital 1024 CPR      | 4096 (because Talon/CANifer counts every edge)
+| Quadrature Encoder : US Digital 1024 CPR| 4096 (because Talon/CANifer counts every edge)
 | CTRE Magnetic Encoder (relative)  | 4096 |
 | CTRE Magnetic Encoder (absolute) | 4096 |
 | Any pulse width encoded position | 4096 represents 100% duty cycle |
-| AndyMark CIM Coder| 80 (because 20 pulses => 80 edges)
+| AndyMark CIMcoder| 80 (because 20 pulses => 80 edges)
 
+Velocity is measured in sensor units per 100ms.  This ensures sufficient resolution regardless of the sensing strategy.
+For example, when using the CTRE Magnetic Encoder, 1u velocity represents 1/4096 of a rotation every 100ms.
+Generally you can multiply the velocity units by 600/UnitsPerRotation to obtain RPM.
+
+Tachometer velocity measurement is unique in that it measures time directly.  As a result, the reported velocity is calculated where 1024 represents a full "rotation".  This means that a velocity measurement of 1 represents 1/1024 of a rotation every 100ms.
 
 ###### Setup the soft limits
 Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
