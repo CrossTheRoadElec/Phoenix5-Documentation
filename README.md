@@ -82,9 +82,32 @@ See what control components make sense for your robotic needs at [CTR-Electronic
 - [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
 - [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
+- [Errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation#errata)
 
 ## **Purpose of this guide**
 To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
+
+## **What is new / Kickoff**
+The Phoenix framework provides the following new feature...
+- Advanced Current limiting (Peak Current vs Continuous Current with Peak timeout).
+- Support for the new Victor SPX.
+- New follower features (Victor SPX follows Talon SRX, vice versa)
+- Support for CANifier
+- Remote Limit Switches.  Victor SPX and Talon SRX can use other CANifiers/Victor SPXs/Talon SRXs for forward/reverse limit switch.
+- API changes to accommodate upcoming Cascaded-PID-Loop and Pigeon-integration in Talon SRX.
+- API changes to accommodate targeting heading during Motion Magic and Motion Profiling.
+- WPI_TalonSRX and WPI_VictorSPX classes that drop into WPILIB's various objects.  This allows clean implementation of the various WPILIB wrappers.
+- Increase in Talon SRX/ Victor SPX number of closed-loop slots (from two to four).
+- Robot Builder support for all devices above.
+- Support for all three FRC languages.
+- Motor controller configuration parameters can be defaulted with B/C press-and-hold on boot.
+- Documentation is now on GitHub to allow for greater collaboration, along with example repositories.
+
+## **What is coming next / Post Kickoff**
+Shortly after Kickoff will be an additional update to support...
+- Remote sensor selection
+- Pigeon IMU integration into Talon closed-loops (MotionMagicArc and MotionProfileArc).
+- Various upper level objects (Gearbox/Drivetrain/Servo objects with unit scaling).
 
 ## **Looking for the migration guide?**
 The migration guide is can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md).
@@ -650,3 +673,6 @@ At the time of writing the latest firmware files are...
 - CANifier-Application-0.40-FirmVers.crf
 - TalonSrx-Application-3.1.crf
 - VictorSpx-Application-3.1.crf
+
+## **Errata**
+- Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release.
