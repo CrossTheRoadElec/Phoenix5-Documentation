@@ -8,12 +8,13 @@ See what control components make sense for your robotic needs at [CTR-Electronic
 
 ---
 
-Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | or [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | Check [our Store](https://ctr-electronics.com)
+[Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | Check our [Store](https://ctr-electronics.com)
 
 ---
 ## Table of Contents
 
 - [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
+- [Looking for the migration guide?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#looking-for-the-migration-guide)
 - [Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#initial-hardware-testing)
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
   - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-pc)
@@ -84,6 +85,10 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
 
 ## **Purpose of this guide**
 To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
+
+## **Looking for the migration guide?**
+The migration guide is can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md).
+
 
 ## **Initial Hardware Testing**
 For your competition team to have the best chance of success, hardware components should be tested as soon as they are received.  This is generally done by...

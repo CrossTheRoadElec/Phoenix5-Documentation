@@ -1,6 +1,12 @@
 # Phoenix Framework Migration Guide
 ![Title](images/General-Title.png)
 
+---
+
+Something missing? [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | Check our [Store](https://ctr-electronics.com)
+
+---
+
 ## **Migration Language Examples**
 Below are several examples of the API changes done in Phoenix Framework.
 
