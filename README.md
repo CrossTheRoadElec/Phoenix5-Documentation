@@ -233,6 +233,11 @@ A CTRE CAN Device can have a device ID from 0 to 62.  63 and above are not allow
 Two dissimilar CAN models can use the same device ID.  For example, Talon SRX 1 and Victor SPX 1 can coexist on the same CAN bus.  However two models must not use the same device ID.  Set the device ID of each device in isolation or use the web-based config to change the default ID from '0' to a unique number, then duplicate/close-reopen the internet explorer page to re-populate the device tree.
 
 ### Update your CAN Devices
+You will need to be logged into the roboRIO Web-based configuration to update your CAN devices.
+Username is "admin" with a blank password.
+
+![](images/Webdash-Login.png)
+
 Select a CAN device in the device tree and press the "Update firmware button".  Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
 - C:\users\Public\Documents\FRC (or similar).
 - C:\users\Public\Documents\Cross The Road Electronics\LifeBoat\HERO Firmware Files
