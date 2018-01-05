@@ -158,6 +158,7 @@ https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads
 
 To test if Internet Explorer 11 is already installed, try running "iexplore" in the Windows start menu.
 Press Windows Key + 'R' to open Run window.  Type "iexplore" and press enter.
+
 ![Windows-Run](images/windows-run.png)
 
 ### Test the Phoenix Install in Eclipse
