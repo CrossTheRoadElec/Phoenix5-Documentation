@@ -30,7 +30,7 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
   - [Update your CAN Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices)
   - [Pick the device names](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-the-device-names)
   - [Self-Test the hardware](https://github.com/CrossTheRoadElec/Phoenix-Documentation#self-test-the-hardware)
-  - [Add Javadoc if using Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Add-Javadoc-if-using-Java)
+  - [Add Javadoc if using Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#add-javadoc-if-using-java)
 - [Where is the API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-is-the-api)
   - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#java---how-to-intellisensewhat-to-import)
   - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
@@ -55,22 +55,17 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
         - [How do I choose the sensor?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-choose-the-sensor)
         - [How do I know the sensor works?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-know-the-sensor-works)
         - [Sensor phase and why it matters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#sensor-phase-and-why-it-matters)
-        - [What are the units?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units)
+        - [What are the units?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor)
         - [Setup the soft limits](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
       - [Closed-loop Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loop-ramping)
       - [Closed-Loop/Firmware Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loopfirmware-control-modes)
-        - [Position closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-close-loop-walkthrough)
+        - [Position closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-closed-loop-walkthrough)
         - [Current closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-closed-loop-walkthrough)
-      - [How is the closed-loop implemented?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-is-the-closed-loop-implemented)
       - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#i-want-to-process-the-sensor-myself-how-do-i-do-that)
-    - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting-1)
-    - [Status Frames and how to tweak them](https://github.com/CrossTheRoadElec/Phoenix-Documentation#status-frames-and-how-to-tweak-them)
-    - [Accessing the raw signals on the Gadgeteer port](https://github.com/CrossTheRoadElec/Phoenix-Documentation#accessing-the-raw-signals-on-the-gadgeteer-port)
+    - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting)
   - [Multi-purpose/Sensor Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#multi-purposesensor-devices)
     - [Pigeon IMU](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pigeon-imu)
-      - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-to-begin)
     - [CANifier](https://github.com/CrossTheRoadElec/Phoenix-Documentation#canifier)
-      - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-to-begin-1)
   - [Common Device API](https://github.com/CrossTheRoadElec/Phoenix-Documentation#common-device-api)
       - [Error handling](https://github.com/CrossTheRoadElec/Phoenix-Documentation#error-handling)
       - [Detecting error conditions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#detecting-error-conditions)
@@ -80,26 +75,12 @@ Need info? Check the [Wiki](https://github.com/CrossTheRoadElec/Phoenix-Document
         - [Configuration Parameters - Why the timeout?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---why-the-timeout)
         - [Configuration Parameters - Why the general API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---why-the-general-api)
 - [Software Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#software-object-model)
-  - [Gearbox Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#gearbox-model)
-      - [Why use Gearbox objects?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#why-use-gearbox-objects)
-  - [Drivetrain Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#drivetrain-model)
-      - [Why use Drivetrain objects?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#why-use-drivetrain-objects)
-  - [Servo Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#servo-object-model)
-    - [Programming language Servo Walkthroughs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#programming-language-servo-walkthroughs)
-      - [Language: Velocity Servo walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#language-velocity-servo-walkthrough)
-      - [Language: Motion Magic/Position Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#language-motion-magicposition-servo-walkthrough)
-      - [Language: Motion Magic with Arc Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#language-motion-magic-with-arc-servo-walkthrough)
-    - [LabVIEW Servo walkthroughs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-servo-walkthroughs)
-      - [LabVIEW: Velocity Servo walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-velocity-servo-walkthrough)
-      - [LabVIEW: Motion Magic/Position Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-motion-magicposition-servo-walkthrough)
-      - [LabVIEW: Motion Magic with Arc Servo Walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview-motion-magic-with-arc-servo-walkthrough)
   - [WPILib SpeedController/Drivetrain Objects](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-speedcontrollerdrivetrain-objects)
-    - [WPILib: Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-java)
-    - [WPILib: C++](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-c++)
+    - [WPILib: Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-javac)
     - [WPILib: LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-labview)
-- [Driver Station / Logger errors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station--logger-errors)
+- [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
-- [CRF Firmware Version](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-version)
+- [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
 
 ## **Purpose of this guide**
 To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
@@ -175,12 +156,23 @@ Press Windows Key + 'R' to open Run window.  Type "iexplore" and press enter.
 ![Windows-Run](images\windows-run.png)
 
 ### Test the Phoenix Install in Eclipse
-Eclipse Screenshot of Phoenix library.
+The Eclipse files are typically installed in
+- C:\Users\your-user-name\wpilib\user\cpp\lib (libCTRE_Phoenix)
+- C:\Users\your-user-name\wpilib\user\java\lib (CTRE_Phoenix)
+
+After the Phoenix Installer places these files, generally Eclipse must be restarted.  Otherwise the IDE may report that the classes/functions cannot be found.
+
+C++ Teams can confirm that the library was installed and discovered correctly by monitoring the Console tab.
+![](images\CPP-ConsoleLibraryList.png)
+
+Java Teams can confirm that both jar files are discovered in the project tree.
+![](images\Java-AddingJavadocReferencedLibraries.png)
 
 ### Test the Phoenix Install in LabVIEW
-Open LabVIEW.  This can be done by opening an existing project or creating a new one.
+Testing the install can be done by opening LabVIEW and confirming the VIs are installed.  This can be done by opening an existing project or creating a new project, or opening a single VI in LabVIEW.  Whatever the simplest method to getting to the LabVIEW palette.
 
-Make sure the CTRE VIs appear.  Their palette and file locations can be found [here](#labview---where-are-the-vis)
+Instructions for checking the palette can be found [here](#labview---where-are-the-vis)
+The file locations are also explained for manually review of the VIs.
 
 ## **Everything is installed, can I write software now?**
 Nope, there is still more to do.  Follow each subsection to ensure device communication is healthy.  Otherwise troubleshooting your software will become unnecessarily difficult.
@@ -205,10 +197,9 @@ Instructions for upgrading the roboRIO are [here](#installing-phoenix-framework-
 
 A CTRE CAN Device can have a device ID from 0 to 62.  63 and above are not allowed.  If you select an invalid ID, you will get an immediate prompt.  
 
-Two dissimilar CAN models can use the same device ID.  For example, Talon SRX 1 and Victor SPX 1 can coexist on the same CAN bus.  However two models must not use the same device ID.  Set the device ID of each device in isolation or use the web-based config to change the default ID from '0' to a unique number, then duplicate/close-reopn the internet explorer page to re-populate the device tree.
-
-Since all devices default with a 
 ![Webdash-BadId](images/webdash-badid.png)
+
+Two dissimilar CAN models can use the same device ID.  For example, Talon SRX 1 and Victor SPX 1 can coexist on the same CAN bus.  However two models must not use the same device ID.  Set the device ID of each device in isolation or use the web-based config to change the default ID from '0' to a unique number, then duplicate/close-reopen the internet explorer page to re-populate the device tree.
 
 ### Update your CAN Devices
 Select a CAN device in the device tree and press the "Update firmware button".  Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
@@ -217,19 +208,15 @@ Select a CAN device in the device tree and press the "Update firmware button".  
 
 Firmware files are named Product-Application-Version-Suffix.crf.
 
-At the time of writing the latest firmware files are...
-- Pigeon-Application-0.41-FixedParamResp.crf
-- CANifier-Application-0.40-FirmVers.crf
-- TalonSrx-Application-3.1.crf
-- VictorSpx-Application-3.1.crf
+CRF Version information can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions).
 
-NOTE: Firmware versions are read as MAJOR-DOT-MINOR. 
+NOTE: Firmware versions are read as MAJOR-DOT-MINOR.
 E.g. 1.23 => One-dot-twenty-three
 E.g. 1.4 => One-dot-four
-Therefore 1.23 is *newer* than 1.4.
+Therefore 1.23 is **newer** than 1.4.
 
 ### Pick the device names
-Each device can be named uniquely to identify it's purpose or unique characteristics.  Feel free to change the contents of the name of a selected CAN device, and press Save.  If you clear the Name text entry and press save, the name will default to "Device (Device Number)" 
+Each device can be named uniquely to identify it's purpose or unique characteristics.  Feel free to change the contents of the name of a selected CAN device, and press Save.  If you clear the Name text entry and press save, the name will default to "Device (Device Number)"
 
 ### Self-Test the hardware
 Press the self-test button to acquire a snapshot of the device's signals.  This can be used to determine various configuration information, sensor health, and reliability of the device.
@@ -237,7 +224,7 @@ Press the self-test button to acquire a snapshot of the device's signals.  This 
 ## **Where is the API**
 
 The API is available in several forms....
-- The LabVIEW/C++/Java API source is available on github.
+- The LabVIEW/C++/Java API source is available on GitHub.
 - HTML documentation for C++/Java is generally available on ctr-electronics.com and on the developer's PC after Phoenix install.
 - Eclipse supports intellisense/auto-coding features.
 
@@ -584,7 +571,7 @@ Talon will closed-loop to target position while honoring an maximum "cruise" vel
 This is an advanced control mode that will allow for simultaneous servoing of a distance and heading.  This will be released in a future update.
 
 **Motion profiling / Motion profiling (Arc)**
-With this, a savvy developer can actually stream motion profile trajectory points into the Talon’s internal buffer (even while executing the profile). This allows fine control of position and speed throughout the entire movement. 
+With this, a savvy developer can actually stream motion profile trajectory points into the Talon’s internal buffer (even while executing the profile). This allows fine control of position and speed throughout the entire movement.
 
 This feature is being reimplemented to allow for simulataneous servoing of a distance and heading (using Pigeon IMU) and will be released shortly.
 
@@ -630,7 +617,7 @@ WPILIB motor controllers generally support...
 
 WPI_TalonSRX and WPI_VictorSPX can also be subclassed/forked/modified for advanced teams that want to use the WPILIB drivetrain classes (which are primarily designed for simple motor controllers), while using the advanced features of the Talon/Victor.
 
-Additionally future release of Phoenix will include CTRE developed drivetrain objects that natively support our motor controllers. 
+Additionally future release of Phoenix will include CTRE developed drivetrain objects that natively support our motor controllers.
 
 #### WPILib: LabVIEW
 LabVIEW's NI/WPILIB objects will natively work the Talon SRX/Victor SPX motor references.
@@ -651,4 +638,9 @@ DS Errors should be addressed as soon as they appear. This is because...
 
 Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.  
 
-
+## **CRF Firmware Versions**
+At the time of writing the latest firmware files are...
+- Pigeon-Application-0.41-FixedParamResp.crf
+- CANifier-Application-0.40-FirmVers.crf
+- TalonSrx-Application-3.1.crf
+- VictorSpx-Application-3.1.crf
