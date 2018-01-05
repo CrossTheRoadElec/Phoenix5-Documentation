@@ -91,8 +91,9 @@ To provide a top-to-bottom walk through of how to integrate CTRE's many hardware
 The Phoenix framework provides the following new feature...
 - Advanced Current limiting (Peak Current vs Continuous Current with Peak timeout).
 - Support for the new Victor SPX.
+- Talon SRX and Victor SPX deadband can be change from 4% to (0.1%  - 25%)
 - New follower features (Victor SPX follows Talon SRX, vice versa)
-- Support for CANifier
+- Support for CANifier (PWM input/ PWM output/ Common-Anode LED Strip/ Digital IO / Quadrature)
 - Remote Limit Switches.  Victor SPX and Talon SRX can use other CANifiers/Victor SPXs/Talon SRXs for forward/reverse limit switch.
 - API changes to accommodate upcoming Cascaded-PID-Loop and Pigeon-integration in Talon SRX.
 - API changes to accommodate targeting heading during Motion Magic and Motion Profiling.
@@ -105,7 +106,7 @@ The Phoenix framework provides the following new feature...
 
 ## **What is coming next / Post Kickoff**
 Shortly after Kickoff will be an additional update to support...
-- Remote sensor selection
+- Remote sensor selection for closed looping off of sensors on other CAN devices.
 - Pigeon IMU integration into Talon closed-loops (MotionMagicArc and MotionProfileArc).
 - Various upper level objects (Gearbox/Drivetrain/Servo objects with unit scaling).
 
