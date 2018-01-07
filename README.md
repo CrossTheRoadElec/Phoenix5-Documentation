@@ -680,6 +680,8 @@ Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in ro
 
 Use the web-based configuration page to [update](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices) the firmware of the device.
 
+Note that the robot application must be **restarted** for the firmware version check to clear.  This can be done by redeploying the robot application or simply restarting the robot.
+
 ## **CRF Firmware Versions**
 At the time of writing the latest firmware files are...
 - Pigeon-Application-0.41-FixedParamResp.crf
