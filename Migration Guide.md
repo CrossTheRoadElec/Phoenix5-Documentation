@@ -25,7 +25,7 @@ Below are several examples of the API changes done in Phoenix Framework.
 |Accessing low level feedback sensor. |  getPulseWidthPosition() | getSensorCollection(). getPulseWidthPosition()| Low level functions that access sensor data directly are now tucked under the sensor collection object.
 |Setting low level sensor.|talon.setEncPosition(newValue)|getSensorCollection(). setQuadraturePosition (pos, 10);|Same as above.  Also note that "Enc" has changed to "Quadrature".|
 |Direction / sensor phase / follower  |
-|Direction/Sensor flipping|talon.reverseSensor / talon.reverseOutput / talon.setInvert/ (similar reverse functions)|talon.SetInvert / talon.SetSensorPhase| Use sensor phase to align positive sensor velocity to positive motor output.  Once this is done you will never have to call any reverse function for the purpose of alignment.  Use SetInvert to choose what motor direction to apply when positive output is applied (green LEDs)|
+|Direction/Sensor flipping|reverseSensor / reverseOutput / setInvert / SetSensorDirection / (similar reverse functions)|talon.SetInvert / talon.SetSensorPhase| Use sensor phase to align positive sensor velocity to positive motor output.  Once this is done you will never have to call any reverse function for the purpose of alignment.  Use SetInvert to choose what motor direction to apply when positive output is applied (green LEDs)|
 |Sensor Units|
 |Position API|configEncoderCodesPerRev / configPotentiometerTurns|All Talon / Victor API uses sensor units|Positions are always in sensor units.  Quadrature units are 4X measurements where X units represents X quadrature edges.  Analog units are 1024 per voltage sweep from 0V to 3.3V (and wrapped back to 0V).  |
 |Velocity API|configEncoderCodesPerRev / configPotentiometerTurns|All Talon / Victor API uses sensor units per 100ms|Velocity units are always change in sensor units per 100ms, regardless of configuration.  Tachometer is always in units per 100ms, where each units is 1/1024 of a rotation.  |
@@ -33,6 +33,5 @@ Below are several examples of the API changes done in Phoenix Framework.
 ||configNominalOutputVoltage / configPeakOutputVoltage / | configPeakOutputForward / configPeakOutputReverse / configNominalOutputForward / configNominalOutputReverse| The inputs are now [-1,+1] which represents [-100%,+100], and not based on voltage.  This was never the case as last year the inputs where naively divided by 12.
 |Factory Default - Press and hold B/C button on boot.|
 ||Resets PWM Calibration |Resets PWM Calibration  / Resets persistent CAN settings, EXCEPT for Device ID and Neutral Brake. | This should be done on any Talon when replacing/swapping/troubleshooting.  Because of the large number of persistent config settings, it is simpler to default all peak/nominal/measurement/etc configs first and only deliberately set the desired parameters in code.
-|||||
-|||||
+|Selecting sensor|SetFeedbackDevice|ConfigSelectedFeedbackSensor|All Config* routines are persistent|
 |||||
