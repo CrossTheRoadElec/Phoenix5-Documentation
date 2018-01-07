@@ -191,7 +191,7 @@ The Eclipse files are typically installed in
 - C:\Users\your-user-name\wpilib\user\cpp\lib (libCTRE_Phoenix)
 - C:\Users\your-user-name\wpilib\user\java\lib (CTRE_Phoenix)
 
-After the Phoenix Installer places these files, generally Eclipse must be restarted.  Otherwise the IDE may report that the classes/functions cannot be found.
+After the Phoenix Installer places these files, generally **Eclipse must be restarted**.  Otherwise the IDE may report that the classes/functions cannot be found.
 
 C++ Teams can confirm that the library was installed and discovered correctly by monitoring the Console tab.
 ![](images\CPP-ConsoleLibraryList.png)
