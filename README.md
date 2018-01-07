@@ -81,6 +81,7 @@ See what control components make sense for your robotic needs at [CTR-Electronic
     - [WPILib: LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-labview)
 - [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
+  - [Driver Station says the firmware is too old](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-is-too-old)
 - [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
 - [Errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation#errata)
 
@@ -673,6 +674,11 @@ DS Errors should be addressed as soon as they appear. This is because...
 - A large stream of errors can bog down the Driverstation/roboRIO.  Phoenix Framework has a debouncing strategy to ensure this does not happen, but not all libraries do this.
 
 Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.  
+
+### Driver Station says the firmware is too old.
+![DS-FirmwareTooOld](images\DS-FirmwareTooOld.png)
+
+Use the web-based configuration page to [update](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices) the firmware of the device.
 
 ## **CRF Firmware Versions**
 At the time of writing the latest firmware files are...
