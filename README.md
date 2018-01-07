@@ -676,7 +676,7 @@ DS Errors should be addressed as soon as they appear. This is because...
 Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.  
 
 ### Driver Station says the firmware is too old.
-![DS-FirmwareTooOld](images\DS-FirmwareTooOld.png)
+![DS-FirmwareTooOld](images/DS-FirmwareTooOld.png)
 
 Use the web-based configuration page to [update](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices) the firmware of the device.
 
