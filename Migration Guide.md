@@ -7,9 +7,7 @@ Something missing? [Create an issue](https://github.com/CrossTheRoadElec/Phoenix
 
 ---
 
-## **Migration Language Examples**
-Below are several examples of the API changes done in Phoenix Framework.
-
+## **Migration Table**
 | Description   |      HERO SDK v4/FRC-2017     |  Phoenix v5 | Details |
 |---------|:-------------:|:------:|:---------------------|
 |General|
