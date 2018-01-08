@@ -42,4 +42,5 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Motion Profiling and Motion Magic||||
 |Motion Magic Cruise Velocity|setMotionMagicCruiseVelocity|configMotionCruiseVelocity|Configures cruise velocity for motion magic|
 |Motion Magic Acceleration| setMotionMagicAcceleration|configMotionAcceleration|Configures acceleration for motion magic|
+|Ramping|setVoltageRampRate(double voltPerSec)|configOpenloopRamp(secondsFromNeutralToFull, timeoutMs), configClosedloopRamp(secondsFromNeutralToFull, timeoutMs)|Separate Ramp Rates for Open/Closed Loop.  Ramp expressed as seconds to go from neutral throttle to full throttle.|
 |||||
