@@ -3,7 +3,7 @@
 
 ---
 
-API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.html) [C++](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html) | [2018 Documentation](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)/[LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW) |  [Migration Guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md) | [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | Check our [Store](https://ctr-electronics.com)
+API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.html) [C++](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html) | [2018 Documentation](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)/[LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW) |  [Migration Guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md) | [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | [Store](https://ctr-electronics.com)
 
 ---
 
