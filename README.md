@@ -92,7 +92,7 @@ To provide a top-to-bottom walk through of how to integrate CTRE's many hardware
 The Phoenix framework provides the following new feature...
 - Advanced Current limiting (Peak Current vs Continuous Current with Peak timeout).
 - Support for the new Victor SPX.
-- Talon SRX and Victor SPX deadband can be change from 4% to (0.1%  - 25%)
+- Talon SRX and Victor SPX deadband can be change from 4% to (0.1%  - 25%) for all control modes.
 - New follower features (Victor SPX follows Talon SRX, vice versa)
 - Support for CANifier (PWM input/ PWM output/ Common-Anode LED Strip/ Digital IO / Quadrature)
 - Remote Limit Switches.  Victor SPX and Talon SRX can use other CANifiers/Victor SPXs/Talon SRXs for forward/reverse limit switch.
