@@ -35,7 +35,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Velocity API|configEncoderCodesPerRev / configPotentiometerTurns|All Talon / Victor API uses sensor units per 100ms|Velocity units are always change in sensor units per 100ms, regardless of configuration.  Tachometer is always in units per 100ms, where each units is 1/1024 of a rotation.  |
 ||getSpeed|[getSelectedSensorVelocity](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#getSelectedSensorVelocity-int-)| The return value is in units per 100ms for all sensor types.  Sensor must be selected using configSelectedFeedbackSensor()/  Multiply by (600/SensorUnitsPerRotation) to convert into RPM.  
 |Peak and Nominal outputs|
-||configNominalOutputVoltage / configPeakOutputVoltage / | configPeakOutputForward / configPeakOutputReverse / configNominalOutputForward / configNominalOutputReverse| The inputs are now [-1,+1] which represents [-100%,+100], and not based on voltage.  This was never the case as last year the inputs where naively divided by 12.
+||configNominalOutputVoltage / configPeakOutputVoltage / configMaxOutputVoltage| configPeakOutputForward / configPeakOutputReverse / configNominalOutputForward / configNominalOutputReverse| The inputs are now [-1,+1] which represents [-100%,+100], and not based on voltage.  This was never the case as last year the inputs where naively divided by 12.
 |Factory Default - Press and hold B/C button on boot.|
 ||Resets PWM Calibration |Resets PWM Calibration  / Resets persistent CAN settings, EXCEPT for Device ID and Neutral Brake. | This should be done on any Talon when replacing/swapping/troubleshooting.  Because of the large number of persistent config settings, it is simpler to default all peak/nominal/measurement/etc configs first and only deliberately set the desired parameters in code.
 |Selecting sensor|SetFeedbackDevice|ConfigSelectedFeedbackSensor|All Config* routines are persistent|
@@ -44,4 +44,5 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Motion Magic Acceleration| setMotionMagicAcceleration|configMotionAcceleration|Configures acceleration for motion magic|
 |Ramping|setVoltageRampRate(double voltPerSec)|configOpenloopRamp(secondsFromNeutralToFull, timeoutMs), configClosedloopRamp(secondsFromNeutralToFull, timeoutMs)|Separate Ramp Rates for Open/Closed Loop.  Ramp expressed as seconds to go from neutral throttle to full throttle.|
 |Closed-loop Error|setAllowableClosedLoopErr|configAllowableClosedloopError|Function has been renamed.|
+|Profile Slot Select|setProfile|selectProfileSlot(int slotIdx, int pidIdx)|Both the profile slot and the PID slot must be specified.  If just using the main PID loop, use 0 for the PID slot.|
 |||||
