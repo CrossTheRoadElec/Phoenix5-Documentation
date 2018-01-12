@@ -82,7 +82,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 - [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
   - [Driver Station says the firmware is too old](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-is-too-old)
-  - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-ID)
+  - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-id)
 - [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
 - [Errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation#errata)
 
