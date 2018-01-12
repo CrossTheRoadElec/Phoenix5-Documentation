@@ -82,6 +82,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 - [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
   - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
   - [Driver Station says the firmware is too old](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-is-too-old)
+  - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-ID)
 - [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
 - [Errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation#errata)
 
@@ -681,6 +682,13 @@ Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in ro
 Use the web-based configuration page to [update](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices) the firmware of the device.
 
 Note that the robot application must be **restarted** for the firmware version check to clear.  This can be done by redeploying the robot application or simply restarting the robot.
+
+### Driver Station says the firmware could not be retrieved and to check the firmware and ID.
+![DS-FirmwareNotReceived](images/DS-FirmwareNotReceived.png)
+
+This usually indicates that your device ID is wrong or your firmware pre-dates Phoenix.
+
+Use the web-based configuration page to check your deviced IDs and make sure your firmware is [up-do-date](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices)
 
 ## **CRF Firmware Versions**
 At the time of writing the latest firmware files are...
