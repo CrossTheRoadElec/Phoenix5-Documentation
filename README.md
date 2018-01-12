@@ -688,7 +688,7 @@ Note that the robot application must be **restarted** for the firmware version c
 
 This usually indicates that your device ID is wrong or your firmware pre-dates Phoenix.
 
-Use the web-based configuration page to check your device IDs and make sure your firmware is [up-do-date](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices)
+Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices).
 
 ## **CRF Firmware Versions**
 At the time of writing the latest firmware files are...
