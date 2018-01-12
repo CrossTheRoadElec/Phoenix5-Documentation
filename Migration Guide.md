@@ -8,6 +8,8 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 ---
 
 ## **Migration Table**
+**NOTE: C++/C# routines use PascalCase, where the function's first letter is upper case.  Java functions are camelCase, where the function's first letter is lower case.**
+
 | Description   |      HERO SDK v4/FRC-2017     |  Phoenix v5 | Details |
 |---------|:-------------:|:------:|:---------------------|
 |**General**|
