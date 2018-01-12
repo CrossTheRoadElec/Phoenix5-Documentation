@@ -244,9 +244,12 @@ Select a CAN device in the device tree and press the "Update firmware button".  
 - C:\users\Public\Documents\FRC (or similar).
 - C:\users\Public\Documents\Cross The Road Electronics\LifeBoat\HERO Firmware Files
 
+Make sure when checking these folders that you are looking on the same computer you installed Phoenix.
+
 Firmware files are named Product-Application-Version-Suffix.crf.
 
-CRF Version information can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions).
+**Minimum Talon SRX firmware is 3.1.**  
+Specific CRF Version information can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions).
 
 NOTE: Firmware versions are read as MAJOR-DOT-MINOR.
 E.g. 1.23 => One-dot-twenty-three
