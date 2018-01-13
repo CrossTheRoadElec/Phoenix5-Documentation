@@ -694,15 +694,21 @@ This usually indicates that your device ID is wrong or your firmware pre-dates P
 Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices).
 
 ## **CRF Firmware Versions**
-At the time of writing the latest firmware files are...
+Phoenix 5.2.1.1:
+- Pigeon-Application-0.41-FixedParamResp.crf
+- CANifier-Application-0.40-FirmVers.crf
+- **TalonSrx-Application-3.3.crf** (Motion Profile added).
+- VictorSpx-Application-3.1.crf
+
+Phoenix 5.1.3.1:
 - Pigeon-Application-0.41-FixedParamResp.crf
 - CANifier-Application-0.40-FirmVers.crf
 - TalonSrx-Application-3.1.crf
 - VictorSpx-Application-3.1.crf
 
 ## **Errata**
-5.2.1.1:
+Phoenix 5.2.1.1:
 - getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
 
-5.1.3.1:
+Phoenix 5.1.3.1:
 - Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
