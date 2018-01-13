@@ -701,7 +701,8 @@ At the time of writing the latest firmware files are...
 - VictorSpx-Application-3.1.crf
 
 ## **Errata**
-5.2.1.1
+5.2.1.1:
 - getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
+
 5.1.3.1:
 - Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
