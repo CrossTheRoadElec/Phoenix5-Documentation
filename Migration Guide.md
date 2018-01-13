@@ -59,6 +59,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Closed-loop Error|setAllowableClosedLoopErr|configAllowableClosedloopError|Function has been renamed.|
 ||getError |getClosedLoopError|Function has been renamed.|
 |Profile Slot Select|setProfile|selectProfileSlot(int slotIdx, int pidIdx)|Both the profile slot and the PID slot must be specified.  If just using the main PID loop, use 0 for the PID slot.|
+|Closed-loop Target|getSetpoint|getClosedLoopTarget|Function has been renamed.  This function also only works for closed-loop modes.|
 |**Limit Switches**|
 | Enable Override | enableLimitSwitch | overrideLimitSwitchesEnable | Function name reflects that this API setting is overriding the settings configured for each individual limit switch.|
 | Configure Limit Switches Sources | ConfigFwdLimitSwitchNormallyOpen/ ConfigRevLimitSwitchNormallyOpen | configForwardLimitSwitchSource / configReverseLimitSwitchSource | Limit Switch source must be set - these functions also allow setting the normally open/closed behavior.|
