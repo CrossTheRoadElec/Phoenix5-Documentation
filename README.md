@@ -14,77 +14,77 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 ## Table of Contents
 
 - [Purpose of this guide](#purpose-of-this-guide)
-- [Looking for the migration guide?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#looking-for-the-migration-guide)
-- [Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#initial-hardware-testing)
-- [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
-  - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-pc)
-    - [Download the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#download-the-installer)
-    - [Running the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#running-the-installer)
-    - [Phoenix Framework for Non-Windows Machines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines)
-  - [Installing Phoenix Framework onto your FRC robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-your-frc-robot)
-  - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
-  - [Test the Phoenix Install in Eclipse](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-phoenix-install-in-eclipse)
-  - [Test the Phoenix Install in LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-phoenix-install-in-labview)
-- [Everything is installed, can I write software now?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#everything-is-installed-can-i-write-software-now)
-  - [Check the web-based configuration](https://github.com/CrossTheRoadElec/Phoenix-Documentation#check-the-web-based-configuration)
-  - [Set your device IDs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#set-your-device-ids)
-  - [Update your CAN Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices)
-  - [Pick the device names](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-the-device-names)
-  - [Self-Test the hardware](https://github.com/CrossTheRoadElec/Phoenix-Documentation#self-test-the-hardware)
-  - [Add Javadoc if using Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#add-javadoc-if-using-java)
-- [Where is the API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-is-the-api)
-  - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#java---how-to-intellisensewhat-to-import)
-  - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
-  - [LabVIEW - Where are the VIs? ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview---where-are-the-vis)
-    - [Motor Controller VIs - What are MC and E-MC?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controller-vis---what-are-mc-and-e-mc)
-- [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-object-model)
-  - [Motor Controllers](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
-    - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-to-begin)
-    - [Factory Default the Configuration Parameters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#factory-default-the-configuration-parameters)
-    - [Open-Loop (No Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#open-loop-no-sensor-control)
-      - [Pick your direction](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-your-direction)
-      - [Pick your neutral mode](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-your-neutral-mode)
-      - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting)
-      - [Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#ramping)
-      - [Follower](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower)
-    - [Setup Limit Switches](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-limit-switches)
-      - [Limit Switch Source](https://github.com/CrossTheRoadElec/Phoenix-Documentation#limit-switch-source)
-      - [Limit Switch Override Enable](https://github.com/CrossTheRoadElec/Phoenix-Documentation#limit-switch-override-enable)
-    - [Closed-Loop (Using Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loop-using-sensor-control)
-      - [Sensors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#sensors)
-        - [Why bother with sensors?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#why-bother-with-sensors)
-        - [How do I choose the sensor?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-choose-the-sensor)
-        - [How do I know the sensor works?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-know-the-sensor-works)
-        - [Sensor phase and why it matters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#sensor-phase-and-why-it-matters)
-        - [What are the units?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor)
-        - [Setup the soft limits](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
-      - [Closed-loop Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loop-ramping)
-      - [Closed-Loop/Firmware Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loopfirmware-control-modes)
-        - [Position closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-closed-loop-walkthrough)
-        - [Current closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-closed-loop-walkthrough)
-      - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#i-want-to-process-the-sensor-myself-how-do-i-do-that)
-    - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting)
-  - [Multi-purpose/Sensor Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#multi-purposesensor-devices)
-    - [Pigeon IMU](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pigeon-imu)
-    - [CANifier](https://github.com/CrossTheRoadElec/Phoenix-Documentation#canifier)
-  - [Common Device API](https://github.com/CrossTheRoadElec/Phoenix-Documentation#common-device-api)
-      - [Error handling](https://github.com/CrossTheRoadElec/Phoenix-Documentation#error-handling)
-      - [Detecting error conditions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#detecting-error-conditions)
-        - [Did my device reset?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#did-my-device-reset)
-        - [Is the device on the CAN bus?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#is-the-device-on-the-can-bus)
-      - [Configuration Parameters - General Guide lines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---general-guide-lines)
-        - [Configuration Parameters - Why the timeout?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---why-the-timeout)
-        - [Configuration Parameters - Why the general API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---why-the-general-api)
-- [Software Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#software-object-model)
-  - [WPILib SpeedController/Drivetrain Objects](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-speedcontrollerdrivetrain-objects)
-    - [WPILib: Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-javac)
-    - [WPILib: LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-labview)
-- [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
-  - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
-  - [Driver Station says the firmware is too old](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-is-too-old)
-  - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-id)
-- [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
-- [Errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation#errata)
+- [Looking for the migration guide?](#looking-for-the-migration-guide)
+- [Initial Hardware Testing](#initial-hardware-testing)
+- [Before you write any software!](#before-you-write-any-software)
+  - [Installing Phoenix Framework onto PC](#installing-phoenix-framework-onto-pc)
+    - [Download the Installer](#download-the-installer)
+    - [Running the Installer](#running-the-installer)
+    - [Phoenix Framework for Non-Windows Machines](#phoenix-framework-for-non-windows-machines)
+  - [Installing Phoenix Framework onto your FRC robot](#installing-phoenix-framework-onto-your-frc-robot)
+  - [Install Internet Explorer 11](#installing-internet-explorer-11)
+  - [Test the Phoenix Install in Eclipse](#test-the-phoenix-install-in-eclipse)
+  - [Test the Phoenix Install in LabVIEW](#test-the-phoenix-install-in-labview)
+- [Everything is installed, can I write software now?](#everything-is-installed-can-i-write-software-now)
+  - [Check the web-based configuration](#check-the-web-based-configuration)
+  - [Set your device IDs](#set-your-device-ids)
+  - [Update your CAN Devices](#update-your-can-devices)
+  - [Pick the device names](#pick-the-device-names)
+  - [Self-Test the hardware](#self-test-the-hardware)
+  - [Add Javadoc if using Java](#add-javadoc-if-using-java)
+- [Where is the API?](#where-is-the-api)
+  - [Java - How to intellisense/What to import ](#java---how-to-intellisensewhat-to-import)
+  - [C++ - How to intellisense/What header ](#c---how-to-intellisensewhat-header)
+  - [LabVIEW - Where are the VIs? ](#labview---where-are-the-vis)
+    - [Motor Controller VIs - What are MC and E-MC?](#motor-controller-vis---what-are-mc-and-e-mc)
+- [Hardware Object Model](#hardware-object-model)
+  - [Motor Controllers](#motor-controllers)
+    - [Where to begin?](#where-to-begin)
+    - [Factory Default the Configuration Parameters](#factory-default-the-configuration-parameters)
+    - [Open-Loop (No Sensor) Control](#open-loop-no-sensor-control)
+      - [Pick your direction](#pick-your-direction)
+      - [Pick your neutral mode](#pick-your-neutral-mode)
+      - [Current limiting](#current-limiting)
+      - [Ramping](#ramping)
+      - [Follower](#follower)
+    - [Setup Limit Switches](#setup-limit-switches)
+      - [Limit Switch Source](#limit-switch-source)
+      - [Limit Switch Override Enable](#limit-switch-override-enable)
+    - [Closed-Loop (Using Sensor) Control](#closed-loop-using-sensor-control)
+      - [Sensors](#sensors)
+        - [Why bother with sensors?](#why-bother-with-sensors)
+        - [How do I choose the sensor?](#how-do-i-choose-the-sensor)
+        - [How do I know the sensor works?](#how-do-i-know-the-sensor-works)
+        - [Sensor phase and why it matters](#sensor-phase-and-why-it-matters)
+        - [What are the units?](#what-are-the-units-of-my-sensor)
+        - [Setup the soft limits](#setup-the-soft-limits)
+      - [Closed-loop Ramping](#closed-loop-ramping)
+      - [Closed-Loop/Firmware Control Modes](#closed-loopfirmware-control-modes)
+        - [Position closed-loop walkthrough](#position-closed-loop-walkthrough)
+        - [Current closed-loop walkthrough](#current-closed-loop-walkthrough)
+      - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
+    - [Current limiting](#current-limiting)
+  - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
+    - [Pigeon IMU](#pigeon-imu)
+    - [CANifier](#canifier)
+  - [Common Device API](#common-device-api)
+      - [Error handling](#error-handling)
+      - [Detecting error conditions](#detecting-error-conditions)
+        - [Did my device reset?](#did-my-device-reset)
+        - [Is the device on the CAN bus?](#is-the-device-on-the-can-bus)
+      - [Configuration Parameters - General Guide lines](#configuration-parameters---general-guide-lines)
+        - [Configuration Parameters - Why the timeout?](#configuration-parameters---why-the-timeout)
+        - [Configuration Parameters - Why the general API?](#configuration-parameters---why-the-general-api)
+- [Software Object Model](#software-object-model)
+  - [WPILib SpeedController/Drivetrain Objects](#wpilib-speedcontrollerdrivetrain-objects)
+    - [WPILib: Java/C++](#wpilib-javac)
+    - [WPILib: LabVIEW](#wpilib-labview)
+- [Driver Station](#driver-station)
+  - [What do I do when I see errors in Driver Station?](#what-do-i-do-when-i-see-errors-in-driver-station)
+  - [Driver Station says the firmware is too old](#driver-station-says-the-firmware-is-too-old)
+  - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-id)
+- [CRF Firmware Versions](#crf-firmware-versions)
+- [Errata](#errata)
 
 ## **Purpose of this guide**
 To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
@@ -136,7 +136,7 @@ The Phoenix Framework installer is the Windows Executable Installer that provide
 
 **FRC Teams:** Phoenix Framework should be installed after all other FRC software, including LabVIEW and/or Eclipse and the Driver Station update.  See the [FRC Screensteps](http://wpilib.screenstepslive.com/s/currentCS) for instructions on FRC Software.
 
-If your computer is not running a Windows operating system, see the [non-windows](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines) section.
+If your computer is not running a Windows operating system, see the [non-windows](#phoenix-framework-for-non-windows-machines) section.
 #### Download the Installer
 The installer can be found [here](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources).
 Download and unzip the latest version of the CTRE Phoenix Framework Installer.
@@ -217,7 +217,7 @@ A useful diagnostic feature in the FRC Control system is the roboRIO's Web-based
 When connected via **USB**, you can generally type **172.22.11.2** to quickly reach web-based config.
 ![](images/Webdash-CheckWebdash.png)
 
-Because the interface uses Silverlight, the user must use Internet Explorer 11.  Instructions on installing Internet Explorer can be found  [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
+Because the interface uses Silverlight, the user must use Internet Explorer 11.  Instructions on installing Internet Explorer can be found  [here.](#installing-internet-explorer-11)
 
 ### Missing "CAN Interface"
 If "CAN Interface" is missing, then the web-based config plugin is likely not installed.
@@ -251,7 +251,7 @@ Make sure when checking these folders that you are looking on the same computer 
 Firmware files are named Product-Application-Version-Suffix.crf.
 
 **Minimum Talon SRX firmware is 3.1.**  
-Specific CRF Version information can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions).
+Specific CRF Version information can be found [here](#crf-firmware-versions).
 
 NOTE: Firmware versions are read as MAJOR-DOT-MINOR.
 E.g. 1.23 => One-dot-twenty-three
@@ -296,7 +296,7 @@ The java libraries for the phoenix framework can be imported by starting the imp
 ![](images/Java-Intellisense.png)
 ![](images/Java-IntellisenseSymbols.png)
 
-If the Javadoc was installed properly, which was explained in the ["Add Javadoc if using Java"](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Add-Javadoc-if-using-Java) section, you should have the ability to hover over the Phoenix Framework API and find it's functionality details, parameters and return.
+If the Javadoc was installed properly, which was explained in the ["Add Javadoc if using Java"](#add-javadoc-if-using-java) section, you should have the ability to hover over the Phoenix Framework API and find it's functionality details, parameters and return.
 ![](images/java-IntellisenseCheck.png)
 ### C++ - How to intellisense/What header
 C++ modules simply need to include one header
@@ -536,7 +536,7 @@ Once you have deployed the code and opened SmartDashboard from the FRC Driver St
 
 ###### Sensor phase and why it matters
 Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive throttle. To test this, first drive the motor manually (using
-gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
+gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
 
 Sensor phase can be set by using `setSensorPhase()`. If the sensor is out of phase, set true.
 
@@ -605,7 +605,7 @@ The Talon's closed-loop logic can be used to maintain a target velocity. Target 
 **Current closed-loop**
 The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes.
 
-Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting).
+Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](#current-limiting).
 
 **Motion Magic**
 Talon will closed-loop to target position while honoring an maximum "cruise" velocity and specified acceleration.
@@ -684,7 +684,7 @@ Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in ro
 ### Driver Station says the firmware is too old.
 ![DS-FirmwareTooOld](images/DS-FirmwareTooOld.png)
 
-Use the web-based configuration page to [update](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices) the firmware of the device.
+Use the web-based configuration page to [update](#update-your-can-devices) the firmware of the device.
 
 Note that the robot application must be **restarted** for the firmware version check to clear.  This can be done by redeploying the robot application or simply restarting the robot.
 
@@ -693,7 +693,7 @@ Note that the robot application must be **restarted** for the firmware version c
 
 This usually indicates that your device ID is wrong or your firmware pre-dates Phoenix.
 
-Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices).
+Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](#update-your-can-devices).
 
 ## **CRF Firmware Versions**
 Phoenix 5.2.1.1:
