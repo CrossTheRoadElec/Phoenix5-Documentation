@@ -13,7 +13,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 ---
 ## Table of Contents
 
-- [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
+- [Purpose of this guide](#purpose-of-this-guide)
 - [Looking for the migration guide?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#looking-for-the-migration-guide)
 - [Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#initial-hardware-testing)
 - [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
