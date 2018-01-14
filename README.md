@@ -558,8 +558,8 @@ Position units are in the natural units of the sensor.  This ensures the best re
 | Sensor Type       | Units per rotation|
 | ------------- |:-------------:|
 | Quadrature Encoder : US Digital 1024 CPR| 4096 (because Talon/CANifer counts every edge)
-| CTRE Magnetic Encoder (relative)  | 4096 |
-| CTRE Magnetic Encoder (absolute) | 4096 |
+| CTRE Magnetic Encoder (relative/quadrature)  | 4096 |
+| CTRE Magnetic Encoder (absolute/pulse width encoded) | 4096 |
 | Any pulse width encoded position | 4096 represents 100% duty cycle |
 | AndyMark CIMcoder| 80 (because 20 pulses => 80 edges)
 
