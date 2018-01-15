@@ -237,7 +237,8 @@ Username is "admin" with a blank password.
 
 ![](images/Webdash-Login.png)
 
-Select a CAN device in the device tree and press the "Update firmware button".  Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
+Select a CAN device in the device tree and press the "Update firmware button".
+
 #### Firmware (CRF) Location
 Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
 - C:\users\Public\Documents\FRC (or similar).
