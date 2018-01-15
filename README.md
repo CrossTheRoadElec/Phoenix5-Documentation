@@ -647,7 +647,7 @@ Additionally the example repositories can be used for reference.
 The Talon SRX, Victor SPX, CANifier, and Pigeon IMU have a common set of device functions.  These are explained below.
 
 #### Error handling
-In C++/Java, many routines return an (ErrorCode)[http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ErrorCode.html].  Depending on the function, this can be used to determine if the function was successful.
+In C++/Java, many routines return an [ErrorCode](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ErrorCode.html).  Depending on the function, this can be used to determine if the function was successful.
 
 Additionally each object has a getLastError() routine that will return the code for the last function called.
 
@@ -656,12 +656,12 @@ In LabVIEW, the error output is filled with a CTRE error core when an error cond
 In all circumstances, error events are also sent to the Driver Station console output.
 
 #### Did my device reset?
-All device classes and VIs support a '''hasResetOccurred''' routine that allows the caller to poll if the device has reset since last call.  Additionally Talon SRX and Victor SPX have a sticky fault (accessible via web-based config or API) to indicate if the motor controller has been reset/power-booted during robot-enable.
+All device classes and VIs support a `hasResetOccurred` routine that allows the caller to poll if the device has reset since last call.  Additionally, Talon SRX and Victor SPX have a sticky fault (accessible via web-based config or API) to indicate if the motor controller has been reset/power-booted during robot-enable.
 
 #### Configuration Parameters
-In addition to the feature specific config* routines/VIs in C++/Java/LabVIEW, there are general Config Parameter routines that will take an arbitrary enumeration value type (ParamEnum)[http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ParamEnum.html].
+In addition to the feature specific config* routines/VIs in C++/Java/LabVIEW, there are general Config Parameter routines that will take an arbitrary enumeration value type [ParamEnum](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ParamEnum.html).
 
-When using the general configuration get/set routines, '''ordinal''' can be used to specify
+When using the general configuration get/set routines, `ordinal` can be used to specify...
 - which PID slot to select (when accessing gains).
 - which PID loop to select (when accessing PID signals such as integral accumulator)
 - which limit switch direction, 0 for forward, 1 for reverse (when accessing limit parameters)
