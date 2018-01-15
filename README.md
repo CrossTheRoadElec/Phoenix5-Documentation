@@ -62,6 +62,11 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
       - [Closed-Loop/Firmware Control Modes](#closed-loopfirmware-control-modes)
         - [Position closed-loop walkthrough](#position-closed-loop-walkthrough)
         - [Current closed-loop walkthrough](#current-closed-loop-walkthrough)
+      - [Closed-Loop Gains](#closed-loop-gains)
+        - [Proportional (P)](#proportional-p)
+        - [Integral (I)](#integral-i)
+        - [Derivative (D)](#derivative-d)
+        - [Feed-Forward (F)](#feed-forward-f)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
     - [Current limiting](#current-limiting)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
@@ -624,6 +629,53 @@ Java -
 
 ###### Current closed-loop walkthrough
 Coming soon.  This exists in last year's documentation and will be merge in accordingly.
+
+##### Closed-loop Gains
+When tuning gains, it is recommended to zero out all closed-loop control parameters and start with P (or F if recommended for the control mode).
+###### Proportional (P)
+ P is the proportional gain.  It modifies the closed-loop output by a proportion (the gain value) of the closed-loop error.
+
+ P gain is specified in throttle per error unit.  For example, a value of 102 is ~9.97% (which is 102/1023) throttle per 1 unit of Closed-Loop Error.
+
+  **Example: Position Closed-loop**  
+  When tuning P, it's useful to estimate your starting value.  If you want your mechanism to drive 50% throttle when the error is 4096 (one rotation when using CTRE Mag Encoder), then the calculated Proportional Gain would be (0.50 X 1023) / 4096 = ~0.125.
+
+  To check our math, take an error (native units) of 4096 X 0.125 => 512 (50% throttle).
+
+  Tune this until the sensed value is close to the target under typical load. Many prefer to simply double the P-gain until oscillations occur, then reduce accordingly.
+###### Integral (I)
+ I is the integral gain.  It modifies the closed-loop output according to the integral error (summation of the closed-loop error each iteration).
+
+ I gain is specified in throttle per integrated error.  For example, a value of 10 equates to ~0.97% for each accumulated error (Integral Accumulator).  Integral accumulation is done every 1ms.
+
+   **Example: Position Closed-loop**  
+  If your mechanism never quite reaches your target and using integral gain is viable, start with 1/100th of the Proportional Gain.
+###### Derivative (D)
+ D is the derivative gain.  It modifies the closed-loop output according to the derivative error (change in closed-loop error each iteration).
+
+ D gain is specified in throttle per derivative error. For example a value of 102 equates to ~9.97% (which is 102/1023) per change of Sensor Position/Velocity unit per 1ms.
+
+   **Example: Position Closed-loop**  
+  If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
+###### Feed-Forward (F)
+ Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+
+ F gain is multiplied directly by the set point passed into the programming API.  The result of this multiplication is in throttle units [-1023, 1023].  This allows the robot to feed-forward using the target set-point.
+
+ In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output throttle (preferably a throttle close to the intended operating range).
+
+ You can see the measured velocity in a few different ways.  The fastest is to usually do a self-test in the web-based interface - This will give you both your velocity and your percent output.
+
+ ![](images/General-FgainVelSelfTest.png)
+
+ F-gain is then calculated using the following formula:
+
+ F-gain = ([Percent Output] x 1023) / [Velocity]
+
+ Using the example from the self-test picture above, that would be:  
+ F-gain = (0.48 x 1023) / 6331 = 0.077561
+
+ We can then check our math - if the target velocity is set to 6331 native units per 100ms, the closed-loop output will be (0.077561 x 6331) = 491 (which is 48% of 1023).
 
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
