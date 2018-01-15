@@ -54,7 +54,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Motion Magic Cruise Velocity|setMotionMagicCruiseVelocity|configMotionCruiseVelocity|Configures cruise velocity for motion magic|
 |Motion Magic Acceleration| setMotionMagicAcceleration|configMotionAcceleration|Configures acceleration for motion magic|
 |Get Active Trajectory|getMotionMagicActTrajVelocity/ getMotionMagicActTrajPosition |getActiveTrajectoryVelocity / getActiveTrajectoryPosition|Functions now appropriately give the active trajectory data for both motion magic and motion profiling.|
-|**Ramping**|setVoltageRampRate(double voltPerSec) / setCloseLoopRampRate() / setVoltageCompensationRampRate() |configOpenloopRamp(secondsFromNeutralToFull, timeoutMs), configClosedloopRamp(secondsFromNeutralToFull, timeoutMs)|Separate Ramp Rates for Open/Closed Loop.  Ramp expressed as seconds to go from neutral throttle to full throttle.|
+|**Ramping**|setVoltageRampRate(double voltPerSec) / setCloseLoopRampRate() / setVoltageCompensationRampRate() |<sub>configOpenloopRamp (secondsFromNeutralToFull, timeoutMs), configClosedloopRamp (secondsFromNeutralToFull, timeoutMs)</sub>|Separate Ramp Rates for Open/Closed Loop.  Ramp expressed as seconds to go from neutral throttle to full throttle.|
 |**Closed-loop**|
 |Closed-loop Error|setAllowableClosedLoopErr|configAllowableClosedloopError|Function has been renamed.|
 ||getError |getClosedLoopError|Function has been renamed.|
@@ -62,7 +62,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Closed-loop Target|getSetpoint|getClosedLoopTarget|Function has been renamed.  This function also only works for closed-loop modes.|
 |**Limit Switches**|
 | Enable Override | enableLimitSwitch | overrideLimitSwitchesEnable | Function name reflects that this API setting is overriding the settings configured for each individual limit switch.|
-| Configure Limit Switches Sources | ConfigFwdLimitSwitchNormallyOpen/ ConfigRevLimitSwitchNormallyOpen | configForwardLimitSwitchSource / configReverseLimitSwitchSource | Limit Switch source must be set - these functions also allow setting the normally open/closed behavior.|
+| Configure Limit Switches Sources | ConfigFwdLimitSwitchNormallyOpen/ ConfigRevLimitSwitchNormallyOpen | <sub> configForwardLimitSwitchSource / configReverseLimitSwitchSource </sub> | Limit Switch source must be set - these functions also allow setting the normally open/closed behavior.|
 | Soft Limits | setForwardSoftLimit / setReverseSoftLimit / enableForwardSoftLimit / enableReverseSoftLimit | configForwardSoftLimitThreshold/ configReverseSoftLimitThreshold/ configForwardSoftLimitEnable/ configReverseSoftLimitEnable/ overrideSoftLimitsEnable| Soft Limit settings are now configs instead of sets, with an override to enable or disable.|
 |**CAN Frame Rate**|
 | Status Frames | setStatusFrameRateMs | setStatusFramePeriod | Function has been renamed.|
