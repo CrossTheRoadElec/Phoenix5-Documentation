@@ -69,12 +69,9 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
     - [CANifier](#canifier)
   - [Common Device API](#common-device-api)
       - [Error handling](#error-handling)
-      - [Detecting error conditions](#detecting-error-conditions)
         - [Did my device reset?](#did-my-device-reset)
-        - [Is the device on the CAN bus?](#is-the-device-on-the-can-bus)
-      - [Configuration Parameters - General Guide lines](#configuration-parameters---general-guide-lines)
-        - [Configuration Parameters - Why the timeout?](#configuration-parameters---why-the-timeout)
-        - [Configuration Parameters - Why the general API?](#configuration-parameters---why-the-general-api)
+      - [Configuration Parameters](#configuration-parameters)
+        - [Configuration Parameters - What is timeout for](#configuration-parameters---what-is-timeout-for)
 - [Software Object Model](#software-object-model)
   - [WPILib SpeedController/Drivetrain Objects](#wpilib-speedcontrollerdrivetrain-objects)
     - [WPILib: Java/C++](#wpilib-javac)
@@ -646,6 +643,35 @@ Additionally the example repositories can be used for reference.
 [Phoenix-Examples-Languages](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)
 [Phoenix-Examples-LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW)
 
+### Common Device API
+The Talon SRX, Victor SPX, CANifier, and Pigeon IMU have a common set of device functions.  These are explained below.
+
+#### Error handling
+In C++/Java, many routines return an [ErrorCode](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ErrorCode.html).  Depending on the function, this can be used to determine if the function was successful.
+
+Additionally each object has a getLastError() routine that will return the code for the last function called.
+
+In LabVIEW, the error output is filled with a CTRE error code when an error condition occurs.
+
+In all circumstances, error events are also sent to the Driver Station console output.  However Driver Station messages are debounced to reduce flooding the console.
+
+#### Did my device reset?
+All device classes and VIs support a `hasResetOccurred` routine that allows the caller to poll if the device has reset since last call.  Additionally, Talon SRX and Victor SPX have a sticky fault (accessible via web-based config or API) to indicate if the motor controller has been reset/power-booted during robot-enable.
+
+#### Configuration Parameters
+In addition to the feature specific config* routines/VIs in C++/Java/LabVIEW, there are general Config Parameter routines that will take an arbitrary enumeration value type [ParamEnum](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ParamEnum.html).
+
+When using the general configuration get/set routines, `ordinal` can be used to specify...
+- which PID slot to select (when accessing gains).
+- which PID loop to select (when accessing PID signals such as integral accumulator)
+- which limit switch direction, 0 for forward, 1 for reverse (when accessing limit parameters)
+
+Every language supports a [ConfigGetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configGetParameter-com.ctre.phoenix.ParamEnum-int-int-) and [ConfigSetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configSetParameter-com.ctre.phoenix.ParamEnum-double-int-int-int-).
+
+#### Configuration Parameters - What is timeout for?
+All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsute).
+
+## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
 The Phoenix framework supports an adapter class for Victor SPX and Talon SRX hardware objects.  Depending on language, the developer needs to be made aware of the following sections below to utilize certain WPILIB classes/VIs.
 
