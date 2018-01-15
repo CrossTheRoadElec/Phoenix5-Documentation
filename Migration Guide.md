@@ -43,12 +43,12 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Velocity API|configEncoderCodesPerRev / configPotentiometerTurns|All Talon / Victor API uses sensor units per 100ms|Velocity units are always change in sensor units per 100ms, regardless of configuration.  Tachometer is always in units per 100ms, where each units is 1/1024 of a rotation.  |
 ||getSpeed|[getSelectedSensorVelocity](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#getSelectedSensorVelocity-int-)| The return value is in units per 100ms for all sensor types.  Sensor must be selected using configSelectedFeedbackSensor()/  Multiply by (600/SensorUnitsPerRotation) to convert into RPM.|
 |Velocity Measurement|<sub> SetVelocityMeasurementPeriod()/  SetVelocityMeasurementWindow()</sub>| <sub>configVelocityMeasurementPeriod()/ configVelocityMeasurementWindow()</sub>| Functions renamed to config.|
-|Peak and Nominal outputs|configNominalOutputVoltage / configPeakOutputVoltage / configMaxOutputVoltage / setNominalClosedLoopVoltage | configPeakOutputForward / configPeakOutputReverse / configNominalOutputForward / configNominalOutputReverse| The inputs are now [-1,+1] which represents [-100%,+100], and not based on voltage.  This was never the case as last year the inputs where naively divided by 12.|
+|Peak and Nominal outputs|<sub>configNominalOutputVoltage / configPeakOutputVoltage / configMaxOutputVoltage / setNominalClosedLoopVoltage </sub>| <sub>configPeakOutputForward / configPeakOutputReverse / configNominalOutputForward / configNominalOutputReverse</sub>| The inputs are now [-1,+1] which represents [-100%,+100], and not based on voltage.  This was never the case as last year the inputs where naively divided by 12.|
 | I Accumulator | ClearIaccum() / getIAccum | setIntegralAccumulator()/ getIntegralAccumulator() | Functions have been renamed.|
 |Factory Default - Press and hold B/C button on boot.|
 ||Resets PWM Calibration |Resets PWM Calibration  / Resets persistent CAN settings, EXCEPT for Device ID and Neutral Brake. | This should be done on any Talon when replacing/swapping/troubleshooting.  Because of the large number of persistent config settings, it is simpler to default all peak/nominal/measurement/etc configs first and only deliberately set the desired parameters in code.
 |**Selected sensor**|
-||SetFeedbackDevice|ConfigSelectedFeedbackSensor|All Config* routines are persistent|
+||SetFeedbackDevice|<sub>ConfigSelectedFeedbackSensor</sub>|All Config* routines are persistent|
 ||setPosition | setSelectedSensorPosition | Function has been renamed.|
 |**Motion Profiling and Motion Magic**|
 |Motion Magic Cruise Velocity|setMotionMagicCruiseVelocity|configMotionCruiseVelocity|Configures cruise velocity for motion magic|
@@ -63,7 +63,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |**Limit Switches**|
 | Enable Override | enableLimitSwitch | overrideLimitSwitchesEnable | Function name reflects that this API setting is overriding the settings configured for each individual limit switch.|
 | Configure Limit Switches Sources |<sub> ConfigFwdLimitSwitchNormallyOpen/ ConfigRevLimitSwitchNormallyOpen</sub> | <sub> configForwardLimitSwitchSource / configReverseLimitSwitchSource </sub> | Limit Switch source must be set - these functions also allow setting the normally open/closed behavior.|
-| Soft Limits | setForwardSoftLimit / setReverseSoftLimit / enableForwardSoftLimit / enableReverseSoftLimit | configForwardSoftLimitThreshold/ configReverseSoftLimitThreshold/ configForwardSoftLimitEnable/ configReverseSoftLimitEnable/ overrideSoftLimitsEnable| Soft Limit settings are now configs instead of sets, with an override to enable or disable.|
+| Soft Limits | <sub>setForwardSoftLimit / setReverseSoftLimit / enableForwardSoftLimit / enableReverseSoftLimit</sub> | <sub>configForwardSoftLimitThreshold/ configReverseSoftLimitThreshold/ configForwardSoftLimitEnable/ configReverseSoftLimitEnable/ overrideSoftLimitsEnable</sub>| Soft Limit settings are now configs instead of sets, with an override to enable or disable.|
 |**CAN Frame Rate**|
 | Status Frames | setStatusFrameRateMs | setStatusFramePeriod | Function has been renamed.|
 |**Parameters**|
