@@ -42,7 +42,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 ||getPosition|[getSelectedSensorPosition](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#getSelectedSensorPosition-int-)| The return value is in sensor units.  Sensor must be selected using configSelectedFeedbackSensor()/  Multiply by (1/SensorUnitsPerRotation) to convert into rotations.
 |Velocity API|configEncoderCodesPerRev / configPotentiometerTurns|All Talon / Victor API uses sensor units per 100ms|Velocity units are always change in sensor units per 100ms, regardless of configuration.  Tachometer is always in units per 100ms, where each units is 1/1024 of a rotation.  |
 ||getSpeed|[getSelectedSensorVelocity](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#getSelectedSensorVelocity-int-)| The return value is in units per 100ms for all sensor types.  Sensor must be selected using configSelectedFeedbackSensor()/  Multiply by (600/SensorUnitsPerRotation) to convert into RPM.|
-|Velocity Measurement| SetVelocityMeasurementPeriod()/  SetVelocityMeasurementWindow()| <sub>configVelocityMeasurementPeriod()/ configVelocityMeasurementWindow()</sub>| Functions renamed to config.|
+|Velocity Measurement|<sub> SetVelocityMeasurementPeriod()/  SetVelocityMeasurementWindow()</sub>| <sub>configVelocityMeasurementPeriod()/ configVelocityMeasurementWindow()</sub>| Functions renamed to config.|
 |Peak and Nominal outputs|configNominalOutputVoltage / configPeakOutputVoltage / configMaxOutputVoltage / setNominalClosedLoopVoltage | configPeakOutputForward / configPeakOutputReverse / configNominalOutputForward / configNominalOutputReverse| The inputs are now [-1,+1] which represents [-100%,+100], and not based on voltage.  This was never the case as last year the inputs where naively divided by 12.|
 | I Accumulator | ClearIaccum() / getIAccum | setIntegralAccumulator()/ getIntegralAccumulator() | Functions have been renamed.|
 |Factory Default - Press and hold B/C button on boot.|
@@ -54,7 +54,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Motion Magic Cruise Velocity|setMotionMagicCruiseVelocity|configMotionCruiseVelocity|Configures cruise velocity for motion magic|
 |Motion Magic Acceleration| setMotionMagicAcceleration|configMotionAcceleration|Configures acceleration for motion magic|
 |Get Active Trajectory|getMotionMagicActTrajVelocity/ getMotionMagicActTrajPosition |getActiveTrajectoryVelocity / getActiveTrajectoryPosition|Functions now appropriately give the active trajectory data for both motion magic and motion profiling.|
-|**Ramping**|setVoltageRampRate(double voltPerSec) / setCloseLoopRampRate() / setVoltageCompensationRampRate() |<sub>configOpenloopRamp (secondsFromNeutralToFull, timeoutMs), configClosedloopRamp (secondsFromNeutralToFull, timeoutMs)</sub>|Separate Ramp Rates for Open/Closed Loop.  Ramp expressed as seconds to go from neutral throttle to full throttle.|
+|**Ramping**|<sub>setVoltageRampRate(double voltPerSec) / setCloseLoopRampRate() / setVoltageCompensationRampRate() </sub>|<sub>configOpenloopRamp (secondsFromNeutralToFull, timeoutMs), configClosedloopRamp (secondsFromNeutralToFull, timeoutMs)</sub>|Separate Ramp Rates for Open/Closed Loop.  Ramp expressed as seconds to go from neutral throttle to full throttle.|
 |**Closed-loop**|
 |Closed-loop Error|setAllowableClosedLoopErr|configAllowableClosedloopError|Function has been renamed.|
 ||getError |getClosedLoopError|Function has been renamed.|
@@ -62,7 +62,7 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
 |Closed-loop Target|getSetpoint|getClosedLoopTarget|Function has been renamed.  This function also only works for closed-loop modes.|
 |**Limit Switches**|
 | Enable Override | enableLimitSwitch | overrideLimitSwitchesEnable | Function name reflects that this API setting is overriding the settings configured for each individual limit switch.|
-| Configure Limit Switches Sources | ConfigFwdLimitSwitchNormallyOpen/ ConfigRevLimitSwitchNormallyOpen | <sub> configForwardLimitSwitchSource / configReverseLimitSwitchSource </sub> | Limit Switch source must be set - these functions also allow setting the normally open/closed behavior.|
+| Configure Limit Switches Sources |<sub> ConfigFwdLimitSwitchNormallyOpen/ ConfigRevLimitSwitchNormallyOpen</sub> | <sub> configForwardLimitSwitchSource / configReverseLimitSwitchSource </sub> | Limit Switch source must be set - these functions also allow setting the normally open/closed behavior.|
 | Soft Limits | setForwardSoftLimit / setReverseSoftLimit / enableForwardSoftLimit / enableReverseSoftLimit | configForwardSoftLimitThreshold/ configReverseSoftLimitThreshold/ configForwardSoftLimitEnable/ configReverseSoftLimitEnable/ overrideSoftLimitsEnable| Soft Limit settings are now configs instead of sets, with an override to enable or disable.|
 |**CAN Frame Rate**|
 | Status Frames | setStatusFrameRateMs | setStatusFramePeriod | Function has been renamed.|
