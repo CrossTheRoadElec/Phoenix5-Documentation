@@ -651,9 +651,9 @@ In C++/Java, many routines return an [ErrorCode](http://www.ctr-electronics.com/
 
 Additionally each object has a getLastError() routine that will return the code for the last function called.
 
-In LabVIEW, the error output is filled with a CTRE error core when an error condition occurs.
+In LabVIEW, the error output is filled with a CTRE error code when an error condition occurs.
 
-In all circumstances, error events are also sent to the Driver Station console output.
+In all circumstances, error events are also sent to the Driver Station console output.  However Driver Station messages are debounced to reduce flooding the console.
 
 #### Did my device reset?
 All device classes and VIs support a `hasResetOccurred` routine that allows the caller to poll if the device has reset since last call.  Additionally, Talon SRX and Victor SPX have a sticky fault (accessible via web-based config or API) to indicate if the motor controller has been reset/power-booted during robot-enable.
@@ -666,8 +666,10 @@ When using the general configuration get/set routines, `ordinal` can be used to 
 - which PID loop to select (when accessing PID signals such as integral accumulator)
 - which limit switch direction, 0 for forward, 1 for reverse (when accessing limit parameters)
 
+Every language supports a [ConfigGetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configGetParameter-com.ctre.phoenix.ParamEnum-int-int-) and [ConfigSetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configSetParameter-com.ctre.phoenix.ParamEnum-double-int-int-int-).
+
 #### Configuration Parameters - What is timeout for?
-All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, and error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsute).
+All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsute).
 
 ## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
