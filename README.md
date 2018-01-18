@@ -368,7 +368,8 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
-Direction of output from a motor controller can be set by calling the `setInverted()` function as seen below. LEDs, sensor phase, and limit switches will also be inverted as well to match the direction of output.
+Motor controller output direction can be set by calling the `setInverted()` function as seen below. 
+Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).  Only the **motor leads** are inverted.  This feature ensures that sensor phase and limit switches will properly match the LED pattern (when LEDs are green => forward limit switch and soft limits are being checked).
 
 Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction.
 
