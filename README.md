@@ -458,6 +458,7 @@ talonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
 LabVIEW -
 
 Below is an example using the new FOLLOW VI.
+
 ![](images/LV-FollowEither.png)
 
 ![](images/LV-FollowTalon.png)
