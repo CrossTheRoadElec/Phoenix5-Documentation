@@ -3,8 +3,9 @@
 
 ---
 
-[2018 Software Reference Manual](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf) | API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.html) [C++](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html) | [2018 Documentation](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md)  
-Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)/[LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW) | [Migration Guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md) | [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | [Store](http://www.ctr-electronics.com/control-system.html)
+[2018 Phoenix Documentation](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | [Migration Guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md)   
+[2018 Software Reference Manual (pdf)](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf) | API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.html) [C++](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html)  
+Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)/[LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW)| [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | [Store](http://www.ctr-electronics.com/control-system.html)
 
 ---
 
