@@ -461,6 +461,7 @@ Below is an example using the new FOLLOW VI.
 
 ![](images/LV-FollowEither.png)
 
+Avoid using the SET VI when using LabVIEW as this is unsupported.
 ![](images/LV-FollowTalon.png)
 
 #### Setup Limit switches
@@ -805,3 +806,7 @@ Phoenix 5.2.1.1:
 
 Phoenix 5.1.3.1:
 - Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
+
+LabVIEW: Do not use SET VI when using follwer features in LabVIEW.  
+Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
+![](images/LV-FollowTalon.png)
