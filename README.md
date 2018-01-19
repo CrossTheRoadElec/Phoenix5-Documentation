@@ -457,9 +457,10 @@ talonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
 
 LabVIEW -
 
-![](images/LV-FollowTalon.png)
-
+Below is an example using the new FOLLOW VI.
 ![](images/LV-FollowEither.png)
+
+![](images/LV-FollowTalon.png)
 
 #### Setup Limit switches
 An “out of the box” Talon SRX or Victor SPX will default to the limit switch setting of “Normally Open” for both forward and reverse. This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground). When a limit switch input is closed (is connected to ground) the Talon SRX/Victor SPX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault)
