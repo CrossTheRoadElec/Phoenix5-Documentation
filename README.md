@@ -461,7 +461,7 @@ Below is an example using the new FOLLOW VI.
 
 ![](images/LV-FollowEither.png)
 
-Avoid using the SET VI when using LabVIEW as this is unsupported.
+Avoid using the SET VI when using LabVIEW as this is unsupported.  
 ![](images/LV-FollowTalon.png)
 
 #### Setup Limit switches
