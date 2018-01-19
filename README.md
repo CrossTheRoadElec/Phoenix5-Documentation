@@ -62,6 +62,13 @@ API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.htm
       - [Closed-Loop/Firmware Control Modes](#closed-loopfirmware-control-modes)
         - [Position closed-loop walkthrough](#position-closed-loop-walkthrough)
         - [Current closed-loop walkthrough](#current-closed-loop-walkthrough)
+      - [Closed-Loop Gains](#closed-loop-gains)
+        - [Motor Output Units (Why 1023?)](#motor-output-units-why-1023)
+        - [Closed-loop Error](#closed-loop-error)
+        - [Feed-Forward (kF)](#feed-forward-kf)
+        - [Proportional (kP)](#proportional-kp)
+        - [Integral (kI)](#integral-ki)
+        - [Derivative (kD)](#derivative-kd)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
     - [Current limiting](#current-limiting)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
@@ -361,7 +368,8 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
-Direction of output from a motor controller can be set by calling the `setInverted()` function as seen below. LEDs, sensor phase, and limit switches will also be inverted as well to match the direction of output.
+Motor controller output direction can be set by calling the `setInverted()` function as seen below. 
+Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).  Only the **motor leads** are inverted.  This feature ensures that sensor phase and limit switches will properly match the LED pattern (when LEDs are green => forward limit switch and soft limits are being checked).
 
 Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction.
 
@@ -376,7 +384,7 @@ You can pick your direction in the open VI.  Use the Set Invert VI if you need t
 ![](images/LV-Invert.png)
 
 ##### Pick your neutral mode
-Mode of operation during Neutral throttle output may be set by using the `setNeutralMode()` function.
+Mode of operation during Neutral output may be set by using the `setNeutralMode()` function.
 
 As of right now, there are two options when setting the neutral mode of a motor controller, brake and coast.
 
@@ -410,7 +418,7 @@ talon.enableCurrentLimit(true);
 LabVIEW and C++ have similar function/VIs.
 
 ##### Ramping
-The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
+The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in output.
 
 There are two ramp rates - one for open-loop control modes and one for closed-loop control modes.
 
@@ -532,7 +540,7 @@ Once you have deployed the code and opened SmartDashboard from the FRC Driver St
 ![Image of the plots generated from driving](images/Java-SensorCheck.png)
 
 ###### Sensor phase and why it matters
-Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive throttle. To test this, first drive the motor manually (using
+Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive output. To test this, first drive the motor manually (using
 gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
 
 Sensor phase can be set by using `setSensorPhase()`. If the sensor is out of phase, set true.
@@ -567,7 +575,7 @@ Generally you can multiply the velocity units by 600/UnitsPerRotation to obtain 
 Tachometer velocity measurement is unique in that it measures time directly.  As a result, the reported velocity is calculated where 1024 represents a full "rotation".  This means that a velocity measurement of 1 represents 1/1024 of a rotation every 100ms.
 
 ###### Setup the soft limits
-Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
+Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward output will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse output will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
 
 Java -
 ```Java
@@ -621,6 +629,59 @@ Java -
 
 ###### Current closed-loop walkthrough
 Coming soon.  This exists in last year's documentation and will be merge in accordingly.
+
+##### Closed-loop Gains
+When tuning gains, it is recommended to zero out all closed-loop control parameters and start with P (or F if recommended for the control mode).
+###### Motor Output Units (Why 1023?)
+Motor output is represented as a 11-bit number in firmware.  All units for motor output are a scalar from -1023 to +1023.
+###### Closed-loop Error
+Closed-loop error is the difference between the target setpoint and the current sensor value.  
+For position: closed-loop error = target - sensor position.  
+For velocity: closed-loop error = target - sensor velocity.
+###### Feed-Forward (kF)
+ Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+
+ F gain is multiplied directly by the set point passed into the programming API.  The result of this multiplication is in motor output units [-1023, 1023].  This allows the robot to feed-forward using the target set-point.
+
+ In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output (preferably an output close to the intended operating range).
+
+ You can see the measured velocity in a few different ways.  The fastest is to usually do a self-test in the web-based interface - This will give you both your velocity and your percent output.
+
+ ![](images/General-FgainVelSelfTest.png)
+
+ F-gain is then calculated using the following formula:
+
+ F-gain = ([Percent Output] x 1023) / [Velocity]
+
+ Using the example from the self-test picture above, that would be:  
+ F-gain = (0.48 x 1023) / 6331 = 0.077561
+
+ We can then check our math - if the target velocity is set to 6331 native units per 100ms, the closed-loop output will be (0.077561 x 6331) = 491 (which is 48% of 1023).
+###### Proportional (kP)
+ P is the proportional gain.  It modifies the closed-loop output by a proportion (the gain value) of the closed-loop error.
+
+ P gain is specified in output unit per error unit.  For example, a value of 102 is ~9.97% (which is 102/1023) output per 1 unit of Closed-Loop Error.
+
+  _Example: Position Closed-loop_   
+  When tuning P, it's useful to estimate your starting value.  If you want your mechanism to drive 50% output when the error is 4096 (one rotation when using CTRE Mag Encoder), then the calculated Proportional Gain would be (0.50 X 1023) / 4096 = ~0.125.
+
+  To check our math, take an error (native units) of 4096 X 0.125 => 512 (50% output).
+
+  Tune this until the sensed value is close to the target under typical load. Many prefer to simply double the P-gain until oscillations occur, then reduce accordingly.
+###### Integral (kI)
+ I is the integral gain.  It modifies the closed-loop output according to the integral error (summation of the closed-loop error each iteration).
+
+ I gain is specified in output units per integrated error.  For example, a value of 10 equates to ~0.97% for each accumulated error (Integral Accumulator).  Integral accumulation is done every 1ms.
+
+   _Example: Position Closed-loop_  
+  If your mechanism never quite reaches your target and using integral gain is viable, start with 1/100th of the Proportional Gain.
+###### Derivative (kD)
+ D is the derivative gain.  It modifies the closed-loop output according to the derivative error (change in closed-loop error each iteration).
+
+ D gain is specified in output units per derivative error. For example a value of 102 equates to ~9.97% (which is 102/1023) per change of Sensor Position/Velocity unit per 1ms.
+
+   _Example: Position Closed-loop_  
+  If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
 
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
