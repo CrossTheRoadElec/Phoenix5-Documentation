@@ -539,9 +539,9 @@ Java/C++ - For the FRC languages, the easiest way to produce a plot is to use th
 Java -
 ```java
 /* Setup sensors to check status, can also be used for phasing */
-Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0);
+Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.rightMaster.setSensorPhase(false);
-Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0);
+Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.leftMaster.setSensorPhase(false);
 
 /* Output value to SmartDashboard */
