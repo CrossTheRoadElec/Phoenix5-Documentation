@@ -311,6 +311,15 @@ C++ modules simply need to include one header
 ```
 This single header will include several of the Phoenix header files and brings several Phoenix namespaces into scope.  Advanced C++ programmers may wish to avoid including many namespaces, in which case they can probe the contents of the header and pick out what they need.
 
+### LabVIEW - Change the Palette View
+The default Palette View can be confusing for most teams, as the names of the VI's are hidden. This can be changed by the following procedure:
+
+- Options screen under LabVIEW Tools
+
+![](images/LV-OptionsSelect.png)
+
+![](images/LV-PaletteChangeOptions.png)
+
 ### LabVIEW - Where are the VIs?
 The CTRE Palette is located in:
 - WPI Robotics Library -> Third Party.
@@ -530,9 +539,9 @@ Java/C++ - For the FRC languages, the easiest way to produce a plot is to use th
 Java -
 ```java
 /* Setup sensors to check status, can also be used for phasing */
-Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0);
+Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.rightMaster.setSensorPhase(false);
-Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0);
+Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.leftMaster.setSensorPhase(false);
 
 /* Output value to SmartDashboard */
@@ -786,6 +795,19 @@ Note that the robot application must be **restarted** for the firmware version c
 This usually indicates that your device ID is wrong or your firmware pre-dates Phoenix.
 
 Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](#update-your-can-devices).
+
+### LabVIEW - Driver Station Says Variant To Data in ...
+![](images/DS-VariantToData.png)
+
+This is usually caused by a diagram disable structure around a MotorController or EnhancedMotorController VI
+
+![](images/LV-DiagramDisable.png)
+
+In order to fix this, you must wire the device reference through the enabled state of the diagram disabled block
+
+![](images/LV-DiagramDisableError.png)
+
+![](images/LV-DiagramDisableFix.png)
 
 ## **CRF Firmware Versions**
 Phoenix 5.2.1.1:
