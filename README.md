@@ -370,10 +370,13 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
-Motor controller output direction can be set by calling the `setInverted()` function as seen below. 
+Motor controller output direction can be set by calling the `setInverted()` function as seen below.  
 Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).  Only the **motor leads** are inverted.  This feature ensures that sensor phase and limit switches will properly match the LED pattern (when LEDs are green => forward limit switch and soft limits are being checked).
 
 Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction.
+
+###### Inverting Followers
+When using motor controllers in a master/follower configuration, **all** motor controllers need to have their direction set independently.  A follower controller will not automatically change direction if you only invert the master.
 
 Java -
 ```java
@@ -441,7 +444,7 @@ LabVIEW -
 ![](images/LV-openloopRamp.png)
 
 ##### Follower
-Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output. Users will still need to set the motor controller's direction, and neutral mode.
+Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output. **Users will still need to set the motor controller's direction and neutral mode.**
 
 There are two methods for creating a follower motor controller. The first method `set(ControlMode.follower, IDofMotorController)` allows users to create a motor controller follower of the same model, talon to talon, or victor to victor.
 
@@ -524,6 +527,8 @@ LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on
 
 ###### How do I know the sensor works?
 There are multiple methods of ensuring the connected sensor is active and returning meaningful data. The best method is to plot the signal and watch the plot, looking for continuous data that is responsive. Another, but less reliable method is to print your values to a console and check for values, which makes it harder to see if there is noise in the values.
+
+If the reported value is not what is expected (eg. quadrature position is reporting as 0 or 1), check your sensor and wiring to make sure the physical sensor setup is good.
 
 Java/C++ - For the FRC languages, the easiest way to produce a plot is to use the SmartDashboard, a feature part of the FRC Driver Station. Below is an example of how to set up the sensor on the Talon SRX and get a plot.
 
