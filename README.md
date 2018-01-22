@@ -312,10 +312,7 @@ C++ modules simply need to include one header
 This single header will include several of the Phoenix header files and brings several Phoenix namespaces into scope.  Advanced C++ programmers may wish to avoid including many namespaces, in which case they can probe the contents of the header and pick out what they need.
 
 ### LabVIEW - Change the Palette View
-The default Palette View can be confusing for most teams, as the names of the VI's are hidden. This can be changed by following either procedure:
-- Customize option under tools palette
-
-![](images/LV-PaletteChange.png)
+The default Palette View can be confusing for most teams, as the names of the VI's are hidden. This can be changed by the following procedure:
 
 - Options screen under LabVIEW Tools
 
