@@ -799,6 +799,19 @@ This usually indicates that your device ID is wrong or your firmware pre-dates P
 
 Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](#update-your-can-devices).
 
+### LabVIEW - Driver Station Says Variant To Data in ...
+![](images/DS-VariantToData.png)
+
+This is usually caused by a diagram disable structure around a MotorController or EnhancedMotorController VI
+
+![](images/LV-DiagramDisable.png)
+
+In order to fix this, you must wire the device reference through the enabled state of the diagram disabled block
+
+![](images/LV-DiagramDisableError.png)
+
+![](images/LV-DiagramDisableFix.png)
+
 ## **CRF Firmware Versions**
 Phoenix 5.2.1.1:
 - Pigeon-Application-0.41-FixedParamResp.crf
