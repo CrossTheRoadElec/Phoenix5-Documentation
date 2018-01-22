@@ -8,82 +8,89 @@ See what control components make sense for your robotic needs at [CTR-Electronic
 
 ---
 
-API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.html) [C++](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html) | [2018 Documentation](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | [Migration Guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md) | [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | Check our [Store](https://ctr-electronics.com)
+[2018 Phoenix Documentation](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md) | [Migration Guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md)   
+[2018 Software Reference Manual (pdf)](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf) | API Docs [Java](http://www.ctr-electronics.com/downloads/api/java/html/index.html) [C++](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html)  
+Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)/[LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW)| [Create an issue](https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues) | [Store](http://www.ctr-electronics.com/control-system.html)
 
 ---
 ## Table of Contents
 
-- [Purpose of this guide](https://github.com/CrossTheRoadElec/Phoenix-Documentation#purpose-of-this-guide)
-- [Looking for the migration guide?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#looking-for-the-migration-guide)
-- [Initial Hardware Testing](https://github.com/CrossTheRoadElec/Phoenix-Documentation#initial-hardware-testing)
-- [Before you write any software!](https://github.com/CrossTheRoadElec/Phoenix-Documentation#before-you-write-any-software)
-  - [Installing Phoenix Framework onto PC](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-pc)
-    - [Download the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#download-the-installer)
-    - [Running the Installer](https://github.com/CrossTheRoadElec/Phoenix-Documentation#running-the-installer)
-    - [Phoenix Framework for Non-Windows Machines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines)
-  - [Installing Phoenix Framework onto your FRC robot](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-phoenix-framework-onto-your-frc-robot)
-  - [Install Internet Explorer 11](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
-  - [Test the Phoenix Install in Eclipse](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-phoenix-install-in-eclipse)
-  - [Test the Phoenix Install in LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#test-the-phoenix-install-in-labview)
-- [Everything is installed, can I write software now?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#everything-is-installed-can-i-write-software-now)
-  - [Check the web-based configuration](https://github.com/CrossTheRoadElec/Phoenix-Documentation#check-the-web-based-configuration)
-  - [Set your device IDs](https://github.com/CrossTheRoadElec/Phoenix-Documentation#set-your-device-ids)
-  - [Update your CAN Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices)
-  - [Pick the device names](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-the-device-names)
-  - [Self-Test the hardware](https://github.com/CrossTheRoadElec/Phoenix-Documentation#self-test-the-hardware)
-  - [Add Javadoc if using Java](https://github.com/CrossTheRoadElec/Phoenix-Documentation#add-javadoc-if-using-java)
-- [Where is the API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-is-the-api)
-  - [Java - How to intellisense/What to import ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#java---how-to-intellisensewhat-to-import)
-  - [C++ - How to intellisense/What header ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#c---how-to-intellisensewhat-header)
-  - [LabVIEW - Where are the VIs? ](https://github.com/CrossTheRoadElec/Phoenix-Documentation#labview---where-are-the-vis)
-    - [Motor Controller VIs - What are MC and E-MC?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controller-vis---what-are-mc-and-e-mc)
-- [Hardware Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#hardware-object-model)
-  - [Motor Controllers](https://github.com/CrossTheRoadElec/Phoenix-Documentation#motor-controllers)
-    - [Where to begin?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#where-to-begin)
-    - [Factory Default the Configuration Parameters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#factory-default-the-configuration-parameters)
-    - [Open-Loop (No Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#open-loop-no-sensor-control)
-      - [Pick your direction](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-your-direction)
-      - [Pick your neutral mode](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pick-your-neutral-mode)
-      - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting)
-      - [Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#ramping)
-      - [Follower](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower)
-    - [Setup Limit Switches](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-limit-switches)
-      - [Limit Switch Source](https://github.com/CrossTheRoadElec/Phoenix-Documentation#limit-switch-source)
-      - [Limit Switch Override Enable](https://github.com/CrossTheRoadElec/Phoenix-Documentation#limit-switch-override-enable)
-    - [Closed-Loop (Using Sensor) Control](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loop-using-sensor-control)
-      - [Sensors](https://github.com/CrossTheRoadElec/Phoenix-Documentation#sensors)
-        - [Why bother with sensors?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#why-bother-with-sensors)
-        - [How do I choose the sensor?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-choose-the-sensor)
-        - [How do I know the sensor works?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-know-the-sensor-works)
-        - [Sensor phase and why it matters](https://github.com/CrossTheRoadElec/Phoenix-Documentation#sensor-phase-and-why-it-matters)
-        - [What are the units?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-are-the-units-of-my-sensor)
-        - [Setup the soft limits](https://github.com/CrossTheRoadElec/Phoenix-Documentation#setup-the-soft-limits)
-      - [Closed-loop Ramping](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loop-ramping)
-      - [Closed-Loop/Firmware Control Modes](https://github.com/CrossTheRoadElec/Phoenix-Documentation#closed-loopfirmware-control-modes)
-        - [Position closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#position-closed-loop-walkthrough)
-        - [Current closed-loop walkthrough](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-closed-loop-walkthrough)
-      - [I want to process the sensor myself.  How do I do that?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#i-want-to-process-the-sensor-myself-how-do-i-do-that)
-    - [Current limiting](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting)
-  - [Multi-purpose/Sensor Devices](https://github.com/CrossTheRoadElec/Phoenix-Documentation#multi-purposesensor-devices)
-    - [Pigeon IMU](https://github.com/CrossTheRoadElec/Phoenix-Documentation#pigeon-imu)
-    - [CANifier](https://github.com/CrossTheRoadElec/Phoenix-Documentation#canifier)
-  - [Common Device API](https://github.com/CrossTheRoadElec/Phoenix-Documentation#common-device-api)
-      - [Error handling](https://github.com/CrossTheRoadElec/Phoenix-Documentation#error-handling)
-      - [Detecting error conditions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#detecting-error-conditions)
-        - [Did my device reset?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#did-my-device-reset)
-        - [Is the device on the CAN bus?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#is-the-device-on-the-can-bus)
-      - [Configuration Parameters - General Guide lines](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---general-guide-lines)
-        - [Configuration Parameters - Why the timeout?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---why-the-timeout)
-        - [Configuration Parameters - Why the general API?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#configuration-parameters---why-the-general-api)
-- [Software Object Model](https://github.com/CrossTheRoadElec/Phoenix-Documentation#software-object-model)
-  - [WPILib SpeedController/Drivetrain Objects](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-speedcontrollerdrivetrain-objects)
-    - [WPILib: Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-javac)
-    - [WPILib: LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Documentation#wpilib-labview)
-- [Driver Station](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station)
-  - [What do I do when I see errors in Driver Station?](https://github.com/CrossTheRoadElec/Phoenix-Documentation#what-do-i-do-when-i-see-errors-in-driver-station)
-  - [Driver Station says the firmware is too old](https://github.com/CrossTheRoadElec/Phoenix-Documentation#driver-station-says-the-firmware-is-too-old)
-- [CRF Firmware Versions](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions)
-- [Errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation#errata)
+- [Purpose of this guide](#purpose-of-this-guide)
+- [Looking for the migration guide?](#looking-for-the-migration-guide)
+- [Initial Hardware Testing](#initial-hardware-testing)
+- [Before you write any software!](#before-you-write-any-software)
+  - [Installing Phoenix Framework onto PC](#installing-phoenix-framework-onto-pc)
+    - [Download the Installer](#download-the-installer)
+    - [Running the Installer](#running-the-installer)
+    - [Phoenix Framework for Non-Windows Machines](#phoenix-framework-for-non-windows-machines)
+  - [Installing Phoenix Framework onto your FRC robot](#installing-phoenix-framework-onto-your-frc-robot)
+  - [Install Internet Explorer 11](#installing-internet-explorer-11)
+  - [Test the Phoenix Install in Eclipse](#test-the-phoenix-install-in-eclipse)
+  - [Test the Phoenix Install in LabVIEW](#test-the-phoenix-install-in-labview)
+- [Everything is installed, can I write software now?](#everything-is-installed-can-i-write-software-now)
+  - [Check the web-based configuration](#check-the-web-based-configuration)
+  - [Set your device IDs](#set-your-device-ids)
+  - [Update your CAN Devices](#update-your-can-devices)
+  - [Pick the device names](#pick-the-device-names)
+  - [Self-Test the hardware](#self-test-the-hardware)
+  - [Add Javadoc if using Java](#add-javadoc-if-using-java)
+- [Where is the API?](#where-is-the-api)
+  - [Java - How to intellisense/What to import ](#java---how-to-intellisensewhat-to-import)
+  - [C++ - How to intellisense/What header ](#c---how-to-intellisensewhat-header)
+  - [LabVIEW - Where are the VIs? ](#labview---where-are-the-vis)
+    - [Motor Controller VIs - What are MC and E-MC?](#motor-controller-vis---what-are-mc-and-e-mc)
+- [Hardware Object Model](#hardware-object-model)
+  - [Motor Controllers](#motor-controllers)
+    - [Where to begin?](#where-to-begin)
+    - [Factory Default the Configuration Parameters](#factory-default-the-configuration-parameters)
+    - [Open-Loop (No Sensor) Control](#open-loop-no-sensor-control)
+      - [Pick your direction](#pick-your-direction)
+      - [Pick your neutral mode](#pick-your-neutral-mode)
+      - [Current limiting](#current-limiting)
+      - [Ramping](#ramping)
+      - [Follower](#follower)
+    - [Setup Limit Switches](#setup-limit-switches)
+      - [Limit Switch Source](#limit-switch-source)
+      - [Limit Switch Override Enable](#limit-switch-override-enable)
+    - [Closed-Loop (Using Sensor) Control](#closed-loop-using-sensor-control)
+      - [Sensors](#sensors)
+        - [Why bother with sensors?](#why-bother-with-sensors)
+        - [How do I choose the sensor?](#how-do-i-choose-the-sensor)
+        - [How do I know the sensor works?](#how-do-i-know-the-sensor-works)
+        - [Sensor phase and why it matters](#sensor-phase-and-why-it-matters)
+        - [What are the units?](#what-are-the-units-of-my-sensor)
+        - [Setup the soft limits](#setup-the-soft-limits)
+      - [Closed-loop Ramping](#closed-loop-ramping)
+      - [Closed-Loop/Firmware Control Modes](#closed-loopfirmware-control-modes)
+        - [Position closed-loop walkthrough](#position-closed-loop-walkthrough)
+        - [Current closed-loop walkthrough](#current-closed-loop-walkthrough)
+      - [Closed-Loop Gains](#closed-loop-gains)
+        - [Motor Output Units (Why 1023?)](#motor-output-units-why-1023)
+        - [Closed-loop Error](#closed-loop-error)
+        - [Feed-Forward (kF)](#feed-forward-kf)
+        - [Proportional (kP)](#proportional-kp)
+        - [Integral (kI)](#integral-ki)
+        - [Derivative (kD)](#derivative-kd)
+      - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
+    - [Current limiting](#current-limiting)
+  - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
+    - [Pigeon IMU](#pigeon-imu)
+    - [CANifier](#canifier)
+  - [Common Device API](#common-device-api)
+      - [Error handling](#error-handling)
+        - [Did my device reset?](#did-my-device-reset)
+      - [Configuration Parameters](#configuration-parameters)
+        - [Configuration Parameters - What is timeout for](#configuration-parameters---what-is-timeout-for)
+- [Software Object Model](#software-object-model)
+  - [WPILib SpeedController/Drivetrain Objects](#wpilib-speedcontrollerdrivetrain-objects)
+    - [WPILib: Java/C++](#wpilib-javac)
+    - [WPILib: LabVIEW](#wpilib-labview)
+- [Driver Station](#driver-station)
+  - [What do I do when I see errors in Driver Station?](#what-do-i-do-when-i-see-errors-in-driver-station)
+  - [Driver Station says the firmware is too old](#driver-station-says-the-firmware-is-too-old)
+  - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-id)
+- [CRF Firmware Versions](#crf-firmware-versions)
+- [Errata](#errata)
 
 ## **Purpose of this guide**
 To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
@@ -92,7 +99,7 @@ To provide a top-to-bottom walk through of how to integrate CTRE's many hardware
 The Phoenix framework provides the following new feature...
 - Advanced Current limiting (Peak Current vs Continuous Current with Peak timeout).
 - Support for the new Victor SPX.
-- Talon SRX and Victor SPX deadband can be change from 4% to (0.1%  - 25%)
+- Talon SRX and Victor SPX deadband can be change from 4% to (0.1%  - 25%) for all control modes.
 - New follower features (Victor SPX follows Talon SRX, vice versa)
 - Support for CANifier (PWM input/ PWM output/ Common-Anode LED Strip/ Digital IO / Quadrature)
 - Remote Limit Switches.  Victor SPX and Talon SRX can use other CANifiers/Victor SPXs/Talon SRXs for forward/reverse limit switch.
@@ -135,7 +142,7 @@ The Phoenix Framework installer is the Windows Executable Installer that provide
 
 **FRC Teams:** Phoenix Framework should be installed after all other FRC software, including LabVIEW and/or Eclipse and the Driver Station update.  See the [FRC Screensteps](http://wpilib.screenstepslive.com/s/currentCS) for instructions on FRC Software.
 
-If your computer is not running a Windows operating system, see the [non-windows](https://github.com/CrossTheRoadElec/Phoenix-Documentation#phoenix-framework-for-non-windows-machines) section.
+If your computer is not running a Windows operating system, see the [non-windows](#phoenix-framework-for-non-windows-machines) section.
 #### Download the Installer
 The installer can be found [here](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources).
 Download and unzip the latest version of the CTRE Phoenix Framework Installer.
@@ -216,7 +223,7 @@ A useful diagnostic feature in the FRC Control system is the roboRIO's Web-based
 When connected via **USB**, you can generally type **172.22.11.2** to quickly reach web-based config.
 ![](images/Webdash-CheckWebdash.png)
 
-Because the interface uses Silverlight, the user must use Internet Explorer 11.  Instructions on installing Internet Explorer can be found  [here.](https://github.com/CrossTheRoadElec/Phoenix-Documentation#installing-internet-explorer-11)
+Because the interface uses Silverlight, the user must use Internet Explorer 11.  Instructions on installing Internet Explorer can be found  [here.](#installing-internet-explorer-11)
 
 ### Missing "CAN Interface"
 If "CAN Interface" is missing, then the web-based config plugin is likely not installed.
@@ -239,13 +246,18 @@ Username is "admin" with a blank password.
 
 ![](images/Webdash-Login.png)
 
-Select a CAN device in the device tree and press the "Update firmware button".  Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
+Select a CAN device in the device tree and press the "Update firmware button".  
+#### Firmware (CRF) Location
+Phoenix installs the Cross The Road Firmware Files (CRF) into two locations...
 - C:\users\Public\Documents\FRC (or similar).
 - C:\users\Public\Documents\Cross The Road Electronics\LifeBoat\HERO Firmware Files
 
+Make sure when checking these folders that you are looking on the same computer you installed Phoenix.
+
 Firmware files are named Product-Application-Version-Suffix.crf.
 
-CRF Version information can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#crf-firmware-versions).
+**Minimum Talon SRX firmware is 3.1.**  
+Specific CRF Version information can be found [here](#crf-firmware-versions).
 
 NOTE: Firmware versions are read as MAJOR-DOT-MINOR.
 E.g. 1.23 => One-dot-twenty-three
@@ -290,7 +302,7 @@ The java libraries for the phoenix framework can be imported by starting the imp
 ![](images/Java-Intellisense.png)
 ![](images/Java-IntellisenseSymbols.png)
 
-If the Javadoc was installed properly, which was explained in the ["Add Javadoc if using Java"](https://github.com/CrossTheRoadElec/Phoenix-Documentation#Add-Javadoc-if-using-Java) section, you should have the ability to hover over the Phoenix Framework API and find it's functionality details, parameters and return.
+If the Javadoc was installed properly, which was explained in the ["Add Javadoc if using Java"](#add-javadoc-if-using-java) section, you should have the ability to hover over the Phoenix Framework API and find it's functionality details, parameters and return.
 ![](images/java-IntellisenseCheck.png)
 ### C++ - How to intellisense/What header
 C++ modules simply need to include one header
@@ -358,7 +370,8 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
-Direction of output from a motor controller can be set by calling the `setInverted()` function as seen below. LEDs, sensor phase, and limit switches will also be inverted as well to match the direction of output.
+Motor controller output direction can be set by calling the `setInverted()` function as seen below. 
+Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).  Only the **motor leads** are inverted.  This feature ensures that sensor phase and limit switches will properly match the LED pattern (when LEDs are green => forward limit switch and soft limits are being checked).
 
 Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction.
 
@@ -373,7 +386,7 @@ You can pick your direction in the open VI.  Use the Set Invert VI if you need t
 ![](images/LV-Invert.png)
 
 ##### Pick your neutral mode
-Mode of operation during Neutral throttle output may be set by using the `setNeutralMode()` function.
+Mode of operation during Neutral output may be set by using the `setNeutralMode()` function.
 
 As of right now, there are two options when setting the neutral mode of a motor controller, brake and coast.
 
@@ -407,7 +420,7 @@ talon.enableCurrentLimit(true);
 LabVIEW and C++ have similar function/VIs.
 
 ##### Ramping
-The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
+The Talon SRX and Victor SPX can be set to honor a ramp rate to prevent instantaneous changes in output.
 
 There are two ramp rates - one for open-loop control modes and one for closed-loop control modes.
 
@@ -444,9 +457,12 @@ talonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
 
 LabVIEW -
 
-![](images/LV-FollowTalon.png)
+Below is an example using the new FOLLOW VI.
 
 ![](images/LV-FollowEither.png)
+
+Avoid using the SET VI when using LabVIEW as this is unsupported.  
+![](images/LV-FollowTalon.png)
 
 #### Setup Limit switches
 An “out of the box” Talon SRX or Victor SPX will default to the limit switch setting of “Normally Open” for both forward and reverse. This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground). When a limit switch input is closed (is connected to ground) the Talon SRX/Victor SPX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault)
@@ -529,8 +545,8 @@ Once you have deployed the code and opened SmartDashboard from the FRC Driver St
 ![Image of the plots generated from driving](images/Java-SensorCheck.png)
 
 ###### Sensor phase and why it matters
-Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive throttle. To test this, first drive the motor manually (using
-gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](https://github.com/CrossTheRoadElec/Phoenix-Documentation#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
+Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive output. To test this, first drive the motor manually (using
+gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
 
 Sensor phase can be set by using `setSensorPhase()`. If the sensor is out of phase, set true.
 
@@ -552,8 +568,8 @@ Position units are in the natural units of the sensor.  This ensures the best re
 | Sensor Type       | Units per rotation|
 | ------------- |:-------------:|
 | Quadrature Encoder : US Digital 1024 CPR| 4096 (because Talon/CANifer counts every edge)
-| CTRE Magnetic Encoder (relative)  | 4096 |
-| CTRE Magnetic Encoder (absolute) | 4096 |
+| CTRE Magnetic Encoder (relative/quadrature)  | 4096 |
+| CTRE Magnetic Encoder (absolute/pulse width encoded) | 4096 |
 | Any pulse width encoded position | 4096 represents 100% duty cycle |
 | AndyMark CIMcoder| 80 (because 20 pulses => 80 edges)
 
@@ -564,7 +580,7 @@ Generally you can multiply the velocity units by 600/UnitsPerRotation to obtain 
 Tachometer velocity measurement is unique in that it measures time directly.  As a result, the reported velocity is calculated where 1024 represents a full "rotation".  This means that a velocity measurement of 1 represents 1/1024 of a rotation every 100ms.
 
 ###### Setup the soft limits
-Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
+Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range. Forward output will be disabled if the “Sensor Position” is greater than the Forward Soft Limit. Reverse output will be disabled if the “Sensor Position” is less than the Reverse Soft Limit. The respective Soft Limit Enable must be enabled for this feature to take effect.
 
 Java -
 ```Java
@@ -599,7 +615,7 @@ The Talon's closed-loop logic can be used to maintain a target velocity. Target 
 **Current closed-loop**
 The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes.
 
-Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation#current-limiting).
+Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](#current-limiting).
 
 **Motion Magic**
 Talon will closed-loop to target position while honoring an maximum "cruise" velocity and specified acceleration.
@@ -618,6 +634,59 @@ Java -
 
 ###### Current closed-loop walkthrough
 Coming soon.  This exists in last year's documentation and will be merge in accordingly.
+
+##### Closed-loop Gains
+When tuning gains, it is recommended to zero out all closed-loop control parameters and start with P (or F if recommended for the control mode).
+###### Motor Output Units (Why 1023?)
+Motor output is represented as a 11-bit number in firmware.  All units for motor output are a scalar from -1023 to +1023.
+###### Closed-loop Error
+Closed-loop error is the difference between the target setpoint and the current sensor value.  
+For position: closed-loop error = target - sensor position.  
+For velocity: closed-loop error = target - sensor velocity.
+###### Feed-Forward (kF)
+ Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+
+ F gain is multiplied directly by the set point passed into the programming API.  The result of this multiplication is in motor output units [-1023, 1023].  This allows the robot to feed-forward using the target set-point.
+
+ In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output (preferably an output close to the intended operating range).
+
+ You can see the measured velocity in a few different ways.  The fastest is to usually do a self-test in the web-based interface - This will give you both your velocity and your percent output.
+
+ ![](images/General-FgainVelSelfTest.png)
+
+ F-gain is then calculated using the following formula:
+
+ F-gain = ([Percent Output] x 1023) / [Velocity]
+
+ Using the example from the self-test picture above, that would be:  
+ F-gain = (0.48 x 1023) / 6331 = 0.077561
+
+ We can then check our math - if the target velocity is set to 6331 native units per 100ms, the closed-loop output will be (0.077561 x 6331) = 491 (which is 48% of 1023).
+###### Proportional (kP)
+ P is the proportional gain.  It modifies the closed-loop output by a proportion (the gain value) of the closed-loop error.
+
+ P gain is specified in output unit per error unit.  For example, a value of 102 is ~9.97% (which is 102/1023) output per 1 unit of Closed-Loop Error.
+
+  _Example: Position Closed-loop_   
+  When tuning P, it's useful to estimate your starting value.  If you want your mechanism to drive 50% output when the error is 4096 (one rotation when using CTRE Mag Encoder), then the calculated Proportional Gain would be (0.50 X 1023) / 4096 = ~0.125.
+
+  To check our math, take an error (native units) of 4096 X 0.125 => 512 (50% output).
+
+  Tune this until the sensed value is close to the target under typical load. Many prefer to simply double the P-gain until oscillations occur, then reduce accordingly.
+###### Integral (kI)
+ I is the integral gain.  It modifies the closed-loop output according to the integral error (summation of the closed-loop error each iteration).
+
+ I gain is specified in output units per integrated error.  For example, a value of 10 equates to ~0.97% for each accumulated error (Integral Accumulator).  Integral accumulation is done every 1ms.
+
+   _Example: Position Closed-loop_  
+  If your mechanism never quite reaches your target and using integral gain is viable, start with 1/100th of the Proportional Gain.
+###### Derivative (kD)
+ D is the derivative gain.  It modifies the closed-loop output according to the derivative error (change in closed-loop error each iteration).
+
+ D gain is specified in output units per derivative error. For example a value of 102 equates to ~9.97% (which is 102/1023) per change of Sensor Position/Velocity unit per 1ms.
+
+   _Example: Position Closed-loop_  
+  If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
 
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
@@ -640,6 +709,35 @@ Additionally the example repositories can be used for reference.
 [Phoenix-Examples-Languages](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages)
 [Phoenix-Examples-LabVIEW](https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW)
 
+### Common Device API
+The Talon SRX, Victor SPX, CANifier, and Pigeon IMU have a common set of device functions.  These are explained below.
+
+#### Error handling
+In C++/Java, many routines return an [ErrorCode](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ErrorCode.html).  Depending on the function, this can be used to determine if the function was successful.
+
+Additionally each object has a getLastError() routine that will return the code for the last function called.
+
+In LabVIEW, the error output is filled with a CTRE error code when an error condition occurs.
+
+In all circumstances, error events are also sent to the Driver Station console output.  However Driver Station messages are debounced to reduce flooding the console.
+
+#### Did my device reset?
+All device classes and VIs support a `hasResetOccurred` routine that allows the caller to poll if the device has reset since last call.  Additionally, Talon SRX and Victor SPX have a sticky fault (accessible via web-based config or API) to indicate if the motor controller has been reset/power-booted during robot-enable.
+
+#### Configuration Parameters
+In addition to the feature specific config* routines/VIs in C++/Java/LabVIEW, there are general Config Parameter routines that will take an arbitrary enumeration value type [ParamEnum](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/ParamEnum.html).
+
+When using the general configuration get/set routines, `ordinal` can be used to specify...
+- which PID slot to select (when accessing gains).
+- which PID loop to select (when accessing PID signals such as integral accumulator)
+- which limit switch direction, 0 for forward, 1 for reverse (when accessing limit parameters)
+
+Every language supports a [ConfigGetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configGetParameter-com.ctre.phoenix.ParamEnum-int-int-) and [ConfigSetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configSetParameter-com.ctre.phoenix.ParamEnum-double-int-int-int-).
+
+#### Configuration Parameters - What is timeout for?
+All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsute).
+
+## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
 The Phoenix framework supports an adapter class for Victor SPX and Talon SRX hardware objects.  Depending on language, the developer needs to be made aware of the following sections below to utilize certain WPILIB classes/VIs.
 
@@ -678,16 +776,37 @@ Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in ro
 ### Driver Station says the firmware is too old.
 ![DS-FirmwareTooOld](images/DS-FirmwareTooOld.png)
 
-Use the web-based configuration page to [update](https://github.com/CrossTheRoadElec/Phoenix-Documentation#update-your-can-devices) the firmware of the device.
+Use the web-based configuration page to [update](#update-your-can-devices) the firmware of the device.
 
 Note that the robot application must be **restarted** for the firmware version check to clear.  This can be done by redeploying the robot application or simply restarting the robot.
 
+### Driver Station says the firmware could not be retrieved and to check the firmware and ID.
+![DS-FirmwareNotReceived](images/DS-FirmwareNotReceived.png)
+
+This usually indicates that your device ID is wrong or your firmware pre-dates Phoenix.
+
+Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](#update-your-can-devices).
+
 ## **CRF Firmware Versions**
-At the time of writing the latest firmware files are...
+Phoenix 5.2.1.1:
+- Pigeon-Application-0.41-FixedParamResp.crf
+- CANifier-Application-0.40-FirmVers.crf
+- **TalonSrx-Application-3.3.crf** (Motion Profile added).
+- VictorSpx-Application-3.1.crf
+
+Phoenix 5.1.3.1:
 - Pigeon-Application-0.41-FixedParamResp.crf
 - CANifier-Application-0.40-FirmVers.crf
 - TalonSrx-Application-3.1.crf
 - VictorSpx-Application-3.1.crf
 
 ## **Errata**
-- Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release.
+Phoenix 5.2.1.1:
+- getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
+
+Phoenix 5.1.3.1:
+- Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
+
+LabVIEW: Do not use SET VI when using follwer features in LabVIEW.  
+Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
+![](images/LV-FollowTalon.png)
