@@ -72,7 +72,6 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
         - [Integral (kI)](#integral-ki)
         - [Derivative (kD)](#derivative-kd)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
-    - [Current limiting](#current-limiting)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
     - [Pigeon IMU](#pigeon-imu)
     - [CANifier](#canifier)
@@ -413,13 +412,13 @@ LabVIEW -
 ![](images/LV-NeutralMode.png)
 
 ##### Current limiting
-Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
+Talon SRX can limit the output current to a specified maximum threshold. This functionality (when enabled) functions in all control modes.
 
-Current limiting configuration and enabling can be controlled by the following API.
+Current limiting configuration and enable can be controlled by the following API.
 
-1. Configure the continuous current limit to the amperage that you desire the current be limited to.
-2. Configure the peak current limit to the current threshold amperage that will enforce the current limiting. If the peak current limit is set to 0, current limiting will be enforced at the continuous current limit.
-3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, enforce current limiting as soon as current surpasses the peak current threshold.
+1. Configure the continuous current limit to the amperage that you desire the current-draw be limited to.
+2. Configure the peak current limit to the threshold necessary to exceed to activate current limiting. If the peak current limit is less than the continuous current limit (zero for example) current limiting will be enforced when the current-draw exceeds to continuous current limit.
+3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, current limiting is enforced immediately after current-draw surpasses the peak current threshold.
 4. Enable current limiting.
 
 ```Java
