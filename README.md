@@ -405,8 +405,8 @@ As of right now, there are two options when setting the neutral mode of a motor 
 Java -
 ```java
 /* Displaying the two neutral mode options that both the Talon and Victor have */
-Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Coast);
-Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Brake);
+Hardware.Talon.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+Hardware.Talon.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
 ```
 LabVIEW -
 
@@ -464,7 +464,7 @@ Java -
 /* The first line, we have a Victor following a Talon. The follow() function may also be used to create Talon follower for a Victor */
 victorFollower.follow(Hardware.TalonMaster);
 /* In the second line, we have a Talon following Talon. The set(ControlMode.Follower, MotorcontrollerID) creates followers of the same model. */
-talonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
+talonFollower.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, 6);
 ```
 
 LabVIEW -
@@ -544,14 +544,14 @@ Java/C++ - For the FRC languages, the easiest way to produce a plot is to use th
 Java -
 ```java
 /* Setup sensors to check status, can also be used for phasing */
-Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
+Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.motorcontrol.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.rightMaster.setSensorPhase(false);
-Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
+Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.motorcontrol.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.leftMaster.setSensorPhase(false);
 
 /* Output value to SmartDashboard */
-SmartDashboard.putNumber("Right Sensor position", Hardware.rightMaster.getSelectedSensorPosition());
-SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelectedSensorVelocity());
+SmartDashboard.putNumber("Right Sensor position", Hardware.rightMaster.getSelectedSensorPosition(0));
+SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelectedSensorVelocity(0));
 ```
 
 Once you have deployed the code and opened SmartDashboard from the FRC Driver Station, you may reveal the values by going under the view tab and revealing the values which will be listed by their key name. You may then change the numerical indicator the a line-plot and generate the plot by driving the motor controller.
