@@ -421,6 +421,8 @@ Current limiting configuration and enable can be controlled by the following API
 3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, current limiting is enforced immediately after current-draw surpasses the peak current threshold.
 4. Enable current limiting.
 
+**Note**: There is a noise floor (around 1-2 amps) to the Talon SRX current measurements.  Setting a current limit close to those values may yield unexpected results.  As a general rule of thumb it is not recommended to use a current limit below 5 amps.
+
 ```Java
 /* The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms */
 talon.configContinuousCurrentLimit(10, 0);
