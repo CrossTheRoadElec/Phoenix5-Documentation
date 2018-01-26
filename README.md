@@ -441,6 +441,8 @@ The open-loop ramp rate of a motor controller can be configured by using the `co
 
 **Note:** The open-loop ramp rate should only be configured for motor controller masters, as followers will mimic the Masters output already.
 
+**Note:** The web-based configuration page entry for Ramp Rate should not be used.  See the [errata](#errata) for more information.
+
 Java -
 ```java
 /* Talon is configured to ramp from neutral to full within 2 seconds, and followers are configured to 0*/
@@ -618,6 +620,9 @@ LabVIEW -
 ![](images/LV-softLimOverride.png)
 
 ##### Closed-loop Ramping
+Closed-loop Ramping works the same way as open-loop ramping using configClosedloopRamp.
+See [Ramping](#ramping) for more information on ramping.
+
 ##### Closed-loop/Firmware Control Modes
 When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop control mode options to choose from. Below is a list with an explanation of each supported closed-loop type.
 
@@ -838,3 +843,9 @@ Phoenix 5.1.3.1:
 LabVIEW: Do not use SET VI when using follwer features in LabVIEW.  
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
+
+Web-based Configuration:
+- The individual ramp rate inside the closed-loop slot has been replaced with
+configOpenloopRamp and configClosedloopRamp. Instead use these routine as the web-based
+config entry will always read zero.  
+![](images/WebConfig-rampRateLimitation.png)
