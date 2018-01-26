@@ -92,7 +92,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
 - [Errata](#errata)
 
 ## **Purpose of this guide**
-To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
+To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.  For advanced software questions, please see the [2018 Software Reference Manual (pdf)](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf).
 
 ## **What is new / Kickoff**
 The Phoenix framework provides the following new feature...
