@@ -562,7 +562,7 @@ Once you have deployed the code and opened SmartDashboard from the FRC Driver St
 ![Image of the plots generated from driving](images/Java-SensorCheck.png)
 
 ###### Sensor phase and why it matters
-Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive output. To test this, first drive the motor manually (using
+Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive output (and LEDs are green). To test this, first drive the motor manually (using
 gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
 
 Sensor phase can be set by using `setSensorPhase()`. If the sensor is out of phase, set true.
