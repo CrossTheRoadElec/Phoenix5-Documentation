@@ -839,6 +839,7 @@ Phoenix 5.2.1.1:
 
 Phoenix 5.1.3.1:
 - Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
+- LabVIEW VIs stored relatively at C:\Users\Public\Documents\Cross The Road Electronics\Phoenix-LabVIEW only.  VIs should also appear inside Program Files (x86)\National Instruments\LabVIEW 2017\vi.lib\Rock Robotics to ensure GitHub examples can find them.  [Resolved in 5.2.1.1]
 
 LabVIEW: Do not use SET VI when using follwer features in LabVIEW.  
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
@@ -849,3 +850,5 @@ Web-based Configuration:
 configOpenloopRamp and configClosedloopRamp. Instead use these routine as the web-based
 config entry will always read zero.  
 ![](images/WebConfig-rampRateLimitation.png)
+
+**For the complete errata list, see the [Talon SRX / Victor SPX Software Reference Manual](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf).**
