@@ -72,7 +72,6 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
         - [Integral (kI)](#integral-ki)
         - [Derivative (kD)](#derivative-kd)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
-    - [Current limiting](#current-limiting)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
     - [Pigeon IMU](#pigeon-imu)
     - [CANifier](#canifier)
@@ -93,7 +92,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
 - [Errata](#errata)
 
 ## **Purpose of this guide**
-To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.
+To provide a top-to-bottom walk through of how to integrate CTRE's many hardware products into your robot's software.  This includes supporting FRC teams for this season's game POWERUP.  The software libraries for CTRE devices are bundled into the Phoenix Framework, which supports FRC-C++/Java/LabVIEW and HERO-C#.  For advanced software questions, please see the [2018 Software Reference Manual (pdf)](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf).
 
 ## **What is new / Kickoff**
 The Phoenix framework provides the following new feature...
@@ -379,10 +378,13 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
-Motor controller output direction can be set by calling the `setInverted()` function as seen below. 
+Motor controller output direction can be set by calling the `setInverted()` function as seen below.  
 Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).  Only the **motor leads** are inverted.  This feature ensures that sensor phase and limit switches will properly match the LED pattern (when LEDs are green => forward limit switch and soft limits are being checked).
 
 Pass in false if the signage of the motor controller is correct, else pass in true to reverse direction.
+
+###### Inverting Followers
+When using motor controllers in a master/follower configuration, **all** motor controllers need to have their direction set independently.  A follower controller will not automatically change direction if you only invert the master.
 
 Java -
 ```java
@@ -402,22 +404,24 @@ As of right now, there are two options when setting the neutral mode of a motor 
 Java -
 ```java
 /* Displaying the two neutral mode options that both the Talon and Victor have */
-Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Coast);
-Hardware.Talon.setNeutralMode(com.ctre.phoenix.MotorControl.NeutralMode.Brake);
+Hardware.Talon.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+Hardware.Talon.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
 ```
 LabVIEW -
 
 ![](images/LV-NeutralMode.png)
 
 ##### Current limiting
-Talon SRX has the ability to limit the output current to a specified maximum threshold. This functionality is available in all open-loop control modes. There is a separate current limit configuration for closed-loop control.
+Talon SRX can limit the output current to a specified maximum threshold. This functionality (when enabled) functions in all control modes.
 
-Current limiting configuration and enabling can be controlled by the following API.
+Current limiting configuration and enable can be controlled by the following API.
 
-1. Configure the continuous current limit to the amperage that you desire the current be limited to.
-2. Configure the peak current limit to the current threshold amperage that will enforce the current limiting. If the peak current limit is set to 0, current limiting will be enforced at the continuous current limit.
-3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, enforce current limiting as soon as current surpasses the peak current threshold.
+1. Configure the continuous current limit to the amperage that you desire the current-draw be limited to.
+2. Configure the peak current limit to the threshold necessary to exceed to activate current limiting. If the peak current limit is less than the continuous current limit (zero for example) current limiting will be enforced when the current-draw exceeds to continuous current limit.
+3. Configure the peak current duration to the duration allowable over the peak current limit. If peak current duration is configured to 0, current limiting is enforced immediately after current-draw surpasses the peak current threshold.
 4. Enable current limiting.
+
+**Note**: There is a noise floor (around 1-2 amps) to the Talon SRX current measurements.  Setting a current limit close to those values may yield unexpected results.  As a general rule of thumb it is not recommended to use a current limit below 5 amps.
 
 ```Java
 /* The following java example limits the current to 10 amps whenever the current has exceeded 15 amps for 100 Ms */
@@ -437,6 +441,8 @@ The open-loop ramp rate of a motor controller can be configured by using the `co
 
 **Note:** The open-loop ramp rate should only be configured for motor controller masters, as followers will mimic the Masters output already.
 
+**Note:** The web-based configuration page entry for Ramp Rate should not be used.  See the [errata](#errata) for more information.
+
 Java -
 ```java
 /* Talon is configured to ramp from neutral to full within 2 seconds, and followers are configured to 0*/
@@ -450,7 +456,7 @@ LabVIEW -
 ![](images/LV-openloopRamp.png)
 
 ##### Follower
-Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output. Users will still need to set the motor controller's direction, and neutral mode.
+Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output. **Users will still need to set the motor controller's direction and neutral mode.**
 
 There are two methods for creating a follower motor controller. The first method `set(ControlMode.follower, IDofMotorController)` allows users to create a motor controller follower of the same model, talon to talon, or victor to victor.
 
@@ -461,7 +467,7 @@ Java -
 /* The first line, we have a Victor following a Talon. The follow() function may also be used to create Talon follower for a Victor */
 victorFollower.follow(Hardware.TalonMaster);
 /* In the second line, we have a Talon following Talon. The set(ControlMode.Follower, MotorcontrollerID) creates followers of the same model. */
-talonFollower.set(com.ctre.phoenix.MotorControl.ControlMode.Follower, 6);
+talonFollower.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, 6);
 ```
 
 LabVIEW -
@@ -534,19 +540,21 @@ LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on
 ###### How do I know the sensor works?
 There are multiple methods of ensuring the connected sensor is active and returning meaningful data. The best method is to plot the signal and watch the plot, looking for continuous data that is responsive. Another, but less reliable method is to print your values to a console and check for values, which makes it harder to see if there is noise in the values.
 
+If the reported value is not what is expected (eg. quadrature position is reporting as 0 or 1), check your sensor and wiring to make sure the physical sensor setup is good.
+
 Java/C++ - For the FRC languages, the easiest way to produce a plot is to use the SmartDashboard, a feature part of the FRC Driver Station. Below is an example of how to set up the sensor on the Talon SRX and get a plot.
 
 Java -
 ```java
 /* Setup sensors to check status, can also be used for phasing */
-Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
+Hardware.rightMaster.configSelectedFeedbackSensor(com.ctre.phoenix.motorcontrol.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.rightMaster.setSensorPhase(false);
-Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.MotorControl.FeedbackDevice.QuadEncoder, 0, 0);
+Hardware.leftMaster.configSelectedFeedbackSensor(com.ctre.phoenix.motorcontrol.FeedbackDevice.QuadEncoder, 0, 0);
 Hardware.leftMaster.setSensorPhase(false);
 
 /* Output value to SmartDashboard */
-SmartDashboard.putNumber("Right Sensor position", Hardware.rightMaster.getSelectedSensorPosition());
-SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelectedSensorVelocity());
+SmartDashboard.putNumber("Right Sensor position", Hardware.rightMaster.getSelectedSensorPosition(0));
+SmartDashboard.putNumber("Left Sensor Velocity", Hardware.leftMaster.getSelectedSensorVelocity(0));
 ```
 
 Once you have deployed the code and opened SmartDashboard from the FRC Driver Station, you may reveal the values by going under the view tab and revealing the values which will be listed by their key name. You may then change the numerical indicator the a line-plot and generate the plot by driving the motor controller.
@@ -554,7 +562,7 @@ Once you have deployed the code and opened SmartDashboard from the FRC Driver St
 ![Image of the plots generated from driving](images/Java-SensorCheck.png)
 
 ###### Sensor phase and why it matters
-Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive output. To test this, first drive the motor manually (using
+Sensor phase is the term used to explain sensor direction. In order for limit switches and closed-loop features to function properly the sensor and motor has to be “in-phase.” This means that the sensor position must move in a positive direction as the motor controller drives positive output (and LEDs are green). To test this, first drive the motor manually (using
 gamepad axis for example). Watch the sensor position in the roboRIO web-based configuration self-test, plot using the method explained in the section [*How do I know the sensor works?*](#how-do-i-know-the-sensor-works), or by calling `GetSensorPosition()` and printing it to console.
 
 Sensor phase can be set by using `setSensorPhase()`. If the sensor is out of phase, set true.
@@ -612,6 +620,9 @@ LabVIEW -
 ![](images/LV-softLimOverride.png)
 
 ##### Closed-loop Ramping
+Closed-loop Ramping works the same way as open-loop ramping using configClosedloopRamp.
+See [Ramping](#ramping) for more information on ramping.
+
 ##### Closed-loop/Firmware Control Modes
 When it comes to the Talon SRX and Victor SPX, there are multiple closed-loop control mode options to choose from. Below is a list with an explanation of each supported closed-loop type.
 
@@ -828,7 +839,16 @@ Phoenix 5.2.1.1:
 
 Phoenix 5.1.3.1:
 - Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
+- LabVIEW VIs stored relatively at C:\Users\Public\Documents\Cross The Road Electronics\Phoenix-LabVIEW only.  VIs should also appear inside Program Files (x86)\National Instruments\LabVIEW 2017\vi.lib\Rock Robotics to ensure GitHub examples can find them.  [Resolved in 5.2.1.1]
 
 LabVIEW: Do not use SET VI when using follwer features in LabVIEW.  
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
+
+Web-based Configuration:
+- The individual ramp rate inside the closed-loop slot has been replaced with
+configOpenloopRamp and configClosedloopRamp. Instead use these routine as the web-based
+config entry will always read zero.  
+![](images/WebConfig-rampRateLimitation.png)
+
+**For the complete errata list, see the [Talon SRX / Victor SPX Software Reference Manual](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf).**
