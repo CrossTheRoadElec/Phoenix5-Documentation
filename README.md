@@ -23,6 +23,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
     - [Download the Installer](#download-the-installer)
     - [Running the Installer](#running-the-installer)
     - [Phoenix Framework for Non-Windows Machines](#phoenix-framework-for-non-windows-machines)
+  - [Checking what Version Phoenix is on your Machine](#checking-what-version-phoenix-is-on-your-machine)
   - [Installing Phoenix Framework onto your FRC robot](#installing-phoenix-framework-onto-your-frc-robot)
   - [Install Internet Explorer 11](#installing-internet-explorer-11)
   - [Test the Phoenix Install in Eclipse](#test-the-phoenix-install-in-eclipse)
@@ -88,6 +89,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
   - [What do I do when I see errors in Driver Station?](#what-do-i-do-when-i-see-errors-in-driver-station)
   - [Driver Station says the firmware is too old](#driver-station-says-the-firmware-is-too-old)
   - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-id)
+  - [Driver Station says Variant To Data in ...](#driver-station-says-variant-to-data-in)
 - [CRF Firmware Versions](#crf-firmware-versions)
 - [Errata](#errata)
 
@@ -154,6 +156,9 @@ This page also contains some installer archives, so if you need an older version
 
 Run the executable that was downloaded in the previous step.  If Windows prompts with an "unpublished" dialog box, press "More Info" and "Allow App to Run".
 
+![](images/Protected-Your-PC.png)
+![](images/Protected-Your-PC-Fix.png)
+
 ![](images/Phoenix-installerSplash.png)
 
 At a minimum, you must select the components for the programming language you are using.
@@ -165,6 +170,14 @@ After the installation is finished, you must restart any programming environment
 A zip file containing the Phoenix Framework libraries is available [here](http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources).
 
 Download the latest non-windows zip file and follow the README it contains to install the Phoenix API.
+
+### Checking what version Phoenix is on your Machine
+
+The easiest way to check what version phoenix you have installed on your machine is by looking at the Phoenix LifeBoat about tab.
+
+![](images/LifeBoat-to-About.png)
+
+![](images/Lifeboat-About.png)
 
 ### Installing Phoenix Framework onto your FRC robot
 It is necessary to install Phoenix onto your roboRIO in order to use the Web-Based Configuration Page.
@@ -791,7 +804,9 @@ DS Errors should be addressed as soon as they appear. This is because...
 - If errors are numerous and typical, then users cannot determine if there is a new problem to address.
 - A large stream of errors can bog down the Driverstation/roboRIO.  Phoenix Framework has a debouncing strategy to ensure this does not happen, but not all libraries do this.
 
-Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.  
+Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.
+
+The Debouncing Strategy that Phoenix uses is 3 seconds long. Phoenix key's a new error on device ID & function. This is to ensure that all unique errors are logged while making sure the DriverStation/roboRIO is not bogged down.
 
 ### Driver Station says the firmware is too old.
 ![DS-FirmwareTooOld](images/DS-FirmwareTooOld.png)
@@ -807,7 +822,7 @@ This usually indicates that your device ID is wrong or your firmware pre-dates P
 
 Use the web-based configuration page to check your device IDs and make sure your firmware is [up-to-date](#update-your-can-devices).
 
-### LabVIEW - Driver Station Says Variant To Data in ...
+### Driver Station Says Variant To Data in ...
 ![](images/DS-VariantToData.png)
 
 This is usually caused by a diagram disable structure around a MotorController or EnhancedMotorController VI
