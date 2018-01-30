@@ -868,6 +868,9 @@ LabVIEW: Do not use SET VI when using follwer features in LabVIEW.
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
 
+CTRE Toolsuite 4_Legacy
+- LabVIEW PigeonIMU Raw Gyro values are incorrect. [Resolved in Phoenix Framework]
+
 Web-based Configuration:
 - The individual ramp rate inside the closed-loop slot has been replaced with
 configOpenloopRamp and configClosedloopRamp. Instead use these routine as the web-based
