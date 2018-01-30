@@ -42,6 +42,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
 - [Hardware Object Model](#hardware-object-model)
   - [Motor Controllers](#motor-controllers)
     - [Where to begin?](#where-to-begin)
+      - [Getting Data in LabVIEW](#getting-data-in-labview)
     - [Factory Default the Configuration Parameters](#factory-default-the-configuration-parameters)
     - [Open-Loop (No Sensor) Control](#open-loop-no-sensor-control)
       - [Pick your direction](#pick-your-direction)
@@ -365,6 +366,14 @@ If using a programming language, create a Talon SRX object using the appropriate
 Regardless of the what the motor controller is used for, the next step is usually open-loop (no sensor) control.  This is to ensure the mechanism is functional and that the motor and motor controller is wired correctly.
 
 Start with the open-loop features below and configure each setting that is applicable.
+
+##### Getting Data in LabVIEW
+For C++ and Java, most information is returned from the functions and methods specific to that data.
+
+In LabVIEW, however, these individual getters are mostly contained within a single polymorphic "Get" VI.
+The Get VI can be found in both the Talon SRX and Victor SPX sub-palettes.  
+![](images/LabVIEW-Get.png)  
+This VI is polymorphic, meaning that it can change functionality based on the use-case.  The use case is determined by the drop-down menu at the bottom of the VI.  There are several options to choose from, including Sensor, Closed-loop, Limit Switches, and various specific sensor types.
 
 #### Factory Default the Configuration Parameters
 Both the Talon SRX and Victor SPX have some persistent settings such as neutral mode, limit switches, soft limits, PID gains and a few others. These settings can be reverted to factory defaults by holding the B/C button on the Talon SRX and Victor SPX.
