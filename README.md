@@ -89,7 +89,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
   - [What do I do when I see errors in Driver Station?](#what-do-i-do-when-i-see-errors-in-driver-station)
   - [Driver Station says the firmware is too old](#driver-station-says-the-firmware-is-too-old)
   - [Driver Station says the firmware could not be retrieved and to check the firmware and ID](#driver-station-says-the-firmware-could-not-be-retrieved-and-to-check-the-firmware-and-id)
-  - [Driver Station says Variant To Data in ...](#driver-station-says-variant-to-data-in)
+  - [Driver Station says Variant To Data in ...](#driver-station-says-variant-to-data-in-)
 - [CRF Firmware Versions](#crf-firmware-versions)
 - [Errata](#errata)
 
@@ -157,6 +157,7 @@ This page also contains some installer archives, so if you need an older version
 Run the executable that was downloaded in the previous step.  If Windows prompts with an "unpublished" dialog box, press "More Info" and "Allow App to Run".
 
 ![](images/Protected-Your-PC.png)
+
 ![](images/Protected-Your-PC-Fix.png)
 
 ![](images/Phoenix-installerSplash.png)
@@ -174,8 +175,6 @@ Download the latest non-windows zip file and follow the README it contains to in
 ### Checking what version Phoenix is on your Machine
 
 The easiest way to check what version phoenix you have installed on your machine is by looking at the Phoenix LifeBoat about tab.
-
-![](images/LifeBoat-to-About.png)
 
 ![](images/Lifeboat-About.png)
 
