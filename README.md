@@ -54,6 +54,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
     - [Setup Limit Switches](#setup-limit-switches)
       - [Limit Switch Source](#limit-switch-source)
       - [Limit Switch Override Enable](#limit-switch-override-enable)
+      - [Limit Switch As Digital Input](#limit-switch-as-digital-inputs)
     - [Closed-Loop (Using Sensor) Control](#closed-loop-using-sensor-control)
       - [Sensors](#sensors)
         - [Why bother with sensors?](#why-bother-with-sensors)
@@ -547,6 +548,22 @@ Hardware.rightVictorMaster.overrideLimitSwitchesEnable(true);
 LabVIEW -
 
 ![](images/LV-overrideLimitEnable.png)
+
+##### Limit Switch As Digital Inputs
+
+Limit switches can also be treated as digital inputs. This is done in Java/C++ by using the isFwdLimitSwitchClosed method.
+
+C++ -
+```C++
+_talon->GetSensorCollection().IsFwdLimitSwitchClosed();
+```
+
+Java -
+```Java
+_talon.getSensorCollection().isFwdLimitSwitchClosed();
+```
+
+And in LabVIEW it uses the generic Get VI, selecting Limit Switch under the drop down
 
 #### Closed-Loop (Using Sensor) Control
 These features and configurations influence the behavior of the motor controller when encoders/sensors are being used to provide feedback to a maneuver.
