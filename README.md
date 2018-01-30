@@ -179,6 +179,8 @@ The easiest way to check what version phoenix you have installed on your machine
 
 ![](images/Lifeboat-About.png)
 
+If you're using a non-Windows Machine, however, you also downloaded a VERSION_NOTES file. Open this file using any text editor and it includes all of the version numbers
+
 ### Installing Phoenix Framework onto your FRC robot
 It is necessary to install Phoenix onto your roboRIO in order to use the Web-Based Configuration Page.
 
