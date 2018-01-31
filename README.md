@@ -137,7 +137,7 @@ This is explained in the sections below, but it is worth pointing out how import
 
 
 ## **Before you write any software!**
-Follow the sections below in order.  Otherwise you will see compiler errors for missing calls/VIs.  This is also necessary for the roboRIO Web-based configuration.
+Follow the sections below in order.  Otherwise you will see compiler errors for missing calls/VIs.  This is also necessary for the roboRIO Web-based configuration.  For more details on the components being installed, see [here](#framework-components).
 
 ### Installing Phoenix Framework onto PC
 The Phoenix Framework installer is the Windows Executable Installer that provides all software and API Libraries required to support CTRE products.
