@@ -85,6 +85,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
   - [WPILib SpeedController/Drivetrain Objects](#wpilib-speedcontrollerdrivetrain-objects)
     - [WPILib: Java/C++](#wpilib-javac)
     - [WPILib: LabVIEW](#wpilib-labview)
+- [Framework Components](#framework-components)
 - [Driver Station](#driver-station)
   - [What do I do when I see errors in Driver Station?](#what-do-i-do-when-i-see-errors-in-driver-station)
   - [Driver Station says the firmware is too old](#driver-station-says-the-firmware-is-too-old)
@@ -133,6 +134,7 @@ This is explained in the sections below, but it is worth pointing out how import
 - Robot replacement components should be in a state of readiness.  Otherwise a replacement during competition can yield erroneous behavior.
 - Many robot components (in general) have fixed warranty periods, and replacements must be done within them.
 - Confirming devices are functional before handing them to students ensures best chance of success.
+
 
 ## **Before you write any software!**
 Follow the sections below in order.  Otherwise you will see compiler errors for missing calls/VIs.  This is also necessary for the roboRIO Web-based configuration.
@@ -378,9 +380,10 @@ This VI is polymorphic, meaning that it can change functionality based on the us
 #### Factory Default the Configuration Parameters
 Both the Talon SRX and Victor SPX have some persistent settings such as neutral mode, limit switches, soft limits, PID gains and a few others. These settings can be reverted to factory defaults by holding the B/C button on the Talon SRX and Victor SPX.
 
-1. Hold down the B/C CAL button until both status LEDS begin to rapidly blink red and green.
-2. Release the B/C CAL button.
-3. If the Talon SRX was calibrated properly, the status LEDs will blink green several times. If the calibration failed, the status LEDs will blink red and the previous calibration will be kept.
+1. With the Motor Controller off, hold down the B/C CAL button.
+2. Apply power to the Motor Controller.
+3. If the Motor Controller was defaulted properly, the status LEDs will blink green several times. If the default failed, the status LEDs will blink red and the previous configuration settings will be kept.
+4. Release the B/C CAL button.
 
 ![Talon SRX's B/C Button](images/TalonBootCalButton.png)
 
@@ -792,6 +795,62 @@ Using the WPI Motor Set VI in Teleop.vi:
 Opening Multiple Motors for a Drivetrain in Begin.vi:
 
 ![](images/LV-open4motors.png)
+
+## **Framework Components**
+Phoenix framework includes several components necessary for using CTRE devices.
+Unless otherwise specified, the main installation directory is C:\Users\Public\Documents\Cross The Road Electronics.  Your drive letter may vary.
+
+### For PC
+The following items are installed on PC using the Phoenix Installer.
+See [here](#before-you-write-any-software) for more details on the installation process.
+#### LifeBoat GUI  
+LifeBoat is the Windows Application used to interface with CTRE Hardware.  It is
+used to install the roboRIO Web-Based Interface CAN Plug-in, giving users the latest roboRIO
+interface features for CTRE CAN devices.  It is also used to upgrade firmware and settings for HERO and CTRE devices when attached to HERO.  
+#### Device Firmware
+The most current firmware files for CAN devices are placed onto the PC during installation.
+
+For FRC they are located in: C:\Users\Public\Documents\FRC  
+For non-FRC/HERO they are located in: C:\Users\Public\Documents\Cross The Road Electronics\LifeBoat\HERO Firmware Files  
+#### C++/Java Libraries and API Docs
+The necessary binaries and javadoc/html documentation are placed into [User Folder]\wpilib\user.
+Eclipse needs to be restarted after installing in order for these libraries to be used.
+#### LabVIEW VIs
+The LabVIEW VIs for Phoenix Framework are placed into the filesystem along with the appropriate menu files.  
+The current location is:
+Program Files (x86)\National Instruments\LabVIEW 2017\vi.lib\Rock Robotics\WPI\ThirdParty\Phoenix-LabVIEW.  
+LabVIEW should be restarted after installing.
+#### HERO C\#
+This component includes all software to support the HERO Development Board. Visual Studio
+should be installed before running the Toolsuite Installer with HERO C# components. For more
+information on HERO, Visual Studio, and these software components, see the HERO User’s
+Guide.
+
+### For roboRIO (via LifeBoat)
+The following items are installed on the roboRIO using LifeBoat.
+See [here](#installing-phoenix-framework-onto-your-frc-robot) for more details on the installation process.  
+This installation will need to be done once every time the roboRIO is re-imaged.
+#### Web-based Configuration CAN devices plug-in
+LifeBoat places all necessary files for the CAN portion of the roboRIO web-based configuration page.  This installation will be necessary for any team using CAN devices.
+#### Phoenix Libraries (mandatory for LabVIEW teams)  
+LifeBoat also places the binary files necessary for using the Phoenix Framework API.  For Java/C++ teams, this is not mandatory as the Eclipse deploy will also place these binary files.  For LabVIEW teams, this is the only way for the binary to be placed, so this install is mandatory.
+
+  **Note**: LabVIEW teams will need to run the LifeBoat roboRIO install any time the roboRIO is re-imaged and _should_ do so whenever the currently installed version of Phoenix has been updated.
+
+#### roboRIO Installation Details
+  List of paths (and source file names) of files placed onto the roboRIO:  
+  Written file: /var/local/natinst/www/resources/hardware/Victor SPX_48.png (Victor SPX_48.png)  
+  Written file: /var/local/natinst/www/resources/hardware/Pigeon_48.png (Pigeon_48.png)  
+  Written file: /var/local/natinst/www/resources/hardware/CANifier_48.png (CANifier_48.png)  
+  Written file: /var/local/natinst/www/resources/hardware/Talon SRX_48.png (Talon SRX_48.png)  
+  Written file: /var/local/natinst/www/resources/hardware/PDP_48.png (PDP_48.png)  
+  Written file: /var/local/natinst/www/resources/hardware/PCM_48.png (PCM_48.png)  
+  Written file: /var/local/natinst/www/resources/hardware/Jaguar_48.png (Jaguar_48.png)  
+  Written file: /usr/local/frc/lib/libfrccanfirmwareupdate.so (libfrccanfirmwareupdate_2018.so)  
+  Written file: /usr/local/frc/share/can_devices.ini (can_devices.ini)  
+  Written file: /usr/local/frc/lib/libCTRE_PhoenixCCI.so (libCTRE_PhoenixCCI_2018.so)  
+
+  The above files can be found on any computer that has Phoenix installed: C:\Users\Public\Documents\Cross The Road Electronics\LifeBoat\rio-files
 
 ## **Driver Station**
 ### What do I do when I see errors in Driver Station?
