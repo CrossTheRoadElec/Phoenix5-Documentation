@@ -565,8 +565,9 @@ _talon.getSensorCollection().isFwdLimitSwitchClosed();
 _talon.getSensorCollection().isRevLimitSwitchClosed();
 ```
 
-LabVIEW uses the generic Get VI, selecting Limit Switch under the drop down
-![](images/LabVIEW-GetLimitSwitch.png)
+LabVIEW uses the generic Get VI, select Limit Switch under the drop down
+
+![](images/LabVIEW-GetLimitSwitch.PNG)
 
 #### Closed-Loop (Using Sensor) Control
 These features and configurations influence the behavior of the motor controller when encoders/sensors are being used to provide feedback to a maneuver.
