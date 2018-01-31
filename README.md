@@ -176,11 +176,11 @@ Download the latest non-windows zip file and follow the README it contains to in
 
 ### Checking what version Phoenix is on your Machine
 
-The easiest way to check what version phoenix you have installed on your machine is by looking at the Phoenix LifeBoat about tab.
+If you are using Windows, the easiest way to check what version phoenix you have installed on your machine is by looking at the Phoenix LifeBoat about tab.
 
 ![](images/Lifeboat-About.png)
 
-If you're using a non-Windows Machine, however, you also downloaded a VERSION_NOTES file. Open this file using any text editor and it includes all of the version numbers
+As well as this, every machine, even non-Windows, installs with a VERSION_NOTES file. This file is normally located at "\Users\Public\Documents\Cross The Road Electronics\VERSION_NOTES". Open this file using any text editor and it includes all the Version Numbers Phoenix uses.
 
 ### Installing Phoenix Framework onto your FRC robot
 It is necessary to install Phoenix onto your roboRIO in order to use the Web-Based Configuration Page.
@@ -551,19 +551,22 @@ LabVIEW -
 
 ##### Limit Switch As Digital Inputs
 
-Limit switches can also be treated as digital inputs. This is done in Java/C++ by using the isFwdLimitSwitchClosed method.
+Limit switches can also be treated as digital inputs. This is done in Java/C++ by using the `isFwdLimitSwitchClosed` & `isRevLimitSwitchClosed` method.
 
 C++ -
 ```C++
 _talon->GetSensorCollection().IsFwdLimitSwitchClosed();
+_talon->GetSensorCollection().IsRevLimitSwitchClosed()
 ```
 
 Java -
 ```Java
 _talon.getSensorCollection().isFwdLimitSwitchClosed();
+_talon.getSensorCollection().isRevLimitSwitchClosed();
 ```
 
-And in LabVIEW it uses the generic Get VI, selecting Limit Switch under the drop down
+LabVIEW uses the generic Get VI, selecting Limit Switch under the drop down
+![](images/LabVIEW-GetLimitSwitch.png)
 
 #### Closed-Loop (Using Sensor) Control
 These features and configurations influence the behavior of the motor controller when encoders/sensors are being used to provide feedback to a maneuver.
@@ -833,7 +836,7 @@ DS Errors should be addressed as soon as they appear. This is because...
 
 Phoenix DS errors occur on call.  Meaning VIs/API functions must be called in robot code for any errors to occur.  When an error does occur, a stack trace will report where in the robot code to look.
 
-The Debouncing Strategy that Phoenix uses is 3 seconds long. Phoenix key's a new error on device ID & function. This is to ensure that all unique errors are logged while making sure the DriverStation/roboRIO is not bogged down.
+The Debouncing Strategy that Phoenix uses is 3 seconds long. Phoenix keys a new error on device ID & function. This is to ensure that all unique errors are logged while making sure the DriverStation/roboRIO does not generate excessive errors.
 
 ### Driver Station says the firmware is too old.
 ![DS-FirmwareTooOld](images/DS-FirmwareTooOld.png)
