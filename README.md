@@ -1,4 +1,4 @@
-# Phoenix Framework
+﻿# Phoenix Framework
 ![Title](images/General-Title.png)
 
 
@@ -108,7 +108,7 @@ The Phoenix framework provides the following new feature...
 - New follower features (Victor SPX follows Talon SRX, vice versa)
 - Support for CANifier (PWM input/ PWM output/ Common-Anode LED Strip/ Digital IO / Quadrature)
 - Remote Limit Switches.  Victor SPX and Talon SRX can use other CANifiers/Victor SPXs/Talon SRXs for forward/reverse limit switch.
-- API changes to accommodate upcoming Cascaded-PID-Loop and Pigeon-integration in Talon SRX.
+- API changes to accommodate upcoming Auxiliary-PID-Loop and Pigeon-integration in Talon SRX.
 - API changes to accommodate targeting heading during Motion Magic and Motion Profiling.
 - WPI_TalonSRX and WPI_VictorSPX classes that drop into WPILIB's various objects.  This allows clean implementation of the various WPILIB wrappers.
 - Increase in Talon SRX/ Victor SPX number of closed-loop slots (from two to four).
