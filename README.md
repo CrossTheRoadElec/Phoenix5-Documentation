@@ -55,6 +55,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
       - [Limit Switch Source](#limit-switch-source)
       - [Limit Switch Override Enable](#limit-switch-override-enable)
       - [Limit Switch As Digital Input](#limit-switch-as-digital-inputs)
+      - [Use Limit Switch to Zero Position](#use-limit-switch-to-zero-position)
     - [Closed-Loop (Using Sensor) Control](#closed-loop-using-sensor-control)
       - [Sensors](#sensors)
         - [Why bother with sensors?](#why-bother-with-sensors)
@@ -572,6 +573,26 @@ LabVIEW uses the generic Get VI, select Limit Switch under the drop down
 
 ![](images/LabVIEW-GetLimitSwitch.PNG)
 
+##### Use Limit Switch to Zero Position
+Limit switches can be configured to automatically zero the selected sensor position when asserted.
+There is no direct API call, but the feature can be enabled using configSetParameter().  Both forward and reverse limit switches can be configured in this manner.
+
+A parameter value of "1" will enable the feature while a parameter of "0" will disable the feature.
+SubValue and Ordinal are not used for this config.
+
+Java -
+```Java
+//Configure Talon to clear sensor position on Forward Limit
+_talon.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, 10);
+```
+
+C++ -
+```C++
+//Configure Talon to clear sensor position on Forward Limit
+_test->ConfigSetParameter(ParamEnum::eClearPositionOnLimitF,1,0,0,10);
+```
+LabVIEW -  
+![](images/LabVIEW-zeroPosOnFwdLim.png)
 #### Closed-Loop (Using Sensor) Control
 These features and configurations influence the behavior of the motor controller when encoders/sensors are being used to provide feedback to a maneuver.
 ##### Sensors
