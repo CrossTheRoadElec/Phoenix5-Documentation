@@ -559,7 +559,7 @@ Limit switches can also be treated as digital inputs. This is done in Java/C++ b
 C++ -
 ```C++
 _talon->GetSensorCollection().IsFwdLimitSwitchClosed();
-_talon->GetSensorCollection().IsRevLimitSwitchClosed()
+_talon->GetSensorCollection().IsRevLimitSwitchClosed();
 ```
 
 Java -
