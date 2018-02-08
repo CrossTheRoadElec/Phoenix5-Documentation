@@ -962,6 +962,7 @@ Phoenix 5.1.3.1:
 ## **Errata**
 Phoenix 5.2.1.1:
 - getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
+- PigeonIMU Set Yaw & Set Fused Heading use Pigeon Native Units instead of degrees. A pigeon native unit is 1/64 of a degree (64 native units equal 1 degree)
 
 Phoenix 5.1.3.1:
 - Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
