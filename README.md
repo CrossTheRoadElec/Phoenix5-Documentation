@@ -76,7 +76,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
         - [Integral (kI)](#integral-ki)
         - [Derivative (kD)](#derivative-kd)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
-  - [Status Frames & How To Tweak Them](#Status-Frames-&-How-To-Tweak-Them)
+  - [Status Frames & How To Tweak Them](#status-frames--how-to-tweak-them)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
     - [Pigeon IMU](#pigeon-imu)
     - [CANifier](#canifier)
