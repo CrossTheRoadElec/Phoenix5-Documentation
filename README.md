@@ -76,6 +76,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
         - [Integral (kI)](#integral-ki)
         - [Derivative (kD)](#derivative-kd)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
+  - [Status Frames & How To Tweak Them](#Status-Frames-&-How-To-Tweak-Them)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
     - [Pigeon IMU](#pigeon-imu)
     - [CANifier](#canifier)
@@ -779,6 +780,24 @@ For velocity: closed-loop error = target - sensor velocity.
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
 
+### Status Frames & How To Tweak Them
+The Talon periodically transmits status frames with sensor data at the given periods. This ensures that certain signals are always available with a deterministic update rate. This also keeps bus utilization stable.
+
+The status frames with their default period include:
+- General Status 1 (10ms)
+- Feedback0 Status 2 (20ms)
+- Quadrature Encoder Status 3 (160ms)
+- Analog Input / Temperature / Battery Voltage Status 4 (160ms)
+- Pulse Width Status 8 (160ms)
+- Targets Status 10 (160ms)
+- PIDF0 Status 14 (160ms)
+
+These can be changed with the `setStatusFramePeriod()` function in Java/C++, or the relevant VI in LabVIEW.
+**Setting the frame rate is NOT persistent across Talon Power Cycles**
+This is to ensure you can power cycle a CTRE CAN Device and restore normal communication.
+
+Further information is available inside the [Talon SRX Software Reference Manual](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf)
+
 ### Multi-purpose/sensor Devices
 #### Pigeon IMU
 ##### Where to begin?
@@ -823,7 +842,7 @@ When using the general configuration get/set routines, `ordinal` can be used to 
 Every language supports a [ConfigGetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configGetParameter-com.ctre.phoenix.ParamEnum-int-int-) and [ConfigSetParameter](http://www.ctr-electronics.com/downloads/api/java/html/com/ctre/phoenix/motorcontrol/can/BaseMotorController.html#configSetParameter-com.ctre.phoenix.ParamEnum-double-int-int-int-).
 
 #### Configuration Parameters - What is timeout for?
-All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsute).
+All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsuite).
 
 ## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
