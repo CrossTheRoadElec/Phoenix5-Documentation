@@ -134,6 +134,7 @@ For your competition team to have the best chance of success, hardware component
 - Ensuring hardware shows up in the web-based config if wired to CAN Bus.
 - Drive outputs / drive motor in both directions (if motor controller).
 - Factory default using the B/C calibration button to default persistent settings.
+
 This is explained in the sections below, but it is worth pointing out how important this step is.  It is in your team's best interest to test ALL purchased robot components immediately and in isolation.
 - Robot replacement components should be in a state of readiness.  Otherwise a replacement during competition can yield erroneous behavior.
 - Many robot components (in general) have fixed warranty periods, and replacements must be done within them.
