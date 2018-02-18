@@ -305,7 +305,7 @@ Eclipse Java users will have to add the Javadoc manually whenever creating or wo
 1. Using the Package Explorer in the Java view, navigate through your new project to the "Referenced Libraries" tab. From there, you will both find **CTRE_Phoenix.jar and CTRE_Phoenix-sources.jar.**
 ![](images/Java-AddingJavadocReferencedLibraries.png)
 
-2. Right click on CTRE_Phoenix.jar and select preferences. From there, you will navigate to the "Java Source Attachment" window.
+2. Right click on **CTRE_Phoenix.jar** and select **properties**. From there, you will navigate to the **Java Source Attachment** window.
 ![](images/Java-AddingJavadocProperties.png)
 
 3. Click on the "Variable" button and Create a new variable by clicking on "New..."
