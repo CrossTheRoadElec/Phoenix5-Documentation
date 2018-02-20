@@ -1004,7 +1004,13 @@ The factory default setting for "Peak Current Duration" is incorrect/invalid, ca
 
 Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
 
-Workaround is call ConfigPeakCurrentDuration to ensure proper assignment.  Valid values are within the range [0,60000] ms.
+Workaround: Call ConfigPeakCurrentDuration to ensure proper assignment.  Valid values are within the range [0,60000] ms.
+
+[C++ Example](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/C%2B%2B/Current%20Limit/src/Robot.cpp#L37)
+
+[Java Example](https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/Current%20Limit/src/org/usfirst/frc/team217/robot/Robot.java#L37)
+
+LabVIEW users must call CONFIG PEAK AMPS VI.
 
 ### getClosedLoopTarget returns milliamperes (current closed-loop)
 getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
