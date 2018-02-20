@@ -981,8 +981,26 @@ Phoenix 5.1.3.1:
 
 ## **Errata**
 
+### Driver Station System Watchdog -63194
+Driver Station reports the following error:   
+"ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.  
+This error code has been seen by Java and LabVIEW teams.
+
+This error can only occur during application startup.  Once it has occurred, the error will be repeatedly displayed on the driver station.  The error can only be stopped by restarting robot code or rebooting the roboRIO.
+
+Once the robot is booted and the user has confirmed the error is not being displayed, there is no risk the issue will occur (during a match).
+
+This error code is returned from the NI system watchdog that is called to verify robot enable state.
+As a safety precaution, motor controllers are disabled when error codes are received from this function.
+
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+
+Improvement is to Update to Phoenix 5.2.2.0  
+For Java teams, the issue appears to be eliminated.  For LabVIEW teams, the issue is severely reduced (occurs only after frequent temporary deploys between different robot programs and can be resolved by rebooting the RIO or permanently deploying your robot code).
+
+
 ### Motor output direction is incorrect or accelerates when current-limit is enabled.
-The factory default setting for "Peak Current Duration" is incorrect/invalid, causing the motor controller to transition between current-limited and not current-limited erroneously. 
+The factory default setting for "Peak Current Duration" is incorrect/invalid, causing the motor controller to transition between current-limited and not current-limited erroneously.
 
 Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
 
@@ -997,7 +1015,7 @@ Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
 Workaround is divide the return by 1000.0 to get amperes.
 
 ### Pigeon IMU Set* routines divide input by 64
-The following PigeonIMU Set functions erroneously divides the input by 64. 
+The following PigeonIMU Set functions erroneously divides the input by 64.
 For example, to set the Yaw to 1.0 degree, caller must pass 64.0.
 The list of functions affected is as follows:
 - SetYaw  
@@ -1026,7 +1044,7 @@ Issue exists in: Phoenix 5.1.3.1
 
 Solution is to update to Phoenix 5.2.1.1 and resave impacted LabVIEW Projects.
 
-### LabVIEW Talon SRX or Victor SPX does not follow 
+### LabVIEW Talon SRX or Victor SPX does not follow
 LabVIEW: Do not use SET VI when using follower features in LabVIEW.  
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
