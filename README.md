@@ -980,33 +980,74 @@ Phoenix 5.1.3.1:
 - VictorSpx-Application-3.1.crf
 
 ## **Errata**
-Phoenix 5.2.1.1:
-- getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
-- Some PigeonIMU Set functions use Pigeon Native Units instead of degrees. A pigeon native unit is 1/64 of a degree (64 native units equal 1 degree)  
-  The list of functions affected is as follows:
-    SetYaw  
-    AddYaw  
-    SetYawToCompass  
-    SetFusedHeading  
-    SetAccumZAngle  
-    AddFusedHeading  
-    SetFusedHeadingToCompass  
 
-Phoenix 5.1.3.1:
-- Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  This will be remedied in a future release. [Resolved in 5.2.1.1]
-- LabVIEW VIs stored relatively at C:\Users\Public\Documents\Cross The Road Electronics\Phoenix-LabVIEW only.  VIs should also appear inside Program Files (x86)\National Instruments\LabVIEW 2017\vi.lib\Rock Robotics to ensure GitHub examples can find them.  [Resolved in 5.2.1.1]
+### Motor output direction is incorrect or accelerates when current-limit is enabled.
+The factory default setting for "Peak Current Duration" is incorrect/invalid, causing the motor controller to transition between current-limited and not current-limited erroneously. 
 
-LabVIEW: Do not use SET VI when using follwer features in LabVIEW.  
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+
+Workaround is call ConfigPeakCurrentDuration to ensure proper assignment.  Valid values are within the range [0,60000] ms.
+
+### getClosedLoopTarget returns milliamperes (current closed-loop)
+getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
+The design intent is return amperes.
+
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+
+Workaround is divide the return by 1000.0 to get amperes.
+
+### Pigeon IMU Set* routines divide input by 64
+The following PigeonIMU Set functions erroneously divides the input by 64. 
+For example, to set the Yaw to 1.0 degree, caller must pass 64.0.
+The list of functions affected is as follows:
+- SetYaw  
+- AddYaw  
+- SetYawToCompass  
+- SetFusedHeading  
+- SetAccumZAngle  
+- AddFusedHeading  
+- SetFusedHeadingToCompass  
+
+Issue exists in: Phoenix 5.1.3.1,  Phoenix 5.2.1.1
+
+Workaround is to multiply the input by 64.0 to ensure degrees are set properly.
+
+### Motion profile control mode not supported in kickoff release
+Talon SRX/ Victor SPX motion-profile mode is not available in the kickoff release.  This is due to the modifications done to support Pigeon IMU integration.  
+
+Issue exists in: Phoenix 5.1.3.1
+
+Solution is to update to Phoenix 5.2.1.1
+
+### LabVIEW prompts user for CTRE VI locations
+LabVIEW VIs stored relatively at C:\Users\Public\Documents\Cross The Road Electronics\Phoenix-LabVIEW only.  VIs should also appear inside Program Files (x86)\National Instruments\LabVIEW 2017\vi.lib\Rock Robotics to ensure GitHub examples can find them.  
+
+Issue exists in: Phoenix 5.1.3.1
+
+Solution is to update to Phoenix 5.2.1.1 and resave impacted LabVIEW Projects.
+
+### LabVIEW Talon SRX or Victor SPX does not follow 
+LabVIEW: Do not use SET VI when using follower features in LabVIEW.  
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
 
-CTRE Toolsuite 4_Legacy
-- LabVIEW PigeonIMU Raw Gyro values are incorrect. [Resolved in Phoenix Framework]
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
 
-Web-based Configuration:
+### LabVIEW PigeonIMU Raw Gyro values are incorrect
+LabVIEW PigeonIMU Raw Gyro values are incorrect. [Resolved in Phoenix Framework]
+
+Issue exists in: CTRE Toolsuite 4_Legacy
+
+Workaround: Update to Phoenix.
+
+### Web-based Configuration:
 - The individual ramp rate inside the closed-loop slot has been replaced with
 configOpenloopRamp and configClosedloopRamp. Instead use these routine as the web-based
 config entry will always read zero.  
 ![](images/WebConfig-rampRateLimitation.png)
+
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+
+Workaround: None as the ramp setting was removed and replaced with the ConfigOpenLoopRamp and ConfigClosedLoopRamp functions.
 
 **For the complete errata list, see the [Talon SRX / Victor SPX Software Reference Manual](https://github.com/CrossTheRoadElec/Phoenix-Documentation/raw/master/Talon%20SRX%20Victor%20SPX%20-%20Software%20Reference%20Manual.pdf).**
