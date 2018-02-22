@@ -192,6 +192,8 @@ It is necessary to install Phoenix onto your roboRIO in order to use the Web-Bas
 
 Additionally, LabVIEW teams must install Phoenix on the roboRIO for their robot programs using Phoenix to run properly.
 
+Note: LabVIEW teams will need to run the LifeBoat roboRIO install any time the roboRIO is re-imaged and should do so whenever the currently installed version of Phoenix has been updated.
+
 Open the Phoenix LifeBoat utility and select the "roboRIO Upgrade" tab.
 Follow the instructions on the tab to install Phoenix on your roboRIO.
 ![](images/LifeBoat-WebdashUpdate.png)
