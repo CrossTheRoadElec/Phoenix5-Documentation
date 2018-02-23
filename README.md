@@ -983,7 +983,7 @@ Phoenix 5.1.3.1:
 
 ## **Errata**
 
-### Driver Station System Watchdog -63194
+### Driver Station System Watchdog -63194 and motor controllers not enabling.
 Driver Station reports the following error: 
 ```
 ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.
