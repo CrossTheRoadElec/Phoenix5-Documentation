@@ -1006,7 +1006,7 @@ If it is occuring, **restart robot code via Driver Station or reboot the roboRIO
 **Workaround 2:** 
 Update to **Phoenix 5.2.2.0**.
 For Java teams, the issue appears to be eliminated.  
-For LabVIEW teams, the **issue may occur only after frequent temporary deploys** between different robot programs and can be **resolved by rebooting the RIO or permanently deploying** your robot code).
+For LabVIEW teams, the **issue may occur only after frequent temporary deploys** between different robot programs and can be **resolved by rebooting the RIO or permanently deploying** your robot code.
 
 
 ### Motor output direction is incorrect or accelerates when current-limit is enabled.
