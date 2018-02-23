@@ -987,8 +987,9 @@ Phoenix 5.1.3.1:
 Driver Station reports the following error: 
 ```
 "ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.  
-This error code has been seen by Java and LabVIEW teams.
 ```
+This error code has been seen by **Java** and **LabVIEW** teams. C++ teams are not affected by this.
+
 This error can only occur **during application startup**.  Once it has occurred, the error will be repeatedly displayed on the Driver Station.  The error can only be stopped by restarting robot code or rebooting the roboRIO.
 
 If the robot has **connected to the Driver Station** and the user has **confirmed the error is not being displayed in the Driver Station**, then there is **no risk** the issue will occur (during a match).
