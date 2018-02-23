@@ -984,21 +984,28 @@ Phoenix 5.1.3.1:
 ## **Errata**
 
 ### Driver Station System Watchdog -63194
-Driver Station reports the following error:   
+Driver Station reports the following error: 
+```
 "ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.  
 This error code has been seen by Java and LabVIEW teams.
+```
+This error can only occur **during application startup**.  Once it has occurred, the error will be repeatedly displayed on the Driver Station.  The error can only be stopped by restarting robot code or rebooting the roboRIO.
 
-This error can only occur during application startup.  Once it has occurred, the error will be repeatedly displayed on the driver station.  The error can only be stopped by restarting robot code or rebooting the roboRIO.
-
-Once the robot is booted and the user has confirmed the error is not being displayed, there is no risk the issue will occur (during a match).
+If the robot has **connected to the Driver Station** and the user has **confirmed the error is not being displayed in the Driver Station**, then there is **no risk** the issue will occur (during a match).
 
 This error code is returned from the NI system watchdog that is called to verify robot enable state.
 As a safety precaution, motor controllers are disabled when error codes are received from this function.
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+Issue observed in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
 
-Improvement is to Update to Phoenix 5.2.2.0  
-For Java teams, the issue appears to be eliminated.  For LabVIEW teams, the issue is severely reduced (occurs only after frequent temporary deploys between different robot programs and can be resolved by rebooting the RIO or permanently deploying your robot code).
+**Workaround 1:** 
+**Check Driver Station message window** to ensure error is not present after robot has booted and connected to the Driver Station/FMS.
+If it is occuring, **restart robot code via Driver Station or reboot the roboRIO**.
+
+**Workaround 2:** 
+Update to **Phoenix 5.2.2.0**.
+For Java teams, the issue appears to be eliminated.  
+For LabVIEW teams, the **issue may occur only after frequent temporary deploys** between different robot programs and can be **resolved by rebooting the RIO or permanently deploying** your robot code).
 
 
 ### Motor output direction is incorrect or accelerates when current-limit is enabled.
