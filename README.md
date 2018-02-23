@@ -986,7 +986,7 @@ Phoenix 5.1.3.1:
 ### Driver Station System Watchdog -63194
 Driver Station reports the following error: 
 ```
-"ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.  
+ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.
 ```
 This error code has been seen by **Java** and **LabVIEW** teams. C++ teams are not affected by this.
 
