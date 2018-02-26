@@ -1012,7 +1012,7 @@ For LabVIEW teams, the **issue may occur only after frequent temporary deploys**
 ### Motor output direction is incorrect or accelerates when current-limit is enabled.
 The factory default setting for "Peak Current Duration" is incorrect/invalid, causing the motor controller to transition between current-limited and not current-limited erroneously.
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
 
 Workaround: Call ConfigPeakCurrentDuration to ensure proper assignment.  Valid values are within the range [0,60000] ms.
 
@@ -1026,7 +1026,7 @@ LabVIEW users must call CONFIG PEAK AMPS VI.
 getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
 The design intent is return amperes.
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
 
 Workaround is divide the return by 1000.0 to get amperes.
 
@@ -1042,7 +1042,7 @@ The list of functions affected is as follows:
 - AddFusedHeading  
 - SetFusedHeadingToCompass  
 
-Issue exists in: Phoenix 5.1.3.1,  Phoenix 5.2.1.1
+Issue exists in: Phoenix 5.1.3.1,  Phoenix 5.2.1.1, Phoenix 5.2.2.0
 
 Workaround is to multiply the input by 64.0 to ensure degrees are set properly.
 
@@ -1065,7 +1065,7 @@ LabVIEW: Do not use SET VI when using follower features in LabVIEW.
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
 
 ### LabVIEW PigeonIMU Raw Gyro values are incorrect
 LabVIEW PigeonIMU Raw Gyro values are incorrect. [Resolved in Phoenix Framework]
@@ -1080,7 +1080,7 @@ configOpenloopRamp and configClosedloopRamp. Instead use these routine as the we
 config entry will always read zero.  
 ![](images/WebConfig-rampRateLimitation.png)
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
 
 Workaround: None as the ramp setting was removed and replaced with the ConfigOpenLoopRamp and ConfigClosedLoopRamp functions.
 
