@@ -60,6 +60,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
       - [Sensors](#sensors)
         - [Why bother with sensors?](#why-bother-with-sensors)
         - [How do I choose the sensor?](#how-do-i-choose-the-sensor)
+        - [Remote Sensors](#remote-sensors)
         - [How do I know the sensor works?](#how-do-i-know-the-sensor-works)
         - [Sensor phase and why it matters](#sensor-phase-and-why-it-matters)
         - [What are the units?](#what-are-the-units-of-my-sensor)
@@ -75,6 +76,7 @@ Examples: [Java/C++](https://github.com/CrossTheRoadElec/Phoenix-Examples-Langua
         - [Proportional (kP)](#proportional-kp)
         - [Integral (kI)](#integral-ki)
         - [Derivative (kD)](#derivative-kd)
+      - [Auxiliary PID](#auxiliary-pid)
       - [I want to process the sensor myself.  How do I do that?](#i-want-to-process-the-sensor-myself-how-do-i-do-that)
   - [Status Frames & How To Tweak Them](#status-frames--how-to-tweak-them)
   - [Multi-purpose/Sensor Devices](#multi-purposesensor-devices)
@@ -119,11 +121,18 @@ The Phoenix framework provides the following new feature...
 - SetInvert applies "all the way" down to the firmware for all control modes.  You can also SetInvert() without breaking Sensor phase.
 - Documentation is now on GitHub to allow for greater collaboration, along with example repositories.
 
-## **What is coming next / Post Kickoff**
-Shortly after Kickoff will be an additional update to support...
+## **Latest Update**
+Just released with Phoenix 5.3.1.0:
 - Remote sensor selection for closed looping off of sensors on other CAN devices.
-- Pigeon IMU integration into Talon closed-loops (MotionMagicArc and MotionProfileArc).
+- Pigeon IMU integration into Talon closed-loops.  
+- Auxiliary PID control and MotionProfileArc control mode.
+
+For more details, see the Software Reference Manual (Manual Version 2.3 Coming Soon).
+
+## **What is coming next**
+Future Features include:
 - Various upper level objects (Gearbox/Drivetrain/Servo objects with unit scaling).
+
 
 ## **Looking for the migration guide?**
 The migration guide is can be found [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/Migration%20Guide.md).
@@ -609,6 +618,10 @@ Sensors allows both the motor controller and user to receive data and feedback. 
 Java/C++ - Use the configSelectedFeedbackSensor routine.  Example below..
 LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on motor controller).
 
+###### Remote Sensors
+Talon SRX and Victor SPX support using sensors connected to the CAN bus or to another motor controller.
+See the Software Reference Manual for more details (Manual Version 2.3 coming soon).
+
 ###### How do I know the sensor works?
 There are multiple methods of ensuring the connected sensor is active and returning meaningful data. The best method is to plot the signal and watch the plot, looking for continuous data that is responsive. Another, but less reliable method is to print your values to a console and check for values, which makes it harder to see if there is noise in the values.
 
@@ -712,13 +725,10 @@ Note: Current Control Mode is separate from Current Limit. Current limit can be 
 **Motion Magic**
 Talon will closed-loop to target position while honoring an maximum "cruise" velocity and specified acceleration.
 
-**Motion Magic (Arc)**
-This is an advanced control mode that will allow for simultaneous servoing of a distance and heading.  This will be released in a future update.
-
 **Motion profiling / Motion profiling (Arc)**
 With this, a savvy developer can actually stream motion profile trajectory points into the Talon’s internal buffer (even while executing the profile). This allows fine control of position and speed throughout the entire movement.
 
-This feature is being reimplemented to allow for simulataneous servoing of a distance and heading (using Pigeon IMU) and will be released shortly.
+This feature has been reimplemented to allow for simulataneous servoing of a distance and heading (using Pigeon IMU) and is available as of Phoenix 5.3.1.0.
 
 ###### Position closed-loop walkthrough
 Below is a full example for position closed-looping using the HERO development board. These functions are also available in FRC C++/Java, and comparable VIs are available in LabVIEW. The position closed-loop examples can also be found below.
@@ -779,6 +789,9 @@ For velocity: closed-loop error = target - sensor velocity.
 
    _Example: Position Closed-loop_  
   If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
+
+##### Auxiliary PID
+Talon SRX and Victor SPX support using an auxiliary PID loop in addition to the main control loop of the motor controller.  See the Software Reference Manual for more details (Manual verion 2.3 coming soon).
 
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
@@ -984,7 +997,7 @@ Phoenix 5.1.3.1:
 ## **Errata**
 
 ### Driver Station System Watchdog -63194 and motor controllers not enabling.
-Driver Station reports the following error: 
+Driver Station reports the following error:
 ```
 ERROR 0 [Phoenix] System Watchdog reported error code: -63194. Motor Controllers were disabled, Contact NI/CTRE if this occurs.
 ```
@@ -999,11 +1012,11 @@ As a safety precaution, motor controllers are disabled when error codes are rece
 
 Issue observed in: Phoenix 5.1.3.1, Phoenix 5.2.1.1
 
-**Workaround 1:** 
+**Workaround 1:**
 **Check Driver Station message window** to ensure error is not present after robot has booted and connected to the Driver Station/FMS.
 If it is occuring, **restart robot code via Driver Station or reboot the roboRIO**.
 
-**Workaround 2:** 
+**Workaround 2:**
 Update to **Phoenix 5.2.2.0**.
 For Java teams, the issue appears to be eliminated.  
 For LabVIEW teams, the **issue may occur only after frequent temporary deploys** between different robot programs and can be **resolved by rebooting the RIO or permanently deploying** your robot code.
@@ -1012,7 +1025,7 @@ For LabVIEW teams, the **issue may occur only after frequent temporary deploys**
 ### Motor output direction is incorrect or accelerates when current-limit is enabled.
 The factory default setting for "Peak Current Duration" is incorrect/invalid, causing the motor controller to transition between current-limited and not current-limited erroneously.
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0, Phoenix 5.3.1.0
 
 Workaround: Call ConfigPeakCurrentDuration to ensure proper assignment.  Valid values are within the range [0,60000] ms.
 
@@ -1026,7 +1039,7 @@ LabVIEW users must call CONFIG PEAK AMPS VI.
 getClosedLoopTarget reports in units of milliamperes when in current closed-loop mode.
 The design intent is return amperes.
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0, Phoenix 5.3.1.0
 
 Workaround is divide the return by 1000.0 to get amperes.
 
@@ -1042,7 +1055,7 @@ The list of functions affected is as follows:
 - AddFusedHeading  
 - SetFusedHeadingToCompass  
 
-Issue exists in: Phoenix 5.1.3.1,  Phoenix 5.2.1.1, Phoenix 5.2.2.0
+Issue exists in: Phoenix 5.1.3.1,  Phoenix 5.2.1.1, Phoenix 5.2.2.0, Phoenix 5.3.1.0
 
 Workaround is to multiply the input by 64.0 to ensure degrees are set properly.
 
@@ -1065,7 +1078,7 @@ LabVIEW: Do not use SET VI when using follower features in LabVIEW.
 Instead use the FOLLOW VI documented in this [section](https://github.com/CrossTheRoadElec/Phoenix-Documentation#follower).  
 ![](images/LV-FollowTalon.png)
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0, Phoenix 5.3.1.0
 
 ### LabVIEW PigeonIMU Raw Gyro values are incorrect
 LabVIEW PigeonIMU Raw Gyro values are incorrect. [Resolved in Phoenix Framework]
@@ -1080,7 +1093,7 @@ configOpenloopRamp and configClosedloopRamp. Instead use these routine as the we
 config entry will always read zero.  
 ![](images/WebConfig-rampRateLimitation.png)
 
-Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
+Issue exists in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0, Phoenix 5.3.1.0
 
 Workaround: None as the ramp setting was removed and replaced with the ConfigOpenLoopRamp and ConfigClosedLoopRamp functions.
 
