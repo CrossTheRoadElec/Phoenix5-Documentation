@@ -127,7 +127,7 @@ Just released with Phoenix 5.3.1.0:
 - Pigeon IMU integration into Talon closed-loops.  
 - Auxiliary PID control and MotionProfileArc control mode.
 
-For more details, see the Software Reference Manual (Manual Version 2.3 Coming Soon).
+For more details, see the Software Reference Manual (Version 2.3).
 
 ## **What is coming next**
 Future Features include:
@@ -620,7 +620,7 @@ LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on
 
 ###### Remote Sensors
 Talon SRX and Victor SPX support using sensors connected to the CAN bus or to another motor controller.
-See the Software Reference Manual for more details (Manual Version 2.3 coming soon).
+See the Software Reference Manual for more details (Version 2.3).
 
 ###### How do I know the sensor works?
 There are multiple methods of ensuring the connected sensor is active and returning meaningful data. The best method is to plot the signal and watch the plot, looking for continuous data that is responsive. Another, but less reliable method is to print your values to a console and check for values, which makes it harder to see if there is noise in the values.
@@ -791,7 +791,7 @@ For velocity: closed-loop error = target - sensor velocity.
   If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
 
 ##### Auxiliary PID
-Talon SRX and Victor SPX support using an auxiliary PID loop in addition to the main control loop of the motor controller.  See the Software Reference Manual for more details (Manual verion 2.3 coming soon).
+Talon SRX and Victor SPX support using an auxiliary PID loop in addition to the main control loop of the motor controller.  See the Software Reference Manual for more details (Version 2.3).
 
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
@@ -982,6 +982,12 @@ In order to fix this, you must wire the device reference through the enabled sta
 ![](images/LV-DiagramDisableFix.png)
 
 ## **CRF Firmware Versions**
+Phoenix 5.3.1.0:
+- Pigeon-Application-0.41-FixedParamResp.crf
+- **CANifier-Application-0.42-FirmVers.crf** (Setting Quadrature Position fixed)
+- **TalonSrx-Application-3.8.crf** (Pigeon Integration, Arc features, remote-sensor features, arbitrary feed-fwd).
+- **VictorSpx-Application-3.8.crf** (Pigeon Integration, Arc features, remote-sensor features, arbitrary feed-fwd).
+
 Phoenix 5.2.1.1:
 - Pigeon-Application-0.41-FixedParamResp.crf
 - CANifier-Application-0.40-FirmVers.crf
