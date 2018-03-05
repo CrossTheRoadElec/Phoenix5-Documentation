@@ -31,11 +31,11 @@ You can use any non-reentrant library to reproduce, but for ease of reproducing 
 [5] Run the boot-up deployment as startup.  
 [6] Run the boot-up deployment as startup again.  
 
-At this point, the second run-as-startup should indefinetely pause while waiting for a response from target.
+At this point, the second run-as-startup should indefinitely pause while waiting for a response from target.
 
 ## The Workaround:
 
-Fortunately, as an efficiancy/performance improvement for 5.3 we updated the binary file and LabVIEW VIs to suppport reentrancy.  This means that all of the binary functions are reentrant and all of the function calls in our VIs are set to run in any thread, not the UI thread.
+Fortunately, as an efficiency/performance improvement for 5.3 we updated the binary file and LabVIEW VIs to support reentrancy.  This means that all of the binary functions are reentrant and all of the function calls in our VIs are set to run in any thread, not the UI thread.
 
 When using 5.3.1, the issue is not reproduceable using the same steps above.
 
