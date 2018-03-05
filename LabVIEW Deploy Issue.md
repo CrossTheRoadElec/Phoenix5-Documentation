@@ -25,7 +25,8 @@ You can use any non-reentrant library to reproduce, but for ease of reproducing 
 [1] Make a default LabVIEW robot program.  
 [2] Open a single Talon SRX in Begin.vi  
 [3] In PeriodicTasks.vi, call any get function in BOTH of the two default loops.  They do need to be the same function.  In this example I used get voltage:  
-![](images/LabVIEW-Deploy-Issue_PeriodicTasks.png)
+![](images/LabVIEW-Deploy-Issue_PeriodicTasks.png)  
+
 [4] Build the FRC Robot Boot-up Deployment.  
 [5] Run the boot-up deployment as startup.  
 [6] Run the boot-up deployment as startup again.  
@@ -40,6 +41,6 @@ When using 5.3.1, the issue is not reproduceable using the same steps above.
 
 At this point, our recommendation is for any team seeing this issue while using Phoenix to update to 5.3.1.0.
 
-When you update to 5.3.1.0, be sure to:
-[A] Re-run the LifeBoat process to install Phoenix/Web-Config onto the roboRIO
-[B] **Clean** and then Build your project, then re-run as startup.
+When you update to 5.3.1.0, be sure to:  
+[A] Re-run the LifeBoat process to install Phoenix/Web-Config onto the roboRIO  
+[B] **Clean** and then Build your project, then re-run as startup.  
