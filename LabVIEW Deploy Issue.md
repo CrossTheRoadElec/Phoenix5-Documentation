@@ -9,7 +9,7 @@ We've been able to reproduce the issue where the deploy process is perpetually w
 
 The issue is reproduceable under the following conditions:
 
-1. The VIs are set to the (default) configuration of running in the LabVIEW UI Thread.  This setting is necessary for VIs calling non-reentrant functions (Phoenix CCI in version 5.2.2 and earlier is non-reentrant).
+1. The Library Calls inside the VIs are set to the (default) configuration of running in the LabVIEW UI Thread.  This setting is necessary for library calls to non-reentrant functions (Phoenix CCI in version 5.2.2 and earlier is non-reentrant).
 2. The VIs are being called in parallel in multiple loops.  eg. Functions in the same library being called in two different loops within Periodic Tasks.
 3. The functions being called take some non-zero amount of time to execute and return.
 
