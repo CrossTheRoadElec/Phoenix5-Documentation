@@ -996,6 +996,18 @@ Phoenix 5.1.3.1:
 
 ## **Errata**
 
+### LabVIEW Deploy Sticks on "Waiting for Target to Respond"
+There has been an issue reported where an attempt to deploy LabVIEW code results in a perpetual "Waiting for Target to Respond" state.  
+
+For more details, see [here](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/LabVIEW%20Deploy%20Issue.md).  
+
+Issue observed in: Phoenix 5.1.3.1, Phoenix 5.2.1.1, Phoenix 5.2.2.0
+
+**Workaround:**  
+Update to Phoenix 5.3.1.0.  
+**Clean** and Build your robot boot-up deployment.  
+Run the boot-up deployment as startup.  
+
 ### Driver Station System Watchdog -63194 and motor controllers not enabling.
 Driver Station reports the following error:
 ```
