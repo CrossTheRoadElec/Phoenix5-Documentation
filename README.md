@@ -416,6 +416,57 @@ Both the Talon SRX and Victor SPX have some persistent settings such as neutral 
 
 ![Talon SRX's B/C Button](images/TalonBootCalButton.png)
 
+##### Factory Default Values
+
+The factory default values for every configurable parameter is listed in the table below.
+The Java function names are used in the table.
+C++/C# routines are similar.
+LabVIEW VIs also use similar signal names.
+
+Java config	|	Factory Default Value
+--- | ---
+configOpenloopRamp	|	*0*
+configClosedloopRamp	|	*0*
+configPeakOutputForward	|	**+1**
+configPeakOutputReverse	|	**-1**
+configNominalOutputForward	|	*0*
+configNominalOutputReverse	|	*0*
+configNeutralDeadband	|	**0.04**
+configVoltageCompSaturation	|	*0*
+configVoltageMeasurementFilter	|	**32**
+configSelectedFeedbackSensor	|	Quad (*0*)
+configSelectedFeedbackSensor	|	Quad (*0*)
+configSelectedFeedbackCoefficient	|	**1.0**
+configRemoteFeedbackFilter	|	Off (*0*)
+configSensorTerm	|	Quad (*0*) for all term types
+configVelocityMeasurementPeriod	|	**100**
+configVelocityMeasurementWindow	|	**64**
+configForwardLimitSwitchSource	|	Off (*0*), and "Normally Open"
+configReverseLimitSwitchSource	|	Off (*0*), and "Normally Open"
+configForwardLimitSwitchSource	|	Off (*0*), and "Normally Open"
+configForwardSoftLimitThreshold	|	*0*
+configReverseSoftLimitThreshold	|	*0*
+configForwardSoftLimitEnable	|	*false*
+configReverseSoftLimitEnable	|	*false*
+config_kP	|	*0*
+config_kI	|	*0*
+config_kD	|	*0*
+config_kF	|	*0*
+config_IntegralZone	|	*0*
+configAllowableClosedloopError	|	*0*
+configMaxIntegralAccumulator	|	*0*
+configClosedLoopPeakOutput	|	**1.0**
+configClosedLoopPeriod	|	**1 ms**
+configAuxPIDPolarity	|	*false*
+configMotionCruiseVelocity	|	*0*
+configMotionAcceleration	|	*0*
+configMotionProfileTrajectoryPeriod	|	*0*
+configSetCustomParam	|	*0*
+configPeakCurrentLimit	|	*0*
+configPeakCurrentDuration	|	**Invalid**, see [errata](https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md#motor-output-direction-is-incorrect-or-accelerates-when-current-limit-is-enabled).
+configContinuousCurrentLimit	|	*0*
+
+
 #### Open-Loop (No Sensor) Control
 These features and configurations influence the behavior of the motor controller when it is directly controlled by the robot controller.
 ##### Pick your direction
