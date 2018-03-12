@@ -841,8 +841,14 @@ For velocity: closed-loop error = target - sensor velocity.
    _Example: Position Closed-loop_  
   If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
 
+##### Slot Index & PID Index
+The Talon SRX supports up to 4 PIDF Slots, each with a unique set of gains that are stored persistently across power cycles. As well as this, the Talon SRX has two PIDF Loops, the primary loop and an Auxiliary Loop. Certain functions ask for a `slotIdx`, these functions are asking which of the 4 slots it should be applied to. Other functions ask for a `pidIdx`, these functions are asking what PID Loop it should be applied to. If you are not using the Auxiliary PID Features, the `pidIdx` should be 0. The `slotIdx` can be [0-3] depending on what slot you want to apply to.
+
 ##### Auxiliary PID
 Talon SRX and Victor SPX support using an auxiliary PID loop in addition to the main control loop of the motor controller.  See the Software Reference Manual for more details (Version 2.3).
+
+##### Motion Profiling Velocity-Only trajectory point
+Sometimes you want to set a motion profile point to be velocity-only. This can be achieved in Phoenix by dedicating a slot to be the velocity-only slot. The velocity-only slot is a slot where the kP, kI, and kD are zeroed, while kF is nonzero. This allows the profile to use only the feed-forward term when running its point. When you want to make a point a velocity-only point, set its profileSlotSelect0 to the velocity-only slot.
 
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
@@ -910,6 +916,18 @@ Every language supports a [ConfigGetParameter](http://www.ctr-electronics.com/do
 
 #### Configuration Parameters - What is timeout for?
 All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsuite).
+
+#### Performance Expectations for API Calls
+Expectations for API are as follows:
+- ~0.3ms per call for any get routines
+- ~0.3ms per call for any set or enable routine that **has** changed since previous call
+- ~0.0ms per call for any set or enable routine where the input **has not** changed since previous call
+- ~4ms for any **successful** Config*XXXX* routines if **non zero** timeoutMs is passed
+- ~*Y*ms for any **timed out** Config*XXXX* routines if *Y* timeoutMs is passed. These should be done on robot boot .
+- ~0.3ms for any ConfigXXXX if **zero** timeoutMs is passed. These should be done in the robot loop, if at all (generally not necessary). Success is not determined since there is no wait-for-response checking.
+- ~4ms for any successful ConfigGet*XXXX*. These are generally not necessary.
+
+The ~0.3 ms time is a limitation of the RoboRIO. Many of the functions in WPILib have this limitation. For example, accessing joystick information requires ~0.3ms per call.
 
 ## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
