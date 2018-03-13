@@ -506,6 +506,8 @@ LabVIEW -
 ##### Current limiting
 Talon SRX can limit the output current to a specified maximum threshold. This functionality (when enabled) functions in all control modes.
 
+Victor SPX does **not** have this functionality.
+
 Current limiting configuration and enable can be controlled by the following API.
 
 1. Configure the continuous current limit to the amperage that you desire the current-draw be limited to.
@@ -602,9 +604,16 @@ LabVIEW -
 
 ![](images/LV-configFwdLim.png)
 
+###### What's the difference between disabled and deactivated?
+LimitSwitchNormal can be defined as disabled when configuring a limit switch. This is the same setting as in the Web-Based Config, and as such can be changed in the Web-Based Config.
+The LimitSwitchSource can be defined as deactivated when configuring a limit switch. This turns off the limiting in a way that cannot be changed in the Web-Based Config.
+Both of these features are in place to provide the user a way to ensure the motor controller **cannot** be limited if that is the intention.
+
 ##### Limit Switch Override Enable
 
 The enable state of the limit switches can be overridden in software.  This can be called at any time to enable or disable both limit switches.
+
+This data is optimized to be called within a loop by being a part of a periodic frame. Generally you should call this instead of a config if you want to dynamically change whether you are using the limit switch or not inside a loop. This value is not persistent across power cycles.
 
 Java -
 ```Java
@@ -636,6 +645,9 @@ _talon.getSensorCollection().isRevLimitSwitchClosed();
 LabVIEW uses the generic Get VI, select Limit Switch under the drop down
 
 ![](images/LabVIEW-GetLimitSwitch.PNG)
+
+Note that the sensor being closed returns true in all cases, and the sensor being open returns false in all cases, regardless of normally open/normally closed setting. This ensures there is no ambiguity in the function name.
+If you would like to know if the motor is being limited, refer to the [fault codes](#setup-limit-switches) section of the readme.
 
 ##### Use Limit Switch to Zero Position
 Limit switches can be configured to automatically zero the selected sensor position when asserted.
@@ -770,6 +782,8 @@ The Talon's closed-loop logic can be used to maintain a target velocity. Target 
 
 **Current closed-loop**
 The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes.
+
+The Victor SPX does **not** support current closed looping
 
 Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](#current-limiting).
 
