@@ -880,9 +880,6 @@ The Talon SRX supports up to 4 PIDF Slots, each with a unique set of gains that 
 ##### Auxiliary PID
 Talon SRX and Victor SPX support using an auxiliary PID loop in addition to the main control loop of the motor controller.  See the Software Reference Manual for more details (Version 2.3).
 
-##### Motion Profiling Velocity-Only trajectory point
-Sometimes you want to set a motion profile point to be velocity-only. This can be achieved in Phoenix by dedicating a slot to be the velocity-only slot. The velocity-only slot is a slot where the kP, kI, and kD are zeroed, while kF is nonzero. This allows the profile to use only the feed-forward term when running its point. When you want to make a point a velocity-only point, set its profileSlotSelect0 to the velocity-only slot.
-
 ##### I Want to process the sensor myself, How do I do that?
 All sensor data is reported periodically on the CAN Bus.  The frames periods can be modified by using the setStatusFramePeriod functions of the Java/C++ objects, and the "Set Status Frame" Vis in LabVIEW.
 
