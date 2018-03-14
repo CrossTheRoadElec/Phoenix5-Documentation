@@ -301,6 +301,8 @@ Each device can be named uniquely to identify it's purpose or unique characteris
 ### Self-Test the hardware
 Press the self-test button to acquire a snapshot of the device's signals.  This can be used to determine various configuration information, sensor health, and reliability of the device.
 
+![](images/Webdash-SelfTest.png)
+
 ## **Where is the API**
 
 The API is available in several forms....
@@ -613,7 +615,7 @@ Both of these features are in place to provide the user a way to ensure the moto
 
 The enable state of the limit switches can be overridden in software.  This can be called at any time to enable or disable both limit switches.
 
-This data is optimized to be called within a loop by being a part of a periodic frame. Generally you should call this instead of a config if you want to dynamically change whether you are using the limit switch or not inside a loop. This value is not persistent across power cycles.
+Generally you should call this instead of a config if you want to dynamically change whether you are using the limit switch or not inside a loop. This value is not persistent across power cycles.
 
 Java -
 ```Java
@@ -692,7 +694,7 @@ _tal->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 
 
 LabVIEW -
 
-![](images/LabVIEW-configFeedbackDevice.png)
+![](images/LabVIEW-configFeedbackDevice.PNG)
 
 ###### Remote Sensors
 Talon SRX and Victor SPX support using sensors connected to the CAN bus or to another motor controller.
