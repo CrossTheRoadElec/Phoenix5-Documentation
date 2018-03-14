@@ -681,6 +681,19 @@ Sensors allows both the motor controller and user to receive data and feedback. 
 Java/C++ - Use the configSelectedFeedbackSensor routine.  Example below..
 LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on motor controller).
 
+Java -
+```java
+_tal.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+```
+C++ -
+```C++
+_tal->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 10);
+```
+
+LabVIEW -
+
+![](images/LabVIEW-configFeedbackDevice.png)
+
 ###### Remote Sensors
 Talon SRX and Victor SPX support using sensors connected to the CAN bus or to another motor controller.
 See the Software Reference Manual for more details (Version 2.3).
@@ -722,6 +735,10 @@ Hardware.Talon.setSensorPhase(true);
 ```
 
 C++ -
+```C++
+/* Sensor was out of phase, invert the sensor */
+_talon->SetSensorPhase(true);
+```
 
 LabVIEW -
 
