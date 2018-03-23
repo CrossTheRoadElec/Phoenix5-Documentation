@@ -30,7 +30,7 @@ A series of steps to test the feature after it is implemented
 ```
 Good example:
 ```
-Title: Update HERO netMF to Phoenix API
+Title: Update HERO NetMF to Phoenix API
 Request: HERO netMF should be updated to the latest Phoenix API
 Why: HERO is currently unable to utilize the many new features and new products available to FIRST teams, it should be updated to use the other CAN devices that CTR sells.
 Test Plan: Port Java Examples to C#, use them to test all new features.
@@ -44,12 +44,22 @@ Pull requests have the following guidlines:
 Description of change
 Why this should be added
 Test Procedure
-Any issues this fixes
+Test Results
+Related Pull Requests/Issues
 ```
 Good Example:
 ```
 Title: Contributing.md Addition
 Why this should be added: A Contributing file will streamline the process of creating pull requests and allow more users to contribute to the organization.
-Test Procedure: Check that GitHub recognizes the Contributing file, and create an issue and pull request that follow the templates
+Test Procedure: Documentation Change, no Test Procedure
+Test Results: Change took effect
 Issues: No issues this fixes
+```
+Other good example:
+```
+Title: Phoenix NetMF Port
+Why this should be added: HERO uses NetMF to function and currently has no port of Phoenix. This resolves that issue
+Test Procedure: Run through all examples in the Phoenix Example Languages ported to C#
+Test Results: Examples work in same fashion as they did in FRC
+Issues: Fixes #33 "Update HERO NetMF to Phoenix API"
 ```
