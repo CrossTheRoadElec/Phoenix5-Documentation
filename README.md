@@ -680,8 +680,7 @@ Sensors for motor controllers provide feedback about the position, velocity, and
 Sensors allows both the motor controller and user to receive data and feedback. That information allows us to act upon different situations by giving us information about the motors position, speed, and acceleration. This information is especially important when implementing a closed-loop control, such as a PID control loop.
 
 ###### How do I choose the sensor?
-Java/C++ - Use the configSelectedFeedbackSensor routine.  Example below..
-LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on motor controller).
+Use the configSelectedFeedbackSensor routine.
 
 Java -
 ```java
@@ -692,8 +691,8 @@ C++ -
 _tal->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 10);
 ```
 
-LabVIEW -
-
+LabVIEW -  
+Use the "Config Sensor" VI under the "Sensor" sub-palette for Talon SRX or Victor SPX.  
 ![](images/LabVIEW-configFeedbackDevice.PNG)
 
 ###### Remote Sensors
