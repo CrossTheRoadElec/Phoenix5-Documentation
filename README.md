@@ -301,6 +301,8 @@ Each device can be named uniquely to identify it's purpose or unique characteris
 ### Self-Test the hardware
 Press the self-test button to acquire a snapshot of the device's signals.  This can be used to determine various configuration information, sensor health, and reliability of the device.
 
+![](images/Webdash-SelfTest.png)
+
 ## **Where is the API**
 
 The API is available in several forms....
@@ -506,6 +508,8 @@ LabVIEW -
 ##### Current limiting
 Talon SRX can limit the output current to a specified maximum threshold. This functionality (when enabled) functions in all control modes.
 
+Victor SPX does **not** have this functionality.
+
 Current limiting configuration and enable can be controlled by the following API.
 
 1. Configure the continuous current limit to the amperage that you desire the current-draw be limited to.
@@ -602,9 +606,16 @@ LabVIEW -
 
 ![](images/LV-configFwdLim.png)
 
+###### What's the difference between disabled and deactivated?
+LimitSwitchNormal can be defined as disabled when configuring a limit switch. This is the same setting as in the Web-Based Config, and as such can be changed in the Web-Based Config.
+The LimitSwitchSource can be defined as deactivated when configuring a limit switch. This turns off the limiting in a way that cannot be changed in the Web-Based Config.
+Both of these features are in place to provide the user a way to ensure the motor controller **cannot** be limited if that is the intention.
+
 ##### Limit Switch Override Enable
 
 The enable state of the limit switches can be overridden in software.  This can be called at any time to enable or disable both limit switches.
+
+Generally you should call this instead of a config if you want to dynamically change whether you are using the limit switch or not inside a loop. This value is not persistent across power cycles.
 
 Java -
 ```Java
@@ -637,6 +648,9 @@ LabVIEW uses the generic Get VI, select Limit Switch under the drop down
 
 ![](images/LabVIEW-GetLimitSwitch.PNG)
 
+Note that the sensor being closed returns true in all cases, and the sensor being open returns false in all cases, regardless of normally open/normally closed setting. This ensures there is no ambiguity in the function name.
+If you would like to know if the motor is being limited, refer to the [fault codes](#setup-limit-switches) section of the readme.
+
 ##### Use Limit Switch to Zero Position
 Limit switches can be configured to automatically zero the selected sensor position when asserted.
 There is no direct API call, but the feature can be enabled using configSetParameter().  Both forward and reverse limit switches can be configured in this manner.
@@ -668,6 +682,19 @@ Sensors allows both the motor controller and user to receive data and feedback. 
 ###### How do I choose the sensor?
 Java/C++ - Use the configSelectedFeedbackSensor routine.  Example below..
 LabVIEW - Use the "Config Sensor" Vi under Victor SPX or Talon SRX (depending on motor controller).
+
+Java -
+```java
+_tal.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+```
+C++ -
+```C++
+_tal->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 10);
+```
+
+LabVIEW -
+
+![](images/LabVIEW-configFeedbackDevice.PNG)
 
 ###### Remote Sensors
 Talon SRX and Victor SPX support using sensors connected to the CAN bus or to another motor controller.
@@ -710,6 +737,10 @@ Hardware.Talon.setSensorPhase(true);
 ```
 
 C++ -
+```C++
+/* Sensor was out of phase, invert the sensor */
+_talon->SetSensorPhase(true);
+```
 
 LabVIEW -
 
@@ -770,6 +801,8 @@ The Talon's closed-loop logic can be used to maintain a target velocity. Target 
 
 **Current closed-loop**
 The Talon's closed-loop logic can be used to approach a target current-draw. Target and sampled current is passed into the equation in milliamperes.
+
+The Victor SPX does **not** support current closed looping
 
 Note: Current Control Mode is separate from Current Limit. Current limit can be found [here](#current-limiting).
 
@@ -841,6 +874,9 @@ For velocity: closed-loop error = target - sensor velocity.
    _Example: Position Closed-loop_  
   If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion. Typically start with 10x to 100x of your current Proportional Gain.
 
+##### Slot Index & PID Index
+The Talon SRX supports up to 4 PIDF Slots, each with a unique set of gains that are stored persistently across power cycles. As well as this, the Talon SRX has two PIDF Loops, the primary loop and an Auxiliary Loop. Certain functions ask for a `slotIdx`, these functions are asking which of the 4 slots it should be applied to. Other functions ask for a `pidIdx`, these functions are asking what PID Loop it should be applied to. If you are not using the Auxiliary PID Features, the `pidIdx` should be 0. The `slotIdx` can be [0-3] depending on what slot you want to apply to.
+
 ##### Auxiliary PID
 Talon SRX and Victor SPX support using an auxiliary PID loop in addition to the main control loop of the motor controller.  See the Software Reference Manual for more details (Version 2.3).
 
@@ -910,6 +946,18 @@ Every language supports a [ConfigGetParameter](http://www.ctr-electronics.com/do
 
 #### Configuration Parameters - What is timeout for?
 All config* routines in the C++/Java require a timeoutMs parameter.  When set to a non-zero value, the config routine will wait for an acknowledgement from the device before returning.  If the timeout is exceeded, an error code is generated and a Driver Station message is produced.  When set to zero, no checking is performed (identical behavior to the CTRE v4 Toolsuite).
+
+#### Performance Expectations for API Calls
+Expectations for API are as follows:
+- ~0.3ms per call for any get routines
+- ~0.3ms per call for any set or enable routine that **has** changed since previous call
+- ~0.0ms per call for any set or enable routine where the input **has not** changed since previous call
+- ~4ms for any **successful** Config*XXXX* routines if **non zero** timeoutMs is passed
+- ~*Y*ms for any **timed out** Config*XXXX* routines if *Y* timeoutMs is passed. These should be done on robot boot .
+- ~0.3ms for any ConfigXXXX if **zero** timeoutMs is passed. These should be done in the robot loop, if at all (generally not necessary). Success is not determined since there is no wait-for-response checking.
+- ~4ms for any successful ConfigGet*XXXX*. These are generally not necessary.
+
+The ~0.3 ms time is a limitation of the RoboRIO. Many of the functions in WPILib have this limitation. For example, accessing joystick information requires ~0.3ms per call.
 
 ## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
