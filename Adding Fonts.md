@@ -11,16 +11,16 @@ The second option would be to create your own .tinyfnt file using any tiny font 
 **Tiny Font Tool GUI**
 ![Tiny Font Tool GUI](images/FontImages/README-f5070d21.png)
 
-When creating a font, we suggest labeling the file according to the customization. We add the file size to the end of the file name along with the typeface. For example, a SWComp font in Bold Oblique with the size 24 would be SWComp_BO24.tinyfnt. Feel free to contribute any fonts that have been converted to the proper format.
+When creating a font, we suggest labeling the file according to the customization. We add the file size to the end of the file name along with the typeface. For example, a SWComp font in Bold Oblique with the size of 24 would be SWComp_BO24.tinyfnt. Feel free to contribute any fonts that have been converted to the proper format.
 
 ## Creating a location for you file in project
-Resources can be added to your project however way you like, where as we generally create a resource folder for easy organization and transportation between multiple projects.
+Resources can be added to your project however way you like. We generally create a resource folder for easy organization and transportation between multiple projects.
 
-**Right click on your project and navigate to New Folder, where you can then create a folder called Resources in Visual Studio.**
+**Right click on your project and navigate to New Folder. Then create a folder called Resources in Visual Studio.**
 ![](images/FontImages/README-33821e82.png)
 
 ## Adding files to your project
-Regardless of creating a Resource Folder as suggested or settling with storing your .tinyfnt files in the same folder as your source files, we must now add the files. You can add the files through the File Explorer or dragging your files into your project in Visual Studio. **Note:** If you are adding files through the File Explorer, you will need to add existing items.
+Regardless of creating a Resource Folder as suggested or settling with storing your .tinyfnt files in the same folder as your source files, we must now add the files. You can add the files through the File Explorer or by dragging your files into your project in Visual Studio. **Note:** If you are adding files through the File Explorer, you will need to use the add existing item function in Visual Studio as seen in the image below.
 
 **Right click on your folder or project and navigate to add Existing Item... [Or multiple items]**
 ![](images/FontImages/README-208eed55.png)
@@ -28,19 +28,19 @@ Regardless of creating a Resource Folder as suggested or settling with storing y
 ## Add/Create a Resource File
 After your files have been added into the project and can be found in the Solution Explorer, navigate to Resource's in Project Properties.
 
-###### 1.) Navigate to Project Properties
+###### 1). Navigate to Project Properties
   ![](images/FontImages/README-4b56dba3.png)
 
-###### 2.) Create a Resource file
+###### 2). Create a Resource file
 ![](images/FontImages/README-f52a9759.png)
 
-###### 3.) Drag .tinyfnt files into the Resource's window, which will then organize the files into categories.
+###### 3). Drag .tinyfnt files into the Resource's window, which will then organize the files into categories.
 ![](images/FontImages/README-4f4039e0.png)
 
-###### 4.) Save! (CTRL + S) This will update the Resource file with your added Files.
+###### 4). Save! (CTRL + S) This will update the Resource file with your added Files.
 ![](images/FontImages/README-a29271ec.png)
 
-###### 5.) You should now have the ablity to create font objects.
+###### 5). You should now have the ablity to create font objects.
 ```C#
     /* Display Module fonts */
     static Font _smallFont = Properties.Resources.GetFont(Properties.Resources.FontResources.small);
