@@ -957,7 +957,7 @@ Expectations for API are as follows:
 - ~0.3ms for any ConfigXXXX if **zero** timeoutMs is passed. These should be done in the robot loop, if at all (generally not necessary). Success is not determined since there is no wait-for-response checking.
 - ~4ms for any successful ConfigGet*XXXX*. These are generally not necessary.
 
-The ~0.3 ms time is a limitation of the RoboRIO. Many of the functions in WPILib have this limitation. For example, accessing joystick information requires ~0.3ms per call.
+The ~0.3 ms time is a limitation of the RoboRIO. Some of the functions in WPILib have this limitation.
 
 ## Software Object Model
 ### WPILib SpeedController/Drivetrain Objects
