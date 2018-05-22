@@ -119,7 +119,7 @@ The Phoenix framework provides the following new feature...
 - Robot Builder support for all devices above.
 - Support for all three FRC languages.
 - Motor controller configuration parameters can be defaulted with B/C press-and-hold on boot.
-- SetInvert applies "all the way" down to the firmware for all control modes.  You can also SetInvert() without breaking Sensor phase.
+- SetInverted applies "all the way" down to the firmware for all control modes.  You can also SetInverted() without breaking Sensor phase.
 - Documentation is now on GitHub to allow for greater collaboration, along with example repositories.
 
 ## **Latest Update**
