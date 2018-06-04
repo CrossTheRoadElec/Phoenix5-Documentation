@@ -438,7 +438,6 @@ configNeutralDeadband	|	**0.04**
 configVoltageCompSaturation	|	*0*
 configVoltageMeasurementFilter	|	**32**
 configSelectedFeedbackSensor	|	Quad (*0*)
-configSelectedFeedbackSensor	|	Quad (*0*)
 configSelectedFeedbackCoefficient	|	**1.0**
 configRemoteFeedbackFilter	|	Off (*0*)
 configSensorTerm	|	Quad (*0*) for all term types
