@@ -445,7 +445,6 @@ configVelocityMeasurementPeriod	|	**100**
 configVelocityMeasurementWindow	|	**64**
 configForwardLimitSwitchSource	|	Off (*0*), and "Normally Open"
 configReverseLimitSwitchSource	|	Off (*0*), and "Normally Open"
-configForwardLimitSwitchSource	|	Off (*0*), and "Normally Open"
 configForwardSoftLimitThreshold	|	*0*
 configReverseSoftLimitThreshold	|	*0*
 configForwardSoftLimitEnable	|	*false*
