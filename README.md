@@ -557,6 +557,8 @@ There are two methods for creating a follower motor controller. The first method
 
 The second method `follow()` allows users to create a motor controller follower of not only the same model, but also other models, talon to talon, victor to victor, talon to victor, and victor to talon.
 
+Calling `set()` with any control mode other than Follower or calling `neutralOutput()` will allow the motor controller to stop following another controller's output.
+
 Java -
 ```java
 /* The first line, we have a Victor following a Talon. The follow() function may also be used to create Talon follower for a Victor */
