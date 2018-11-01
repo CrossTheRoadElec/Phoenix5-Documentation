@@ -17,6 +17,7 @@ Either create or open an existing robot project in vscode.  Follow the WPI Scree
 ## 3) Add Phoenix to Your Robot Project
 This has a couple steps to it:
 ### A) Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
+Note: if "Manage Vendor Libraries" is **missing** then you likely are using 2018 Alpha VS.  Ensure you are using **2019 Beta VS**.
 ![](images/vscode-manage-vendor-libraries.png)
 
 ### B) At the top of your screen, a menu will appear.  Select "Install new libraries (offline)".
