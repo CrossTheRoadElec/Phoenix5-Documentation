@@ -1,6 +1,8 @@
 # Phoenix Installation Instructions - FRC BETA 2019 (C++/Java)
 
-## 1) Install Phoenix on your PC
+## 1) Install all NI and WPI Beta Software
+
+## 2) Install Phoenix on your PC
 ### Windows
 For Windows, run the latest Windows EXE found on TeamForge.  
 This will look very similar to previous installers - make sure you have the relevent component selected for your programming language.
@@ -11,10 +13,10 @@ This will look very similar to previous installers - make sure you have the rele
 ### Linux
 For Linux users, unzip the Linux zip found on TeamForge into USERHOME\frc2019.
 
-## 2) Open Your Robot Program in VsCode
+## 3) Open Your Robot Program in VsCode
 Either create or open an existing robot project in vscode.  Follow the WPI Screensteps instructions on how to do this.
 
-## 3) Add Phoenix to Your Robot Project
+## 4) Add Phoenix to Your Robot Project
 This has a couple steps to it:
 ### A) Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
 ![](images/vscode-manage-vendor-libraries.png)
@@ -26,6 +28,25 @@ This has a couple steps to it:
 ![](images/vscode-check-ctre-phoenix-ok.png)
 
 ## You will now be able to use CTRE Phoenix libraries in your robot project!
+
+------------------------------------
+# Updating Phoenix (C++/Java)
+If you already have a beta version of Phoenix installed and you want to update to a newer version, follow these steps.
+
+## 1) Install the latest version of Phoenix on your PC
+Follow Step 2 from the [new install instructions](#2-install-phoenix-on-your-pc)
+
+## 2) Open you robot program
+
+## 3) Update the Phoenix version in your robot project
+### A) Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
+![](images/vscode-manage-vendor-libraries.png)
+
+### B) At the top of your screen, a menu will appear.  Select "Check for updates (offline)".
+![](images/vscode-check-updates-offline.png)
+
+### C) The menu will now display a list of vendor libraries you can update.  Check "CTRE Phoenix", then click "OK"
+![](images/vscode-check-ctre-phoenix-ok.png)
 
 ------------------------------------
 # Phoenix Installation Instructions - FRC BETA 2019 (LabVIEW)
