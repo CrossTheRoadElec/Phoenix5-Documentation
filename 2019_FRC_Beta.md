@@ -27,7 +27,20 @@ This has a couple steps to it:
 ### C) The menu will now display a list of vendor libraries you can install.  Check "CTRE Phoenix", then click "OK"
 ![](images/vscode-check-ctre-phoenix-ok.png)
 
-## You will now be able to use CTRE Phoenix libraries in your robot project!
+## You will now be able to use CTRE Phoenix libraries in your robot project!  You can verify your installation using [these steps](#verify-your-phoenix-installation-c++java)
+------------------------------------
+
+# Verify Your Phoenix Installation (C++/Java)
+The offline files for vscode are typically installed in 
+
+- C:\Users\Public\frc2019\vendordeps\Phoenix.json (File used by vscode to include Phoenix in your project)
+- C:\Users\Public\frc2019\maven\com\ctre\frcbeta\phoenix (multiple maven-style library files)  
+
+Your drive letter may be different than "C:".
+
+After running the Phoenix Installer, the instructions to [add](#4-add-phoenix-to-your-robot-project) or [update](#3-update-the-phoenix-version-in-your-robot-project) Phoenix in your robot project must be followed.
+
+Teams can verify Phoenix is in their robot project by checking for the existence of vendordeps/Phoenix.json in the project directory.
 
 ------------------------------------
 # Updating Phoenix (C++/Java)
