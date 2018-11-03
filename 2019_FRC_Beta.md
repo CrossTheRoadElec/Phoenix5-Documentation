@@ -19,6 +19,7 @@ Either create or open an existing robot project in vscode.  Follow the WPI Scree
 ## 4) Add Phoenix to Your Robot Project
 This has a couple steps to it:
 ### A) Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
+Note: if "Manage Vendor Libraries" is **missing** then you likely are using 2018 Alpha VS.  Ensure you are using **2019 Beta VS**.
 ![](images/vscode-manage-vendor-libraries.png)
 
 ### B) At the top of your screen, a menu will appear.  Select "Install new libraries (offline)".
@@ -82,7 +83,12 @@ This is similar to previous years' requirement to install the web-based configur
 
 
 ------------------------------------
-# NEW: CTRE Phoenix Diagnostics
-## This is the replacement for the CAN-plugin in the Web-Based Configuration Tool.
+# NEW: CTRE Phoenix Diagnostics Client
+## This is the open-source replacement for the CAN-plugin in the Web-Based Configuration Tool.
+![image](https://user-images.githubusercontent.com/28712271/45908233-7db6ac80-bdc9-11e8-970b-1b5e313c55bf.png)
+
+The source and latest release can be found here...
+
+https://github.com/CrossTheRoadElec/Phoenix-diagnostics-client
 
 ### More Documentation Coming Soon!
