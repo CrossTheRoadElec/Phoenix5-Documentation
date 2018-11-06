@@ -10,8 +10,8 @@ This will look very similar to previous installers - make sure you have the rele
 ![](images/Phoenix-installerSplash.png)
 
 
-### Linux
-For Linux users, unzip the Linux zip found on TeamForge into USERHOME\frc2019.
+### Linux/Mac
+For Linux/Mac users, unzip the non-Windows zip found on TeamForge into USERHOME\frc2019.
 
 ## 3) Open Your Robot Program in VsCode
 Either create or open an existing robot project in vscode.  Follow the WPI Screensteps instructions on how to do this.
