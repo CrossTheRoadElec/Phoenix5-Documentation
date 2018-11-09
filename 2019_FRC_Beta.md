@@ -51,7 +51,6 @@ If you already have a beta version of Phoenix installed and you want to update t
 Follow Step 2 from the [new install instructions](#2-install-phoenix-on-your-pc)
 
 ## 2) Open you robot program
-![image](https://user-images.githubusercontent.com/14191527/48242266-6b5bf680-e3a8-11e8-93af-4fcafd35bc1f.png)
 ## 3) Update the Phoenix version in your robot project
 ### A) Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
 ![](images/vscode-manage-vendor-libraries.png)
@@ -77,6 +76,7 @@ This will look very similar to previous installers - make sure you have the rele
 This is similar to previous years' requirement to install the web-based configuration plug-in with LifeBoat.
 
 ### a) Open Phoenix Diagnostics
+![image](https://user-images.githubusercontent.com/14191527/48242266-6b5bf680-e3a8-11e8-93af-4fcafd35bc1f.png)
 ### b) Connect to the roboRIO via USB
 ### c) Click 'Update Binaries'
 ![](images/diag-client-updatebinaries.png)
