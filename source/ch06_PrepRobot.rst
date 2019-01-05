@@ -5,6 +5,7 @@ Why prepare Robot Controller?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Preparing the Robot Controller typically means:
+
 1. Installing the Phoenix Diagnostic Server
 2. Installing the Phoenix API into roboRIO (if using LabVIEW).
 
