@@ -12,17 +12,13 @@ There are typically two failure modes that must be resolved:
 - There are same-model devices on the bus with the same device ID (devices have a default device ID of ‘0’). 
 - CAN bus is not wired correctly / robustly.
 
-This is why during hardware validation, you will likely have to isolate each device during hardware validation to assign a unique device ID.   
+This is why during hardware validation, you will likely have to isolate each device to assign a unique device ID.   
 
 .. note:: CTRE software has the ability to resolve device ID conflicts without device isolation, and CAN bus is capable of reporting the health of the CAN bus (see Driver Station lightening tab).  However, the problem is when **both** root-causes are occurring at the same time, this can confuse students who have no experience with CAN bus systems.
 
 .. note:: Many teams will preassign and update devices (Talon SRXs for example) long before the robot takes form.  This is also a great task for new students who need to start learning the control system (with the appropriate mentor oversight to ensure hardware does not get damaged).  
 
 .. note:: Label the devices appropriately so there is no guessing which device ID is what. Don’t have a label maker?  Use tape and/or Sharpie (sharpie marks can be removed with alcohol).
-
-.. note:: “Once you eliminate the impossible, whatever remains, no matter how improbable, must be the truth.”  Keep this in mind when troubleshooting.
-
-
 
 
 Check your wiring
@@ -33,32 +29,30 @@ Specific wiring instructions can be found in the user manual of each product, bu
 - If connectors are used for CANBus, **tug-test each individual crimped wire** one at a time.  Bad crimps/connection points are the most common cause of intermittent connection issues.
 - Confirm red and black are not flipped.  **Motor Controllers typically are not reverse power protected**.
 - Confirm battery voltage is adequate (through Driver Station or through voltmeter).
-- Manually inspect and confirm that green-connects-to-green and yellow-connect-to-yellow at every connection point. **Flipping/mixing green and yellow is a common failure point during hardware bring up**.
+- Manually inspect and confirm that green-connects-to-green and yellow-connects-to-yellow at every connection point. **Flipping/mixing green and yellow is a common failure point during hardware bring up**.
 - Confirm breakers are installed in the PDP where appropriate.
-- Measure resistance between CANH and CANL when system is not powered. Should measure ~60Ω.  If the measurement is 120Ω, then confirm both RIO and PDP are in circuit, and PDP jumper is in the correct location.
+- Measure resistance between CANH and CANL when system is not powered (should measure ~60Ω).  If the measurement is 120Ω, then confirm both RIO and PDP are in circuit, and PDP jumper is in the correct location.
 
+
+Power up and check LEDs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you haven't already, power up the platform (robot, bench setup, etc) and confirm LEDs are illuminated (at all) on all devices.  
+
+You may find many of them are blinking or “blipping” red (no communication).
+
+.. tip:: If you are color-blind or unable to determine color-state, grab another team member to assist you.
+
+.. note:: If using Ribbon cabled Pigeon IMUs, Pigeon LEDs will reflect the ribbon cable, not the CAN bus.  At which point any comm issue with Pigeon will be resolved under section Bring Up: Pigeon IMU.
 
 Open Phoenix Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to the CAN devices page.  
 
-This capture is taken with no devices connected to the RIO.  RIO will take around 30 seconds to boot.
+This capture is taken with no devices connected to the roboRIO.  roboRIO will take around 30 seconds to boot.
 
 .. image:: img/bring-1.png
-
-
-Power up and check LEDs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Power up the platform (robot, bench setup, etc) and confirm LEDs are illuminated (at all) on all devices.  
-
-You may find many of them are blinking or “blipping” red (no communication) either all the time, or when you shake/jostle the wiring.  
-
-.. tip:: If you are color-blind or unable to determine color-state, grab another team member to assist you.
-
-.. note:: If using Ribbon cabled Pigeon IMUs, Pigeon LEDs will reflect the ribbon cable, not the CAN bus.  At which point any comm issue with Pigeon will be resolved under section Bring Up: Pigeon IMU.
-
 
 
 LEDs are red – now what?
@@ -71,24 +65,22 @@ Approach 2 will only be effective in troubleshooting common IDs.  But this metho
 
 The specific instructions for changing device ID are in the next section. Review this if needed.
 
-
-
 Approach 1 (best)
 ------------------------------------------------------
 Procedure:
 
-- **Physically power and connect CAN bus from roboRIO to one device only.  Circumvent your wiring if need be.**
+- **Physically connect CAN bus from roboRIO to one device only.  Circumvent your wiring if need be.**
 - Power boot robot/bench setup.
-- Open Phoenix Tuner and wait for connection (RIO may take ~30 seconds to boot)
+- Open Phoenix Tuner and wait for connection (roboRIO may take ~30 seconds to boot)
 - Open CAN devices tab
 - Confirm if CAN device appears. 
 - Use Tuner to change the device ID
 - Label the new ID on the physical device
-- Repeat this procedure for every device. 
+- Repeat this procedure for every device, one at a time.
 
-If you find a particular device where communication is not possible, scrutinize devices power and CAN connection to RIO.  Make the test setup so simple that the only failure mode possible is within the device itself.  
+If you find a particular device where communication is not possible, scrutinize device's power and CAN connection to roboRIO.  Make the test setup so simple that the only failure mode possible is within the device itself.  
 
-.. note:: Typically, there must be two termination resistors at each end of the bus. One is in the RIO and one is in the PDP.  But during bring-up, if you keep your harness short (such as the 1ft pigtail leads from a single Talon) then the internal resistor in the RIO is adequate.
+.. note:: Typically, there must be two termination resistors at each end of the bus. One is in the RIO and one is in the PDP.  But during bring-up, if you keep your harness short (such as the CAN pigtail leads from a single Talon) then the internal resistor in the RIO is adequate.
 
 
 Approach 2 (easier)
@@ -100,9 +92,9 @@ Procedure:
 - **Disconnect CAN bus pigtail from PDP.**
 - **Pick the first device to power up and restore breaker/fuse/pigtail so that only this CAN device is powered.**
 - Power boot robot/bench setup.
-- Open Phoenix Tuner and wait for connection (RIO may take ~30 seconds to boot)
+- Open Phoenix Tuner and wait for connection (roboRIO may take ~30 seconds to boot)
 - Open CAN devices tab
-- Confirm if CAN device appears. If device does not appear scrutinize devices power and CAN connection to RIO.
+- Confirm if CAN device appears. If device does not appear, scrutinize device's power and CAN connection to roboRIO.
 - Use Tuner to change the device ID
 - Label the new ID on the physical device
 - Repeat this procedure for every device.
@@ -110,8 +102,9 @@ Procedure:
 If you find a particular device or section of devices where communication is not possible, then the CAN bus wiring needs to be re-inspected.  Remember to “flick” / “shake” / “jostle” the CAN wiring in various sections to attempt to reproduce red LED blips.  This is a sure sign of loose contact points.
 
 
-If you are able to detect and change device ID on your devices individually, begin piecing your CAN bus together.  Start with roboRIO ---- device --- PDP, to ensure termination exists at both ends.  Then introduce the remaining devices until a failure is observed or until all devices are in-circuit.  If introducing a new device creates a failure symptom, scrutinize that device by replacing it, inspecting common wires, and inspecting power.
+If you are able to detect and change device ID on your devices individually, begin piecing your CAN bus together.  Start with roboRIO <----> device <---> PDP, to ensure termination exists at both ends.  Then introduce the remaining devices until a failure is observed or until all devices are in-circuit.
 
+If introducing a new device creates a failure symptom, scrutinize that device by replacing it, inspecting common wires, and inspecting power.
 
 .. note:: If 2014 PDP is the only device that does not appear or has red LEDs, see PDP boot up section for specific failure mode.
 
@@ -132,9 +125,9 @@ Because all the Talons have a device ID of ‘0’, the do not show up as unique
 
 .. image:: img/bring-2.png
 
-.. note:: We recommend isolating each device and assigning a unique ID first.  But in the event there is a conflict, expect an entry mentions multiple devices.  When select a device, the actually physical device selected will be the conflict-id device that booted last.  You can use this information to control which Talon you are resolving by power cycling the conflict device, then changing its ID in Tuner.
+.. note:: We recommend isolating each device and assigning a unique ID first.  But in the event there is a conflict, expect an entry mentioning multiple devices.  When selecting a device, the actually physical device selected will be the conflict-id device that booted last.  You can use this information to control which Talon you are resolving by power cycling the conflict device, then changing its ID in Tuner.
 
-Select the device and use the numeric entry to change the ID. Note the text will change blue when you do this.  Then press Change ID to apply the changes.
+Select the device and use the numeric entry to change the ID. Note the text will change blue when you do this.  Then press "Change ID" to apply the changes.
 
 .. image:: img/bring-3.png
 
