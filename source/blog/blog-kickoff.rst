@@ -5,7 +5,7 @@ BLOG: FRC 2019 Kickoff
 
 Once again it is time to kick off a new FRC season!
 
-The Phoenix installer and non-Windows binary kit is now available.
+The Phoenix installer and non-Windows binary kit is `now available <http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
 
 You can also find the latest firmware CRFs at each product page (the installer also installs them).
 
@@ -17,21 +17,25 @@ Also this year's API release is **almost entirely backwards compatible**.
 New features below
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* SetInverted also takes an enum for simpler follower.  SetInverted(bool) still exists and works exactly the same as last season.
+* Motor controller followers can use SetInverted(enum) to match or oppose master motor controller. SetInverted(bool) still exists and works exactly the same as last season.
 * Motion Profile and Motion Profile Arc have an explicit feedforward term (allows for kS, kV, kA, etc..) for both primary and aux PIDs.
 * Motion Profile (and Arc) use a linear interpolator to adjust the targets every 1ms.  This means you can send less points, reducing CAN bandwidth, but still have resolute control.
 * Motion Profile API has a simpler mode where you can simply call Start/IsFinished.  Legacy API still exists and is supported.
 * Phoenix Tuner and Phoenix Diagnostics Server replaces the silverlight based diagnostics from past seasons.
-* Phoenix Tuner provides the means of driving Talons for simple testing.
+* Phoenix Tuner provides the means of controlling Talons for simple testing.
 * Phoenix Tuner includes a plotter.
-* Phoenix Tuner provides import and export of all configs.
+* Phoenix Tuner provides import and export of all config settings.
+* Phoenix Tuner can be used to factory default config settings (as well as API).
+* Phoenix Tuner can field-upgrade all same-model devices with one click.
+* Phoenix Tuner can be used to perform Pigeon IMU temperature calibration.
 * New config routines to simplify management of persistent settings: configFactoryDefault and `configAllSettings <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java/Config%20All>`_
-* Compatibility with WPI distributed Visual Studio Code interface.
+* Compatibility with WPI distributed Visual Studio Code interface and GradleRIO build system.
 * Maven hosted API provides an alternative to using the Phoenix installer to get API binaries (however the offline install is highly recommended).
 * No more FRC versus nonFRC firmware, see "FRC Lock" features for explanation.
 * Phoenix C++ API is portable to RaspPI, Linux-Desktop, NVIDIA Jetson TX2, etc.
-* Performance improvements of all CAN get routines (get routines take far less time to execute than previous seasons).
+* Performance improvements of general status CAN get routines (get routines take far less time to execute than previous seasons).
 * Talon SRX: Maximum reportable velocity increased.  New maximum RPM is 38400 RPM (@ 4096 untis per rotation).
+* C++/Java: Added default parameter values for pidIdx, slotIdx, and timeoutMs where appropriate.
 
 .. note:: Installing Phoenix on another Linux device and controlling Talon SRX / Victor SPXs may or may not be FRC legal depending on 2019 rules.
 

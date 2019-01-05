@@ -4,13 +4,13 @@ Prepare your workstation computer
 Before Installing Phoenix...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is strongly recommended to complete the base installation of FRC tools.
-
+https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144981-frc-software-component-overview
 
 Test base FRC Installation - FRC LabVIEW 2018
 ----------------------------------------------------------------------------------
-If team intends to use LabVIEW to develop robot software, be sure to complete the full NI installer.  At which point, opening LabVIEW should reveal the FRC-styled graphical start menu.
+If a team intends to use LabVIEW to develop robot software, be sure to complete the full NI installer.  At which point, opening LabVIEW should reveal the FRC-styled graphical start menu.
 
-At this point it is recommended to create a simple template project and test deploy to the roboRIO.  Be sure DriverStation can communicate with robot controller, and that DS message log is functional.
+At this point it is recommended to create a simple template project and test deploy to the roboRIO.  Be sure the DriverStation can communicate with the robot controller, and that DS message log is functional.
 
 .. note:: You will likely need to image the roboRIO to successfully deploy a test application.
 
@@ -19,6 +19,7 @@ At this point it is recommended to create a simple template project and test dep
 Test base FRC Installation - FRC C++ / Java
 ----------------------------------------------------------------------------------
 It is recommended to install the FRC Driver Station Utilities. This will install the Driver Station software, which is necessary for:
+
 1. Basic comms checks
 2. Reading joystick data
 3. Generally required for enabling motor actuation (Phoenix Tuner provides an alternative).
@@ -26,9 +27,11 @@ It is recommended to install the FRC Driver Station Utilities. This will install
 
 Important note regarding FRC 2019 C++ / Java.
 ----------------------------------------------------------------------------------
-The FRC C++/Java standard distribution for 2019 is quite different than previous seasons. WPILIB has replaced the Eclipse-based development environment with Microsoft Visual Studio Code and GradleRIO.
+The FRC C++/Java standard distribution for 2019 is **quite different** than previous seasons. WPILIB has replaced the Eclipse-based development environment with Microsoft Visual Studio Code and GradleRIO.
+
 This is a considerable change in both user experience and in implementation. If you are developing C++/Java FRC programs, we strongly recommend testing full deployment to your robot controller before installing Phoenix and porting previous season software.
 A recommended test is to:
+
 1. Create a project from scratch
 2. Make a simple change such as add a print statement with a counter.
 3. Deploy (or debug) your application.
@@ -49,6 +52,7 @@ Option 1: Windows installer (strongly recommended)
 Environments: Windows-LabVIEW, Windows-C++/Java, HERO C#
 
 Phoenix Installer zip can be downloaded at:
+
 http://www.ctr-electronics.com/hro.html#product_tabs_technical_resources.
 
 It is typically named Phoenix Framework_Windows_vW.X.Y.Z.zip
@@ -79,22 +83,17 @@ This essentially contains a maven-style repository that holds the API binaries a
 .. note:: This is auto installed when using the Windows full installer (Option 1).
 
 
-
-Option 3: Phoenix API via online install (maven)
-----------------------------------------------------------------------------------
-Environments: Windows/Linux/MacOS - C++/Java
-
-Although this is not manual download, it is worth mentioning that Phoenix API can be automatically downloaded through maven/FRC-json.
-
-http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
-
-
 Phoenix Tuner
 ----------------------------------------------------------------------------------
-Environments: Windows, (possible future Linux/MacOS depending on Mono compliancy)
-If you are using option 2 or 3, you will not pick up Phoenix Tuner.  Alternatively, Phoenix Tuner is available as a separate download.  This can be convenient for workstations that aren’t used for software development, but are used for field-upgrade or testing motor controllers.
+Environments: Windows
 
-.. note:: Phoenix Tuner is required to install Phoenix libraries into the roboRIO.  Phoenix libraries must be present in both the workstation and in the robot controller for LabVIEW.
+If you are using option 2, you will need to download Phoenix Tuner separately.  
+Phoenix Tuner is available here...
+https://github.com/CrossTheRoadElec/Phoenix-Tuner-Release/releases
+
+This can be convenient for workstations that aren’t used for software development, but are used for field-upgrade or testing motor controllers.
+
+.. note:: LabVIEW teams may need to use Phoenix Tuner to install Phoenix libraries into the roboRIO.  More information on this can be found under Prepare Robot Controller.
 
 .. note:: This is auto installed when using the Windows full installer.
 
