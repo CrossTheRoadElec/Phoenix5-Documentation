@@ -11,7 +11,7 @@ Follow the WPI Screensteps instructions on reaching the create new project.  Typ
 
 .. image:: img/verify-1.png
 
-Make sure the desktop checkbox is cleared, Phoenix does not currently support desktop simulation.  “Timed Skeleton” is used in this example for sake of simplicity.
+**Make sure the desktop checkbox is cleared**, Phoenix does not currently support desktop simulation.  “Timed Skeleton” is used in this example for sake of simplicity.
 
 .. image:: img/verify-2.png
 
