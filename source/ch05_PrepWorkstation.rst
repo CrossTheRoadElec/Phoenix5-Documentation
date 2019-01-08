@@ -175,10 +175,13 @@ Final page will look like this.  The Phoenix Tuner link can be used to open Phoe
 Option 2: Non-Windows Zip  (C++/Java)
 ----------------------------------------------------------------------------------
 
-The zip will contain two folders, “maven” and “vendordeps”.
-These folders are meant to be inserted into the frc2019 install folder.  See WPI documentation for typical location.
+The zip will contain **two folders, “maven” and “vendordeps”**.
+These folders are meant to be **inserted into your frc2019 install folder**.  
 
-Copy/paste the maven and vendordeps folder into frc2019.  This will override a pre-existing Phoenix installation if present.
+See WPI documentation for typical location.
+https://wpilib.screenstepslive.com/s/currentCS/m/cpp/l/1027500-installing-c-and-java-development-tools-for-frc
+
+**Copy/paste the maven and vendordeps folder into frc2019 folder**.  This will override a pre-existing Phoenix installation if present.
 
 .. note:: This will not install Phoenix Tuner or firmware files.  If these are necessary (and they typically are) these can be downloaded separately or consider using the complete Phoenix Installer.
 
