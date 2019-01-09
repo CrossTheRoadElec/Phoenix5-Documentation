@@ -12,7 +12,7 @@ If a team intends to use LabVIEW to develop robot software, be sure to complete 
 
 At this point it is recommended to create a simple template project and test deploy to the roboRIO.  Be sure the DriverStation can communicate with the robot controller, and that DS message log is functional.
 
-.. note:: You will likely need to image the roboRIO to successfully deploy a test application.
+.. warning:: You will likely need to image the roboRIO to successfully deploy a test application.  The **roboRIO** kickoff versions are **image 2019_v12 and firmware 6.0**.
 
 .. note:: LabVIEW is versioned 2018 due to its release schedule. Therefore, LV2018 is used for the 2019 season.
 
