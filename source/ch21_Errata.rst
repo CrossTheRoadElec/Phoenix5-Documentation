@@ -16,5 +16,9 @@ Phoenix Tuner specifying team number may work inconsistently
 Tuner will connect via hostname/IP or via team number.  
 When specifying team number, the roborio-TEAM-FRC.local host name is used correctly, however mDNS does not appear to reliably resolve.
 
+Using static-IP or using USB works as expected.
+
+.. tip:: Phoenix-Tuner 1.2.0 has improvements for this.
+
 A tentative fix has been tested where Tuner will manually resolve it, working around this limitation.
 This improvement will be incorporated in a future update.
