@@ -1,0 +1,9 @@
+/* Sidebar header (and topbar) */
+.wy-side-nav-search, .wy-nav-top {
+    background: #0;
+    background-color: #000000;
+}
+/* Sidebar */
+.wy-nav-side {
+    background: #0;
+}

@@ -113,6 +113,11 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_logo = 'img/ctre.png'
+
+# Theme tweaks on top of RTD
+def setup(app):
+    app.add_stylesheet('css/theme_ctre.css')  
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.

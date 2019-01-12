@@ -9,9 +9,9 @@ Welcome to Phoenix's documentation!
 Below is the latest documentation for CTR-Electronics Phoenix software framework.
 This includes...
 
-* Class library for Talon SRX, Victor SPX, CANifier and Pigeon (C++/Java/LabVIEW for FRC, C# for HERO)
-* Phoenix Tuner GUI - provides configuration options, diagnostics, control and plotting.
-* Phoenix Diagnostic Server - install on to RIO for Tuner, and to perform HTTP API requests for diagnostic information.
+* **Class library** for **Talon SRX, Victor SPX, CANifier and Pigeon-IMU** (C++/Java/LabVIEW for FRC, C# for HERO)
+* **Phoenix Tuner** Graphical Interface - provides configuration options, diagnostics, control and plotting.
+* **Phoenix Diagnostic Server** - install on to roboRIO for Tuner, and to perform HTTP API requests for diagnostic information.
 
 
 
