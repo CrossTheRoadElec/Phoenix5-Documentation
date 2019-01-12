@@ -14,14 +14,23 @@ This includes...
 * Phoenix Diagnostic Server - install on to RIO for Tuner, and to perform HTTP API requests for diagnostic information.
 
 
-.. include:: /blog/blog-kickoff.rst
 
+Blog Entries
+============
+
+.. only:: html
+
+   .. postlist:: 
+      :date: %b %d, %Y
+      :list-style: circle
+      :format: {date} - {title}
 
 Follow these instructions in order!
 ===================================
 .. toctree::
    :maxdepth: 2
 
+   blog/blogs.rst
    ch01_PhoeSoftRefManual
    ch02_PrimerCAN
    ch03_PrimerPhoenixSoft
@@ -48,13 +57,4 @@ Follow these instructions in order!
    ch23_AddResource
 
 
-Blog Entries
-============
-
-.. only:: html
-
-   .. postlist:: 
-      :date: %b %d, %Y
-      :list-style: circle
-      :format: {date} - {title}
 
