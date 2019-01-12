@@ -28,9 +28,17 @@ Of course if you still have questions, feel free to contact our support directly
 
 Remember to update the firmware!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We got a few calls this week from teams reporting that their Talon SRX motor controllers would not enable as expected.
-In almost every circumstance **the root-cause was not updating to this year's firmware (4.11)**.
-Once updated, they were ready to rock and roll.
+We got a few support calls/emails this week from teams reporting that their Talon SRX motor controllers would not enable as expected.
+Here were the root-causes we found:
+
+- Wrong firmware - Didn't update.
+- Still wrong firmware, where is the web-dash?  What's Phoenix Tuner?
+- Didn't set device IDs.
+- We are supposed to use VS Code now? When did that happen?
+- No we didn't install anything called Phoenix.  What's that?
+
+But more often than not, **the root-cause was not updating to this year's firmware (4.11)**.
+Once updated, teams were ready to rock and roll.
 
 So as a reminder, teams should ensure that their motor controllers are up to date for proper functionality with 2019 software.
 
@@ -44,7 +52,7 @@ These have been used for leveraging Talons/Victors/CANifiers/Pigeon on third par
 - NVIDIA Jetson TX2 + native CAN
 - Even Linux Desktop with SocketCAN device plugged in.
 
-After reviewing the FRC rules, it appears that leveraging these CAN devices from third-party CAN hardware is now officially FRC legal.
+After reviewing the FRC rules, it appears that leveraging these CAN devices from third-party CAN hardware is **now officially FRC legal**.
 This opens up an entirely new way to develop robots in FRC.
 
  - Want to update your set-points from your Raspberry PI vision system?
@@ -95,13 +103,16 @@ We were motivated to do this due to the support calls we got this week mentioned
 
 And finally we fixed the context help for SetInverted.vi (LabVIEW), this was reported by a team.  
 
-This minor update also *provides an opportunity for *C++/Java team become familiar with the "Update" instructions* for third-party libraries.
+This minor update also provides an opportunity for *C++/Java teams to become familiar with the "Update" instructions* for third-party libraries.
 Be sure to review the `update instructions <https://phoenix-documentation.readthedocs.io/en/latest/ch05a_CppJava.html#frc-c-java-updating-phoenix>`_
 
 Balance Bot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Last year during the Worlds Championships, we revealed a 2-wheeled balance bot using our HERO control system.
-Although I don't expect any competition robots to employ the same drive train, we recently have been getting a few questions about it, only to realize we never posted the files!
+Last year during the Worlds Championships, we demoed a small 2-wheeled balance bot using our HERO control system.
+No, I don't expect any competition robots to employ the same drive train :)
+
+But during the off-season, we redesigned it to be easier to 3D print, assemble, and support.
+Earlier this week we were asked about the demo, only to realize we never posted the files!
 
 The `CAD and source <https://github.com/CrossTheRoadElec/CTRE-Balance-Bot>`_ is now available on GitHub.
 
