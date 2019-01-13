@@ -134,7 +134,7 @@ FRC C++/Java - Updating Phoenix
 If you already have a 2019 version of Phoenix installed and you want to update to a newer version, follow these steps.
 Install the latest version of Phoenix on your PC.  Basically, rerun the latest installer (same as section above). 
 
-Open you robot program in VS Code.
+Open your robot program in VS Code.
 
 .. image:: img/verify-4.png
 
