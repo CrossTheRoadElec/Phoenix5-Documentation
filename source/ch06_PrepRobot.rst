@@ -92,17 +92,19 @@ If Phoenix API has not been installed into the robot controller, this message wi
 Verify the robot controller – Web page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Silverlight web interface provided in previous seasons is no longer available.
+The Silverlight web interface provided in previous seasons is **no longer available**.  Moving forward, the NI web interface will likely be much simpler.  
 
-Moving forward, the NI web interface will likely be much simpler.  
-
-As a result, Phoenix Tuner will embed a small message reminder indicating that CAN features have been moved to Tuner.
+As a result, **Phoenix Tuner** will embed a *small message reminder* **indicating that CAN features have been moved to Tuner**.
 
 Typically, the message will disappear after 5 seconds.  This will not interfere with normal web page features (IP Config, etc…).
 
 .. image:: img/prep-rc-5.png
 
+.. warning:: The roboRIO Web-page does not provide CAN bus support any more as this has been removed by NI.  Use Phoenix Tuner instead.
 
+.. warning:: The roboRIO Web-page does not render correctly if using Internet Explorer (see below).  Recommended browsers are Chrome or FireFox.  
+
+.. image:: img/bad-web-dash.png
 
 Verify the robot controller – HTTP API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
