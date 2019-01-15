@@ -87,7 +87,9 @@ If Phoenix API has not been installed into the robot controller, this message wi
 
 .. image:: img/prep-rc-4.png
 
+If you have used Phoenix LifeBoat (which should NOT be used), this message will appear.  If this occurs you will need to re-image your roboRIO and then re-follow the instructions in this section exactly, without using LifeBoat.
 
+.. image:: img/prep-rc-8.png
 
 Verify the robot controller – Web page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
