@@ -32,15 +32,32 @@ https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example
 
 What is Phoenix Tuner?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Phoenix-Tuner is the 2019 replacement for the FRC Web-Based Configuration Utility that was provided during the previous years. It is a Windows application and currently includes all the features of the Web-Based Config with aspirations to include more.
+Phoenix-Tuner is the **2019 replacement for the FRC Web-Based Configuration Utility** that was provided during the previous years. 
 
-This includes being able to:
+.. image:: img/tuner.png
+
+.. warning:: The RoboRIO web-based config is no longer available or supported by NI.
+
+It provides the *same functionality* as the *previous season's web-based interface*, plus a few more features:
 
 - Update device firmware (including PDP/PCM) 
 - Change CAN IDs 
 - Self-test devices 
 - Change configuration settings 
-...and more.
+- Factory default configuration settings
+- Test motors
+- Check plots
+- Temperature Calibrate Pigeon-IMU
 
+Now you can drive your motors and collect data *without writing any softare*.
+
+.. image:: img/sensor-11.png
+
+Configuration values can be **checked, modified, and defaulted** with the new config view.
+Config values can also be **imported/exported** as an easy-to-follow JSON formatted file.
+
+.. image:: img/sensor-20.png
 
 The following sections of documentation will cover how to use Phoenix Tuner and the other components of Phoenix.
+
+.. tip:: Have a feature request?  Send to us at support@ctr-electronics.com or report it on GitHub.
