@@ -28,3 +28,19 @@ Phoenix-Examples-Languages and Phoenix-Examples-LabVIEW are specifically tested 
 
 Phoenix-Linux-SocketCAN-Example demonstrates control of Talons from a Raspberry Pi.
 https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example
+
+
+What is Phoenix Tuner?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Phoenix-Tuner is the 2019 replacement for the FRC Web-Based Configuration Utility that was provided during the previous years. It is a Windows application and currently includes all the features of the Web-Based Config with aspirations to include more.
+
+This includes being able to:
+
+- Update device firmware (including PDP/PCM) 
+- Change CAN IDs 
+- Self-test devices 
+- Change configuration settings 
+...and more.
+
+
+The following sections of documentation will cover how to use Phoenix Tuner and the other components of Phoenix.
