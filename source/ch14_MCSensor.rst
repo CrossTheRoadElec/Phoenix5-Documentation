@@ -74,19 +74,20 @@ The pulse width decoder is <1us accurate and the maximum time between edges is 1
 Cross The Road Electronics Magnetic Encoder (Absolute and Relative)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The CTRE Magnetic Encoder is actually two sensor interfaces packaged into one (pulse width and quadrature encoder).
-Therefore the sensor provides two modes of use: absolute and relative.  
+Therefore the sensor provides two modes of use: absolute and relative.  Each mode provides 4096 units per rotation.
 
 .. image:: img/sensor-23.png
 
 The advantage of absolute mode is having a solid reference to where a mechanism is without re-tare-ing or re-zero-ing the robot.  The advantage of the relative mode is the faster update rate.  However both values can be read/written at the same time.  So a combined strategy of seeding the relative position based on the absolute position can be used to benefit from the higher sampling rate of the relative mode and still have an absolute sensor position.
-Parameter	Absolute Mode	Relative Mode
-Update rate (period)	4ms	100 us
-Max RPM	7,500 RPM	15,000 RPM
-Accuracy	12 bits per rotation 
-(4096 steps per rotation)	12 bits per rotation
-(4096 steps per rotation)
-Software API 	Use Pulse Width API	Use Quadrature API
 
+======================     ===================================  =======================================
+Parameter                  Absolute Mode                        Relative Mode
+======================     ===================================  =======================================
+Update rate (period)       4 ms                                 100 us
+Max RPM                    7,500 RPM                            15,000 RPM
+Accuracy                   12 bits (4096 units per rotation)    12 bits (4096 units per rotation)
+Software API               Select Pulse Width                   Select Quadrature
+======================     ===================================  =======================================
 
 In circumstances where the absolute pulse width wraps from one extremity to the other (due to overflow), the Talon continues counting 4095 => 4096.  
 
