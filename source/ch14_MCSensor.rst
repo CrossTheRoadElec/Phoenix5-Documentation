@@ -272,14 +272,16 @@ Listed below are the typical sensor resolutions for common sensors.  Lookup your
 
 Sensor Resolution
 ------------------------------------------------------
-
-Sensor Type	Units per rotation
-Quadrature Encoder : US Digital 1024 CPR	4096 (because Talon SRX / CANifer counts every edge)
-CTRE Magnetic Encoder (relative/quadrature)	4096
-CTRE Magnetic Encoder (absolute/pulse width encoded)	4096 (0 to 4095 if wrap around not tracked)
-Any pulse width encoded position	4096 represents 100% duty cycle
-AndyMark CIMcoder	80 (because 20 pulses => 80 edges)
-Analog	1024 (0 to 1023 if wrap around not tracked)
+=======================================================  ==========================================================
+Sensor Type                                              Units per rotation
+=======================================================  ==========================================================
+Quadrature Encoder : US Digital 1024 CPR                 4096 (Talon SRX / CANifer counts every edge)
+CTRE Magnetic Encoder (relative/quadrature)              4096
+CTRE Magnetic Encoder (absolute/pulse width)             4096
+Any pulse width encoded position                         4096 represents 100% duty cycle
+AndyMark CIMcoder                                        80 (because 20 pulses => 80 edges)
+Analog                                                   1024
+=======================================================  ==========================================================
 
 
 .. note:: Sensor are typically reported in the raw sensor units to ensure all of the available sensor resolution is utilized.  However starting in 2020 season, there likely will be scaling options to universally adjust how sensor position is interpreted (for example, in fractional rotations).
