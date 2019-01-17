@@ -12,6 +12,8 @@ If the LED strobe is weighted to one side (more time on one side than the other)
 
 .. warning:: Ribbon cabled Pigeon may not appear in CAN devices if Talon SRX firmware is too old.
 
+.. warning:: Ribbon cabled Pigeon may not work as a remote sensor unless `Pigeon Firmware <https://github.com/CrossTheRoadElec/Phoenix-Releases/releases/tag/Pigeon_IMU_v4.13>`_ is at least 4.13.  
+
 
 Phoenix Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
