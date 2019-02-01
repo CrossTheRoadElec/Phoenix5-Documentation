@@ -215,7 +215,7 @@ Below is a simple example that reads the Joystick and drives the Talon
   import edu.wpi.first.wpilibj.TimedRobot;
   
   public class Robot extends TimedRobot {
-    TalonSRX _talon0 = new TalonSRX(0);
+    TalonSRX _talon0 = new TalonSRX(0); // Change '0' to match device ID in Tuner.  Use VictorSPX for Victor SPXs
     Joystick _joystick = new Joystick(0);
   
     @Override
