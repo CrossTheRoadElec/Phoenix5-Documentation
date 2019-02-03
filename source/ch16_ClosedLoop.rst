@@ -159,7 +159,7 @@ F-gain = 0.1097
 
 Let’s check our math, if the target speed is **9326** native units per 100ms, Closed-loop output will be (0.1097 X **9326**) => 1023 (full forward).
 
-..note the output of the PIDF engine in Talon/Victor uses 1023 as the “full output.  However the 2020 software release will likely normalize this so that a value of ‘1’ yields “full output.”  This is 
+.. note:: The output of the PIDF controller in Talon/Victor uses 1023 as the “full output.  However the 2020 software release will likely normalize this so that a value of ‘1’ yields “full output.”  This will likely be a “back-breaking” change.  This also means 2019 will likely be the last time you see “1023” used anywhere.
 
 
 
