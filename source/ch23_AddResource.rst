@@ -2,7 +2,7 @@ Additional Resources
 ====================
 
 Phoenix GitHub Examples
--------------------------------
+--------------------------------------------------------------
 All documentation and examples can be found in the public organization:
 https://github.com/CrossTheRoadElec
 
@@ -12,7 +12,7 @@ https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW
 
 
 Phoenix C++/Java API Documentation
--------------------------------
+--------------------------------------------------------------
 http://www.ctr-electronics.com/downloads/api/java/html/index.html
 http://www.ctr-electronics.com/downloads/api/cpp/html/index.html
 
