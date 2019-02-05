@@ -1,3 +1,5 @@
+.. _ch15_WPIDrive:
+
 WPI/NI Software Integration
 ===========================
 

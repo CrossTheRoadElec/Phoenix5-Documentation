@@ -1,3 +1,5 @@
+.. _ch16_ClosedLoop:
+
 Motor Controller Closed Loop
 ============================
 
