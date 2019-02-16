@@ -9,6 +9,7 @@ FRC 2019 Blogs
 .. toctree::
    :maxdepth: 2
 
+   blog-week6.rst
    blog-week4.rst
    blog-week1.rst
    blog-kickoff.rst
