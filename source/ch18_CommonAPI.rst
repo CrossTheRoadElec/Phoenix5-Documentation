@@ -3,7 +3,127 @@ Common Device API
 
 Setting Status Frame Periods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-All Phoenix devices have a setStatusFramePeriod() routine that allows manually adjusting the frame periods of the status signals.
+All Phoenix devices have a setStatusFramePeriod() routine/VI that allows for tweaking the frame periods of each status group.
+The status group contents and default updates rates are listed below.
+
+Status Groups
+------------------------------------------------------
+
+Motor Controllers
+''''''''''''''''''''''''''''''''''''''''''''''''
+Status 1 (Default Period 10ms):
+
+- Applied Motor Output
+- Fault Information
+- Limit Switch Information
+
+.. tip:: Motor controllers that are followers can have slower update rates for this group without impacting performance.
+
+Status 2 (Default Period 20ms):
+
+- Selected Sensor Position (PID 0)
+- Selected Sensor Velocity (PID 0)
+- Supply Current Measurement
+- Sticky Fault Information
+
+.. tip:: Motor controllers that are followers can have slower update rates for this group without impacting performance.
+
+Status 3 (Default Period >100ms):
+
+- Quadrature Information
+
+Status 4 (Default Period >100ms):
+
+- Analog Input
+- Supply Battery Voltage
+- Controller Temperature
+
+Status 8 (Default Period >100ms):
+
+- Pulse Width Information
+
+Status 10 (Default Period >100ms):
+
+- Motion Profiling/Motion Magic Information
+
+Status 12 (Default Period >100ms):
+
+- Selected Sensor Position (Aux PID 1)
+- Selected Sensor Velocity (Aux PID 1)
+
+Status 13 (Default Period >100ms):
+
+- PID0 (Primary PID) Information
+
+Status 14 (Default Period >100ms):
+
+- PID1 (Auxiliary PID) Information
+
+Pigeon IMU
+''''''''''''''''''''''''''''''''''''''''''''''''
+General Status 1 (Default Period >100ms):
+
+- Calibration Status
+- IMU Temperature
+
+Conditioned Status 9 (Default Period 10ms):
+
+- Six degree fused Yaw, Pitch, Roll
+
+Conditioned Status 6 (Default Period 10ms):
+
+- Nine degree fused Yaw, Pitch, Roll (requires magnetometer calibration).
+
+Conditioned Status 11 (Default Period 20ms):
+
+- Accumulated Gyro Angles
+
+Conditioned Status 3 (Default Period >100ms):
+
+- Accelerometer derived angles
+
+Conditioned Status 10 (Default Period >100ms):
+
+- Six degree fused Quaternion
+
+Raw Magnetometer Status 4 (Default Period 20ms):
+
+- Unprocessed magnetometer values (x,y,z)
+
+Biased Status 2 Gyro (Default Period >100ms):
+
+- Biased gyro values (x,y,z)
+
+Biased Status 6 Accelerometer (Default Period >100ms):
+
+- Biased accelerometer values (x,y,z)
+
+CANifier
+''''''''''''''''''''''''''''''''''''''''''''''''
+General Status 1 (Default Period >100ms):
+
+- Applied LED Duty Cycles
+
+Conditioned Status 2 (Default Period 10ms):
+
+- Quadrature Information
+- General Inputs
+
+Conditioned Status 3 (Default Period >100ms):
+
+- PWM input 0 Information
+
+Conditioned Status 4 (Default Period >100ms):
+
+- PWM input 1 Information
+
+Conditioned Status 5 (Default Period >100ms):
+
+- PWM input 2 Information
+
+Conditioned Status 6 (Default Period >100ms):
+
+- PWM input 3 Information
 
 CAN bus Utilization/Error metrics
 ------------------------------------------------------
@@ -36,7 +156,7 @@ Determining hardware related vs software related issues is key to being successf
 
 Detecting device resets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-All Phoenix devices have a hasResetOccurred() routine that will return true if device reset has been detected since previous call.
+All Phoenix devices have a hasResetOccurred()/VI routine that will return true if device reset has been detected since previous call.
 
 Detecting this is useful for two reasons:
 
