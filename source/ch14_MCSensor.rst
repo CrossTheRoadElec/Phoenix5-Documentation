@@ -377,3 +377,11 @@ Increase the sampling period until the measured velocity is sufficiently granula
 
 At this point the sensor velocity will have minimal stair-stepping (good) but will be quite noisy.  Increase the rolling average window until the velocity plot is sufficiently smooth, but still responsive enough to meet the timing requirements of the mechanism.
 
+
+Next Steps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Additionally if you need to use **WPI features** such as the **drivetrain classes**, or **motor safety**, move on to :ref:`ch15_WPIDrive`.
+
+Now that you have a reliable sensor, you can setup a closed-loop.
+This is for use cases where you want your mechanism to automatically **move towards a target position**, or **hold a target velocity**.
+This is covered in :ref:`ch16_ClosedLoop`.

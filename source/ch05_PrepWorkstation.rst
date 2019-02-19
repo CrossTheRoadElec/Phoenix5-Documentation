@@ -124,7 +124,7 @@ When the path is entered into a browser, the browser may fix-up the path:
 
 In this directory are the initial release firmware CRF files for all CTRE CAN bus devices, including the Talon SRX. 
 
-The latest firmware to be used at time of writing is version 4.11 for Talon SRX, Victor SPX, and 4.00 for CANifier, and Pigeon IMU.
+The latest firmware to be used at time of writing is version **4.15** for Talon SRX, Victor SPX, and 4.00 for CANifier, and Pigeon IMU.
 
 .. note:: Additionally, newer updates may be provided online at http://www.ctr-electronics.com.
 

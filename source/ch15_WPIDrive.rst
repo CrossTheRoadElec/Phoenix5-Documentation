@@ -1,3 +1,5 @@
+.. _ch15_WPIDrive:
+
 WPI/NI Software Integration
 ===========================
 
@@ -18,6 +20,7 @@ These are wrappers for the Talon SRX and Victor SPX, that provide:
 C++ / Java Drive Train classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To leverage the Drive Train classes in WPILib:
+
 - Create your motor controller objects like normal.
 - Create the Drive object like normal.
 - Call setRightSideInverted(false) so that when moving forward, positive output is applied to left and right.

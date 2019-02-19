@@ -27,7 +27,7 @@ Alternatively, users can download the individual components:
 - Additionally teams can pull the latest Phoenix API via the online method through VS Code, or via the non-Windows zip.
 
 Download instructions can be found here
-http://localhost:8000/build/html/ch05_PrepWorkstation.html#what-to-download-and-why
+https://phoenix-documentation.readthedocs.io/en/latest/ch05_PrepWorkstation.html#what-to-download-and-why
 
 .. note:: The online method refers to the “Check for updates (online)” feature. However this is not recommended as this requires a live Internet connection to use your FRC project.
 

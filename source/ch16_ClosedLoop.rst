@@ -1,3 +1,5 @@
+.. _ch16_ClosedLoop:
+
 Motor Controller Closed Loop
 ============================
 
@@ -159,7 +161,7 @@ F-gain = 0.1097
 
 Let’s check our math, if the target speed is **9326** native units per 100ms, Closed-loop output will be (0.1097 X **9326**) => 1023 (full forward).
 
-..note the output of the PIDF engine in Talon/Victor uses 1023 as the “full output.  However the 2020 software release will likely normalize this so that a value of ‘1’ yields “full output.”  This is 
+.. note:: The output of the PIDF controller in Talon/Victor uses 1023 as the “full output.  However the 2020 software release will likely normalize this so that a value of ‘1’ yields “full output.”  This will likely be a “back-breaking” change.  This also means 2019 will likely be the last time you see “1023” used anywhere.
 
 
 
@@ -198,10 +200,25 @@ Once these previous checks are done, continue down to the gain instructions.
 
 2. Set all of your gains to zero.  Use either API or Phoenix Tuner.
 
-3. If not using Position-Closed loop mode, set the kF to your calculated value.
+3. If not using Position-Closed loop mode, set the kF to your calculated value (see previous section).
 
-4. If using Motion Magic, set your initial cruise velocity and acceleration.
+4. If using Motion Magic, set your initial cruise velocity and acceleration (section below).
 
+5. Deploy the application and use the joystick to adjust your target.  Normally this requires holding down a button on the gamepad (to enter closed loop mode).
+
+6. Plot the sensor-position to assess how well it is tracking.  This can be done with WPI plotting features, or with Phoenix Tuner.
+
+In this example the mechanism is the left-side of a robot’s drivetrain.  
+The robot is elevated such that the wheels spin free.  
+In the capture below we see the sensor position/velocity (blue) and the Active Trajectory position/velocity (brown/orange).  
+At the end of the movement the closed-loop error (which is in raw units) is sitting at ~1400.units.  
+Given the resolution of the sensor this is approximately 0.34 rotations (4096 units per rotation).  
+Another note is that when the movement is finished, you can freely back-drive the mechanism without motor-response (because PID gains are zero).
+
+.. image:: img/closedlp-2.png
+
+Setting Motion Magic Cruise Velocity And Acceleration
+----------------------------------------------------------------------------------
 The recommended way to do this is to take your max sensor velocity (previous section).
 
 Suppose your kMaxSensorVelocity is **9326** units per 100ms.  A reasonable initial cruise velocity may be half of this velocity, which is **4663**.
@@ -214,18 +231,7 @@ In short set the acceleration to be the same **4663** value via configMotionAcce
 
 Later you can increase these values based on the application requirements.
 
-5. Deploy the application and use the joystick to adjust your target.  Normally this requires holding down a button on the gamepad (to enter closed loop mode).
 
-Plot the sensor-position to access how well it is tracking.
-
-In this example the mechanism is the left-side of a robot’s drivetrain.  
-The robot is elevated such that the wheels spin free.  
-In the capture below we see the sensor position/velocity (blue) and the Active Trajectory position/velocity (brown/orange).  
-At the end of the movement the closed-loop error (which is in raw units) is sitting at ~1400.units.  
-Given the resolution of the sensor this is approximately 0.34 rotations (4096 units per rotation).  
-Another note is that when the movement is finished, you can freely back-drive the mechanism without motor-response (because PID gains are zero).
-
-.. image:: img/closedlp-2.png
 
 
 Dialing kP

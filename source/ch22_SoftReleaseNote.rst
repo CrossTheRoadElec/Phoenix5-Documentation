@@ -3,7 +3,8 @@ Software Release Notes
 
 Talon SRX / Victor SPX
 --------------------------------------------------------
-The kickoff/latest firmware is 4.11.
+The kickoff firmware is 4.11.
+The latest firmware is 4.15.
 
 This version is adequate for FRC and nonFRC use (notwithstanding known errata with HERO C#).
 
@@ -14,7 +15,8 @@ The kickoff/latest firmware is 4.0.
 
 Pigeon IMU
 --------------------------------------------------------
-The kickoff/latest firmware is 4.0.
+The kickoff firmware is 4.0.
+The latest firmware is 4.13.
 
 
 PCM
