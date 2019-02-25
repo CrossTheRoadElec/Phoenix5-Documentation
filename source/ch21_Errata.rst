@@ -30,3 +30,16 @@ Pigeon IMU may not work as Remote Sensor
 Pigeon IMU CRF 4.0 has a reported issue where if Pigeon is connected via ribbon cable, the Talon/Victor will not detect it when performing remote sensor features.
 
 .. tip:: `Pigeon Firmware <https://github.com/CrossTheRoadElec/Phoenix-Releases/releases/tag/Pigeon_IMU_v4.13>`_ 4.13 has a fix for this.
+
+
+No S-Curve VI in LabVIEW
+-----------------------------------------
+Pass '412' as the parameter, and the desired S-Curve strength [0,8] as the value.
+
+A value of 0 represents no S-Curving (trapezoidal profiling).
+
+To set the S-Curve strength in LabVIEW, the following LV snippet can be used.
+
+.. tip:: Drag and drop the bottom image into your LabVIEW Block Diagram.
+
+.. image:: img/lv-scurve.png
