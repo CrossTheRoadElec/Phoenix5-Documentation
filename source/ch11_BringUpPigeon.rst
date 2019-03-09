@@ -29,6 +29,29 @@ Pigeon API
 
 Create a Pigeon IMU object in your robot application and poll the Yaw value.  
 
+.. warning :: In a competition robot application it is **strongly recommended** to first **confirm that getState() yields a Ready State**.  Otherwise the IMU values will not be useful.
+
+.. code-block:: java
+
+    import com.ctre.phoenix.sensors.PigeonIMU;
+    public class Robot extends TimedRobot {
+        PigeonIMU _pigeon = new PigeonIMU(0);
+        int _loopCount = 0;
+
+        public void teleopPeriodic() {
+            if(_loopCount++ > 10)
+            {
+                _loopCount = 0;
+                double[] ypr = new double[3];
+                _pigeon.getYawPitchRoll(ypr);
+                System.out.println("Pigeon Yaw is: " + ypr[0]);
+            }
+        }
+
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/pigeon-lv-1.png
+
 Confirm that the output matches the self-test results.
 
 If using LabVIEW plotter or SmartDash plotting, send the Yaw value into the plotted channel.  Then confirm Yaw value provides a smooth curve while robot is rotated by hand.
@@ -50,3 +73,29 @@ Select the specific Pigeon in the top drop down, and press the Enter Temperature
 .. image:: img/bring-14.png
 
 .. note:: There is no harm in starting a temp calibration, and aborting by power cycling.  Previous temp calibration (if present) is overridden at the very end of the procedure.  See Self-Test for current state of Temperature Calibration and Compensation.
+
+Temperature Calibration procedure
+-------------------------------------------------------
+When temperature-calibrating the Pigeon, the user should first observe the impact of temperature by cleanly booting the system and observing the critical values (such as yaw) while heating the Pigeon.
+This can be done by self-testing the Pigeon in Phoenix Tuner or printing the critical values in a robot application.
+
+ 1. Place the Pigeon on a reasonably level surface such that it stays still.
+ 2. After it boot calibrates, heat the Pigeon. A simple off the shelf halogen desk lamp is sufficient to heat.
+ 3. Observe the critical values as the temperature increases. Some IMU chips are very temperature sensitive and will experience a drift in yaw by over 40 degrees, while others may not drift at all.
+
+
+After having observed the impact of temperature on the critical values, you can go about calibrating it from that drift.
+
+1. Ensure Pigeon is cool before beginning temperature calibration. This can be confirmed with a self test or by printing the temperature in a robot application.
+2. Enter temperature calibration mode. This is done either using the API or using Phoenix Tuner
+
+.. image:: img/tuner-temp-cal.png
+
+3. Heat the Pigeon.
+4. Once the Pigeon has seen a sufficient range of temperatures, it will momentarily blink green, then cleanly boot-calibrate.
+5. Perform a self test on the Pigeon. It should read "Temperature calibration exists" along with a description of whether it will use it or not and for what reason if not.
+
+.. image:: img/tuner-temp-cal-selftest.png
+
+6. After the Pigeon has boot-calibrated, re-observe the effect of temperature on the critical values' drift using the above procedure.
+7. While re-observing, notice the tempCompensationCount tracker tick up as the Pigeon compensates for temperature.

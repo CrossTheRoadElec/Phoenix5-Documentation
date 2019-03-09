@@ -4,7 +4,7 @@ Phoenix is a package that targets LabVIEW, C++, and Java for the FRC Robotics Co
 
 It includes the Application Programming Interface (API), which are the functions you call to manipulate the CTRE CAN bus devices: Talon SRX, Victor SPX, CANifier, and Pigeon IMU.
 
-NOTE: PCM and PDP API are built into the core WPI distribution.
+.. note:: PCM and PDP API are built into the core WPI distribution.
 
 The C++ and Java APIs are very similar, typically only differing on the function name case (configAllSettings in Java versus ConfigAllSettings in C++).
 Because Java is more widely used in FRC than C++, this document will reference the Java routine names.
@@ -15,7 +15,9 @@ Additionally, Phoenix shared libraries are also targeted for C++ on Linux (amd64
 Phoenix also includes a NETMF (C#) class library for the non-FRC HERO Robot Controller.
 This can replace the roboRIO in use cases that don’t require the full features of the FRC control system, and are not in use during competition.
 
-.. note:: Phoenix framework is designed so that it is possible to control/leverage Talons, Victors, Pigeons, CANifiers outside of the roboRIO (Rasp Pi + socket CAN for example), and use the roboRIO/DriverStation for safely enable/disable the actuators.  Whether this is FRC legal will depend on the 2019 FRC rules.
+.. note:: With Phoenix framework, teams can control/leverage Talons, Victors, Pigeons, CANifiers outside of the roboRIO (e.g. Rasp-Pi or Jetson TX2), and use the roboRIO/DriverStation to safely enable/disable the actuators.
+
+.. note:: Leveraging CTRE CAN devices from third-party CAN hardware is **now officially FRC legal** for the **2019 season**.
 
 There are tons of examples in all languages at CTRE’s GitHub account:
 
@@ -49,7 +51,7 @@ It provides the *same functionality* as the *previous season's web-based interfa
 - Check plots
 - Temperature Calibrate Pigeon-IMU
 
-Now you can drive your motors and collect data *without writing any softare*.
+Now you can drive your motors and collect data *without writing any software*.
 
 .. image:: img/sensor-11.png
 

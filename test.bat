@@ -1,3 +1,5 @@
+:top
+
 # python.exe  --version
 
 # pip --version 
@@ -20,3 +22,4 @@ start "" http://localhost:8000/build/html/
 
 python -m http.server 8000
 
+GOTO top

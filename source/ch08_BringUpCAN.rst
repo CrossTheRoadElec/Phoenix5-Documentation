@@ -37,7 +37,7 @@ Specific wiring instructions can be found in the user manual of each product, bu
 Power up and check LEDs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you haven't already, power up the platform (robot, bench setup, etc) and confirm LEDs are illuminated (at all) on all devices.  
+If you haven't already, power up the platform (robot, bench setup, etc.) and confirm LEDs are illuminated (at all) on all devices.  
 
 You may find many of them are blinking or “blipping” red (no communication).
 
@@ -131,7 +131,7 @@ Select the device and use the numeric entry to change the ID. Note the text will
 
 .. image:: img/bring-3.png
 
-If operation completes, and OK will appear in the bottom status bar (this is true of all operations).  Also note the ID has updated in the device list, and the ID text is now black again.
+If operation completes, an OK will appear in the bottom status bar (this is true of all operations).  Also note the ID has updated in the device list, and the ID text is now black again.
 
 .. image:: img/bring-4.png
 
