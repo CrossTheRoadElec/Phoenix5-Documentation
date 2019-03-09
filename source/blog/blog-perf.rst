@@ -26,7 +26,7 @@ This includes:
 - Generally anything involving the Driver Station software. *(see note below)*
 - Generally anything not from the FPGA.
 
-.. note:: These are buffered in WPI C++/Java so they actually get called once every ~20 ms, regardless of how often you call getters.  However the LabVIEW VIs appear to not be buffered and may experience this call delay.
+.. note:: Most (but not all) of these are buffered in WPI C++/Java so they actually get called once every ~20 ms, regardless of how often you call getters.  However the LabVIEW VIs appear to not be buffered and may experience this call delay.
 
 These calls **average approximately 0.3 milliseconds**.  Many of you may think that does not sound like much, but consider the number of get calls you execute on your peripheral devices per loop.  Ten "get" calls on ten unique devices will yield 100 calls per loop, which would be 30ms (although Phoenix has optimizations to reduce this explained below).
 
