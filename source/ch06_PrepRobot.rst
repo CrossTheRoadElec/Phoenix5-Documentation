@@ -12,6 +12,8 @@ Preparing the Robot Controller typically means:
 Phoenix Diagnostic Server is necessary for Phoenix Tuner to interact with CTRE CAN Devices.  
 Tuner communicates with "Phoenix Diagnostic Server", a roboRIO Linux application that provides an HTTP API.
 
+.. warning:: If the roboRIO is re-imaged, these steps must be followed again for Tuner and LabVIEW to function.
+
 LabVIEW
 ----------------------------------------------------
 **NI LabVIEW** has a new feature in 2019 that will automatically deploy the Phoenix API libraries to the roboRIO.
@@ -22,8 +24,6 @@ If you choose to use this feature, all 2019 LabVIEW robot projects should automa
 Alternatively you can use Phoenix Tuner to install the Phoenix API libraries into the roboRIO.  We recommend this until the AutoLibDeploy features has seen more testing.
 
 This is because the programming language solutions (WPI C++/Java) automatically delivers these libraries whenever the application is deployed in VS Code.
-
-.. warning:: If the roboRIO is re-imaged, these steps must be followed again for Tuner and LabVIEW to function.
 
 How to prepare Robot Controller
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
