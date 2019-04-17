@@ -15,16 +15,13 @@ Since device is not enabled, no outputs should assert.
 
 The next step is to get the compressor and solenoids operational.
 
-The PCM User’s guide will have the details on how to accomplish this. 
-http://www.ctr-electronics.com/pcm.html#product_tabs_technical_resources
-
 Create a Solenoid object in LabVIEW/C++/Java and set channel 0 to true.
 
 .. code-block:: java
 
     import edu.wpi.first.wpilibj.Solenoid;
     public class Robot extends TimedRobot {
-        Solenoid _solenoid = new Solenoid(0, 0); // first number is the PDP ID (usually zero), second number is the solenoid channel
+        Solenoid _solenoid = new Solenoid(0, 0); // first number is the PCM ID (usually zero), second number is the solenoid channel
 
         public void teleopPeriodic() {
             _solenoid.set(true);

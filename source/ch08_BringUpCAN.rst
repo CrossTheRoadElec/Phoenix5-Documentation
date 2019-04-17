@@ -112,7 +112,7 @@ If introducing a new device creates a failure symptom, scrutinize that device by
 
 At the end of this section, all devices should appear (notwithstanding the above notes) and device LEDs should not be red. PCM, Talon, Victor, Pigeon, and CANifier typically blink orange when they are healthy and not controlled.  PDP may be orange or green depending on its sticky faults.
 
-
+.. _can-bringup-setIDs:
 
 Set Device IDs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -156,7 +156,7 @@ The 2019 seasons has 4.X firmware for Talon SRX, Victor SPX, CANifier, and Pigeo
 4.X firmware is required for 2019 targeted Phoenix API and Tuner releases.
 
 
-.. note:: Latest PDP is 1.40.  PDP typically ship with 1.30.  1.40 has a math fix for the energy measurement, and will tare the current measures so current will read 0 instead of ~1-2 amps when there is no current-draw .
+.. note:: Latest PDP is 1.40.  PDP typically ship with 1.30.  1.40 has all of the signals read by the WPILib software, and will tare the current measures so current will read 0 instead of ~1-2 amps when there is no current-draw.  Updating to 1.40 is recommended.
 
 .. note:: Latest PCM is 1.65.  PCM typically ship with 1.62.  Firmware 1.65 has an improvement where hardware-revision 1.6 PCMs will not-interrupt compressor when blacklisting a shorted solenoid channel.  Older revisions will pause the compressor in order to safely sticky-fault, new revisions have no need to do this (if firmware is up to date).
 

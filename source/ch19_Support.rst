@@ -27,8 +27,8 @@ To resolve your issue in an expedient fashion, we need the following:
 
 - What behavior are you seeing versus what are you expecting to observe?
 - What procedure are you following to reproduce the issue?
-- If using the roboRIO, we need a screenshot of the web-based configuration to confirm firmware version, gain values, etc.
-- If using the roboRIO, we need a screenshot of a self-test taken during the undesired behavior.
+- If using the roboRIO, we need a screenshot of the Phoenix Tuner to confirm firmware version, gain values, etc.
+- If using the roboRIO, we need a screenshot of a self-test snapshot taken during the undesired behavior.
 - Part numbers of all devices involved. For example, if using a sensor, what is the sensor part number?
 - Firmware versions of all devices involved.
 - If using motor controllers, are they on CAN bus or PWM?

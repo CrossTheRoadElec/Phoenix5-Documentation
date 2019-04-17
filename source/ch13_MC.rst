@@ -519,8 +519,6 @@ For more information on Limit Switch wiring/setup, see the Talon SRX User’s Gu
 
 Limit switch features can be disabled or changed to “Normally Closed” in Tuner and in API.
 
-.. image:: img/remote-lim-1.png
-
 .. note:: When the source is set to Gadgeteer, the "Device ID" field is ignored.  This config is used for **remote limit switches** (see next section).
 
 Confirm the limit switches are functional by applying a **weak positive motor output** while tripping the forward limit switch.
@@ -532,8 +530,6 @@ Remote Limit Switches
 A Talon SRX or Victor SPX can use a remote sensor as the limit switch (such as another Talon SRX or CANifier).
 
 **Change the Limit Forward/Reverse Source** to **Remote Talon or Remote CANifier**.  Then config the Limit Forward/Reverse Device ID for the remote Talon or CANifier.
-
-.. image:: img/remote-lim-2.png
 
 Use self-test on the motor-driving motor controller to confirm limit switches are interpreted correctly.  If they are not correct, then self-test the remote device to determine the issue.
 
