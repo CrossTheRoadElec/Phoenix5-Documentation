@@ -10,7 +10,7 @@ The C++ and Java APIs are very similar, typically only differing on the function
 Because Java is more widely used in FRC than C++, this document will reference the Java routine names.
 C++ users should take note that the leading character of every function is UPPERCASE in C++.
 
-Additionally, Phoenix shared libraries are also targeted for C++ on Linux (amd64, armhf, aarch64) and typically available on our maven repository.  The example support libraries use socket-can for CANBus access, however custom drivers can be provided by the end user for alternative CANBus solutions (NVIDEA TX2 native CAN bus for example).
+Additionally, Phoenix shared libraries are also targeted for C++ on Linux (amd64, armhf, aarch64) and typically available on our maven repository.  The example support libraries use socket-can for CANBus access, however custom drivers can be provided by the end user for alternative CANBus solutions (NVIDIA TX2 native CAN bus for example).
 
 Phoenix also includes a NETMF (C#) class library for the non-FRC HERO Robot Controller.
 This can replace the roboRIO in use cases that don’t require the full features of the FRC control system, and are not in use during competition.
