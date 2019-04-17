@@ -53,9 +53,9 @@ If there are CAN device present, they will appear.  However, it is possible that
 .. image:: img/tuner-6.png
 
 
-roboRIO Connection (WiFi/Ethernet)
+roboRIO Connection (Wi-Fi/Ethernet)
 ------------------------------------------------------
-The recommended connection method for control/plotter features is over **USB or using static IP (Ethernet/WiFi)**.  
+The recommended connection method for control/plotter features is over **USB or using static IP (Ethernet/Wi-Fi)**.  
 The mDNS strategy used by the roboRIO can *sometimes* fail intermittently which can cause hiccups when submitting HTTP requests to the roboRIO. 
 
 Testing has shown that using USB (172.22.11.2) or using static IP address has yielded a greater user experience than the roborio-team-frc.local host name has.
@@ -79,6 +79,7 @@ Connect DS and turn on Warnings and Prints by selecting the bottom most option.
 Upload the application to the robot controller and check the driver station message log.
 
 If everything is working, the Phoenix Initialization message can be found.  
+
 .. note:: This message will not appear after subsequent “soft” deploy (LabVIEW RAM-only temporary deploys).
 
 .. image:: img/prep-rc-3.png
@@ -98,13 +99,13 @@ The Silverlight web interface provided in previous seasons is **no longer availa
 
 As a result, **Phoenix Tuner** will embed a *small message reminder* **indicating that CAN features have been moved to Tuner**.
 
-Typically, the message will disappear after 5 seconds.  This will not interfere with normal web page features (IP Config, etc…).
+Typically, the message will disappear after 5 seconds.  This will not interfere with normal web page features (IP Config, etc.).
 
 .. image:: img/prep-rc-5.png
 
 .. warning:: The roboRIO Web-page does not provide CAN bus support any more as this has been removed by NI.  Use Phoenix Tuner instead.
 
-.. warning:: The roboRIO Web-page does not render correctly if using Internet Explorer (see below).  Recommended browsers are Chrome or FireFox.  
+.. warning:: The roboRIO Web-page does not render correctly if using Internet Explorer (see below).  Recommended browsers are Chrome or Firefox.  
 
 .. image:: img/bad-web-dash.png
 

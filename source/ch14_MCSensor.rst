@@ -1,3 +1,5 @@
+.. _mc-sensors-label:
+
 Bring Up: Talon SRX Sensors
 ===========================
 
@@ -141,6 +143,7 @@ Selecting the Magnetic Encoder for closed-loop / soft-limit features is no diffe
 Select Quadrature for the faster incremental/relative signal.  Select Pulse Width for the slower absolute (within one rotation) signal.
 
 
+.. _mc-Sensor-Check:
 
 Sensor Check – With Motor Drive
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,14 +173,14 @@ In this capture we use the self-test to observe the motor output and selected (P
 
 .. note:: Talon SRX will check sensor direction versus output direction once motor output and velocity exceeds a minimum threshold.
 
-Adjust Sensor Phase using API
+Adjust Sensor Phase
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If the sensor is out of phase with the motor drive, you can use any method below to align them:
 
-- **Recommended**: Use setSensorPhase routine/VI to adjust the sensor phase.  If already called, toggle the input so that the sensor phase becomes aligned with motor output.
+- **Recommended**: **Use setSensorPhase routine/VI to adjust the sensor phase**.  If already called, toggle the input so that the sensor phase becomes aligned with motor output.
 - Exchange/flip the green/white motor leads.  **This is generally not recommended** as this makes maintaining motor controller orientation across multiple robots difficult (practice versus competition).
 
-.. warning:: Do not use setInverted to correct sensor orientation with respect to motor output.  setInverted synchronously inverts both signals, ensuring that sensor phase is maintained.  **This is a feature** that allows you to choose what direction is considered positive without breaking closed-looping features.
+.. warning:: **Do not use setInverted** to correct sensor orientation with respect to motor output.  setInverted synchronously inverts both signals, ensuring that sensor phase is maintained.  **This is a feature** that allows you to choose what direction is considered positive without breaking closed-looping features.
 
 
 Confirm Sensor Phase using API
@@ -206,7 +209,7 @@ This is ultimately how you will leverage the motor controller in competition.
   
       /*
        * choose whatever you want so "positive" values moves mechanism forward,
-       * upwards, outward, etc...
+       * upwards, outward, etc.
        * 
        * Note that you can set this to whatever you want, but this will not fix motor
        * output direction vs sensor direction.
@@ -254,7 +257,7 @@ Below is an example screenshot of a successfully phased sensor and motor output.
 
 What if the sensor Phase is already correct?
 ............................................
-The recommendation is to always call setSensorPhase routine/VI.  If the phase is naturally correct, then pass false.  The reasons to do this are:
+The recommendation is to **always call setSensorPhase routine/VI**.  If the phase is naturally correct, then pass false.  The reasons to do this are:
 
 - During competition, you may find the pit-crew / repair-team wired a replacement motor/harness incorrectly and must resolve this with a “quick software fix”.  
 - During competition, you may find the pit-crew / repair-team wired a replacement sensor/harness incorrectly and must resolve this with a “quick software fix”.

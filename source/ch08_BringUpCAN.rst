@@ -37,7 +37,7 @@ Specific wiring instructions can be found in the user manual of each product, bu
 Power up and check LEDs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you haven't already, power up the platform (robot, bench setup, etc) and confirm LEDs are illuminated (at all) on all devices.  
+If you haven't already, power up the platform (robot, bench setup, etc.) and confirm LEDs are illuminated (at all) on all devices.  
 
 You may find many of them are blinking or “blipping” red (no communication).
 
@@ -112,7 +112,7 @@ If introducing a new device creates a failure symptom, scrutinize that device by
 
 At the end of this section, all devices should appear (notwithstanding the above notes) and device LEDs should not be red. PCM, Talon, Victor, Pigeon, and CANifier typically blink orange when they are healthy and not controlled.  PDP may be orange or green depending on its sticky faults.
 
-
+.. _can-bringup-setIDs:
 
 Set Device IDs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +131,7 @@ Select the device and use the numeric entry to change the ID. Note the text will
 
 .. image:: img/bring-3.png
 
-If operation completes, and OK will appear in the bottom status bar (this is true of all operations).  Also note the ID has updated in the device list, and the ID text is now black again.
+If operation completes, an OK will appear in the bottom status bar (this is true of all operations).  Also note the ID has updated in the device list, and the ID text is now black again.
 
 .. image:: img/bring-4.png
 
@@ -156,7 +156,7 @@ The 2019 seasons has 4.X firmware for Talon SRX, Victor SPX, CANifier, and Pigeo
 4.X firmware is required for 2019 targeted Phoenix API and Tuner releases.
 
 
-.. note:: Latest PDP is 1.40.  PDP typically ship with 1.30.  1.40 has a math fix for the energy measurement, and will tare the current measures so current will read 0 instead of ~1-2 amps when there is no current-draw .
+.. note:: Latest PDP is 1.40.  PDP typically ship with 1.30.  1.40 has all of the signals read by the WPILib software, and will tare the current measures so current will read 0 instead of ~1-2 amps when there is no current-draw.  Updating to 1.40 is recommended.
 
 .. note:: Latest PCM is 1.65.  PCM typically ship with 1.62.  Firmware 1.65 has an improvement where hardware-revision 1.6 PCMs will not-interrupt compressor when blacklisting a shorted solenoid channel.  Older revisions will pause the compressor in order to safely sticky-fault, new revisions have no need to do this (if firmware is up to date).
 

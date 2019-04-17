@@ -1,7 +1,7 @@
 Bring Up: PDP
 =============
 
-At this point PDP will have firmware 1.30 or 1.40 (latest).  Open Phoenix Tuner to confirm.
+At this point PDP will have firmware 1.40 (latest).  Open Phoenix Tuner to confirm.
 
 Use Self-Test to confirm reasonable values for current and voltage.
 

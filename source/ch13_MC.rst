@@ -198,10 +198,10 @@ Test Drive with Robot Controller
 
 Next we will create control software in the roboRIO.  Currently this is necessary for more advanced control.  This is also required for controlling your robot during competition.
 
-.. note:: Future features of Tuner will likely provide greater granularity of control – closed-loops, invert/follower, etc..  Initial release is meant to help teams get started and learn the subtleties of testing without developing robot software first.
+.. tip:: The latest version of Tuner allows for testing most closed-loop control modes without writing software.
 
 Java: Sample driving code
-^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------------------
 Below is a simple example that reads the Joystick and drives the Talon
 
 .. code-block:: java
@@ -225,6 +225,9 @@ Below is a simple example that reads the Joystick and drives the Talon
     }
   }
 
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/mc-lv-1.png
 
 Deploy the project, and confirm success.  
 
@@ -295,6 +298,9 @@ We also multiply the joystick so that forward is positive (intuitive).  This can
     }
   }
 
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/lv-invert-1.png
 
 Follower
 ------------------------------------------------------
@@ -340,6 +346,11 @@ Starting in 2019, C++/Java users can set the setInverted(InvertType) to instruct
     }
   }
 
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/lv-follow-1.png
+
+.. note:: LabVIEW does not support using InvertType to follow master or oppose master
 
 Enable the Driver Station and slowly drive both MCs from neutral.  Confirm both LEDs are blinking the same color.
 
@@ -372,6 +383,15 @@ You may note that when the motor output transitions to neutral, the motors free 
 
 .. note:: SetNeutralMode() can be used change the neutral mode on the fly.
 
+.. code-block:: java
+
+  TalonSRX talon = new TalonSRX(0);
+  talon.setNeutralMode(NeutralMode.Brake);
+
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/lv-neutralmode-1.png
+
 Follower motor controllers have separate neutral modes than their masters, so you must choose both.  Additionally, you may want to mix your neutral modes to achieve a partial electric brake when using multiple motors.
 
 Ramping
@@ -384,6 +404,18 @@ Ramp can be set in time from neutral to full using configOpenLoopRampRate().
 .. note:: configClosedLoopRampRate() can be used to select the ramp during closed-loop (sensor) operations.
 
 .. note:: The slowest ramp possible is ten seconds (from neutral to full), though this is quite excessive.  
+
+.. code-block:: java
+
+  TalonSRX talon = new TalonSRX(0);
+  talon.configOpenloopRamp(0.5); // 0.5 seconds from neutral to full output (during open-loop control)
+  talon.configClosedloopRamp(0); // 0 disables ramping (during closed-loop control)
+
+.. tip:: Images below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/lv-openloopramp-1.png
+
+.. image:: img/lv-closedloopramp-1.png
 
 Peak/Nominal Outputs
 Often a mechanism may not require full motor output.  The application can cap the output via the peak forward and reverse config setting (through Tuner or API).
@@ -400,6 +432,15 @@ Then enable the voltage compensation using enableVoltageCompensation().
 
 Advanced users can adjust the Voltage Measurement Filter to make the compensation more or less responsive by increasing or decreasing the filter.  This is available via API and via Tuner
 
+.. code-block:: java
+
+  TalonSRX talon = new TalonSRX(0);
+  talon.configVoltageCompSaturation(11); // "full output" will now scale to 11 Volts for all control modes when enabled.
+  talon.enableVoltageCompensation(true); // turn on/off feature
+
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/lv-voltagecomp-1.png
 
 
 Current Limit
@@ -412,14 +453,32 @@ The limiting is characterized by three configs:
 - Peak Time (milliseconds), thresholds that must be exceed before limiting occurs
 - Continuous Current (Amperes), maximum allowable current after limiting occurs.
 
-If enabled, Talon SRX will monitor the supply-current looking for a conditions where current has exceeded the Peak Current for at least Peak Time.  If detected, output is reduced until current measurement is at or under Continuous Current.  
+.. code-block:: java
+
+  TalonSRX talon = new TalonSRX(0);
+  talon.configPeakCurrentLimit(30); // don't activate current limit until current exceeds 30 A ...
+  talon.configPeakCurrentDuration(100); // ... for at least 100 ms
+  talon.configContinuousCurrentLimit(20); // once current-limiting is actived, hold at 20A
+  talon.enableCurrentLimit(true);
+
+.. tip:: Image below can be dragged/dropped into LabVIEW editor.
+
+.. image:: img/lv-currentlimit-1.png
+
+If enabled, Talon SRX will monitor the supply-current looking for a conditions where current has exceeded the Peak Current for at least Peak Time.  
+If detected, output is reduced until current measurement is at or under Continuous Current.  
 
 Once limiting is active, current limiting will deactivate if motor controller can apply the requested motor output and still measure current-draw under the Continuous Current Limit.
+
+.. image:: img/current-limit-1.png
 
 After setting the three configurations, current limiting must be enabled via enableCurrentLimit() or LabVIEW VI.
 
 .. note:: Use Self-Test to confirm if Current Limiting is occurring
 
+.. note:: If peak limit is less than continuous limit, peak is set equal to continuous
+
+.. note:: If you only want continuous limiting, you should set peak limit to 0
 
 
 
@@ -429,7 +488,7 @@ Reading status signals
 The Talon SRX transmits most of its status signals periodically, i.e. in an unsolicited fashion.  This improves bus efficiency by removing the need for “request” frames, and guarantees the signals necessary for the wide range of use cases Talon supports, are available.
 
 These signals are available in API regardless of what control mode the Talon SRX is in.
-Additionally the signals can be polled in the roboRIO Web-based Configuration (see Section 2.4. Self-Test).
+Additionally the signals can be polled using Phoenix Tuner using the self-test button.
 
 Included in the list of signals are:
 
@@ -447,9 +506,10 @@ Included in the list of signals are:
 
 Limit Switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Talon SRX and Victor SPX have limit features that will auto-neutral the motor output if a limit switch activates.  
+Talon SRX and Victor SPX have limit features that will auto-neutral the motor output if a limit switch activates.
+**Talon SRX** in particular can automatically do this **when limit switchs are connected via the Gadgeteer feedback port**.
 
-An “out of the box” Talon will default with the limit switch setting of “Normally Open” for both forward and reverse.  This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground).  When a limit switch input is closed (is connected to ground) the Talon SRX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault).
+An “out of the box” Talon will **default with the limit switch setting of “Normally Open”** for both forward and reverse.  This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground).  When a limit switch input is closed (is connected to ground) the Talon SRX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault).
 
 Since an “out of the box” Talon will likely not be connected to limit switches (at least not initially) and because limit switch inputs are internally pulled high (i.e. the switch is open), the limit switch feature is default to “normally open”.  This ensures an “out of the box” Talon will drive even if no limit switches are connected.
 
@@ -459,13 +519,17 @@ For more information on Limit Switch wiring/setup, see the Talon SRX User’s Gu
 
 Limit switch features can be disabled or changed to “Normally Closed” in Tuner and in API.
 
+.. note:: When the source is set to Gadgeteer, the "Device ID" field is ignored.  This config is used for **remote limit switches** (see next section).
 
+Confirm the limit switches are functional by applying a **weak positive motor output** while tripping the forward limit switch.
+
+.. note:: The motor does not have to be physically connected to the motor-controller if tester can artifically assert physical limit switch.
 
 Remote Limit Switches
 ----------------------------------------------------------------
 A Talon SRX or Victor SPX can use a remote sensor as the limit switch (such as another Talon SRX or CANifier).
 
-Config the Limit Forward/Reverse Source from Gadgeteer Pins, to Remote Talon or Remote CANifier.  Then config the Limit Forward/Reverse Device ID for the remote Talon or CANifier.
+**Change the Limit Forward/Reverse Source** to **Remote Talon or Remote CANifier**.  Then config the Limit Forward/Reverse Device ID for the remote Talon or CANifier.
 
 Use self-test on the motor-driving motor controller to confirm limit switches are interpreted correctly.  If they are not correct, then self-test the remote device to determine the issue.
 
@@ -473,7 +537,7 @@ Soft Limits
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range.  Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit.  Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit.  The respective Soft Limit Enable must be enabled for this feature to take effect.
 
-The settings can be set and confirmed in the roboRIO Web-based Configuration.
+The settings can be set and confirmed in Phoenix Tuner
 
 
 
