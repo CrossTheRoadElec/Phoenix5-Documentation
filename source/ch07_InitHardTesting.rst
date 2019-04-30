@@ -1,3 +1,5 @@
+.. _ch07_initHardTesting:
+
 Initial Hardware Testing
 ========================
 

@@ -1,3 +1,5 @@
+.. _ch11_BringUpPigeon:
+
 Bring Up: Pigeon IMU
 ====================
 

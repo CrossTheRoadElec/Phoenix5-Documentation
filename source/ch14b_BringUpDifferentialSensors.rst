@@ -15,17 +15,14 @@ In order to use differential sensors, you must bring up all relevant sensors  on
 
 See relevant BringUp sections below:
 
-.. toctree::
-   :maxdepth: 1
-
-   ch07_InitHardTesting
-   ch08_BringUpCAN
-   ch09_BringUpPCM
-   ch10_BringUpPDP
-   ch11_BringUpPigeon
-   ch12_BringUpCANifier
-   ch13_MC
-   ch14_MCSensor
+   - :ref:`ch07_InitHardTesting`
+   - :ref:`ch08_BringUpCAN`
+   - :ref:`ch09_BringUpPCM`
+   - :ref:`ch10_BringUpPDP`
+   - :ref:`ch11_BringUpPigeon`
+   - :ref:`ch12_BringUpCANifier`
+   - :ref:`ch13_MC`
+   - :ref:`mc-sensors-label`
 
 After each sensor is brought up on its local device, all remote sensors should be configured as a remote filter on the master device.  See :ref:`remote-sensors-label`.
 

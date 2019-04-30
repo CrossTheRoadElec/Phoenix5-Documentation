@@ -1,3 +1,5 @@
+.. _ch13_MC:
+
 Bring Up: Talon SRX / Victor SPX
 ================================
 

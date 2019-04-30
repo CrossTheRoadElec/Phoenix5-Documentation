@@ -1,3 +1,5 @@
+.. _ch12_BringUpCANifier:
+
 Bring Up: CANifier
 ==================
 

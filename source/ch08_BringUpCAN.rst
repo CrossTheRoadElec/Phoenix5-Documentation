@@ -1,3 +1,5 @@
+.. _ch08_BringUpCAN:
+
 Bring Up: CAN Bus 
 =================
 
