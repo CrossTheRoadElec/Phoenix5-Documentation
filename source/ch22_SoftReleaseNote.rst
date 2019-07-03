@@ -9,8 +9,7 @@ The kickoff firmware is 4.11.
 The latest firmware is 4.22.
 
 This version is adequate for FRC and nonFRC use (notwithstanding known 
-:ref:`errata with HERO C#<Errata-hero>`
-).
+:ref:`errata with HERO C#<Errata-hero>`).
 
 CANifier
 --------------------------------------------------------
