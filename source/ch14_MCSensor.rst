@@ -142,6 +142,12 @@ Selecting the CTRE Magnetic Encoder
 Selecting the Magnetic Encoder for closed-loop / soft-limit features is no different than selecting other sensor feedback devices.  
 Select Quadrature for the faster incremental/relative signal.  Select Pulse Width for the slower absolute (within one rotation) signal.
 
+.. code-block:: java 
+
+	_tal.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+
+
+
 
 .. _mc-Sensor-Check:
 
@@ -336,6 +342,12 @@ Clear Pos event can be triggered by:
 - Falling edge on Forward Limit (pin 4)
 - Falling edge on Reverse Limit (pin 8)
 - Rising edge on Quadrature Index (pin 9)
+
+.. code-block:: java
+
+	talon.configClearPositionOnLimitF(true, timeoutMs);
+	talon.configClearPositionOnLimitR(true, timeoutMs);
+	talon.configClearPositionOnQuadIdx(true, timeoutMs);
 
 .. image:: img/sensor-20.png
 
