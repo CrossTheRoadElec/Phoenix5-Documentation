@@ -68,7 +68,7 @@ This will install:
   - Installs Phoenix API libraries into the roboRIO (required for LabVIEW)
   - Installs Phoenix Diagnostics Server into the RoboRIO (needed for CAN diagnostics). 
   - Plotter/Control features
-  - Self-test
+  - Self-test Snapshot
   - Device ID and field-upgrade
 
 

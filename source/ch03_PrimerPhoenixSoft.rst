@@ -44,7 +44,7 @@ It provides the *same functionality* as the *previous season's web-based interfa
 
 - Update device firmware (including PDP/PCM) 
 - Change CAN IDs 
-- Self-test devices 
+- Self-test Snapshot devices 
 - Change configuration settings 
 - Factory default configuration settings
 - Test motors

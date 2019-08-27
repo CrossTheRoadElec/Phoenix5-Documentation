@@ -6,11 +6,11 @@ Bring Up: CANifier
 Phoenix Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using self-test, confirm all sensor inputs required by the robot application.
+Using Self-test Snapshot, confirm all sensor inputs required by the robot application.
 
-If using Limit switches, assert each switch one at time.  Self-test after each transition to confirm wiring.
+If using Limit switches, assert each switch one at time.  Self-test Snapshot after each transition to confirm wiring.
 
-If using Quadrature or Pulse width sensor, rotate sensor while performing self-test to confirm sensor values.
+If using Quadrature or Pulse width sensor, rotate sensor while performing Self-test Snapshot to confirm sensor values.
 
 .. image:: img/bring-15.png
 
@@ -40,4 +40,4 @@ Create a CANifier object in your robot application and poll whatever sensor you 
 
 .. image:: img/canifier-lv-1.png
 
-Confirm output matches self-test results.
+Confirm output matches Self-test Snapshot results.

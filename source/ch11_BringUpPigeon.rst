@@ -19,7 +19,7 @@ If the LED strobe is weighted to one side (more time on one side than the other)
 
 Phoenix Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open Phoenix tuner and use the self-test feature to confirm values.
+Open Phoenix tuner and use the Self-test Snapshot feature to confirm values.
 Rotate IMU and confirm Yaw moves as expected.
 
 .. image:: img/bring-12.png
@@ -54,7 +54,7 @@ Create a Pigeon IMU object in your robot application and poll the Yaw value.
 
 .. image:: img/pigeon-lv-1.png
 
-Confirm that the output matches the self-test results.
+Confirm that the output matches the Self-test Snapshot results.
 
 If using LabVIEW plotter or SmartDash plotting, send the Yaw value into the plotted channel.  Then confirm Yaw value provides a smooth curve while robot is rotated by hand.
 
@@ -70,11 +70,11 @@ In previous seasons this can be invoked via Phoenix API.
 
 However, starting in 2019, you can manually enter temperature compensation mode by opening the Pigeon IMU Cal tab (go to Windows in the top menu bar).
 
-Select the specific Pigeon in the top drop down, and press the Enter Temperature Calibration button.  Self-test can be used to monitor the progress.
+Select the specific Pigeon in the top drop down, and press the Enter Temperature Calibration button.  Self-test Snapshot can be used to monitor the progress.
 
 .. image:: img/bring-14.png
 
-.. note:: There is no harm in starting a temp calibration, and aborting by power cycling.  Previous temp calibration (if present) is overridden at the very end of the procedure.  See Self-Test for current state of Temperature Calibration and Compensation.
+.. note:: There is no harm in starting a temp calibration, and aborting by power cycling.  Previous temp calibration (if present) is overridden at the very end of the procedure.  See Self-test Snapshot for current state of Temperature Calibration and Compensation.
 
 Temperature Calibration procedure
 -------------------------------------------------------
