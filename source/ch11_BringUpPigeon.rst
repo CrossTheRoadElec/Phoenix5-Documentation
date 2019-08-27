@@ -88,14 +88,14 @@ This can be done by self-testing the Pigeon in Phoenix Tuner or printing the cri
 
 After having observed the impact of temperature on the critical values, you can go about calibrating it from that drift.
 
-1. Ensure Pigeon is cool before beginning temperature calibration. This can be confirmed with a self test or by printing the temperature in a robot application.
+1. Ensure Pigeon is cool before beginning temperature calibration. This can be confirmed with a Self-test Snapshot or by printing the temperature in a robot application.
 2. Enter temperature calibration mode. This is done either using the API or using Phoenix Tuner
 
 .. image:: img/tuner-temp-cal.png
 
 3. Heat the Pigeon.
 4. Once the Pigeon has seen a sufficient range of temperatures, it will momentarily blink green, then cleanly boot-calibrate.
-5. Perform a self test on the Pigeon. It should read "Temperature calibration exists" along with a description of whether it will use it or not and for what reason if not.
+5. Perform a Self-test Snapshot on the Pigeon. It should read "Temperature calibration exists" along with a description of whether it will use it or not and for what reason if not.
 
 .. image:: img/tuner-temp-cal-selftest.png
 
