@@ -156,7 +156,7 @@ See
 Set up hot swapping 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Open a new terminal and type ``cd /etc/network/.``. 
-Once inside the network directory type ``sudo geddit interfaces``.
+Once inside the network directory type ``sudo gedit interfaces``.
 
 | On Raspberry PI type ``sudo geany interfaces`` to edit the file.  
 
