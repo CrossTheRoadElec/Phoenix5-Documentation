@@ -1,4 +1,4 @@
-.. _ch08_BringUpCAN:
+﻿.. _ch08_BringUpCAN:
 
 Bring Up: CAN Bus 
 =================
@@ -148,6 +148,7 @@ When complete, make sure every device is visible in the view.  Use the Blink but
 
 .. image:: img/bring-5.png
 
+.. _field-upgrade:
 
 Field upgrade devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

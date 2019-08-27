@@ -1,4 +1,4 @@
-.. _ch13_MC:
+﻿.. _ch13_MC:
 
 Bring Up: Talon SRX / Victor SPX
 ================================
@@ -152,6 +152,7 @@ Option 3 (slowest): Reimage the roboRIO
 ------------------------------------------------------
 Re-imaging the RIO also will effectively remove the application, however this is a “sledge hammer” approach will take several minutes to perform.
 
+.. _frc-unlock:
 
 Confirm FRC Unlock 
 ------------------------------------------------------
