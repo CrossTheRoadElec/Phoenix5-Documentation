@@ -1,10 +1,17 @@
 ﻿Prepare Linux Robot Controller 
 ======================================================
- 
+
+Why prepare Linux Robot Controller?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Preparing a Linux robot controller allows CAN Device control without a roboRio for non-FRC use or as a secondary proccesor that can also directly control CAN Devices while still using the roboRIO for Enable/Disable Signal.
+
+Phoenix Diagnostic Server is necessary for Phoenix Tuner to interact with CTRE CAN Devices. Tuner communicates with “Phoenix Diagnostic Server”, a Linux application that provides an HTTP API.
+
 How to prepare Robot Controller Hardware?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Image your device with the respective image below.
+Image your device with the respective image below. Other Images can also be used, although these images have been tested and are known to be supported.
 
 `Link <https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-07-12/2019-07-10-raspbian-buster.zip>`_  to Raspbian desktop test image.
 
@@ -43,11 +50,9 @@ Install CAN tools with ``sudo apt-get install can-utils``.
 
 Install git with ``sudo apt-get install git``.
 
-Install necessary libs to build example.
-
-	* ``sudo apt-get install cmake``
-
-	* ``sudo ap-get install libsdl2-dev``
+Install cmake for build support with ``sudo apt-get install cmake``.
+	
+Install libsdl12 for gamepad support with ``sudo ap-get install libsdl2-dev``.
 
 Clone the example repo into the user directory with ``git clone https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example.git`` then navigate into repo with ``cd ./Phoenix-Linux-SocketCAN-Example/.``
 
@@ -66,15 +71,15 @@ Bring up can 0 with ``./canableStart.sh``
 How to validate SocketCan functionality?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Make sure you have talons or another CTRE CAN device connected for validation of can network.
-Use ``ifconfig`` to display status of the CAN socket.
+Use ``ifconfig`` to network interfaces where you can see the status of the CAN socket.
 The first network listed should be can0 and should look like this 
 
 .. image:: img/can0.png
 
-Type ``cansend can0 999#DEADBEEF`` to send a CAN frame, your talons should now blink orange since a valid CAN message has been seen.
+Type ``cansend can0 999#DEADBEEF`` to send a CAN frame, your CAN devices should now blink orange since a valid CAN message has been seen.
 
 
-Use ``candump can0`` to see all incoming CAN traffic, which should display all periodic information being sent by a Talon.
+Use ``candump can0`` to see all incoming CAN traffic, which should display all periodic information being sent by a CAN Device.
 You should see a constant stream of messages similar to this:
 
 .. image:: img/candump.png
@@ -84,7 +89,7 @@ How to connect to Tuner
 
 Open Tuner and connect to the same Wi-Fi network on the workstation and the Linux Device.
 
-Open a terminal on the device and run ifconfig.
+Open a terminal on the device and run ``ifconfig`` to display network interfaces.
 
  
 Find the ip listed under wlan0 and next to inet. 
@@ -141,20 +146,24 @@ Device Connection (Wi-Fi/Ethernet)
 ------------------------------------------------------
 The recommended connection method for control/plotter features is over **static IP (Ethernet/Wi-Fi)**.  
 
-Field upgrade though tuner
+Field upgrade though Phoenix Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-See :ref:`Field upgrade devices<field-upgrade>`.
+
+Before running the example you should confirm your CTRE CAN devices' firmware is up to date.
+For info on how to update devices using Phoenix Tuner see :ref:`Field upgrade devices<field-upgrade>`. 
 
 Confirm Device is not FRC locked
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If your CTRE CAN devices were previously used with a roboRIO it is likely they are FRC locked and will not enable without a roboRIO on the CAN bus.
 See 
-:ref:`Confirm FRC Unlock<frc-unlock>`.
+:ref:`Confirm FRC Unlock<frc-unlock>` for instructions to confirm FRC unlock.
 
 
 
 
 Set up hot swapping 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This is necessary to be able to disconnect and reconnect your USB to CAN adapter without running bringing up the CAN network each time your usb to can adapter is reconnected.
 Open a new terminal and type ``cd /etc/network/.``. 
 Once inside the network directory type ``sudo gedit interfaces``.
 

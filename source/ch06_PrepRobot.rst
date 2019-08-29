@@ -1,4 +1,4 @@
-Prepare Robot Controller 
+Prepare FRC Robot Controller 
 ========================
 
 Why prepare Robot Controller?

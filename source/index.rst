@@ -37,8 +37,8 @@ Follow these instructions in order!
    ch04_DoINeedThis
    ch05_PrepWorkstation
    ch06_PrepRobot
-   ch06b_PrepLinuxRobot
    ch05a_CppJava
+   ch06b_PrepLinuxRobot
    ch07_InitHardTesting
    ch08_BringUpCAN
    ch09_BringUpPCM
