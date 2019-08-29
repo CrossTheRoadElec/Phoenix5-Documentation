@@ -128,7 +128,7 @@ The diagnostics server is now installed and running on your device.
 
 
 
-Verify the robot controller - Tuner
+Verify the Diagnostic Server - Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After installation is complete, Tuner will immediately connect to your device.
