@@ -196,7 +196,7 @@ Then run the example with ``./bin/example``.
 
 You're now running Phoenix on your Linux device. Confirm there are no error messages being sent to console output.
 
-You can stop your Program with ``Ctrl+z``.
+You can stop your program with ``Ctrl+z``.
 
 Modifying the SocketCan Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -210,7 +210,7 @@ Right click example.cpp and click ``Open With Other Application`` then select Te
 
 .. image:: img/inside.png
 
-After modifying the file click the ``Save`` button in the top right corner then Go back to :ref:`Running the SocketCAN Example<SocketCan>` to run your modified example.
+After modifying the file click the ``Save`` button in the top right corner then go back to :ref:`Running the SocketCAN Example<SocketCan>` to run your modified example.
 
 .. image:: img/editor.png
 
