@@ -163,7 +163,7 @@ See
 
 Set up hot swapping 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This is necessary to be able to disconnect and reconnect your USB to CAN adapter without running bringing up the CAN network each time your usb to can adapter is reconnected.
+This is necessary to be able to disconnect and reconnect your USB to CAN adapter without bringing up the CAN network each time your usb to can adapter is reconnected.
 Open a new terminal and type ``cd /etc/network/.``. 
 Once inside the network directory type ``sudo gedit interfaces``.
 
