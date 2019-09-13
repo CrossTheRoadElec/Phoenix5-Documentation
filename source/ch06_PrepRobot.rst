@@ -1,4 +1,4 @@
-Prepare FRC Robot Controller 
+FRC: Prepare NI roboRIO
 ========================
 
 Why prepare Robot Controller?
