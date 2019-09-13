@@ -19,7 +19,7 @@ If the LED strobe is weighted to one side (more time on one side than the other)
 
 Phoenix Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open Phoenix tuner and use the self-test feature to confirm values.
+Open Phoenix tuner and use the Self-test Snapshot feature to confirm values.
 Rotate IMU and confirm Yaw moves as expected.
 
 .. image:: img/bring-12.png
@@ -54,7 +54,7 @@ Create a Pigeon IMU object in your robot application and poll the Yaw value.
 
 .. image:: img/pigeon-lv-1.png
 
-Confirm that the output matches the self-test results.
+Confirm that the output matches the Self-test Snapshot results.
 
 If using LabVIEW plotter or SmartDash plotting, send the Yaw value into the plotted channel.  Then confirm Yaw value provides a smooth curve while robot is rotated by hand.
 
@@ -70,11 +70,11 @@ In previous seasons this can be invoked via Phoenix API.
 
 However, starting in 2019, you can manually enter temperature compensation mode by opening the Pigeon IMU Cal tab (go to Windows in the top menu bar).
 
-Select the specific Pigeon in the top drop down, and press the Enter Temperature Calibration button.  Self-test can be used to monitor the progress.
+Select the specific Pigeon in the top drop down, and press the Enter Temperature Calibration button.  Self-test Snapshot can be used to monitor the progress.
 
 .. image:: img/bring-14.png
 
-.. note:: There is no harm in starting a temp calibration, and aborting by power cycling.  Previous temp calibration (if present) is overridden at the very end of the procedure.  See Self-Test for current state of Temperature Calibration and Compensation.
+.. note:: There is no harm in starting a temp calibration, and aborting by power cycling.  Previous temp calibration (if present) is overridden at the very end of the procedure.  See Self-test Snapshot for current state of Temperature Calibration and Compensation.
 
 Temperature Calibration procedure
 -------------------------------------------------------
@@ -88,14 +88,14 @@ This can be done by self-testing the Pigeon in Phoenix Tuner or printing the cri
 
 After having observed the impact of temperature on the critical values, you can go about calibrating it from that drift.
 
-1. Ensure Pigeon is cool before beginning temperature calibration. This can be confirmed with a self test or by printing the temperature in a robot application.
+1. Ensure Pigeon is cool before beginning temperature calibration. This can be confirmed with a Self-test Snapshot or by printing the temperature in a robot application.
 2. Enter temperature calibration mode. This is done either using the API or using Phoenix Tuner
 
 .. image:: img/tuner-temp-cal.png
 
 3. Heat the Pigeon.
 4. Once the Pigeon has seen a sufficient range of temperatures, it will momentarily blink green, then cleanly boot-calibrate.
-5. Perform a self test on the Pigeon. It should read "Temperature calibration exists" along with a description of whether it will use it or not and for what reason if not.
+5. Perform a Self-test Snapshot on the Pigeon. It should read "Temperature calibration exists" along with a description of whether it will use it or not and for what reason if not.
 
 .. image:: img/tuner-temp-cal-selftest.png
 

@@ -9,7 +9,7 @@ Faults are stored in two fashions.  There are “live” faults that are reporte
 
 .. note:: Sticky Faults can be cleared in Tuner and via API.
 
-.. note:: Faults and Sticky Faults can be polled using Tuner-Self-Test or via API.
+.. note:: Faults and Sticky Faults can be polled using Tuner-Self-test Snapshot or via API.
 
 .. tip:: Motor Controllers have a sticky fault to detect if device reset during robot-enable.  This is useful for detecting breaker events.
 

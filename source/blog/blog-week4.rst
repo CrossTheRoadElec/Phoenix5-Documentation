@@ -69,7 +69,7 @@ If this applies to your robot, we **recommend downloading latest Tuner (via Wind
 
 Misc Updates
 -----------------------------------------------------------------
-We've also made several minor corrections to the Self-Test results, and compatibility adjustments to match latest firmware.
+We've also made several minor corrections to the Self-test Snapshot results, and compatibility adjustments to match latest firmware.
 The details can be found in the `release notes <https://www.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.
 
 New Phoenix API v15.3

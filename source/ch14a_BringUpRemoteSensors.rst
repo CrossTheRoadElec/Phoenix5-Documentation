@@ -69,11 +69,11 @@ After having the filter configured, it is important to check that it is behaving
 
 .. image:: img/remote-4.png
 
-And perform a self test to make sure the configuration took place.
+And perform a Self-test Snapshot to make sure the configuration took place.
 
 .. image:: img/remote-5.png
 
-Move the mechanism and perform self tests to check the remote sensor is configured correctly
+Move the mechanism and perform self test snapshots to check the remote sensor is configured correctly
 
 .. image:: img/remote-6.png
 
@@ -95,7 +95,7 @@ First, we configure the soft limits on the motor controller so that they're enab
 .. image:: img/remote-7.png
 
 Then, we drive the motor to one of the limits. 
-It will probably overshoot a bit, but the important piece is that the motor controller's output is neutral after hitting the soft limit, which we can check in the self test and looking at the faults.
+It will probably overshoot a bit, but the important piece is that the motor controller's output is neutral after hitting the soft limit, which we can check in the Self-test Snapshot and looking at the faults.
 
 .. image:: img/remote-8.png
 

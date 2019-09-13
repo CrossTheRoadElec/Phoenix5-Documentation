@@ -1,4 +1,4 @@
-.. _ch08_BringUpCAN:
+﻿.. _ch08_BringUpCAN:
 
 Bring Up: CAN Bus 
 =================
@@ -148,6 +148,7 @@ When complete, make sure every device is visible in the view.  Use the Blink but
 
 .. image:: img/bring-5.png
 
+.. _field-upgrade:
 
 Field upgrade devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -192,11 +193,11 @@ The device name can also be changed for certain device types:
 
 
 
-Self-test
+Self-test Snapshot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 At this point every device should be present on the bus, and updated to latest.
-This is an opportune time to test the self-test feature of each device. 
+This is an opportune time to test the Self-test Snapshot feature of each device. 
 
 Select each device either in the device list, or using the dropdown at the center-top.
 This dropdown is convenient as it is accessible regardless of how the tabs are docked with Tuner.
@@ -205,11 +206,11 @@ This dropdown is convenient as it is accessible regardless of how the tabs are d
 
 .. image:: img/bring-7.png
 
-Navigate to the self-test tab.  If self-test tab is not present, use the Windows menu bar to reopen it.
+Navigate to the Self-test Snapshot tab.  If Self-test Snapshot tab is not present, use the Windows menu bar to reopen it.
 
 .. image:: img/bring-8.png
 
-Press self-test button and confirm the results.  
+Press Self-test Snapshot button and confirm the results.  
 
 .. note:: This Pigeon has not had its firmware updated, this is reported at the top.
 

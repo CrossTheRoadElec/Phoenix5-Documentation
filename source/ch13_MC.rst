@@ -1,4 +1,4 @@
-.. _ch13_MC:
+﻿.. _ch13_MC:
 
 Bring Up: Talon SRX / Victor SPX
 ================================
@@ -152,12 +152,13 @@ Option 3 (slowest): Reimage the roboRIO
 ------------------------------------------------------
 Re-imaging the RIO also will effectively remove the application, however this is a “sledge hammer” approach will take several minutes to perform.
 
+.. _frc-unlock:
 
 Confirm FRC Unlock 
 ------------------------------------------------------
 Close Driver Station software if it is running.  Do not allow DS to communicate with roboRIO, or CTRE devices will detect the FRC use case.
 
-Self-Test Motor Controller to confirm device FRCLocked = 0.
+Self-test Snapshot Motor Controller to confirm device FRCLocked = 0.
 
 If device is FRC Locked (=1), use factory default in the config tab to clear the state.
 
@@ -250,7 +251,7 @@ Enable the Driver Station and confirm:
 
 Disable Driver Station after finished testing.
 
-.. note:: If the LED is solid orange than use Tuner to determine the cause.  Self-Test will report the current state of the motor controller (do this while troubleshooting).  Confirm firmware is up to date.
+.. note:: If the LED is solid orange than use Tuner to determine the cause.  Self-test Snapshot will report the current state of the motor controller (do this while troubleshooting).  Confirm firmware is up to date.
 
 
 
@@ -478,7 +479,7 @@ Once limiting is active, current limiting will deactivate if motor controller ca
 
 After setting the three configurations, current limiting must be enabled via enableCurrentLimit() or LabVIEW VI.
 
-.. note:: Use Self-Test to confirm if Current Limiting is occurring
+.. note:: Use Self-test Snapshot to confirm if Current Limiting is occurring
 
 .. note:: If peak limit is less than continuous limit, peak is set equal to continuous
 
@@ -492,7 +493,7 @@ Reading status signals
 The Talon SRX transmits most of its status signals periodically, i.e. in an unsolicited fashion.  This improves bus efficiency by removing the need for “request” frames, and guarantees the signals necessary for the wide range of use cases Talon supports, are available.
 
 These signals are available in API regardless of what control mode the Talon SRX is in.
-Additionally the signals can be polled using Phoenix Tuner using the self-test button.
+Additionally the signals can be polled using Phoenix Tuner using the Self-test Snapshot button.
 
 Included in the list of signals are:
 
@@ -570,7 +571,7 @@ A Talon SRX or Victor SPX can use a remote sensor as the limit switch (such as a
 	Hardware.rightVictorMaster.configForwardLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed, 3, 0);
 	Hardware.rightVictorMaster.configReverseLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed, 3, 0);
 
-Use self-test on the motor-driving motor controller to confirm limit switches are interpreted correctly.  If they are not correct, then self-test the remote device to determine the issue.
+Use Self-test Snapshot on the motor-driving motor controller to confirm limit switches are interpreted correctly.  If they are not correct, then Self-test Snapshot the remote device to determine the issue.
 
 Soft Limits
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

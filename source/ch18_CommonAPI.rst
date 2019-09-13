@@ -59,6 +59,7 @@ Status 14 (Default Period >100ms):
 
 - PID1 (Auxiliary PID) Information
 
+
 Pigeon IMU
 ''''''''''''''''''''''''''''''''''''''''''''''''
 General Status 1 (Default Period >100ms):
@@ -153,6 +154,13 @@ These counts should always be zero. Attempt to short the CAN bus and you can con
 When starting out with the FRC control system and Talon SRXs, it is recommended to watch how these CAN metrics change when CAN bus is disconnected from the roboRIO and other CAN devices to learn what to expect when there is a harness or a termination resistor issue.
 Determining hardware related vs software related issues is key to being successful when using many CAN devices.
 
+Followers
+''''''''''''''''''''''''''''''''''''''''''''''''
+Motor controllers that are followers can set Status 1 and Status 2 to 255ms(max) using setStatusFramePeriod.
+
+The Follower relies on the master status frame allowing its status frame to be slowed without affecting performance.
+
+This is a useful optimization to manage CAN bus utilization.
 
 Detecting device resets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
