@@ -469,7 +469,9 @@ The limiting is characterized by three configs:
 .. image:: img/lv-currentlimit-1.png
 
 If enabled, Talon SRX will monitor the supply-current looking for a conditions where current has exceeded the Peak Current for at least Peak Time.  
-If detected, output is reduced until current measurement is at or under Continuous Current.  
+If detected, output is reduced until current measurement is at or under Continuous Current.
+
+.. note:: If Peak current limit is set less than continuous limit, peak current limit will be set equal to continous current limit.
 
 Once limiting is active, current limiting will deactivate if motor controller can apply the requested motor output and still measure current-draw under the Continuous Current Limit.
 
@@ -528,11 +530,46 @@ Confirm the limit switches are functional by applying a **weak positive motor ou
 
 .. note:: The motor does not have to be physically connected to the motor-controller if tester can artifically assert physical limit switch.
 
+.. code-block:: java
+
+	/* Configured forward and reverse limit switch of Talon to be from a feedback connector and be normally open */
+	Hardware.leftTalonMaster.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+	Hardware.leftTalonMaster.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+
+Limit Switch Override Enable
+----------------------------------------------------------------
+The enable state of the limit switches can be overridden in software. This can be called at any time to enable or disable both limit switches.
+
+Generally you should call this instead of a config if you want to dynamically change whether you are using the limit switch or not inside a loop. This value is not persistent across power cycles.
+
+.. code-block:: java
+
+	/* Limit switches are forced disabled on Talon and forced enabled on Victor */
+	Hardware.leftTalonMaster.overrideLimitSwitchesEnable(false);
+	Hardware.rightVictorMaster.overrideLimitSwitchesEnable(true);;
+	
+Limit Switch As Digital Inputs
+----------------------------------------------------------------
+Limit switches can also be treated as digital inputs. This is done in Java/C++ by using the isFwdLimitSwitchClosed & isRevLimitSwitchClosed method.
+
+.. code-block:: java
+
+	_talon.getSensorCollection().isFwdLimitSwitchClosed();
+	_talon.getSensorCollection().isRevLimitSwitchClosed();
+	
+.. note:: The sensor being closed returns true in all cases, and the sensor being open returns false in all cases, regardless of normally open/normally closed setting. This ensures there is no ambiguity in the function name.
+
 Remote Limit Switches
 ----------------------------------------------------------------
 A Talon SRX or Victor SPX can use a remote sensor as the limit switch (such as another Talon SRX or CANifier).
 
 **Change the Limit Forward/Reverse Source** to **Remote Talon or Remote CANifier**.  Then config the Limit Forward/Reverse Device ID for the remote Talon or CANifier.
+
+.. code-block:: java
+
+	/* Configured forward and reverse limit switch of a Victor to be from a Remote Talon SRX with the ID of 3 and normally closed */
+	Hardware.rightVictorMaster.configForwardLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed, 3, 0);
+	Hardware.rightVictorMaster.configReverseLimitSwitchSource(RemoteLimitSwitchSource.RemoteTalonSRX, LimitSwitchNormal.NormallyClosed, 3, 0);
 
 Use Self-test Snapshot on the motor-driving motor controller to confirm limit switches are interpreted correctly.  If they are not correct, then Self-test Snapshot the remote device to determine the issue.
 
@@ -540,6 +577,14 @@ Soft Limits
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Soft limits can be used to disable motor drive when the “Sensor Position” is outside of a specified range.  Forward throttle will be disabled if the “Sensor Position” is greater than the Forward Soft Limit.  Reverse throttle will be disabled if the “Sensor Position” is less than the Reverse Soft Limit.  The respective Soft Limit Enable must be enabled for this feature to take effect.
 
+.. code-block:: java
+
+	/* Talon configured to have soft limits 10000 native units in either direction and enabled */
+	rightMaster.configForwardSoftLimitThreshold(10000, 0);
+	rightMaster.configReverseSoftLimitThreshold(-10000, 0);
+	rightMaster.configForwardSoftLimitEnable(true, 0);
+	rightMaster.configReverseSoftLimitEnable(true, 0);
+	
 The settings can be set and confirmed in Phoenix Tuner
 
 
