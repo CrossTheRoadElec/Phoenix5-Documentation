@@ -251,7 +251,7 @@ Gravity Offset (Elevator)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the case of a traditional elevator mechanism, there is a constant force due to gravity affecting the mechanism. Because the force is constant, we can determine a constant offset to keep the elevator at position when error is zero.
 
-Use either the Phoenix Tuner Control Tab or Joystic control in your robot code to apply output to the elevator until it stays at a position without moving.  Use Phoenix Tuner (plotter or self-test snapshot) to measure the output value - this is the Arbitrary Feed Forward value needed to offset gravity.
+Use either the Phoenix Tuner Control Tab or Joystic control in your robot code to apply output to the elevator until it stays at a position without moving.  Use Phoenix Tuner (plotter or Self-test Snapshot snapshot) to measure the output value - this is the Arbitrary Feed Forward value needed to offset gravity.
 
 If we measure a motor output of 7% to keep position, then our java code for Arbitrary Feed Forward with Motion Magic would look like this:
 
@@ -266,7 +266,7 @@ Gravity Offset (Arm)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the case of an arm mechanism, the force due to gravity will change as the arm moves through its range of motion.  In order to compensate for this, we will need to measure a gravity offset at the highest force (arm at horizontal position) and then scale the value with trigonometry.
 
-To start, use either the Phoenix Tuner Control Tab or Joystic control in your robot code to apply output to the arm until it stays at the horizontal position without moving.  Use Phoenix Tuner (plotter or self-test snapshot) to measure the output value - this is the base component of our Arbitrary Feed Forward value.
+To start, use either the Phoenix Tuner Control Tab or Joystic control in your robot code to apply output to the arm until it stays at the horizontal position without moving.  Use Phoenix Tuner (plotter or Self-test Snapshot snapshot) to measure the output value - this is the base component of our Arbitrary Feed Forward value.
 
 For scaling the value, the cosine term of trigonometry_ matches the scaling we need for our rotating arm.  The cosine term is at maximum value (+1) when at horizontal (0 degrees or radians) and is at 0 when the arm is vertical (90 degrees or pi/2 radians).
 To use this cosine value as a scalar, we will need to determine our current angle.  This requires knowing the current arm position and number of position ticks per degree, then converting to units of radians.
@@ -310,11 +310,11 @@ If using any of the control modes, we recommend calculating the kF:
 
 How to calculate kF
 ----------------------------------------------------------------------------------
-Using Tuner (Self-Test or Plotter), we’ve measured a peak velocity of **9326** native units per 100ms at 100% output.  This can also be retrieved using getSelectedSensorVelocity (routine or VI).
+Using Tuner (Self-test Snapshot or Plotter), we’ve measured a peak velocity of **9326** native units per 100ms at 100% output.  This can also be retrieved using getSelectedSensorVelocity (routine or VI).
 
 However, many mechanical systems and motors are not perfectly linear (though they are close).  To account for this, we should calculate our feed forward using a measured veloctiy around the percent output we will usually run the motor.
 
-For our mechanism, we will typically be running the motor aroun 75% output.  We then use Tuner (Self-Test Snapshot or Plotter) to measure our velocity - in this case, we measure a velocity of **7112** native units per 100ms.
+For our mechanism, we will typically be running the motor aroun 75% output.  We then use Tuner (Self-test Snapshot Snapshot or Plotter) to measure our velocity - in this case, we measure a velocity of **7112** native units per 100ms.
 
 Now let’s calculate a Feed-forward gain so that 75% motor output is calculated when the requested speed is **7112** native units per 100ms.
 

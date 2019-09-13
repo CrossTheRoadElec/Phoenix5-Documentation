@@ -88,17 +88,17 @@ PCM must be on CAN Bus
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The PCM must be connected to the CAN bus chain. If a PCM does not see a healthy CAN bus it will blink the STATUS LED red (See User's Guide for LED States).
 
-Additionally the PCM will not appear in Phoenix Tuner or will report loss of communication. This is important to check because a red STATUS LED pattern may also reflect a fault condition (if robot is enabled). To distinguish a fault condition, confirm the PCM does appear in the configuration page, and use the Self-Test to identify which fault condition is occurring.
+Additionally the PCM will not appear in Phoenix Tuner or will report loss of communication. This is important to check because a red STATUS LED pattern may also reflect a fault condition (if robot is enabled). To distinguish a fault condition, confirm the PCM does appear in the configuration page, and use the Self-test Snapshot to identify which fault condition is occurring.
 
 If these negative symptoms are noticed, recheck CAN bus harness and termination resistors. If several CAN devices are also blinking red then check the CANH/CANL chain. If it’s just the PCM then inspect the Weidmuller CAN contacts on the PCM.
 
-If the PCM CAN connection is healthy, then it should slowly blink green (when robot is disabled). It may blink orange instead to signal that a sticky fault has been logged. Use the Self-Test in Phoenix Tuner to inspect and clear sticky faults.
+If the PCM CAN connection is healthy, then it should slowly blink green (when robot is disabled). It may blink orange instead to signal that a sticky fault has been logged. Use the Self-test Snapshot in Phoenix Tuner to inspect and clear sticky faults.
 
 More information on faults and sticky faults is available under :ref:`Faults-pcm`.
 
 Confirm PCM is not faulting.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-At this point the PCM should appear in the Phoenix Tuner CAN Devices tab. Using the self-test, determine if any faults are occurring “Now”. Checking the sticky faults can also be helpful for identifying recent faults. 
+At this point the PCM should appear in the Phoenix Tuner CAN Devices tab. Using the Self-test Snapshot, determine if any faults are occurring “Now”. Checking the sticky faults can also be helpful for identifying recent faults. 
 
 .. image:: img/pcm-selftest-1.png
 
@@ -107,7 +107,7 @@ More information on faults and sticky faults is available under :ref:`Faults-pcm
 
 The Robot must be enabled, Robot Software must create a pneumatics related object.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The PCM should appear in the Phoenix Tuner CAN Devices tab, however when enabling the robot, the STATUS LED may not transition to strobe green. Additionally, when performing the Self-Test, the report may read “PCM IS NOT ENABLED”
+The PCM should appear in the Phoenix Tuner CAN Devices tab, however when enabling the robot, the STATUS LED may not transition to strobe green. Additionally, when performing the Self-test Snapshot, the report may read “PCM IS NOT ENABLED”
 
 .. image:: img/pcm-selftest-2.png
 
@@ -125,16 +125,16 @@ Instructions for creating a Solenoid, DoubleSolenoid or Compressor object in Lab
 Pressure Switch must be wired and must signal “not full”.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Even though a robot and PCM are enabled, the compressor output will not activate if the pressure switch is not connected or is indicating full pressure. The only way to inspect this reliably is to perform the Self-Test Snapshot in Phoenix Tuner.
+Even though a robot and PCM are enabled, the compressor output will not activate if the pressure switch is not connected or is indicating full pressure. The only way to inspect this reliably is to perform the Self-test Snapshot Snapshot in Phoenix Tuner.
 
 .. image:: img/pcm-selftest-3.png
 
-If Self-Test is reading “pressure is full” when the pressure gauge clearly is not full, recheck the wiring on the pressure switch and PCM. 
+If Self-test Snapshot is reading “pressure is full” when the pressure gauge clearly is not full, recheck the wiring on the pressure switch and PCM. 
 
 
 The COMP LED must illuminate green.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If the COMP LED is off then the PCM is not activating the compressor output. The Self-Test Snapshot is the best method for determining why. If the PCM is not present in the Phoenix Tuner recheck section the first 2 steps of this process. If the PCM is present and not enabled, recheck the robot program. If the Compressor is not “close-looped on sensor”, then the robot application must be using programming API to disable it. If pressure is erroneously reading “full”, recheck the previous step.
+If the COMP LED is off then the PCM is not activating the compressor output. The Self-test Snapshot Snapshot is the best method for determining why. If the PCM is not present in the Phoenix Tuner recheck section the first 2 steps of this process. If the PCM is present and not enabled, recheck the robot program. If the Compressor is not “close-looped on sensor”, then the robot application must be using programming API to disable it. If pressure is erroneously reading “full”, recheck the previous step.
 
 
 Compressor must be wired and functional.

@@ -114,11 +114,11 @@ In this example, pulse width position is selected (absolute position within rota
 
 .. image:: img/sensor-6.png
 
-Take another self-test and notice the Selected Sensor (PID0) matches the selection.
+Take another Self-test Snapshot and notice the Selected Sensor (PID0) matches the selection.
 
 .. image:: img/sensor-7.png
 
-Manually rotate in one direction and take another self-test.  Confirm velocity is nonzero.
+Manually rotate in one direction and take another Self-test Snapshot.  Confirm velocity is nonzero.
 
 .. image:: img/sensor-8.png
 
@@ -167,7 +167,7 @@ Here we sweep the motor output forward and reverse.  Notice that sensor velocity
 
 .. image:: img/sensor-11.png
 
-In this capture we use the self-test to observe the motor output and selected (PID0) sensor velocity are signed in opposite directions.  Additionally the Talon SRX noticed this and reported a live fault of “Sensor Out of Phase”.
+In this capture we use the Self-test Snapshot to observe the motor output and selected (PID0) sensor velocity are signed in opposite directions.  Additionally the Talon SRX noticed this and reported a live fault of “Sensor Out of Phase”.
 
 .. image:: img/sensor-12.png
 
@@ -309,7 +309,7 @@ Calculate the expect peak sensor velocity (sensor units per 100ms) as:
 
 Knowing the maximum possible sensor velocity, compare this against the sensor velocity report in any of the following:
 
-- self-test under selected sensor (PID0).
+- Self-test Snapshot under selected sensor (PID0).
 - getSelectedSensorVelocity() API
 - Tuner plotter sensor velocity
 
@@ -339,7 +339,7 @@ Clear Pos event can be triggered by:
 
 .. image:: img/sensor-20.png
 
-Self-test can also be used to confirm the enabling of auto zero features.
+Self-test Snapshot can also be used to confirm the enabling of auto zero features.
 
 .. image:: img/sensor-21.png
 
