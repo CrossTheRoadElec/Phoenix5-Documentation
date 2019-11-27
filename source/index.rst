@@ -45,6 +45,7 @@ Follow these instructions in order!
    ch10_BringUpPDP
    ch11_BringUpPigeon
    ch12_BringUpCANifier
+   ch12a_BringUpCANCoder
    ch13_MC
    ch14_MCSensor
    ch14a_BringUpRemoteSensors
