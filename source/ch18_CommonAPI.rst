@@ -126,6 +126,17 @@ Conditioned Status 6 (Default Period >100ms):
 
 - PWM input 3 Information
 
+CANCoder
+''''''''''''''''''''''''''''''''''''''''''''''''
+General Status 1 (Default Period 10ms):
+
+- Position
+
+- Velocity
+
+- Absolute Position
+
+
 CAN bus Utilization/Error metrics
 ------------------------------------------------------
 The **driver station** provides various **CAN bus metrics** under the **lightning bolt** tab.
