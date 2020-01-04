@@ -1,7 +1,7 @@
 ﻿.. _ch13_MC:
 
-Bring Up: Talon SRX / Victor SPX
-================================
+Bring Up: Talon FX/SRX and Victor SPX
+=====================================
 
 At this point all Talon and Victors should appear in Tuner with up to date firmware.  The next goal is to drive the motor controller manually.  
 This is done to confirm/test:
@@ -12,7 +12,7 @@ This is done to confirm/test:
 - Motor Controller drive (both directions)
 - Motor Controller sensor during motion
 
-.. note:: Talon SRX and Victor SPX can be used with PWM or CAN bus. This document covers the CAN bus use-case.
+.. note:: Talon FX/SRX and Victor SPX can be used with PWM or CAN bus. This document covers the CAN bus use-case.
 
 
 Before we enable the motor controller, first check or reset the configs in the next section.
@@ -305,6 +305,8 @@ We also multiply the joystick so that forward is positive (intuitive).  This can
 
 .. image:: img/lv-invert-1.png
 
+.. note:: The C++/Java class TalonFX allows user to specify TalonFXInvertType.CounterClockwise/TalonFXInvertType.Clockwise.
+
 Follower
 ------------------------------------------------------
 If a mechanism requires multiple motors, than there are likely multiple motor controllers.   The Follower feature of the Talon SRX and Victor SPX is a convenient method to keep two or more motor controller outputs consistent.  If you have a sensor for closed-looping, connect that to the “master” Talon SRX (unless it is a remote sensor such as CANifier/Pigeon).
@@ -448,7 +450,10 @@ Advanced users can adjust the Voltage Measurement Filter to make the compensatio
 
 Current Limit
 ------------------------------------------------------
-Talon SRX supports current limiting in all control modes.  
+
+Legacy API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Talon FX/SRX supports current limiting in all control modes.  
 
 The limiting is characterized by three configs:
 
@@ -471,7 +476,7 @@ The limiting is characterized by three configs:
 If enabled, Talon SRX will monitor the supply-current looking for a conditions where current has exceeded the Peak Current for at least Peak Time.  
 If detected, output is reduced until current measurement is at or under Continuous Current.
 
-.. note:: If Peak current limit is set less than continuous limit, peak current limit will be set equal to continous current limit.
+.. note:: If Peak current limit is set less than continuous limit, peak current limit will be set equal to continuous current limit.
 
 Once limiting is active, current limiting will deactivate if motor controller can apply the requested motor output and still measure current-draw under the Continuous Current Limit.
 
@@ -486,6 +491,15 @@ After setting the three configurations, current limiting must be enabled via ena
 .. note:: If you only want continuous limiting, you should set peak limit to 0
 
 
+New API in 2020
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Talon FX supports both stator(output) current limiting and supply(input) current limiting.  
+
+Supply limiting (supported by Talon SRX and FX) is useful for preventing breakers from tripping in the PDP.
+
+Stator limiting (supported by Talon FX) is useful for limiting acceleration/heat.
+
+The new API leverages the configSupplyCurrentLimit and configStatorCurrentLimit routines.  The configs are similar to the existing legacy API, but the configs have been renamed to better communicate the design intent.  For example, instead of configPeakCurrentLimit, the setting is referred to as triggerThresholdCurrent.
 
 Reading status signals
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -507,12 +521,14 @@ Included in the list of signals are:
 - Brake State (coast vs brake)
 - Closed-Loop Error, the difference between closed-loop set point and actual position/velocity.
 - Sensor Position and Velocity, the signed output of the selected Feedback device (robot must select a Feedback device, or rely on default setting of Quadrature Encoder). 
+- Integrated Sensor (Talon FX).
+- Magnet position and strength (CANCoder).
 
 
 Limit Switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Talon SRX and Victor SPX have limit features that will auto-neutral the motor output if a limit switch activates.
-**Talon SRX** in particular can automatically do this **when limit switchs are connected via the Gadgeteer feedback port**.
+**Talon SRX** in particular can automatically do this **when limit switches are connected via the Gadgeteer feedback port**.
 
 An “out of the box” Talon will **default with the limit switch setting of “Normally Open”** for both forward and reverse.  This means that motor drive is allowed when a limit switch input is not closed (i.e. not connected to ground).  When a limit switch input is closed (is connected to ground) the Talon SRX will disable motor drive and individually blink both LEDs red in the direction of the fault (red blink pattern will move towards the M+/white wire for positive limit fault, and towards M-/green wire for negative limit fault).
 
@@ -528,7 +544,7 @@ Limit switch features can be disabled or changed to “Normally Closed” in Tun
 
 Confirm the limit switches are functional by applying a **weak positive motor output** while tripping the forward limit switch.
 
-.. note:: The motor does not have to be physically connected to the motor-controller if tester can artifically assert physical limit switch.
+.. note:: The motor does not have to be physically connected to the motor-controller if tester can artificially assert physical limit switch.
 
 .. code-block:: java
 

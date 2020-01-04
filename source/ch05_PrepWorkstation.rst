@@ -6,7 +6,7 @@ Before Installing Phoenix...
 It is strongly recommended to complete the base installation of FRC tools.
 https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144981-frc-software-component-overview
 
-.. warning:: You will need to image the roboRIO to 2019 software before continuing.  The **roboRIO** kickoff versions are **image 2019_v12 and firmware 6.0**.
+.. warning:: You will need to image the roboRIO to 2020 software before continuing.  The **roboRIO** kickoff versions are **image 2020_v10**.
 
 Test base FRC Installation - FRC LabVIEW
 ----------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ If a team intends to use LabVIEW to develop robot software, be sure to complete 
 
 At this point it is recommended to create a simple template project and test deploy to the roboRIO.  Be sure the DriverStation can communicate with the robot controller, and that DS message log is functional.
 
-.. note:: LabVIEW is versioned 2018 due to its release schedule. Therefore, LV2018 is used for the 2019 season.
+.. note:: LabVIEW is versioned 2019 due to its release schedule. Therefore, LV2019 is used for the 2020 season.
 
 Test base FRC Installation - FRC C++ / Java
 ----------------------------------------------------------------------------------
@@ -22,14 +22,14 @@ It is recommended to install the FRC Driver Station Utilities. This will install
 
 1. Basic comms checks
 2. Reading joystick data
-3. Generally required for enabling motor actuation (Phoenix Tuner provides an alternative).
+3. Generally required for enabling motor actuation (Phoenix Tuner Control features may require this, depending on setup).
 
 
-Important note regarding FRC 2019 C++ / Java.
+General Recommendations for FRC C++ / Java.
 ----------------------------------------------------------------------------------
-The FRC C++/Java standard distribution for 2019 is **quite different** than previous seasons. WPILIB has replaced the Eclipse-based development environment with Microsoft Visual Studio Code and GradleRIO.
+The FRC C++/Java standard distribution for 2020 is based on the Microsoft Visual Studio Code development environment with WPI extensions.
 
-This is a considerable change in both user experience and in implementation. If you are developing C++/Java FRC programs, we strongly recommend testing full deployment to your robot controller before installing Phoenix and porting previous season software.
+If you are not familiar with developing C++/Java FRC programs, we strongly recommend testing full deployment to your robot controller before installing Phoenix and porting previous season software.
 A recommended test is to:
 
 1. Create a project from scratch
@@ -122,13 +122,11 @@ When the path is entered into a browser, the browser may fix-up the path:
    C:\Users\Public\Public Documents\FRC
 
 
-In this directory are the initial release firmware CRF files for all CTRE CAN bus devices, including the Talon SRX. 
+In this directory are the initial release firmware CRF files for all CTRE CAN bus devices, including the new Talon FX and CANCoder. 
 
 The latest firmware to be used can be found in the :ref:`ch22_SoftReleaseNote`.
 
 .. note:: Additionally, newer updates may be provided online at http://www.ctr-electronics.com.
-
-.. note:: Be sure to watch for team updates for what is legal and required!
 
 .. note:: There is no longer FRC versus non-FRC firmware for motor controllers.  Instead the latest firmware detects if the use case is FRC.  If so, the device will FRC-Lock, and will require the Driver Station for actuation.  
 
@@ -176,12 +174,12 @@ Option 2: Non-Windows Zip  (C++/Java)
 ----------------------------------------------------------------------------------
 
 The zip will contain **two folders, “maven” and “vendordeps”**.
-These folders are meant to be **inserted into your frc2019 install folder**.  
+These folders are meant to be **inserted into your frc2020 install folder**.  
 
 See WPI documentation for typical location.
-https://wpilib.screenstepslive.com/s/currentCS/m/cpp/l/1027500-installing-c-and-java-development-tools-for-frc
+https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-libraries.html#the-mechanism-c-java
 
-**Copy/paste the maven and vendordeps folder into frc2019 folder**.  This will override a pre-existing Phoenix installation if present.
+**Copy/paste the maven and vendordeps folder into frc2020 folder**.  This will override a pre-existing Phoenix installation if present.
 
 .. note:: This will not install Phoenix Tuner or firmware files.  If these are necessary (and they typically are) these can be downloaded separately or consider using the complete Phoenix Installer.
 
@@ -216,15 +214,15 @@ Testing the install can be done by opening LabVIEW and confirming the VIs are in
 
 The CTRE Palette is located in:
 
-• WPI Robotics Library -> Third Party.
+- WPI Robotics Library -> Third Party.
 
 .. image:: img/lv-paletteMenu.png
 
 This palette can also be found in:
 
-• WPI Robotics Library -> RobotDrive -> MotorControl -> CanMotor
-• WPI Robotics Library -> Sensors -> Third Party
-• WPI Robotics Library -> Actuators -> Third Party
+- WPI Robotics Library -> RobotDrive -> MotorControl -> CanMotor
+- WPI Robotics Library -> Sensors -> Third Party
+- WPI Robotics Library -> Actuators -> Third Party
 
 FRC Windows – Open Phoenix Tuner
 ----------------------------------------------------------------------------------

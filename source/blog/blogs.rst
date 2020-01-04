@@ -1,4 +1,4 @@
-FRC 2019 Blogs
+FRC Blogs
 ==============
 .. Phoenix documentation master file, created by
    sphinx-quickstart on Tue Dec 18 17:00:49 2018.
@@ -9,10 +9,10 @@ FRC 2019 Blogs
 .. toctree::
    :maxdepth: 2
 
+   blog-kickoff-2020.rst
    blog-perf.rst
    blog-week6.rst
    blog-week4.rst
    blog-week1.rst
-   blog-kickoff.rst
-   blog-sitelaunch.rst
+   blog-kickoff-2019.rst
 

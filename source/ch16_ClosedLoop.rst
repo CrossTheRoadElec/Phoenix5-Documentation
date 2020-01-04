@@ -26,7 +26,7 @@ Regardless of which closed-loop control mode is used, the following statements a
 
 .. warning:: Although the velocity kF config of the Talon-SRX/Victor-SPX assumes 1023 is full output, do not confuse this with the arbitrary feed-forward parameter of the Set routine/VI, which accepts a value within [-1,+1]
 
-.. note:: A target goal of 2020 is to normalize the PID controller to interpret sensor using normalized units, and adjusting the PID output such that  ‘1’ is interpreted as full.  This will likely be a “back-breaking” change.  This also means 2019 will likely be the last time you see “1023” used anywhere.
+.. note:: A target goal of 2020 is to normalize the PID controller to interpret sensor using normalized units, and adjusting the PID output such that  ‘1’ is interpreted as full.  This may be released during the 2020 season.  If this is released, the default settings will provide the legacy units, but users will have the ablity to change them, similar to the current CANCoder API.
 
 Below are descriptions for the various control modes.
 
@@ -153,7 +153,7 @@ The benefits of this are the same as for the Motion Profile control mode, and at
 Auxiliary Closed Loop PID[1]
 ----------------------------------------------------------------------------------
 
-Along with the above control modes, the Talon SRX / Victor SPX has the ability to run a second PID loop, called the auxiliary PID[1] loop.  This is typically used in differential mechanisms where application must maintain two process variables (e.g. sum/average of two sensors, along with the differenence or IMU heading).
+Along with the above control modes, the Talon SRX / Victor SPX has the ability to run a second PID loop, called the auxiliary PID[1] loop.  This is typically used in differential mechanisms where application must maintain two process variables (e.g. sum/average of two sensors, along with the difference or IMU heading).
 
 When used, the motor controller will simultaneously calculate:
 - PID[0] + PID[1] (this is applied to the motor output)
@@ -178,9 +178,9 @@ Given a target distance, the PID[0] output will move the robot closer to the tar
 PID[1] will use the difference between the left and right sensor to produce the *robot heading*.  Alternatively the Pigeon IMU can be used to remotely provide this.
 The PID[1] output will then maintain the robot's heading throughout the maneuver.
 
-.. note:: If Velocity control mode is used, the aux PID[1] loop still uses the position value of its respective sensor source.  This is convenient for controling the robot-velocity while maintaining robot-heading.
+.. note:: If Velocity control mode is used, the aux PID[1] loop still uses the position value of its respective sensor source.  This is convenient for controlling the robot-velocity while maintaining robot-heading.
 
-.. note:: When using the Motion Magic control mode, the target for PID[1] is smoothed identically to PID[0], and both targets should be reached at approxamitely the same time.
+.. note:: When using the Motion Magic control mode, the target for PID[1] is smoothed identically to PID[0], and both targets should be reached at approximately the same time.
 
 .. note:: Sensor difference (and not sum) may represent the distance traveled depending on the signage of the sensors involved.
 
@@ -188,9 +188,9 @@ Example 2 - Lift Mechanism
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Consider a lifting mechanism composed of two closed-loops (one for each side) and no mechanical linkage between them.
 In other words, the left and right side each have a unique motor controller and sensor.
-The goal in this circumstance is to closed-loop the elevation while keeping the left and right side reasonably synchronised.
+The goal in this circumstance is to closed-loop the elevation while keeping the left and right side reasonably synchronized.
 
-This can be accomplished by using the sum of the each side as the elevator height, and the difference as the level deviation between the left and right, which must be kept near zero.
+This can be accomplished by using the sum of each side as the elevator height, and the difference as the level deviation between the left and right, which must be kept near zero.
 
 Aux PID[1] can then be used to apply a corrective difference component (adding to one side and subtracting from the other) to maintain a synchronous left and right position, while employing Position/Velocity/Motion-Magic to the primary axis of control (the elevator height).
 
@@ -251,7 +251,7 @@ Gravity Offset (Elevator)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the case of a traditional elevator mechanism, there is a constant force due to gravity affecting the mechanism. Because the force is constant, we can determine a constant offset to keep the elevator at position when error is zero.
 
-Use either the Phoenix Tuner Control Tab or Joystic control in your robot code to apply output to the elevator until it stays at a position without moving.  Use Phoenix Tuner (plotter or Self-test Snapshot snapshot) to measure the output value - this is the Arbitrary Feed Forward value needed to offset gravity.
+Use either the Phoenix Tuner Control Tab or Joystick control in your robot code to apply output to the elevator until it stays at a position without moving.  Use Phoenix Tuner (plotter or Self-test Snapshot) to measure the output value - this is the Arbitrary Feed Forward value needed to offset gravity.
 
 If we measure a motor output of 7% to keep position, then our java code for Arbitrary Feed Forward with Motion Magic would look like this:
 
@@ -260,13 +260,13 @@ If we measure a motor output of 7% to keep position, then our java code for Arbi
     double feedforward = 0.07;
     _motorcontroller.set(ControlMode.MotionMagic, targetPos, DemandType.ArbitraryFeedForward, feedforward);
 
-.. tip:: If your elevator mechanism will change weight while in use (ie, pick up a heavy game piece), it is helpful to measure gravity offsets at each expected weight and switch between Arbitrary Feed Forward values as needed.
+.. tip:: If your elevator mechanism will change weight while in use (i.e. pick up a heavy game piece), it is helpful to measure gravity offsets at each expected weight and switch between Arbitrary Feed Forward values as needed.
 
 Gravity Offset (Arm)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the case of an arm mechanism, the force due to gravity will change as the arm moves through its range of motion.  In order to compensate for this, we will need to measure a gravity offset at the highest force (arm at horizontal position) and then scale the value with trigonometry.
 
-To start, use either the Phoenix Tuner Control Tab or Joystic control in your robot code to apply output to the arm until it stays at the horizontal position without moving.  Use Phoenix Tuner (plotter or Self-test Snapshot snapshot) to measure the output value - this is the base component of our Arbitrary Feed Forward value.
+To start, use either the Phoenix Tuner Control Tab or Joystick control in your robot code to apply output to the arm until it stays at the horizontal position without moving.  Use Phoenix Tuner (plotter or Self-test Snapshot) to measure the output value - this is the base component of our Arbitrary Feed Forward value.
 
 For scaling the value, the cosine term of trigonometry_ matches the scaling we need for our rotating arm.  The cosine term is at maximum value (+1) when at horizontal (0 degrees or radians) and is at 0 when the arm is vertical (90 degrees or pi/2 radians).
 To use this cosine value as a scalar, we will need to determine our current angle.  This requires knowing the current arm position and number of position ticks per degree, then converting to units of radians.
@@ -295,7 +295,7 @@ Calculating Velocity Feed Forward gain (kF)
 A typical strategy for estimating the necessary motor output is to take the target velocity and multiplying by a tuned/calculated scalar.
 More advanced feed forward methods (gravity compensation, custom velocity and acceleration feed forwards, static offsets, etc.) can be done with the arbitrary feed forward features from the previous section..
 
-.. note:: The velocity feed forward (kF) is different from the Arbitrary Feed Forwad in that it is a specialized feed forward designed to approximate the needed motor output to achieve a specified velocity.
+.. note:: The velocity feed forward (kF) is different from the Arbitrary Feed Forward in that it is a specialized feed forward designed to approximate the needed motor output to achieve a specified velocity.
 
 Do I need to calculate kF?
 ----------------------------------------------------------------------------------
@@ -312,9 +312,9 @@ How to calculate kF
 ----------------------------------------------------------------------------------
 Using Tuner (Self-test Snapshot or Plotter), we’ve measured a peak velocity of **9326** native units per 100ms at 100% output.  This can also be retrieved using getSelectedSensorVelocity (routine or VI).
 
-However, many mechanical systems and motors are not perfectly linear (though they are close).  To account for this, we should calculate our feed forward using a measured veloctiy around the percent output we will usually run the motor.
+However, many mechanical systems and motors are not perfectly linear (though they are close).  To account for this, we should calculate our feed forward using a measured velocity around the percent output we will usually run the motor.
 
-For our mechanism, we will typically be running the motor aroun 75% output.  We then use Tuner (Self-test Snapshot Snapshot or Plotter) to measure our velocity - in this case, we measure a velocity of **7112** native units per 100ms.
+For our mechanism, we will typically be running the motor ~75% output.  We then use Tuner (Self-test Snapshot or Plotter) to measure our velocity - in this case, we measure a velocity of **7112** native units per 100ms.
 
 Now let’s calculate a Feed-forward gain so that 75% motor output is calculated when the requested speed is **7112** native units per 100ms.
 
@@ -324,8 +324,6 @@ F-gain = 0.1079
 Let’s check our math, if the target speed is **7112** native units per 100ms, Closed-loop output will be (0.1079 X **7112**) => 767.38 (75% of full forward).
 
 .. note:: The output of the PIDF controller in Talon/Victor uses 1023 as the “full output".
-   However the 2020 software release will likely normalize this so that a value of ‘1’ yields “full output”.
-   This will likely be a “back-breaking” change.  This also means 2019 will likely be the last time you see “1023” used anywhere.
 
 .. note:: The kF feature and arbitrary feed-forward feature are not the same.
    Arbitrary feed-forward is a supplemental term [-1,1] the robot application can provide to add to the output via the set() routine/VI.
@@ -527,7 +525,7 @@ As an example, we will use a differential drive train with 2 encoders on each si
 
  8. Tune the PID for both the primary and auxiliary PID using the above methods.
 
-.. tip:: Primary and Auxiliary PID can initially be tuned independently to simplify the tuning process.  Tune the primary PID gains while keeping the Auxiliary target constant, then tune the auxiliary PID gains while keeping the primary target constant (ie. using zero-turn movement).  The primary and auxiliary gain sets can then be further tuned when exuting motion using both PID loops simultaneously.
+.. tip:: Primary and Auxiliary PID can initially be tuned independently to simplify the tuning process.  Tune the primary PID gains while keeping the Auxiliary target constant, then tune the auxiliary PID gains while keeping the primary target constant (ie. using zero-turn movement).  The primary and auxiliary gain sets can then be further tuned when executing motion using both PID loops simultaneously.
 
 
 
@@ -671,10 +669,10 @@ Often it is necessary to move a mechanism to a setpoint and ensure that it has p
 A proper implementation requires the following:
 
 - waiting long enough to ensure CAN framing has provided fresh data. See setStatusFramePeriod() to modify update rates.
-- waiting long enough to ensure mechanism has physically settled.  Otherwise closed-loop overshoot (due to interia) will not be corrected.
+- waiting long enough to ensure mechanism has physically settled.  Otherwise closed-loop overshoot (due to inertia) will not be corrected.
 
 .. warning:: If using Motion Magic control mode, robot code should additionally poll getActiveTrajectoryPosition() routine/VI to determine when final target position has been reached.
-   This is because the closed-loop error corresponds how well the position profile is tracking, not when profiled manuever is complete.
+   This is because the closed-loop error corresponds how well the position profile is tracking, not when profiled maneuver is complete.
 
 The general requirements are to periodically monitor the closed-loop error provided the following:
 
@@ -711,7 +709,7 @@ An example of this is shown below in Java, within a class that implements the Co
     }
 
 .. warning:: If using Motion Magic control mode, robot code should additionally poll getActiveTrajectoryPosition() routine/VI to determine when final target position has been reached.
-   This is because the closed-loop error corresponds how well the position profile is tracking, not when profiled manuever is complete.
+   This is because the closed-loop error corresponds how well the position profile is tracking, not when profiled maneuver is complete.
 
 Closed-Loop Configurations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

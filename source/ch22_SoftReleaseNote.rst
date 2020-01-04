@@ -3,22 +3,24 @@
 Software Release Notes
 ======================
 
-Talon SRX / Victor SPX
+Talon FX / Talon SRX / Victor SPX
 --------------------------------------------------------
-The kickoff firmware is 4.11.
-The latest firmware is 4.22.
+The kickoff/latest firmware is 20.0.0.0
 
 This version is adequate for FRC and nonFRC use (notwithstanding known 
 :ref:`errata with HERO C#<Errata-hero>`).
 
+CANCoder
+--------------------------------------------------------
+The kickoff/latest firmware is 20.0.0.1
+
 CANifier
 --------------------------------------------------------
-The kickoff/latest firmware is 4.0.
+The kickoff/latest firmware is 20.0.
 
 Pigeon IMU
 --------------------------------------------------------
-The kickoff firmware is 4.0.
-The latest firmware is 4.13.
+The kickoff/latest firmware is 20.0.
 
 
 PCM

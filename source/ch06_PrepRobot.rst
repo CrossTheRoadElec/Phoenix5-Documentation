@@ -4,26 +4,25 @@ FRC: Prepare NI roboRIO
 Why prepare Robot Controller?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Preparing the Robot Controller typically means:
+In the previous 2019 season, preparing the Robot Controller typically meant:
 
-1. Installing the Phoenix Diagnostic Server
+1. Installing the Phoenix Diagnostics
 2. Installing the Phoenix API into roboRIO (if using LabVIEW).
 
-Phoenix Diagnostic Server is necessary for Phoenix Tuner to interact with CTRE CAN Devices.  
-Tuner communicates with "Phoenix Diagnostic Server", a roboRIO Linux application that provides an HTTP API.
+**In the 2020 release of Phoenix, both of these are automatically handled by the library deployment features of WPI Visual Studio Code extensions (C++/Java) and NI LabVIEW.**
 
-.. warning:: If the roboRIO is re-imaged, these steps must be followed again for Tuner and LabVIEW to function.
+Phoenix Diagnostics has become a library that is compiled into the FRC robot application.  This is a result of the roboRIO CAN bus changes implemented by the NI for 2020.
+Tuner now communicates with "Phoenix Diagnostic Server" running in the deployed application via an HTTP API.
+
+If the roboRIO does not have a deployed application, a temporary Diagnostic Server application can be deployed from Tuner.  This is particularly useful during hardware-bringup.
+
 
 LabVIEW
 ----------------------------------------------------
-**NI LabVIEW** has a new feature in 2019 that will automatically deploy the Phoenix API libraries to the roboRIO.
-To enable this feature, the AutoLibDeploy checkbox must be checked in the Phoenix Installer.  
-Because this is a new feature, the check box defaults off.
-If you choose to use this feature, all 2019 LabVIEW robot projects should automatically install Phoenix into the roboRIO when the program is permanently deployed via "Run As Startup"
+**NI LabVIEW** supports a feature that will automatically deploy the Phoenix API libraries to the roboRIO.
+After running the installer, 2020 LabVIEW robot projects will automatically install Phoenix into the roboRIO when the program is permanently deployed via "Run As Startup".
 
-Alternatively you can use Phoenix Tuner to install the Phoenix API libraries into the roboRIO.  We recommend this until the AutoLibDeploy features has seen more testing.
-
-This is because the programming language solutions (WPI C++/Java) automatically delivers these libraries whenever the application is deployed in VS Code.
+.. note:: After first deploy (since imaging the RIO), you may see an error in the Driver Station reporting that the Phoenix libraries are missing.  A reboot of the RIO will likely resolve this.  We recommend using the "Restart roboRIO" button in the Driver Station.
 
 How to prepare Robot Controller
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,18 +34,20 @@ Open Tuner and connect USB between the workstation and the roboRIO.
 Select **172.22.11.2 # RoboRIO Over USB** and **1250** for the **address** and **port**. 
 These are generally selected by default, and typically do not require modification.
 
-Press the Install button.
+Deploy the Temporary Diagnostic Server.
 
-.. image:: img/tuner-4.png
+.. note:: This is unnecessary if a robot application has been deployed already (C++, Java, or LabVIEW).
+
+.. image:: img/tuner-7.png
 
 Verify the robot controller - Tuner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After installation is complete, Tuner will immediately connect to the roboRIO.
+After application deployment, Tuner will immediately connect to the roboRIO.
 
 Confirm the bottom status bar is green and healthy, and server version is present.
 
-.. image:: img/tuner-5.png
+.. image:: img/tuner-8.png
 
 If there are CAN device present, they will appear.  However, it is possible that devices are missing, this will be resolved in the next major section (CAN Bus bring up).
 
@@ -80,7 +81,7 @@ Upload the application to the robot controller and check the driver station mess
 
 If everything is working, the Phoenix Initialization message can be found.  
 
-.. note:: This message will not appear after subsequent “soft” deploy (LabVIEW RAM-only temporary deploys).
+.. note:: This message will not appear after subsequent "soft" deploy (LabVIEW RAM-only temporary deploys).
 
 .. image:: img/prep-rc-3.png
 
@@ -92,12 +93,12 @@ If you have used Phoenix LifeBoat (which should NOT be used), this message will 
 
 .. image:: img/prep-rc-8.png
 
-Verify the robot controller – Web page
+Verify the robot controller - Web page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Silverlight web interface provided in previous seasons is **no longer available**.  Moving forward, the NI web interface will likely be much simpler.  
 
-As a result, **Phoenix Tuner** will embed a *small message reminder* **indicating that CAN features have been moved to Tuner**.
+As a result, **Phoenix Tuner** *may* embed a *small message reminder* **indicating that CAN features have been moved to Tuner**.  This will depend on the version of Phoenix.
 
 Typically, the message will disappear after 5 seconds.  This will not interfere with normal web page features (IP Config, etc.).
 
@@ -109,7 +110,7 @@ Typically, the message will disappear after 5 seconds.  This will not interfere 
 
 .. image:: img/bad-web-dash.png
 
-Verify the robot controller – HTTP API
+Verify the robot controller - HTTP API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Tuner leverages the HTTP API provided by Phoenix Diagnostics Server.  

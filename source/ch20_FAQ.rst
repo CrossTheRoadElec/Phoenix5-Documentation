@@ -10,7 +10,7 @@ DS Errors should be addressed as soon as they appear. This is because:
 
 - Phoenix API will report if a device is missing, not functioning, has too-old firmware, etc.
 - If errors are numerous and typical, then users cannot determine if there is a new problem to address.
-- A large stream of errors can bog down the Driverstation/roboRIO. Phoenix Framework has a debouncing strategy to ensure this does not happen, but not all libraries do this.
+- A large stream of errors can bog down the DriverStation/roboRIO. Phoenix Framework has a debouncing strategy to ensure this does not happen, but not all libraries do this.
 
 Phoenix DS errors occur on call. Meaning VIs/API functions must be called in robot code for any errors to occur.
 When an error does occur, a stack trace will report where in the robot code to look.
@@ -125,7 +125,7 @@ Instructions for creating a Solenoid, DoubleSolenoid or Compressor object in Lab
 Pressure Switch must be wired and must signal “not full”.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Even though a robot and PCM are enabled, the compressor output will not activate if the pressure switch is not connected or is indicating full pressure. The only way to inspect this reliably is to perform the Self-test Snapshot Snapshot in Phoenix Tuner.
+Even though a robot and PCM are enabled, the compressor output will not activate if the pressure switch is not connected or is indicating full pressure. The only way to inspect this reliably is to perform the Self-test Snapshot in Phoenix Tuner.
 
 .. image:: img/pcm-selftest-3.png
 
@@ -134,7 +134,7 @@ If Self-test Snapshot is reading “pressure is full” when the pressure gauge 
 
 The COMP LED must illuminate green.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If the COMP LED is off then the PCM is not activating the compressor output. The Self-test Snapshot Snapshot is the best method for determining why. If the PCM is not present in the Phoenix Tuner recheck section the first 2 steps of this process. If the PCM is present and not enabled, recheck the robot program. If the Compressor is not “close-looped on sensor”, then the robot application must be using programming API to disable it. If pressure is erroneously reading “full”, recheck the previous step.
+If the COMP LED is off then the PCM is not activating the compressor output. The Self-test Snapshot is the best method for determining why. If the PCM is not present in the Phoenix Tuner recheck section the first 2 steps of this process. If the PCM is present and not enabled, recheck the robot program. If the Compressor is not “close-looped on sensor”, then the robot application must be using programming API to disable it. If pressure is erroneously reading “full”, recheck the previous step.
 
 
 Compressor must be wired and functional.

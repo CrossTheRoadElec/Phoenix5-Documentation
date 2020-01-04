@@ -1,10 +1,10 @@
-﻿Prepare Linux Robot Controller 
-======================================================
+﻿Prepare Linux Robot Controller
+==============================
 
 Why prepare Linux Robot Controller?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Preparing a Linux robot controller allows CAN Device control without a roboRio for non-FRC use or as a secondary proccesor that can also directly control CAN Devices while still using the roboRIO for Enable/Disable Signal.
+Preparing a Linux robot controller allows CAN Device control without a roboRio for non-FRC use or as a secondary processor that can also directly control CAN Devices while still using the roboRIO for Enable/Disable Signal.
 
 Phoenix Diagnostic Server is necessary for Phoenix Tuner to interact with CTRE CAN Devices. Tuner communicates with “Phoenix Diagnostic Server”, a Linux application that provides an HTTP API.
 
@@ -72,7 +72,7 @@ From the user directory, run: ``git clone https://github.com/CrossTheRoadElec/Ph
 
 Then navigate into the repo directory: ``cd ./Phoenix-Linux-SocketCAN-Example/.``
 
-To ensure the scripts from our cloned repository can be executed, make sure to enable execution priveledges.
+To ensure the scripts from our cloned repository can be executed, make sure to enable execution privileges.
 
 	* ``chmod +x build.sh``
 

@@ -6,10 +6,11 @@ WPI/NI Software Integration
 The stock software frameworks in the FRC control system has several features used by teams.
 To leverage these features, the C++ /Java Phoenix API has two additional classes:
 
+- WPI_TalonFX
 - WPI_TalonSRX
 - WPI_VictorSPX
 
-These are wrappers for the Talon SRX and Victor SPX, that provide:
+These are wrappers for the Talon FX/SRX and Victor SPX, that provide:
 
 - LiveWindow support
 - Motor Safety features
@@ -76,9 +77,9 @@ To leverage the Drive Train classes in WPILib:
 
 C++ / Java Motor Safety Feature
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The Java class WPI_TalonSRX and WPI_VictorSPX both implement the motor safety interface. 
+The Java classes WPI_TalonFX, WPI_TalonSRX, and WPI_VictorSPX all implement the motor safety interface. 
 
-The C++ class WPI_TalonSRX and WPI_VictorSPX does not inherent the motor safety abstract class, but they do implement the exact same routines.
+The C++ classes WPI_TalonFX, WPI_TalonSRX, and WPI_VictorSPX do not inherent the motor safety abstract class, but they do implement the exact same routines.
 This means the same routines can be called on the Phoenix WPI objects.
 
 
