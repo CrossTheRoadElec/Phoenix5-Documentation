@@ -196,8 +196,8 @@ The offline files for vscode are typically installed in:
 
 .. code-block:: html
 
-  C:\Users\Public\frc2019\vendordeps\Phoenix.json (File used by vscode to include Phoenix in your project)
-  C:\Users\Public\frc2019\maven\com\ctre\phoenix (multiple maven-style library files)
+  C:\Users\Public\wpilib\2020\vendordeps\Phoenix.json (File used by vscode to include Phoenix in your project)
+  C:\Users\Public\wpilib\2020\maven\com\ctre\phoenix (multiple maven-style library files)
 
 
 Your drive letter may be different than "C:".
