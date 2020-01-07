@@ -115,7 +115,7 @@ This is typical if the robot is not enabled OR if the robot application did not 
 
 Make sure the robot is truly enabled by looking at the Driver Station.
 
-Instructions for creating a Solenoid, DoubleSolenoid or Compressor object in LabVIEW, C++, and Java can be found at http://wpilib.screenstepslive.com, (search for keyword “PCM”). Creating a single object of any pneumatics related type is sufficient for enabling the PCM (and therefore enabling compressor closed-loop).
+Instructions for creating a Solenoid, DoubleSolenoid or Compressor object in LabVIEW, C++, and Java can be found at https://docs.wpilib.org, (search for keyword “PCM”). Creating a single object of any pneumatics related type is sufficient for enabling the PCM (and therefore enabling compressor closed-loop).
 
 .. note:: In order to create a software object for Solenoid or Compressor, typically the caller may specify the CAN Device ID (not specifying it typically defaults to selecting Device ID zero). This value must match what is specified in Phoenix Tuner. For more information see :ref:`can-bringup-setIDs`.
 

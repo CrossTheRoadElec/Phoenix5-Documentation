@@ -7,7 +7,7 @@ FRC C++/Java – Create a Project
 
 Next we will create a new robot project in vscode and create a Talon SRX.  The goal is compile the project only, so hardware is not needed.
 
-Follow the WPI Screensteps instructions on reaching the create new project.  Typically, you can use CNTRL+SHIFT+P to open the VS text bar, and type create to reach the WPI command.
+Follow the WPI frc-docs instructions on reaching the create new project.  Typically, you can use CNTRL+SHIFT+P to open the VS text bar, and type create to reach the WPI command.
 
 .. image:: img/verify-1.png
 
