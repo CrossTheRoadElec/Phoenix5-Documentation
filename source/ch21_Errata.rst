@@ -29,7 +29,7 @@ Stator current limit will trigger when the measured current exceeds the limit (w
 
 CANCoder not a remote sensor source
 -----------------------------------------
-CANCoder is not available as a remote sensor source for Talon FX/SPX and Victor SPX.  This will be addressed in a future update.
+CANCoder is not available as a remote sensor source for Talon FX/SRX and Victor SPX.  This will be addressed in a future update.
 
 LabVIEW 2020 Deploys failing
 -----------------------------------------
