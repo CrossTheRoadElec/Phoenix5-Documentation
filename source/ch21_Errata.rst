@@ -27,6 +27,10 @@ The trigger threshold current and time are not honored in 20.0.0 firmware.
 Stator current limit will trigger when the measured current exceeds the limit (within 1ms).
 
 
+CANCoder not a remote sensor source
+-----------------------------------------
+CANCoder is not available as a remote sensor source for Talon FX/SPX and Victor SPX.  This will be addressed in a future update.
+
 LabVIEW 2020 Deploys failing
 -----------------------------------------
 During our system level validation, we observed a circumstance where LabVIEW permanent deploys would fail ("Connection disconnected by peer").
