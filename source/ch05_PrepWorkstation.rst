@@ -4,7 +4,7 @@ Prepare your workstation computer
 Before Installing Phoenix...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is strongly recommended to complete the base installation of FRC tools.
-https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144981-frc-software-component-overview
+https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/control-system-software.html
 
 .. warning:: You will need to image the roboRIO to 2020 software before continuing.  The **roboRIO** kickoff versions are **image 2020_v10**.
 
