@@ -41,3 +41,14 @@ We are currently investigating this, but we will tentatively report the followin
 - Alternatively roboRIO could also be reset using DriverStation "Reboot roboRIO" button.  This is effective if roboRIO is running a temporary deployed LV application or temporary diagnostic server.
 
 
+TalonFX Current Reporting Status Frame Not Available
+-----------------------------------------
+The Status Frame that TalonFX uses when reporting its supply and stator current is not available under the StatusFrame or StatusFrameEnhanced enum.
+The enum will be modified to include this frame in a future update. 
+Currently, the following can be done to modify the Current Measurement Status Frame period:
+
+.. code-block:: java
+
+    _fx.setStatusFramePeriod(0x1240, periodMs); //0x1240 is used to identify the Current Status Frame
+
+
