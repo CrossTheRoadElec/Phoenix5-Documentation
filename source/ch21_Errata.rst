@@ -31,6 +31,8 @@ CANCoder not a remote sensor source
 -----------------------------------------
 CANCoder is not available as a remote sensor source for Talon FX/SRX and Victor SPX.  This will be addressed in a future update.
 
+.. tip:: This was added in Phoenix v5.17.6.  Motor Controller must be updated to 20.1 or newer.
+
 LabVIEW 2020 Deploys failing
 -----------------------------------------
 During our system level validation, we observed a circumstance where LabVIEW permanent deploys would fail ("Connection disconnected by peer").
@@ -40,9 +42,10 @@ We are currently investigating this, but we will tentatively report the followin
 - If deploys are consistently failing, the running LabVIEW application can be cleared via SSH with ``/usr/local/frc/bin/frcKillRobot.sh -t -r`` or press the UnDeploy LabVIEW/Diag Server button in Tuner - Robot Controller Install.  This should bring the roboRIO into an empty state whereby deploy can be re-attempted.
 - Alternatively roboRIO could also be reset using DriverStation "Reboot roboRIO" button.  This is effective if roboRIO is running a temporary deployed LV application or temporary diagnostic server.
 
+.. tip:: This has been resolved in Phoenix v5.17.4.
 
 TalonFX Current Reporting Status Frame Not Available
------------------------------------------
+----------------------------------------------------
 The Status Frame that TalonFX uses when reporting its supply and stator current is not available under the StatusFrame or StatusFrameEnhanced enum.
 The enum will be modified to include this frame in a future update. 
 Currently, the following can be done to modify the Current Measurement Status Frame period:
@@ -51,4 +54,4 @@ Currently, the following can be done to modify the Current Measurement Status Fr
 
     _fx.setStatusFramePeriod(0x1240, periodMs); //0x1240 is used to identify the Current Status Frame
 
-
+.. tip:: This has been resolved in Phoenix v5.17.6.
