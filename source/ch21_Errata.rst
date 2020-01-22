@@ -34,6 +34,13 @@ CANCoder is not available as a remote sensor source for Talon FX/SRX and Victor 
 .. tip:: This was added in Phoenix v5.17.6.  Motor Controller must be updated to 20.1 or newer.
 
 
+Remote Sensors Not Working with Talon FX
+-----------------------------------------
+The remote sensor feature does not work with Talon FX.
+
+.. tip:: This is fixed in firmware version 20.1
+
+
 LabVIEW 2020 Deploys failing
 -----------------------------------------
 During our system level validation, we observed a circumstance where LabVIEW permanent deploys would fail ("Connection disconnected by peer").
