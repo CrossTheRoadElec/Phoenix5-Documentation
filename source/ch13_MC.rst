@@ -524,6 +524,10 @@ Included in the list of signals are:
 - Integrated Sensor (Talon FX).
 - Magnet position and strength (CANCoder).
 
+.. tip:: In LabVIEW, these signals can all be obtained from the "Get" VI from the motor controller's sub-pallette.  Choose the type of signals desired from the VI's drop-down menu.  
+
+  .. image:: img/bring-mc-getVI.png
+
 
 Limit Switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
