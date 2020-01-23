@@ -36,6 +36,15 @@ This usually indicates that your **device ID is wrong** in your robot software, 
 
 Use Phoenix Tuner to check your device IDs and make sure your firmware is up-to-date.
 
+Driver Station Says "ERROR 7 Call Library Function Node..."
+------------------------------------------------------------------------------------------------
+
+.. image:: img/faq-LV-Error7.png
+
+This can be seen when the Phoenix libraries are not present on the roboRIO.
+
+This can be fixed by following the process to prepare the roboRIO for :ref:`PrepRobotLV`.
+
 Driver Station Says Variant To Data in ...
 ------------------------------------------------------------------------------------------------
 
