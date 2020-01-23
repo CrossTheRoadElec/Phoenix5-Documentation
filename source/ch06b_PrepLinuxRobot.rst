@@ -33,11 +33,11 @@ Raspberry Pi/Jetson Nano
 ------------------------------------------------------
 Image your device with the respective image below. Other Images can also be used, although these images have been tested and are known to be supported.
 
-Raspbian Buster Image for Raspberry Pi: `Link <https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-07-12/2019-07-10-raspbian-buster.zip>`_
+Raspbian Buster Image for Raspberry Pi: `Pi Image <https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-07-12/2019-07-10-raspbian-buster.zip>`_
 
-Jetson Nano Developer Kit SD Card Image: `Link <https://developer.nvidia.com/jetson-nano-sd-card-image-r322>`_
+Jetson Nano Developer Kit SD Card Image: `Nano Image <https://developer.nvidia.com/jetson-nano-sd-card-image-r322>`_
 
-Etcher (available `here <https://www.balena.io/etcher/>`_)is the recommended tool for flashing the image to an SD card.  With Etcher open, select your downloaded image and the SD card target, then click "Flash!".
+Etcher (available `here <https://www.balena.io/etcher/>`_) is the recommended tool for flashing the image to an SD card.  With Etcher open, select your downloaded image and the SD card target, then click "Flash!".
 
 Once flashed insert the SD card into your device, set up a user and connect to a Wi-Fi network.
 
@@ -46,9 +46,9 @@ CANable (SocketCAN Device)
 ------------------------------------------------------
 Once your controller is ready, it is necessary to setup your SocketCAN device. 
 
-To use CANable as a SocketCAN device, update the Canable firmware to "candlelight" `here <https://canable.io/updater/>`_.
+To use CANable as a SocketCAN device, update the Canable firmware to "candlelight" `using these instructions <https://canable.io/updater/>`_.
 
-Alternatively you can deploy SocketCAN firmware to a HERO. See the GitHub repository `here <https://github.com/CrossTheRoadElec/HERO-STM32F4>`_.
+Alternatively you can deploy SocketCAN firmware to a HERO. See our repository `on Github <https://github.com/CrossTheRoadElec/HERO-STM32F4>`_.
 
 How to prepare Robot Controller Software?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

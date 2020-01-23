@@ -65,6 +65,6 @@ Currently, the following can be done to modify the Current Measurement Status Fr
 .. tip:: This has been resolved in Phoenix v5.17.6.
 
 Talon FX Thermal Limits Low when using PWM Out-of-the-Box
-----------------------------------------------------
+----------------------------------------------------------------
 Talon FX's ship firmware has lower thermal limits that current firmware.
 If using the Talon FX with PWM control, users may still want to update firmware over CAN to take advantage of the higher thermal limits.
