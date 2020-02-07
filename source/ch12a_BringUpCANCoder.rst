@@ -13,14 +13,14 @@ Phoenix Tuner
 Open Phoenix tuner and use the Self-test Snapshot feature to confirm values.
 By default, the position value is in units of degrees.
 
-.. image:: img/bring-12a-selftest.png
+.. image:: img/bring-12a-selftest.PNG
 
 
 Choose Sensor Direction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Choose which direction of the sensor is positive using the "Sensor Direction" config setting.
 
-.. image:: img/bring-12a-configDir.png
+.. image:: img/bring-12a-configDir.PNG
 
 By default, positive direction is counter-clockwise rotation of the magnet when looking at the magnet side of the CANCoder.
 
@@ -36,7 +36,7 @@ Choose Absolute Sensor Range
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Select whether the absolute position value should range from 0 degrees to 360 degrees or -180 to +180.
 
-.. image:: img/bring-12a-configRange.png
+.. image:: img/bring-12a-configRange.PNG
 
 Choose Absolute Sensor Offset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,7 +44,7 @@ Choose an offset for the 0 point of the absolute measurement.
 
 By default, this 0 point is when the magnet's north aligns with the LED on the CANCoder.  
 
-.. image:: img/bring-12a-configOffset.png
+.. image:: img/bring-12a-configOffset.PNG
 
 
 .. note:: For mechanisms with a fixed range of motion, the offset should be set so that the discontinuity of the absolute measurement (ie, the rollover from 380 -> 0 or 180 -> -180) does not occur in the mechanism's range of motion.

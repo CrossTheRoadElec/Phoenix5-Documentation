@@ -4,7 +4,8 @@ Primer: CTRE CAN Devices
 CTR-Electronics has designed many of the available CAN bus devices for FRC-style robotics.
 This includes:
 
-- Talon SRX and Victor SPX motor controllers (PWM and CAN)
+- Talon FX, Talon SRX, and Victor SPX motor controllers (PWM and CAN)
+- CANCoder
 - Pigeon IMU
 - CANifier
 - Pneumatics Control Mode (PCM)
@@ -14,8 +15,10 @@ These devices have similar functional requirements, specifically every device of
 
 These devices are field upgradable, and the firmware shipped with your devices will predate the “latest and greatest” tested firmware intended for use with the latest API release.  Firmware update can be done easily using Phoenix Tuner.
 
-The Talon SRX and Victor SPX provide two pairs of twisted CANH (yellow) and CANL (green) allowing for daisy chaining.  Other devices such as the PDP and PCM have weidmuller connectors that accept twisted pair cabling.  Often you will be able to use your Talons and Victors to connect together your PCM and PDP to each other. 
+The Talon FX/SRX and Victor SPX provide two pairs of twisted CANH (yellow) and CANL (green) allowing for daisy chaining.  Other devices such as the PDP and PCM have Weidmuller connectors that accept twisted pair cabling.  Often you will be able to use your Talons and Victors to connect together your PCM and PDP to each other. 
 
 The CAN termination resistors are built into the FRC robot controller (roboRIO) and in the Power Distribution Panel (PDP) assuming the PDP’s termination jumper is in the ON position.
+
+.. warning: Talon FX and Talon SRX share the same model group.  This means you must use unique device IDs between your Talon FXs and Talon SRXs.
 
 More information on wiring and hardware requirements can be found in the user manual of each device type.

@@ -1,5 +1,5 @@
 FRC: VS Code C++/Java
-================
+=====================
 
 
 FRC C++/Java – Create a Project 
@@ -7,7 +7,7 @@ FRC C++/Java – Create a Project
 
 Next we will create a new robot project in vscode and create a Talon SRX.  The goal is compile the project only, so hardware is not needed.
 
-Follow the WPI Screensteps instructions on reaching the create new project.  Typically, you can use CNTRL+SHIFT+P to open the VS text bar, and type create to reach the WPI command.
+Follow the WPI frc-docs instructions on reaching the create new project.  Typically, you can use CNTRL+SHIFT+P to open the VS text bar, and type create to reach the WPI command.
 
 .. image:: img/verify-1.png
 
@@ -23,8 +23,6 @@ FRC C++/Java – Add Phoenix
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
-
-.. note:: if "Manage Vendor Libraries" is **missing** then you likely are using 2018 Alpha VS. Ensure you are using **2019 Release VSCode from WPI**. 
 
 .. image:: img/verify-4.png
 
@@ -131,7 +129,7 @@ The only reliable way to confirm build was successful is to confirm the BUILD SU
 FRC C++/Java - Updating Phoenix
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you already have a 2019 version of Phoenix installed and you want to update to a newer version, follow these steps.
+If you already have a previous version of Phoenix installed and you want to update to a newer version, follow these steps.
 Install the latest version of Phoenix on your PC.  Basically, rerun the latest installer (same as section above). 
 
 Open your robot program in VS Code.

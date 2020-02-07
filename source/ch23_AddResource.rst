@@ -13,20 +13,20 @@ https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW
 
 Phoenix C++/Java API Documentation
 --------------------------------------------------------------
-http://www.ctr-electronics.com/downloads/api/java/html/index.html
-http://www.ctr-electronics.com/downloads/api/cpp/html/index.html
+https://www.ctr-electronics.com/downloads/api/java/html/index.html
+https://www.ctr-electronics.com/downloads/api/cpp/html/index.html
 
-FRC Screensteps
+FRC WPILib Docs
 --------------------------------------------------------------
 Core documentation for the base FRC control system.
-http://wpilib.screenstepslive.com/s/currentCS
+https://docs.wpilib.org
 
 Power Distribution Panel (PDP)
 --------------------------------------------------------------
-http://wpilib.screenstepslive.com/s/currentCS/m/cpp/l/599692-power-distribution-panel
-http://wpilib.screenstepslive.com/s/currentCS/m/java/l/599694-using-the-can-subsystem-with-the-roborio
+https://docs.wpilib.org/en/latest/docs/software/can-devices/power-distribution-panel.html
+https://docs.wpilib.org/en/latest/docs/software/can-devices/using-can-devices.html
 
 Pneumatics Control Module (PCM)
 --------------------------------------------------------------
-http://wpilib.screenstepslive.com/s/currentCS/m/java/l/219351-pneumatics-control-module
-http://wpilib.screenstepslive.com/s/currentCS/m/cpp/l/241865-operating-a-compressor-for-pneumatics
+https://docs.wpilib.org/en/latest/docs/software/can-devices/pneumatics-control-module.html
+https://docs.wpilib.org/en/latest/docs/hardware/hardware-basics/wiring-pneumatics.html

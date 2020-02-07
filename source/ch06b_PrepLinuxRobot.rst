@@ -1,10 +1,10 @@
-﻿Prepare Linux Robot Controller 
-======================================================
+﻿Prepare Linux Robot Controller
+==============================
 
 Why prepare Linux Robot Controller?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Preparing a Linux robot controller allows CAN Device control without a roboRio for non-FRC use or as a secondary proccesor that can also directly control CAN Devices while still using the roboRIO for Enable/Disable Signal.
+Preparing a Linux robot controller allows CAN Device control without a roboRio for non-FRC use or as a secondary processor that can also directly control CAN Devices while still using the roboRIO for Enable/Disable Signal.
 
 Phoenix Diagnostic Server is necessary for Phoenix Tuner to interact with CTRE CAN Devices. Tuner communicates with “Phoenix Diagnostic Server”, a Linux application that provides an HTTP API.
 
@@ -33,11 +33,11 @@ Raspberry Pi/Jetson Nano
 ------------------------------------------------------
 Image your device with the respective image below. Other Images can also be used, although these images have been tested and are known to be supported.
 
-Raspbian Buster Image for Raspberry Pi: `Link <https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-07-12/2019-07-10-raspbian-buster.zip>`_
+Raspbian Buster Image for Raspberry Pi: `Pi Image <https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-07-12/2019-07-10-raspbian-buster.zip>`_
 
-Jetson Nano Developer Kit SD Card Image: `Link <https://developer.nvidia.com/jetson-nano-sd-card-image-r322>`_
+Jetson Nano Developer Kit SD Card Image: `Nano Image <https://developer.nvidia.com/jetson-nano-sd-card-image-r322>`_
 
-Etcher (available `here <https://www.balena.io/etcher/>`_)is the recommended tool for flashing the image to an SD card.  With Etcher open, select your downloaded image and the SD card target, then click "Flash!".
+Etcher (available `here <https://www.balena.io/etcher/>`_) is the recommended tool for flashing the image to an SD card.  With Etcher open, select your downloaded image and the SD card target, then click "Flash!".
 
 Once flashed insert the SD card into your device, set up a user and connect to a Wi-Fi network.
 
@@ -46,9 +46,9 @@ CANable (SocketCAN Device)
 ------------------------------------------------------
 Once your controller is ready, it is necessary to setup your SocketCAN device. 
 
-To use CANable as a SocketCAN device, update the Canable firmware to "candlelight" `here <https://canable.io/updater/>`_.
+To use CANable as a SocketCAN device, update the Canable firmware to "candlelight" `using these instructions <https://canable.io/updater/>`_.
 
-Alternatively you can deploy SocketCAN firmware to a HERO. See the GitHub repository `here <https://github.com/CrossTheRoadElec/HERO-STM32F4>`_.
+Alternatively you can deploy SocketCAN firmware to a HERO. See our repository `on Github <https://github.com/CrossTheRoadElec/HERO-STM32F4>`_.
 
 How to prepare Robot Controller Software?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,7 +63,7 @@ Next, install the required software packages using the following commands:
  - CAN Tools ``sudo apt-get install can-utils``
  - Git ``sudo apt-get install git``
  - cmake (for build support) ``sudo apt-get install cmake``
- - libsdl12 (for gamepad support) ``sudo ap-get install libsdl2-dev``
+ - libsdl12 (for gamepad support) ``sudo apt-get install libsdl2-dev``
 
 
 With the necessary software installed, clone the example repository into the user directory.  This example is a basic C++ project that includes all necessary Phoenix libraries and will be used to validate the hardware and software setup.
@@ -72,7 +72,7 @@ From the user directory, run: ``git clone https://github.com/CrossTheRoadElec/Ph
 
 Then navigate into the repo directory: ``cd ./Phoenix-Linux-SocketCAN-Example/.``
 
-To ensure the scripts from our cloned repository can be executed, make sure to enable execution priveledges.
+To ensure the scripts from our cloned repository can be executed, make sure to enable execution privileges.
 
 	* ``chmod +x build.sh``
 

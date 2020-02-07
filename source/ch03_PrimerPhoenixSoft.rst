@@ -2,7 +2,7 @@ Primer: What is Phoenix Software
 ================================
 Phoenix is a package that targets LabVIEW, C++, and Java for the FRC Robotics Controller platform, i.e. the  NI roboRIO robot controller. 
 
-It includes the Application Programming Interface (API), which are the functions you call to manipulate the CTRE CAN bus devices: Talon SRX, Victor SPX, CANifier, and Pigeon IMU.
+It includes the Application Programming Interface (API), which are the functions you call to manipulate the CTRE CAN bus devices: Talon FX, Talon SRX, Victor SPX, CANCoder, CANifier, and Pigeon IMU.
 
 .. note:: PCM and PDP API are built into the core WPI distribution.
 
@@ -15,9 +15,9 @@ Additionally, Phoenix shared libraries are also targeted for C++ on Linux (amd64
 Phoenix also includes a NETMF (C#) class library for the non-FRC HERO Robot Controller.
 This can replace the roboRIO in use cases that don’t require the full features of the FRC control system, and are not in use during competition.
 
-.. note:: With Phoenix framework, teams can control/leverage Talons, Victors, Pigeons, CANifiers outside of the roboRIO (e.g. Rasp-Pi or Jetson TX2), and use the roboRIO/DriverStation to safely enable/disable the actuators.
+.. note:: With Phoenix framework, teams can control/leverage Talons, Victors, Pigeons, CANCoders, CANifiers outside of the roboRIO (e.g. Rasp-Pi or Jetson TX2), and use the roboRIO/DriverStation to safely enable/disable the actuators.
 
-.. note:: Leveraging CTRE CAN devices from third-party CAN hardware is **now officially FRC legal** for the **2019 season**.
+.. note:: Leveraging CTRE CAN devices from third-party CAN hardware was officially made FRC legal for the **2019 season**.
 
 There are tons of examples in all languages at CTRE’s GitHub account:
 
@@ -34,22 +34,22 @@ https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example
 
 What is Phoenix Tuner?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Phoenix-Tuner is the **2019 replacement for the FRC Web-Based Configuration Utility** that was provided during the previous years. 
+Phoenix-Tuner is the graphical interface that allows for configuration of Phoenix CAN bus devices.
 
 .. image:: img/tuner.png
 
-.. warning:: The RoboRIO web-based config is no longer available or supported by NI.
-
-It provides the *same functionality* as the *previous season's web-based interface*, plus a few more features:
+It provides a variety of functionality to support all Phoenix CAN Bus devices.  The feature set includes:
 
 - Update device firmware (including PDP/PCM) 
 - Change CAN IDs 
+- Configure direction and offsets
 - Self-test Snapshot devices 
 - Change configuration settings 
 - Factory default configuration settings
 - Test motors
 - Check plots
 - Temperature Calibrate Pigeon-IMU
+- Confirm proper CAN bus wiring **without writing any software**.
 
 Now you can drive your motors and collect data *without writing any software*.
 

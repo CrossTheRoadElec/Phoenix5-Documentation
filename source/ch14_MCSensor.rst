@@ -287,13 +287,15 @@ Sensor Type                                              Units per rotation
 Quadrature Encoder : US Digital 1024 CPR                 4096 (Talon SRX / CANifer counts every edge)
 CTRE Magnetic Encoder (relative/quadrature)              4096
 CTRE Magnetic Encoder (absolute/pulse width)             4096
+Talon FX Integrated Sensor                               2048
+CANCoder                                                 4096
 Any pulse width encoded position                         4096 represents 100% duty cycle
 AndyMark CIMcoder                                        80 (because 20 pulses => 80 edges)
 Analog                                                   1024
 =======================================================  ==========================================================
 
 
-.. note:: Sensor are typically reported in the raw sensor units to ensure all of the available sensor resolution is utilized.  However starting in 2020 season, there likely will be scaling options to universally adjust how sensor position is interpreted (for example, in fractional rotations).
+.. note:: Sensor are typically reported in the raw sensor units to ensure all of the available sensor resolution is utilized.  However future releases will allow user to choose how sensor position is interpreted (for example: degrees, radians, inches, legacy raw units, etc.).  Users can review the CANCoder API as a reference to how this will work.
 
 
 

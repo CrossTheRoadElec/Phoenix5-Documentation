@@ -22,6 +22,7 @@ This is why during hardware validation, you will likely have to isolate each dev
 
 .. note:: Label the devices appropriately so there is no guessing which device ID is what. Don’t have a label maker?  Use tape and/or Sharpie (sharpie marks can be removed with alcohol).
 
+.. warning:: Talon SRX and Talon FX must use unique device IDs for Phoenix API to function correctly.  This design decision was made so that teams could use the existing TalonSRX class for control.
 
 Check your wiring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,8 +156,10 @@ Field upgrade devices
 
 At this point all devices are present, but the firmware is likely old.  
 
-The 2019 seasons has 4.X firmware for Talon SRX, Victor SPX, CANifier, and Pigeon IMU.
-4.X firmware is required for 2019 targeted Phoenix API and Tuner releases.
+The 2020 season has 20.X firmware for Talon FX, Talon SRX, Victor SPX, CANCoder, CANifier, and Pigeon IMU.
+Moving forward, the first number of the version will represent the season (next year's 2021 firmware will be 21.X).
+
+20.X firmware is required for all motor controllers and CANCoder.  20.X is also recommended for CANifier and Pigeon IMU.
 
 
 .. note:: Latest PDP is 1.40.  PDP typically ship with 1.30.  1.40 has all of the signals read by the WPILib software, and will tare the current measures so current will read 0 instead of ~1-2 amps when there is no current-draw.  Updating to 1.40 is recommended.
