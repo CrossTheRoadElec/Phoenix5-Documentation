@@ -375,7 +375,7 @@ Confirm current plot is appropriate. If motors are free-spinning, then current s
 
 Select follower motor in Tuner, and confirm current via plot.
   
-.. note:: Follower mode can be canceled by simple calling set()
+.. note:: Follower mode can be canceled by calling set() with any other control mode, or calling neutralOutput().
 
 .. note:: Calling follow() in the periodic loop is not required, but also does not affect anything in a negative way.
 
