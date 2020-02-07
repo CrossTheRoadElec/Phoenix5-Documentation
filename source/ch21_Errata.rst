@@ -52,6 +52,13 @@ We are currently investigating this, but we will tentatively report the followin
 
 .. tip:: This has been resolved in Phoenix v5.17.4.
 
+LabVIEW 2020 Shared-Object Deployment Limitations
+--------------------------------------------------
+When a user hard-deploys an application **while a soft-deployed-session is running**, LabVIEW will sometimes cause deployed shared objects to become inoperable.
+If this occurs in a project with Phoenix, the project will fail on the deploy step, citing *the network connection was closed by the peer*, and the robot application will be unable to use Phoenix.
+
+To work around this, **press finish on the front panel of Robot Main** before you hard deploy your application.
+
 TalonFX Current Reporting Status Frame Not Available
 ----------------------------------------------------
 The Status Frame that TalonFX uses when reporting its supply and stator current is not available under the StatusFrame or StatusFrameEnhanced enum.
@@ -68,3 +75,10 @@ Talon FX Thermal Limits Low when using PWM Out-of-the-Box
 ----------------------------------------------------------------
 Talon FX's ship firmware has lower thermal limits that current firmware.
 If using the Talon FX with PWM control, users may still want to update firmware over CAN to take advantage of the higher thermal limits.
+
+Talon FX does not support Sensor Coefficient
+---------------------------------------------
+Configuring a sensor coefficient on Talon FX does not do anything.
+
+.. tip:: This has been resolved in firmware version 20.2.3.0
+
