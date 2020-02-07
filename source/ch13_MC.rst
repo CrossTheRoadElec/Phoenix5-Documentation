@@ -495,11 +495,29 @@ New API in 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Talon FX supports both stator(output) current limiting and supply(input) current limiting.  
 
+Supply current is current that's being drawn at the input bus voltage.
+Stator current is current that's being drawn by the motor.
+
 Supply limiting (supported by Talon SRX and FX) is useful for preventing breakers from tripping in the PDP.
 
 Stator limiting (supported by Talon FX) is useful for limiting acceleration/heat.
 
 The new API leverages the configSupplyCurrentLimit and configStatorCurrentLimit routines.  The configs are similar to the existing legacy API, but the configs have been renamed to better communicate the design intent.  For example, instead of configPeakCurrentLimit, the setting is referred to as triggerThresholdCurrent.
+
+.. code-block:: java
+
+  /**
+    * Configure the current limits that will be used
+    * Stator Current is the current that passes through the motor stators.
+    *  Use stator current limits to limit rotor acceleration/heat production
+    * Supply Current is the current that passes into the controller from the supply
+    *  Use supply current limits to prevent breakers from tripping
+    * 
+    *                                                               enabled | Limit(amp) | Trigger Threshold(amp) | Trigger Threshold Time(s)  */
+    _tal.configStatorCurrentLimit(new StatorCurrentLimitConfiguration(true,      20,                25,                1.0));
+    _tal.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true,      10,                15,                0.5));
+
+An example of this is available on our `Github Examples <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages>`_ repository
 
 Reading status signals
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
