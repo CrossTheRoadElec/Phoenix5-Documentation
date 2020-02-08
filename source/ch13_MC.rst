@@ -399,6 +399,54 @@ You may note that when the motor output transitions to neutral, the motors free 
 
 Follower motor controllers have separate neutral modes than their masters, so you must choose both.  Additionally, you may want to mix your neutral modes to achieve a partial electric brake when using multiple motors.
 
+Neutral Deadband
+------------------------------------------------------
+A device's neutral deadband is the region where the controller demotes its output to neutral. This can be configured in your robot code, with a default value of 0.04 or 4%, and a range of [0.001, 0.25] or [0.1%, 25%].
+
+.. code-block:: java
+
+		_talon.configNeutralDeadband(0.001); /* Configures _talon to use a neutral deadband of 0.1% */
+
+**Talon FX** has 3 different deadband strategies based on its state. They are *Simple*, *Continuous*, and *None*. 
+
+A *Simple* deadband will demote any requested output within the region to neutral, and otherwise uphold the requested demand. An example of this is with a configured deadband of 4% and a requested output of 4% will be 0%, 5% output will be 5%, and 100% will be 100%. This is used in the majority of circumstances so it's obvious that the requested output is the applied output outside the neutral deadband.
+
+A *Continuous* deadband is similar to a simple deadband in that it demotes any requested output within the region to neutral, but outside the region it will scale the applied output so it's continuous out of the deadband thresholds. This allows for a smooth transition out from a neutral'ed output. With a 4% deadband, a requested output of 4% will result in an applied output of 0%, requesting 5% will bring it to 1%, and 100% will be 100%.
+
+A *None* deadband will not uphold the deadband whatsoever. A deadband of 4% with 4% requested output will apply 4%, 5% is 5%, and 100% is 100%. This is used only in follower mode so you don't have to configure the deadband of your followers, only of the master.
+
+The below graph highlights this, exaggerrating the effect to make it obvious.
+
+.. image:: img/neutral-deadband-strategy.png
+
+The below table details what neutral deadband strategy the Talon FX uses under the various states.
+
+.. list-table:: Talon FX Neutral Deadband Strategies
+  :widths: 33 33 33
+  :header-rows: 1
+
+  * - Mode
+    - Deadband Type
+    - Condition
+  * - PWM Control
+    - Continuous
+    - X
+  * - Percent Output
+    - Continuous
+    - Voltage Compensation Disabled
+  * - Percent Output
+    - Simple
+    - Voltage Compensation Enabled
+  * - Closed Loop
+    - Simple
+    - X
+  * - Auxiliary Follower
+    - Simple
+    - X
+  * - Follower
+    - None
+    - X
+
 Ramping
 ------------------------------------------------------
 The Talon SRX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
