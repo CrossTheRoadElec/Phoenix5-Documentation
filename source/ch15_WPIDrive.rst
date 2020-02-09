@@ -4,7 +4,7 @@ WPI/NI Software Integration
 ===========================
 
 The stock software frameworks in the FRC control system has several features used by teams.
-To leverage these features, the C++ /Java Phoenix API has two additional classes:
+To leverage these features, the C++ /Java Phoenix API has three additional classes:
 
 - WPI_TalonFX
 - WPI_TalonSRX
