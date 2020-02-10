@@ -1,84 +1,92 @@
 .. _mc-sensors-label:
 
-Bring Up: Talon SRX Sensors
+Bring Up: Talon FX/SRX Sensors
 ===========================
 
-This section is dedicated to validating any rotary sensor attached to the Talon SRX.
+This section is dedicated to validating any rotary sensor attached to the Talon SRX and the integrated sensor on the Talon FX.
 Generally attaching a sensor is necessary for:
 
 - Close-Loop control modes (Position, MotionMagic, Velocity, MotionProfile)
 - Soft limits (auto neutral motor if out of range)
 
-For these features to function correctly, it is imperative to validate the sensor first.
+Sensor Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Many feedback interfaces are supported.  The complete list is below.
 
-Checking your wiring
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Talon FX Integrated Sensor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Talon FX has a sensor integrated into the controller. This is necessary for the brushless commutation and allows the user to use the Talon FX with a high resolution sensor without attaching any extra hardware.
 
-Inspect the entire wiring harness between the Talon SRX and the sensor.
-
-If connectors/crimps are used, **tug-test each individual wire one at a time**.
-
-.. tip:: If sensor is a CTRE Mag Encoder, inspect the ribbon cable for any frayed or damaged sections.
-
-.. tip:: If sensor is a CTRE Mag Encoder, confirm green LED.  When using Versa-Planetary Sensor Slice, orange LED is acceptable.
-
-.. warning:: When using a contactless sensor on a rolling mechanism (shooter / roller / intake), care should be taken to ensure spinning mechanism is electrically common to the remainder of the robot chassis.  Otherwise ESD strikes can occur between mechanism and the contactless sensor (due to its proximity to the mechanism).
-
-
-
-Sensor Check – No Motor Drive
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open Phoenix Tuner, and select device in the top dropdown.
+In order to verify the Integrated Sensor is working, select the Talon FX in the dropdown.
 
 .. image:: img/sensor-3.png
 
-Take an initial capture to first check the settled values (no motion).
+And take a self-test snapshot of the Talon FX and focus on the integrated sensor section of the snapshot. Verify that rotating the shaft results in a change of position.
 
-.. tip:: Analog should read ~100 units if floating.  If analog sensor is meant to be in-circuit, recheck sensor signal/power/harness/etc.
+.. image:: img/self-test-integratedsensor.png
 
-.. tip:: Quadrature resets to 0 on power boot.
+CANCoder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CANCoder is a great sensor to use for applications that require an absolute measurement of a mechanism or would otherwise require a long wire run back to a Talon SRX, CANifier, RIO, etc. If you are using a CANCoder, look at the :ref:`ch12a_BringUpCANCoder` document.
 
-.. tip:: Pulse Width should report a period of ~4 milliseconds when using a CTRE Mag encoder.
-
-.. tip:: If using Talon Tach to measure velocity, focus on “Velocity (if Tach)” under Pulse Width section.
-
-.. image:: img/sensor-4.png
-
-
- 
-
-
-Sensor Options
-------------------------------------------------------
-Many feedback interfaces are supported.  The complete list is below.
+Talon SRX External Ribbon Cabled Sensors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+There are many external sensors that are compatible with the Talon SRX in order to utilize the closed-loop functionality or read inside your robot code. Each of these possible sensors are detailed in a section below. 
 
 Quadrature
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 The Talon directly supports quadrature sensors.
 The decoding is done in 4x mode (every edge on A and B are counted).
 This is available via the Gadgeteer feedback port.
 
+.. tip:: Quadrature resets to 0 on power boot.
+
+To verify your quadrature sensor is properly connected to the Talon SRX, select it in the dropdown and take a self-test snapshot of the Talon. Notice the Quadrature section displays all the relevant information about the quadrature sensor.
+
+.. image:: img/self-test-quadrature.png
+
+Move the mechanism and take another self test. The position should have changed. If it didn't, there's an issue between the sensor and the Talon SRX.
+
+.. image:: img/self-test-quadrature-2.png
+
 Analog (Potentiometer or Encoder)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 Analog feedback sensors are sensors that provide a variable voltage to represent position.  Some devices (such as the MA3 US Digital encoder) are continuous and wrap around from 3.3V back to 0V.  In such cases the overwrap is tracked, and Talon continues counting 1023 => 1024.  
 
 This feature can be disabled by setting the config via API or Tuner.
 
 .. image:: img/sensor-22.png
 
+To check that the analog sensor is working, select your Talon in the drop down and take a self-test snapshot. The Analog section of the snapshot displays all relevant information regarding your analog sensor.
+
+.. tip:: Analog should read ~100 units if floating. If an analog sensor is meant to be in-circuit, recheck sensor signal/power/harness/etc.
+
+.. image:: img/self-test-analog.png
 
 Pulse Width Decoder
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 For sensors that encode position as a pulse width this mode can be used to decode the position.
 The pulse width decoder is <1us accurate and the maximum time between edges is 120 ms.
 
+To check that the pulse width sensor is working, select your Talon in the drop down and take a self-test snapshot. The PulseWidth section displays all information regarding the pulse width sensor.
+
+.. tip:: If using a Talon Tach, focus on the "Velocity (if Tachometer)" value
+
+.. image:: img/self-test-pulsewidth.png
+
 
 Cross The Road Electronics Magnetic Encoder (Absolute and Relative)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------------------------------
 The CTRE Magnetic Encoder is actually two sensor interfaces packaged into one (pulse width and quadrature encoder).
 Therefore the sensor provides two modes of use: absolute and relative.  Each mode provides 4096 units per rotation.
 
 .. image:: img/sensor-23.png
+
+.. tip:: Inspect the ribbon cable for any frayed or damaged sections.
+
+.. tip:: Confirm the green LED.  When using Versa-Planetary Sensor Slice, orange LED is acceptable.
+
+.. warning:: When using a contactless sensor on a rolling mechanism (shooter / roller / intake), care should be taken to ensure spinning mechanism is electrically common to the remainder of the robot chassis.  Otherwise ESD strikes can occur between mechanism and the contactless sensor (due to its proximity to the mechanism).
 
 The advantage of absolute mode is having a solid reference to where a mechanism is without re-tare-ing or re-zero-ing the robot.  The advantage of the relative mode is the faster update rate.  However both values can be read/written at the same time.  So a combined strategy of seeding the relative position based on the absolute position can be used to benefit from the higher sampling rate of the relative mode and still have an absolute sensor position.
 
@@ -97,34 +105,38 @@ This feature can be disabled by setting the config via API or Tuner.
 
 .. image:: img/sensor-22.png
 
+In order to test that the Mag Encoder is connected properly to the Talon SRX and verify that it is working, you should first select the Talon SRX using the drop down, and take a self-test snapshot of the Talon. The Mag Encoder uses both Quadrature and Pulse Width, so the relevant information for the Mag Encoder will be in both of those sections in the self-test.
 
-Software Select Sensor Type
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Although all sensor values are available all the time, the Talon SRX generally requires the robot application to “pick” a particular “Feedback Device” for soft limit, closed-loop features, and plotter.
+.. image:: img/self-test-magenc.png
 
-.. note:: The selected “Feedback Device” defaults to Quadrature Encoder.
+Software-Select Sensor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Once you have decided what sensor you are going to use, you have to select that sensor in the software. 
 
-Once a “Feedback Device” is selected, the “Sensor Position” and “Sensor Velocity” signals will update with the output of the selected feedback device.  
+.. note:: It is imperative that this step is done regardless of if you wish to use the device's closed-looping features or not.
 
-Select the sensor (under PID0 Primary) with either Phoenix API or using Tuner.
+This step is done for a number of reasons:
+ - It allows the device to use the selected sensor in its closed looping.
+ - It allows the user to use the getSelected* API
+   - This is updated faster than the sensor-specific gets inside the Sensor Collection.
+   - This obeys the sensor phase that's been set.
+   - This obeys any sensor coefficient that's been configured.
+
+Selecting the sensor is done with either Phoenix API or Tuner. In order to select the sensor using Tuner, choose your device in the drop down, access the Config Tab, and select the sensor you are using.
+
+.. note:: The selected "Feedback Device" defaults to *Quadrature Encoder* for Talon SRX, *None* for Victor SPX, and *Integrated Sensor* for Talon FX.
 
 .. image:: img/sensor-5.png
 
-In this example, pulse width position is selected (absolute position within rotation when using CTRE Mag Encoder).
+To select it using Phoenix API, call configSelectedFeedbackSensor.
 
-.. image:: img/sensor-6.png
+.. code-block:: java
 
-Take another Self-test Snapshot and notice the Selected Sensor (PID0) matches the selection.
+  _tal.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+
+Verify the sensor has been selected by taking another self-test snapshot of the device and confirming PID0's Feedback is the selected sensor
 
 .. image:: img/sensor-7.png
-
-Manually rotate in one direction and take another Self-test Snapshot.  Confirm velocity is nonzero.
-
-.. image:: img/sensor-8.png
-
-Now spin the other way and confirm opposite polarity.
-
-.. image:: img/sensor-9.png
 
 Because the sensor is now “selected”, turn on the plot and hand rotate sensor back and forth. 
 Disable plot to pause after capturing several seconds.
@@ -137,18 +149,6 @@ Checks:
 - Shake the sensor harness while hand-turning mechanism.
 - This is also a good opportunity to confirm the resolution of the sensor.
 
-Selecting the CTRE Magnetic Encoder
-------------------------------------------------------
-Selecting the Magnetic Encoder for closed-loop / soft-limit features is no different than selecting other sensor feedback devices.  
-Select Quadrature for the faster incremental/relative signal.  Select Pulse Width for the slower absolute (within one rotation) signal.
-
-.. code-block:: java 
-
-	_tal.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-
-
-
-
 .. _mc-Sensor-Check:
 
 Sensor Check – With Motor Drive
@@ -160,7 +160,7 @@ Sensor Phase
 ------------------------------------------------------
 Sensor phase describes the relationship between the motor output direction (positive vs negative) and sensor velocity (positive vs negative).  For soft-limits and closed-loop features to function correctly, the sensor measurement and motor output must be “in-phase”.
 
-
+.. note:: Talon FX automatically phases your sensor for you. It will always be correct, provided you use the getSelected* API and have configured the selected feedback type to be integrated sensor.
 
 
 

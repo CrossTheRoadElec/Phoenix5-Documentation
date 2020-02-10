@@ -307,6 +307,12 @@ We also multiply the joystick so that forward is positive (intuitive).  This can
 
 .. note:: The C++/Java class TalonFX allows user to specify TalonFXInvertType.CounterClockwise/TalonFXInvertType.Clockwise.
 
+Talon FX Specific Inverts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Talon FX has a new set of inverts that are specific to it, TalonFXInvertType.Clockwise and TalonFXInvertType.CounterClockwise. These new inverts allow the user to know exactly what direction the Falcon 500 will spin.
+
+.. note:: The Talon FX specific invert types are from the perspective of looking at the face of the motor.
+
 Follower
 ------------------------------------------------------
 If a mechanism requires multiple motors, than there are likely multiple motor controllers.   The Follower feature of the Talon SRX and Victor SPX is a convenient method to keep two or more motor controller outputs consistent.  If you have a sensor for closed-looping, connect that to the “master” Talon SRX (unless it is a remote sensor such as CANifier/Pigeon).
