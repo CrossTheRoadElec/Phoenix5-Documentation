@@ -1,7 +1,7 @@
 .. _mc-sensors-label:
 
 Bring Up: Talon FX/SRX Sensors
-===========================
+======================================
 
 This section is dedicated to validating any rotary sensor attached to the Talon SRX and the integrated sensor on the Talon FX.
 Generally attaching a sensor is necessary for:
@@ -14,27 +14,27 @@ Sensor Options
 Many feedback interfaces are supported.  The complete list is below.
 
 Talon FX Integrated Sensor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 The Talon FX has a sensor integrated into the controller. This is necessary for the brushless commutation and allows the user to use the Talon FX with a high resolution sensor without attaching any extra hardware.
 
 In order to verify the Integrated Sensor is working, select the Talon FX in the dropdown.
 
 .. image:: img/sensor-3.png
 
-And take a self-test snapshot of the Talon FX and focus on the integrated sensor section of the snapshot. Verify that rotating the shaft results in a change of position.
+And take a self-test snapshot of the Talon FX. Focus on the integrated sensor section of the snapshot and verify that rotating the shaft results in a change of position.
 
 .. image:: img/self-test-integratedsensor.png
 
 CANCoder
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 CANCoder is a great sensor to use for applications that require an absolute measurement of a mechanism or would otherwise require a long wire run back to a Talon SRX, CANifier, RIO, etc. If you are using a CANCoder, look at the :ref:`ch12a_BringUpCANCoder` document.
 
 Talon SRX External Ribbon Cabled Sensors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-There are many external sensors that are compatible with the Talon SRX in order to utilize the closed-loop functionality or read inside your robot code. Each of these possible sensors are detailed in a section below. 
+----------------------------------------
+There are many external sensors that are compatible with the Talon SRX in order to utilize its closed-loop functionality or read inside your robot code.
 
 Quadrature
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The Talon directly supports quadrature sensors.
 The decoding is done in 4x mode (every edge on A and B are counted).
 This is available via the Gadgeteer feedback port.
@@ -50,7 +50,7 @@ Move the mechanism and take another self test. The position should have changed.
 .. image:: img/self-test-quadrature-2.png
 
 Analog (Potentiometer or Encoder)
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Analog feedback sensors are sensors that provide a variable voltage to represent position.  Some devices (such as the MA3 US Digital encoder) are continuous and wrap around from 3.3V back to 0V.  In such cases the overwrap is tracked, and Talon continues counting 1023 => 1024.  
 
 This feature can be disabled by setting the config via API or Tuner.
@@ -64,7 +64,7 @@ To check that the analog sensor is working, select your Talon in the drop down a
 .. image:: img/self-test-analog.png
 
 Pulse Width Decoder
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For sensors that encode position as a pulse width this mode can be used to decode the position.
 The pulse width decoder is <1us accurate and the maximum time between edges is 120 ms.
 
@@ -76,7 +76,7 @@ To check that the pulse width sensor is working, select your Talon in the drop d
 
 
 Cross The Road Electronics Magnetic Encoder (Absolute and Relative)
---------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The CTRE Magnetic Encoder is actually two sensor interfaces packaged into one (pulse width and quadrature encoder).
 Therefore the sensor provides two modes of use: absolute and relative.  Each mode provides 4096 units per rotation.
 
@@ -118,9 +118,10 @@ Once you have decided what sensor you are going to use, you have to select that 
 This step is done for a number of reasons:
  - It allows the device to use the selected sensor in its closed looping.
  - It allows the user to use the getSelected* API
-   - This is updated faster than the sensor-specific gets inside the Sensor Collection.
-   - This obeys the sensor phase that's been set.
-   - This obeys any sensor coefficient that's been configured.
+ 
+    - This is updated faster than the sensor-specific gets inside the Sensor Collection.
+    - This obeys the sensor phase that's been set.
+    - This obeys any sensor coefficient that's been configured.
 
 Selecting the sensor is done with either Phoenix API or Tuner. In order to select the sensor using Tuner, choose your device in the drop down, access the Config Tab, and select the sensor you are using.
 
@@ -157,7 +158,7 @@ In this step we will attempt to drive motor while monitoring sensor value.
 Motor controller can be controlled using Control-tab (see previous relevant section) or controlled from robot application via Phoenix API (see previous relevant section).
 
 Sensor Phase
-------------------------------------------------------
+----------------------------------------
 Sensor phase describes the relationship between the motor output direction (positive vs negative) and sensor velocity (positive vs negative).  For soft-limits and closed-loop features to function correctly, the sensor measurement and motor output must be “in-phase”.
 
 .. note:: Talon FX automatically phases your sensor for you. It will always be correct, provided you use the getSelected* API and have configured the selected feedback type to be integrated sensor.

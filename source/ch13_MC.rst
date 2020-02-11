@@ -305,17 +305,21 @@ We also multiply the joystick so that forward is positive (intuitive).  This can
 
 .. image:: img/lv-invert-1.png
 
-.. note:: The C++/Java class TalonFX allows user to specify TalonFXInvertType.CounterClockwise/TalonFXInvertType.Clockwise.
-
 Talon FX Specific Inverts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Talon FX has a new set of inverts that are specific to it, TalonFXInvertType.Clockwise and TalonFXInvertType.CounterClockwise. These new inverts allow the user to know exactly what direction the Falcon 500 will spin.
+Talon FX has a new set of inverts that are specific to it, `TalonFXInvertType.Clockwise` and `TalonFXInvertType.CounterClockwise`. These new inverts allow the user to know exactly what direction the Falcon 500 will spin. These inverts are from the perspective of looking at the face of the motor. 
 
-.. note:: The Talon FX specific invert types are from the perspective of looking at the face of the motor.
+Below is an image demonstrating the Falcon's **Clockwise** rotation:
+
+.. image:: img/falcon-clockwise.png
+
+And below is the Falcon's **CounterClockwise** rotation:
+
+.. image:: img/falcon-counter-clockwise.png
 
 Follower
 ------------------------------------------------------
-If a mechanism requires multiple motors, than there are likely multiple motor controllers.   The Follower feature of the Talon SRX and Victor SPX is a convenient method to keep two or more motor controller outputs consistent.  If you have a sensor for closed-looping, connect that to the “master” Talon SRX (unless it is a remote sensor such as CANifier/Pigeon).
+If a mechanism requires multiple motors, than there are likely multiple motor controllers.   The Follower feature of the Talon FX/SRX and Victor SPX is a convenient method to keep two or more motor controller outputs consistent.  If you have an external sensor for closed-looping, connect that to the “master” Talon SRX (unless it is a remote sensor such as CANcoder/CANifier/Pigeon).
 
 Below we’ve added a new Victor to follow Talon 0.  
 
@@ -392,6 +396,8 @@ Neutral Mode
 ------------------------------------------------------
 You may note that when the motor output transitions to neutral, the motors free spin (coast) in the last direction they were driven.  If the Talon/Victor is set to “coast” neutral mode, then this is expected.  The neutral mode can also be set to “brake” to electrically common the motor leads during neutral, causing a deceleration that combats the spinning motor motion.
 
+.. tip:: You can use Talon FX's ConfigStatorCurrentLimit method to dial in how strong the brake is.
+
 .. note:: SetNeutralMode() can be used change the neutral mode on the fly.
 
 .. code-block:: java
@@ -417,7 +423,7 @@ A device's neutral deadband is the region where the controller demotes its outpu
 
 A *Simple* deadband will demote any requested output within the region to neutral, and otherwise uphold the requested demand. An example of this is with a configured deadband of 4% and a requested output of 4% will be 0%, 5% output will be 5%, and 100% will be 100%. This is used in the majority of circumstances so it's obvious that the requested output is the applied output outside the neutral deadband.
 
-A *Continuous* deadband is similar to a simple deadband in that it demotes any requested output within the region to neutral, but outside the region it will scale the applied output so it's continuous out of the deadband thresholds. This allows for a smooth transition out from a neutral'ed output. With a 4% deadband, a requested output of 4% will result in an applied output of 0%, requesting 5% will bring it to 1%, and 100% will be 100%.
+A *Continuous* deadband is similar to a simple deadband in that it demotes any requested output within the region to neutral, but outside the region it will scale the applied output so it's continuous out of the deadband thresholds. This allows for a smooth transition out of neutral. With a 4% deadband, a requested output of 4% will result in an applied output of 0%, requesting 5% will bring it to 1%, and 100% will be 100%.
 
 A *None* deadband will not uphold the deadband whatsoever. A deadband of 4% with 4% requested output will apply 4%, 5% is 5%, and 100% is 100%. This is used only in follower mode so you don't have to configure the deadband of your followers, only of the master.
 
@@ -432,30 +438,30 @@ The below table details what neutral deadband strategy the Talon FX uses under t
   :header-rows: 1
 
   * - Mode
-    - Deadband Type
     - Condition
+    - Deadband Type
   * - PWM Control
-    - Continuous
     - X
-  * - Percent Output
     - Continuous
+  * - Percent Output
     - Voltage Compensation Disabled
+    - Continuous
   * - Percent Output
-    - Simple
     - Voltage Compensation Enabled
+    - Simple
   * - Closed Loop
-    - Simple
     - X
+    - Simple
   * - Auxiliary Follower
+    - X
     - Simple
-    - X
   * - Follower
-    - None
     - X
+    - None
 
 Ramping
 ------------------------------------------------------
-The Talon SRX can be set to honor a ramp rate to prevent instantaneous changes in throttle.
+The motor controller can be set to honor a ramp rate to prevent instantaneous changes in throttle.
 This ramp rate is in effect regardless of which mode is selected (throttle, slave, or closed-loop). 
 
 Ramp can be set in time from neutral to full using configOpenLoopRampRate().
@@ -477,6 +483,7 @@ Ramp can be set in time from neutral to full using configOpenLoopRampRate().
 .. image:: img/lv-closedloopramp-1.png
 
 Peak/Nominal Outputs
+-----------------------------------------------------
 Often a mechanism may not require full motor output.  The application can cap the output via the peak forward and reverse config setting (through Tuner or API).
 
 Additionally, the nominal outputs can be selected to ensure that any non-zero requested motor output gets promoted to a minimum output.  For example, if the nominal forward is set to +0.10 (+10%), then any motor request within (0%, +10%) will be promoted to +10% assuming request is beyond the neutral dead band.  This is useful for mechanisms that require a minimum output for movement, and can be used as a simpler alternative to the kI (integral) component of closed-looping in some circumstances.
@@ -485,7 +492,7 @@ Additionally, the nominal outputs can be selected to ensure that any non-zero re
 Voltage Compensation
 ------------------------------------------------------
 
-Talon SRX and Victor SPX can be configured to adjust their outputs in response to the battery voltage measurement (in all control modes).  Use the voltage compensation saturation config to determine what voltage represents 100% output.  
+Talon FX/SRX and Victor SPX can be configured to adjust their outputs in response to the battery voltage measurement (in all control modes).  Use the voltage compensation saturation config to determine what voltage represents 100% output.  
 
 Then enable the voltage compensation using enableVoltageCompensation().
 
@@ -576,7 +583,7 @@ An example of this is available on our `Github Examples <https://github.com/Cros
 Reading status signals
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Talon SRX transmits most of its status signals periodically, i.e. in an unsolicited fashion.  This improves bus efficiency by removing the need for “request” frames, and guarantees the signals necessary for the wide range of use cases Talon supports, are available.
+The Talon FX/SRX and Victor SPX transmit most of their status signals periodically, i.e. in an unsolicited fashion.  This improves bus efficiency by removing the need for “request” frames, and guarantees that the signals necessary for the wide range of use cases they support are available.
 
 These signals are available in API regardless of what control mode the Talon SRX is in.
 Additionally the signals can be polled using Phoenix Tuner using the Self-test Snapshot button.
