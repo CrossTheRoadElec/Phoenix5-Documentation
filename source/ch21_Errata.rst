@@ -82,3 +82,8 @@ Configuring a sensor coefficient on Talon FX does not do anything.
 
 .. tip:: This has been resolved in firmware version 20.2.3.0
 
+Talon FX Continuous-Deadbands all the time
+-------------------------------------------------
+Talon FX will always follow a continuous deadband regardless of the mode it's in. This results in double-deadbanding for a follower, which is seen by the applied output of the follower being slightly different than the master. Read more about Continuous Deadbanding inside :ref:`ch13_MC`.
+
+.. tip:: This has been resolved in firmware version 20.1.0.0
