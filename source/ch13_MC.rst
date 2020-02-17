@@ -380,6 +380,13 @@ Select follower motor in Tuner, and confirm current via plot.
 .. note:: Calling follow() in the periodic loop is not required, but also does not affect anything in a negative way.
 
 
+Controlling Followers with Phoenix Tuner
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oftentimes you want to test/tune a mechanism with a master motor controller and one or more followers. This can be accomplished with Phoenix Tuner in the same manner as if there was only one controller, **as long as the followers are configured to follow the master**. This means you **cannot** run a temporary diagnostic server to control multiple motor controllers at the same time.
+
+It is imperative to make sure the followers are configured correctly by **following the steps above**. The followers will use their settings from the user application, even when following a master controlled by Tuner.
+
+.. tip:: This is the recommended way to tune two or more mechanically linked motors. By having one motor controller as a master, it will handle the PID closed looping while all followers match the applied output of the master.
 
 
 Neutral Mode
