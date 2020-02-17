@@ -12,19 +12,21 @@ For a complete and comprehensive list, see the full `Release Notes`_.
 
 Talon FX (Falcon 500) / Talon SRX / Victor SPX
 --------------------------------------------------------
-The kickoff firmware is 20.0.0.0, and the latest firmware is 20.2.3.0.
+The kickoff firmware is 20.0.0.0, and the latest firmware is:
+
+- Talon FX: 20.2.3.0
+- Talon SRX: 20.2
+- Victor SPX: 20.1
 
 These versions are adequate for FRC and nonFRC use (notwithstanding known :ref:`errata with HERO C#<Errata-hero>`).
 
 The 20.2 firmware update
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Talon FX 20.2.3.0 supports Sensor Coefficient in this update.
+Talon FX 20.2.3.0 fixed Sensor Coefficient.
 
 Talon FX 20.2.3.0 also supports Music.
 
-Talon SRX 20.2 improved the quadrature velocity measurement under certain conditions, so that it was less noisy.
-
-Victor SPX latest firmware is still 20.1
+Talon SRX 20.2 fixed an issue where the quadrature velocity measurement under certain conditions could be noisy.
 
 The 20.1 firmware update
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
