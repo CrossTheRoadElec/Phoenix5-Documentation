@@ -1,8 +1,10 @@
 :orphan:
 
-Oh No! Teh Requested Pagwe waz not found!
-=========================================
+Uh Oh! Page was not found!
+==========================
 
-You couwd twy seawching in the weft hand sidebaw fow youw page. If you bewieve this an issue, you can awways submit a wepowt >w<
+**Why did the chicken cross the road?**
 
-Submit a report `here <https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues>`__
+- To go to the sidebar to find its topic! 🥁
+
+If you believe this is an issue, please submit a report `here <https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues>`__
