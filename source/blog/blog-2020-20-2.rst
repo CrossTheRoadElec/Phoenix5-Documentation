@@ -49,7 +49,7 @@ Both are accessible via the fault API and Tuner Self-test Snapshot.
 
 .. warning:: Because this firmware fix involves preventing a hardware damaging condition, the latest API release will **require this version or newer to control Talon FX**.
 
-Falcon 500 Set Screws
+Falcon 500 Shaft Retention Screws
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 There have been recent reports of Falcons with insufficient Loctite on the shaft screws.
 VEX has released the following recommendation to apply Loctite to this seasons Falcons.
