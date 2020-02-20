@@ -1,0 +1,10 @@
+:orphan:
+
+Uh Oh! Page was not found!
+==========================
+
+**Why did the chicken cross the road?**
+
+- To go to the sidebar to find its topic! 🥁
+
+If you believe this is an issue, please submit a report `here <https://github.com/CrossTheRoadElec/Phoenix-Documentation/issues>`__
