@@ -41,6 +41,12 @@ The remote sensor feature does not work with Talon FX.
 .. tip:: This is fixed in firmware version 20.1
 
 
+Kickoff Temporary Diagnostic Server may not work
+----------------------------------------------------
+The kickoff version of Tuner and temporary diagnostic server has a known issue where CAN bus devices may not show up. **This has been fixed in version 1.6.0.0 of Tuner.** This can be quickly checked by looking at the robot controller install tab of Tuner. If there is no purple "Restart LabVIEW Robot Code" button, Tuner is not up to date and may have this issue. Your version of Tuner should look like the following:
+
+.. image:: img/tuner-proper.png
+
 LabVIEW 2020 Deploys failing
 -----------------------------------------
 During our system level validation, we observed a circumstance where LabVIEW permanent deploys would fail ("Connection disconnected by peer").
