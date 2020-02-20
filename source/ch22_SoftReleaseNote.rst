@@ -14,11 +14,20 @@ Talon FX (Falcon 500) / Talon SRX / Victor SPX
 --------------------------------------------------------
 The kickoff firmware is 20.0.0.0, and the latest firmware is:
 
-- Talon FX: 20.2.3.0
+- Talon FX: 20.3.0.2
 - Talon SRX: 20.2
 - Victor SPX: 20.1
 
 These versions are adequate for FRC and nonFRC use (notwithstanding known :ref:`errata with HERO C#<Errata-hero>`).
+
+Talon FX 20.3 firmware update
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prevents hardware damage if Talon FX is unpowered and sufficiently back-driven.
+
+The exact conditions are explained in this `blog post`_.
+
+.. _blog post:  https://phoenix-documentation.readthedocs.io/en/latest/blog/blog-2020-20-2.html#new-talon-fx-firmware-20-3-0-2
 
 The 20.2 firmware update
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
