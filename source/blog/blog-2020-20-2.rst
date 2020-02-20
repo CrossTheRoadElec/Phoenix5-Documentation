@@ -1,0 +1,70 @@
+.. post:: Feb 20, 2020
+
+BLOG: Falcon 500 / Talon FX Critical Update
+===========================================
+
+Hello FRC Community!
+
+We've just released **Phoenix API 5.18.2.1** to address a reported issue with Falcon 500 (Talon FX).  **This release requires the new Talon FX firmware (20.3.0.2)**.
+The Phoenix installer and non-Windows binary kit is `now available <http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
+
+You can also find the latest firmware CRFs at each product page (the installer also installs them).
+
+New Talon FX Firmware 20.3.0.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We received a **small number of Falcon RMAs** with a unique failure mode.
+After failure analysis, we found a circumstance **where the tank capacitors inside the Talon FX can be damaged** if certain conditions are met.
+The conditions require the following (for several seconds):
+
+#. Disconnecting Falcon from battery (open breaker event or disconnect power harness from battery)
+
+#. Back-driving the Falcon's rotor **above 3500 RPM** (which will power up the electronics within the Falcon)
+
+#. At least **one** of the following.
+
+  A. Commanding Falcon to drive motor **while continuing to back drive** Falcon above 3500 RPM.
+
+  B. Commanding neutral-brake **while continuing to back drive** Falcon above 3500 RPM.
+
+These conditions can also be harmful with brushed motor controllers (3a in particular), but what makes Falcon unique is that:
+
+- it is a far more efficient generator than previous generation FRC controllers
+- condition 3.B. is unique to Falcon since it conditionally modulates neutral-brake during high-current events, which can exacerbate the issue.
+
+The firmware update referenced above addresses this by **detecting when these failure conditions occur)**.
+Motor output/brake will be disabled in this state, until the Falcon is properly powered again (breaker closes or supply brought back in circuit).
+When this occurs, Talon FX will blink a fault pattern (similar to thermal limit but green instead of orange).
+
+.. tip:: You can still back-drive your robots when they are powered off (pushing an unpowered robot from one location to another is common).  Manually back-driving does not reproduce this failure as this does not create enough energy, nor does it allow robot to be enabled for motor drive.
+
+There will be two new faults to detect this condition:
+
+- Supply Unstable Voltage - reflects the motor controller's inability to stabilize voltage due to the battery not being in circuit.
+- Supply Overvoltage - reflects the motor controller's inability to prevent voltage from escalating well above the rated max voltage due to regenerative braking while battery is not in circuit.
+
+Both are accessible via the fault API and Tuner Self-test Snapshot.
+
+.. note:: Faults do not need to be cleared to resume normal functionality (faults are instrumentation only):
+
+.. warning:: Because this firmware fix involves preventing a hardware damaging condition, the latest API release will **require this version or newer to control Talon FX**.
+
+Falcon 500 Set Screws
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There have been recent reports of Falcons with insufficient Loctite on the shaft screws.
+VEX has released the following recommendation to apply Loctite to this seasons Falcons.
+
+.. warning:: Note: We've found that some Falcons built during the first year (date code beginning in 19 or 200) may not have had Loctite properly applied to the shaft retaining screws. To be safe, we recommend that teams with first year motors open up them up and reapply Loctite 243 to all the shaft retention screws.
+
+Documentation will be updated in various places to reflect this.
+
+We strongly recommend teams inspect Falcons that are in use.
+
+Future Firmware update - Talon FX / Falcon 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We have one recent documented occurrence where if the Talon FX's supply voltage drops to a narrow margin (4.6 - 4.8 V) and recovers, the Talon FX can be fooled into reporting a hardware fault (which causes a perpetual red/orange blink pattern).
+
+This is not a typical voltage band to operate in.  Talon FX has voltage monitoring features that prevent this in the majority of cases (even when using a depleted battery).
+However improper power wiring can cause this issue to occur (for example: Falcon red and black leads shorting to each other momentarily).
+
+We've reproduced this and will have a firmware update coming to address it.  It wasn't released in time for today's release, but should be out shortly.
