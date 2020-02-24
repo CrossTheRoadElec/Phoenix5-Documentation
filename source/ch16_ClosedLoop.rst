@@ -711,6 +711,8 @@ An example of this is shown below in Java, within a class that implements the Co
 .. warning:: If using Motion Magic control mode, robot code should additionally poll getActiveTrajectoryPosition() routine/VI to determine when final target position has been reached.
    This is because the closed-loop error corresponds how well the position profile is tracking, not when profiled maneuver is complete.
 
+.. _closedloop-configurations:
+
 Closed-Loop Configurations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The remaining closed-loop centric configs are listed below.  
