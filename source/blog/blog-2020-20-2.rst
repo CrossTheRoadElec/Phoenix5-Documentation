@@ -68,3 +68,5 @@ This is not a typical voltage band to operate in.  Talon FX has voltage monitori
 However improper power wiring can cause this issue to occur (for example: Falcon red and black leads shorting to each other momentarily).
 
 We've reproduced this and will have a firmware update coming to address it.  It wasn't released in time for today's release, but should be out shortly.
+
+EDIT: Fix is now available at https://github.com/CrossTheRoadElec/Phoenix-Releases/releases/tag/firm_FX_v20.4.1.0
