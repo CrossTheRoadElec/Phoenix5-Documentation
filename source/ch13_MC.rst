@@ -127,40 +127,18 @@ Follow the appropriate instructions depending on if you want to use Driver Stati
 
 Setting up non-FRC Control
 ------------------------------------------------------
-In order to enable without the Driver Station and without a deployed FRC application, you must first ensure no FRC application is running in the roboRIO.  
+In order to enable without the Driver Station you must use a non-roboRIO platform and disconnect the roboRIO from the CAN bus.
 
-Or alternatively you can deploy a simple application that does not create any Phoenix objects. 
+With an FRC roboRIO, you must *always* use the Driver Station to enable.
 
-Otherwise CTRE CAN devices will detect the FRC use case and FRC-lock (meaning they will again require the Driver Station).
-
-
-Option 1 (easiest):  deploy a “dummy” FRC application 
-------------------------------------------------------
-This simply means create a small project from one of the available templates.
-Do not create any Phoenix CAN objects.
-
-
-
-
-Option 2: Un-deploy FRC application from your RIO
-------------------------------------------------------
-For C++/Java teams familiar with ssh, you can quickly un-deploy your roboRIO application by removing or naming your program jar file (Java) or frcUserProgram (C++). Power cycle after executing commands.  Then confirm Driver Station reads “No Code”.
-
-.. image:: img/bring-19.png
-
-Option 3 (slowest): Reimage the roboRIO
-------------------------------------------------------
-Re-imaging the RIO also will effectively remove the application, however this is a “sledge hammer” approach will take several minutes to perform.
 
 .. _frc-unlock:
 
 Confirm FRC Unlock 
 ------------------------------------------------------
-Close Driver Station software if it is running.  Do not allow DS to communicate with roboRIO, or CTRE devices will detect the FRC use case.
-
 Self-test Snapshot Motor Controller to confirm device FRCLocked = 0.
 
-If device is FRC Locked (=1), use factory default in the config tab to clear the state.
+If device is FRC Locked (=1), use factory default in the config tab to clear the state.  Note that if an FRC roboRIO is on the CAN bus, the motor controller will immediately FRC Lock again.
 
 .. note:: Use the config export tool if you need to keep your config settings.
  
@@ -173,7 +151,7 @@ Control tab
 Press both Robot Enabled and Control Enabled.  
 At this point you can use the track bar to drive the Victor/Talon.
 
-.. note:: If you do connect the driver station, the Talon/Victor will FRC Lock again.  At which point you can use the driver station to enable, and you no longer need to use the non-FRC Robot enable in Tuner.
+.. note:: If you do connect with a roboRIO, the Talon/Victor will FRC Lock again.  At which point you must use the driver station to enable, and you no longer need to use the non-FRC Robot enable in Tuner.
 
 .. note:: Spacebar or enter can be used to clear the control tab and neutral the selected motor controller.
 
