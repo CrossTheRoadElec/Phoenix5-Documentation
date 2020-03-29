@@ -63,7 +63,7 @@ Next, install the required software packages using the following commands:
  - CAN Tools ``sudo apt-get install can-utils``
  - Git ``sudo apt-get install git``
  - cmake (for build support) ``sudo apt-get install cmake``
- - libsdl12 (for gamepad support) ``sudo apt-get install libsdl2-dev``
+ - libsdl2 (for gamepad support) ``sudo apt-get install libsdl2-dev``
 
 
 With the necessary software installed, clone the example repository into the user directory.  This example is a basic C++ project that includes all necessary Phoenix libraries and will be used to validate the hardware and software setup.
