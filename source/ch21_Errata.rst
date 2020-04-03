@@ -6,7 +6,10 @@ Errata
 
 HERO firmware compatibility with firmware 4.X
 --------------------------------------------------------
-The HERO robot controller still requires 11.X firmware in the motor controllers to function correctly.
+The HERO robot controller still requires v11.X firmware in the motor controllers to function correctly.
+This will addressed in a future release (which updates HERO).
+
+THe HERO robot controller also still requires v0.41 firmware for Pigeon IMU.
 This will addressed in a future release (which updates HERO).
 
 No S-Curve VI in LabVIEW
