@@ -56,6 +56,7 @@ Pigeon IMU
 --------------------------------------------------------
 The kickoff/latest firmware is 20.0.
 
+A different firmware version is required for HERO use, per the known :ref:`errata with HERO C#<Errata-hero>`).
 
 PCM
 --------------------------------------------------------
