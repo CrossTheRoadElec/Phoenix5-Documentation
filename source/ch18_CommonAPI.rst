@@ -23,7 +23,7 @@ Status 2 (Default Period 20ms):
 
 - Selected Sensor Position (PID 0)
 - Selected Sensor Velocity (PID 0)
-- Supply Current Measurement
+- Brushed Supply Current Measurement
 - Sticky Fault Information
 
 .. tip:: Motor controllers that are followers can have slower update rates for this group without impacting performance.
@@ -58,6 +58,11 @@ Status 13 (Default Period >100ms):
 Status 14 (Default Period >100ms):
 
 - PID1 (Auxiliary PID) Information
+
+Status Brushless Current (Default Period 50ms):
+
+- Brushless Supply Current Measurement
+- Brushless Stator Current Measurement
 
 
 Pigeon IMU
