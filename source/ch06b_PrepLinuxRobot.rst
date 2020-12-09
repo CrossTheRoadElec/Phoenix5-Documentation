@@ -178,6 +178,8 @@ Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
 
 
 Your program runs the diagnostics server, so you do not need to install the diagnostics server through Phoenix Tuner.
+You can disable the diagnostics server in your program by adding ``c_SetPhoenixDiagnosticsStartTime(-1);`` to the start
+of your main method. The line is commented out in the example program.
 
 .. raw:: html
 
