@@ -165,6 +165,8 @@ How to setup Phoenix Tuner?
 
 With the CAN network up and running, Phoenix Tuner can be used with the Linux Robot Controller in the same manner as the roboRIO.
 
+.. note:: SSH must be enabled on the Linux Robot Controller to perform a field upgrade or modify a device's configuration using Phoenix Tuner.
+
 Connect both the Linux Robot Controller and Windows machine to the same network via WiFi or and ethernet connection.
 
 Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
