@@ -177,9 +177,13 @@ Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
 .. |_Linux_IP_Image_| image:: img/LinuxWlan.png
 
 
-Your program runs the diagnostics server in the background, so you do not need to install the diagnostics server through Phoenix Tuner.
+Your program runs the diagnostics server, so you do not need to install the diagnostics server through Phoenix Tuner.
 
-~~Press the Install button.
+.. raw:: html
+
+	<strike>
+
+Press the Install button.
 
 .. image:: img/tuner-4.png
 
@@ -199,7 +203,11 @@ Enter your username and password when prompted.
 
 Tuner will then install and start the diagnostics server on the device.
 
-The diagnostics server is now installed and running on your device.~~
+The diagnostics server is now installed and running on your device.
+
+.. raw:: html
+
+	</strike>
 
 
 
