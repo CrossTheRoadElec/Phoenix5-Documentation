@@ -126,6 +126,40 @@ You should see a constant stream of messages similar to this:
 .. image:: img/candump.png
 
 
+.. _SocketCan:
+
+Running the SocketCan Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Build the example with ``./build.sh``. 
+
+Then run the example with ``./bin/example``.
+
+You're now running Phoenix on your Linux device. Confirm there are no error messages being sent to console output.
+
+.. note:: You may see error messages if your CAN devices are not yet configured and firmware updated.  Follow the :ref:`Bring Up: CAN<ch08_BringUpCAN>` section to setup your CAN devices.
+
+.. warning:: If your CTRE CAN devices were previously used with a roboRIO it is likely they are FRC locked and will not enable without a roboRIO on the CAN bus.
+	See :ref:`Confirm FRC Unlock<frc-unlock>` for instructions to confirm FRC unlock.
+
+You can stop your Program with ``Ctrl+z``.
+
+Modifying the SocketCan Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To modify the example  
+Open the file explorer and navigate to the Phoenix-Linux-SocketCAN-Example folder.
+
+.. image:: img/opening.png
+
+
+The example is a simple program, so all of the code is contained within example.cpp.  Edit this file to modify the program.
+
+.. image:: img/inside.png
+
+After modifying the file click the ``Save`` button in the top right corner then Go back to :ref:`Running the SocketCAN Example<SocketCan>` to run your modified example.
+
+.. image:: img/editor.png
+
+
 How to setup Phoenix Tuner?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -179,40 +213,6 @@ Confirm the bottom status bar is green and healthy, and server version is presen
 If there are CAN device present they will appear in the "CAN Devices" tab.  However, it is possible that devices will appear to be missing - this will be resolved in "Bring Up: CAN Bus".
 
 .. image:: img/tuner-6.png
-
-
-.. _SocketCan:
-
-Running the SocketCan Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Build the example with ``./build.sh``. 
-
-Then run the example with ``./bin/example``.
-
-You're now running Phoenix on your Linux device. Confirm there are no error messages being sent to console output.
-
-.. note:: You may see error messages if your CAN devices are not yet configured and firmware updated.  Follow the :ref:`Bring Up: CAN<ch08_BringUpCAN>` section to setup your CAN devices.
-
-.. warning:: If your CTRE CAN devices were previously used with a roboRIO it is likely they are FRC locked and will not enable without a roboRIO on the CAN bus.
-	See :ref:`Confirm FRC Unlock<frc-unlock>` for instructions to confirm FRC unlock.
-
-You can stop your Program with ``Ctrl+z``.
-
-Modifying the SocketCan Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To modify the example  
-Open the file explorer and navigate to the Phoenix-Linux-SocketCAN-Example folder.
-
-.. image:: img/opening.png
-
-
-The example is a simple program, so all of the code is contained within example.cpp.  Edit this file to modify the program.
-
-.. image:: img/inside.png
-
-After modifying the file click the ``Save`` button in the top right corner then Go back to :ref:`Running the SocketCAN Example<SocketCan>` to run your modified example.
-
-.. image:: img/editor.png
 
 
 
