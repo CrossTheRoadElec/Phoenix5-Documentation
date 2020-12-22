@@ -179,13 +179,24 @@ Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
 .. |_Linux_IP_Image_| image:: img/LinuxWlan.png
 
 
-Your program runs the diagnostics server, so you should not install the diagnostics server through Phoenix Tuner.
+Setting up the Phoenix Diagnostics Server
+-----------------------------------------
+
+The Phoenix Diagnostics Server is an HTTP server that communicates with the Phoenix Tuner. There are two versions of the server:
+a standalone version installed through Phoenix Tuner (legacy), and a version built into your user program (latest). Only one version of
+the diagnostics server may be running at any given time. We recommend you run the diagnostics server through your user program.
+
 You can disable the diagnostics server in your program by adding ``c_SetPhoenixDiagnosticsStartTime(-1);`` to the start
 of your main method. The line is commented out in the example program.
 
+.. warning:: The instructions below are available for legacy support. We recommend you instead run the Phoenix Diagnostics Server in your user program.
+
+.. warning:: The legacy instructions below currently do not work. See: https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example/issues/15
 .. raw:: html
 
 	<strike>
+
+To install the standalone diagnostics server:
 
 Press the Install button.
 
