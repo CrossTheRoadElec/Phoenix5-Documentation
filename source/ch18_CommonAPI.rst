@@ -59,6 +59,11 @@ Status 14 (Default Period >100ms):
 
 - PID1 (Auxiliary PID) Information
 
+Status 21 (Default Period >100ms):
+
+- Integrated Sensor Position (Talon FX)
+- Integrated Sensor Velocity (Talon FX)
+
 Status Brushless Current (Default Period 50ms):
 
 - Brushless Supply Current Measurement
