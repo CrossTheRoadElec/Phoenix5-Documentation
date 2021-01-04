@@ -126,61 +126,6 @@ You should see a constant stream of messages similar to this:
 .. image:: img/candump.png
 
 
-How to setup Phoenix Tuner?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-With the CAN network up and running, Phoenix Tuner can be used with the Linux Robot Controller in the same manner as the roboRIO.
-
-Connect both the Linux Robot Controller and Windows machine to the same network via WiFi or and ethernet connection.
-
-Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
-
-.. image:: img/tunerLinux.png
-
-.. tip:: To find the IP address in Linux, run the ``ifconfig`` command to display network interfaces.  The IP address will be listed under a 'lan' or 'wlan' entry and listed as inet. 
-	|_Linux_IP_Image_|
-
-.. |_Linux_IP_Image_| image:: img/LinuxWlan.png
-
-
-Press the Install button.
-
-.. image:: img/tuner-4.png
-
-Enter your username and password when prompted. 
-
-.. note:: The user must have sudo permissions to successfully install.
-
-.. image:: img/RemoteCred.png
-
-
-.. note:: To find your username look at the text before the @ in the terminal. For example, in this terminal the user is ctre.
-
-
-  .. image:: img/user.png
-
-
-
-Tuner will then install and start the diagnostics server on the device.
-
-The diagnostics server is now installed and running on your device.
-
-
-
-Verify the robot controller - Tuner
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-After installation is complete, Tuner will immediately connect to your device.
-
-Confirm the bottom status bar is green and healthy, and server version is present.  If this is not the case, you may need to re-start the Diagnostic Server by using the "Force Stop Server" and "Force Start Server" buttons.
-
-.. image:: img/tuner-5.png
-
-If there are CAN device present they will appear in the "CAN Devices" tab.  However, it is possible that devices will appear to be missing - this will be resolved in "Bring Up: CAN Bus".
-
-.. image:: img/tuner-6.png
-
-
 .. _SocketCan:
 
 Running the SocketCan Example
@@ -213,6 +158,86 @@ The example is a simple program, so all of the code is contained within example.
 After modifying the file click the ``Save`` button in the top right corner then Go back to :ref:`Running the SocketCAN Example<SocketCan>` to run your modified example.
 
 .. image:: img/editor.png
+
+
+How to setup Phoenix Tuner?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With the CAN network up and running, Phoenix Tuner can be used with the Linux Robot Controller in the same manner as the roboRIO.
+
+.. note:: SSH must be enabled on the Linux Robot Controller to perform a field upgrade or modify a device's configuration using Phoenix Tuner.
+
+Connect both the Linux Robot Controller and Windows machine to the same network via WiFi or and ethernet connection.
+
+Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
+
+.. image:: img/tunerLinux.png
+
+.. tip:: To find the IP address in Linux, run the ``ifconfig`` command to display network interfaces.  The IP address will be listed under a 'lan' or 'wlan' entry and listed as inet. 
+	|_Linux_IP_Image_|
+
+.. |_Linux_IP_Image_| image:: img/LinuxWlan.png
+
+
+Setting up the Phoenix Diagnostics Server
+-----------------------------------------
+
+The Phoenix Diagnostics Server is an HTTP server that communicates with the Phoenix Tuner. There are two versions of the server:
+a standalone version installed through Phoenix Tuner (legacy), and a version built into your user program (latest). Only one version of
+the diagnostics server may be running at any given time. We recommend you run the diagnostics server through your user program.
+
+You can disable the diagnostics server in your program by adding ``c_SetPhoenixDiagnosticsStartTime(-1);`` to the start
+of your main method. The line is commented out in the example program.
+
+.. warning:: The instructions below are available for legacy support. We recommend you instead run the Phoenix Diagnostics Server in your user program.
+
+.. warning:: The legacy instructions below currently do not work. See: https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example/issues/15
+.. raw:: html
+
+	<strike>
+
+To install the standalone diagnostics server:
+
+Press the Install button.
+
+.. image:: img/tuner-4.png
+
+Enter your username and password when prompted. 
+
+.. note:: The user must have sudo permissions to successfully install.
+
+.. image:: img/RemoteCred.png
+
+
+.. note:: To find your username look at the text before the @ in the terminal. For example, in this terminal the user is ctre.
+
+
+  .. image:: img/user.png
+
+
+
+Tuner will then install and start the diagnostics server on the device.
+
+The diagnostics server is now installed and running on your device.
+
+.. raw:: html
+
+	</strike>
+
+
+
+Verify the robot controller - Tuner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After installation is complete, Tuner will immediately connect to your device.
+
+Confirm the bottom status bar is green and healthy, and server version is present.  If this is not the case, you may need to re-start the Diagnostic Server by using the "Force Stop Server" and "Force Start Server" buttons.
+
+.. image:: img/tuner-5.png
+
+If there are CAN device present they will appear in the "CAN Devices" tab.  However, it is possible that devices will appear to be missing - this will be resolved in "Bring Up: CAN Bus".
+
+.. image:: img/tuner-6.png
 
 
 
