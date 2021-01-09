@@ -9,6 +9,7 @@ FRC Blogs
 .. toctree::
    :maxdepth: 2
 
+   blog-kickoff-2021.rst
    blog-2020-20-2.rst
    blog-kickoff-2020.rst
    blog-perf.rst
