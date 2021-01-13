@@ -58,7 +58,7 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-	'javasphinx',
+#	'javasphinx',
     'sphinx.ext.intersphinx',
 	'ablog',
     'notfound.extension'
