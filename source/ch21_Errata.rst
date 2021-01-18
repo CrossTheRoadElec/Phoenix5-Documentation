@@ -2,6 +2,25 @@
 
 Errata
 ======
+
+Java Simulation: WPI_TalonSRX/WPI_VictorSPX Null Pointer Exception
+-------------------------------------------------------------------------------------
+When running simulation, the following error can occur:
+
+::
+
+    Error at com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX$OnPeriodicCallback.run(WPI_TalonSRX.java:208): Unhandled exception: java.lang.NullPointerException
+            at com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX$OnPeriodicCallback.run(WPI_TalonSRX.java:208)
+            at edu.wpi.first.hal.HAL.simPeriodicBefore(HAL.java:41)
+            at edu.wpi.first.wpilibj.IterativeRobotBase.loopFunc(IterativeRobotBase.java:281)
+            at edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java:117)
+            at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java:335)
+            at edu.wpi.first.wpilibj.RobotBase.lambda$startRobot$0(RobotBase.java:387)
+            at java.base/java.lang.Thread.run(Thread.java:834)
+
+This occurs when multiple WPI_TalonSRX objects have been created with the same device ID or multiple WPI_VictorSPX objects have been created with the same device ID. 
+Find and remove the extra objects from your java code.
+
 .. _Errata-hero:
 
 HERO firmware compatibility with firmware 4.X
