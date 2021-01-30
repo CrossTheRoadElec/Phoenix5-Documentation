@@ -61,7 +61,8 @@ extensions = [
 #	'javasphinx',
     'sphinx.ext.intersphinx',
 	'ablog',
-    'notfound.extension'
+    'notfound.extension',
+    'sphinxext.opengraph'
 ]
 # Javadoc
 javadoc_url_map = {
