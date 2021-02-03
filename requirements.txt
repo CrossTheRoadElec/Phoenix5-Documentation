@@ -31,6 +31,7 @@ sphinx-automodapi==0.13
 sphinx-rtd-theme==0.5.1
 sphinxcontrib-websupport==1.2.4
 sphinx-notfound-page==0.6
+sphinxext-opengraph==0.4.1
 #Tinkerer==1.7.2
 urllib3==1.26.2
 Werkzeug==1.0.1
