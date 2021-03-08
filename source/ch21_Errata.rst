@@ -3,6 +3,18 @@
 Errata
 ======
 
+Talon FX Remote Filter Device ID Must be 15 or Less
+---------------------------------------------------------------- 
+When configuring Talon FX to have a remote sensor, the filter's device ID must be 15 or less.
+
+Attempting to set a Remote Filter Device ID >15 in Phoenix Tuner will result in a "DI_Mismatch" error.
+
+When running a robot program, the filter device ID will not be the expected value and so will generate an error that the remote sensor is missing on the bus.  
+The associated fault will also be asserted and can be viewed in self-test snapshot of the Talon FX.
+
+The actual filter device ID set will be truncated to the original set value modulo 15.
+
+
 Java Simulation: WPI_TalonSRX/WPI_VictorSPX Null Pointer Exception
 -------------------------------------------------------------------------------------
 When running simulation, the following error can occur:
