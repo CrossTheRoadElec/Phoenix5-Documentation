@@ -38,7 +38,7 @@ This is done by following the sensor bring up instructions for that particular d
 .. warning:: In order for a motor controller to use another Talon sensor as a remote source, that Talon must have the correct sensor type selected.
    In other words, if Victor X is going to use Talon Y's analog sensor, Talon Y must have a *selected sensor type* set to *analog*.
 
-.. warning:: Remote sensors accessed by a Talon FX (Falcon 500) must have a CAN ID of 15 or less.  See errata :ref:`talon-fx-remote-filter-device-id-must-be-15-or-less` for more details.
+.. warning:: Remote sensors accessed by a Talon FX (Falcon 500) must have a CAN ID of 15 or less.  See errata :ref:`talonfx-remoteID-errata` for more details.
 
 .. note:: When PigeonIMU is selected as a remote sensor, the closed loop uses the Pigeon's **native units** (8192 units per rotation). This can be changed by configuring a sensor coefficient for the closed loop, see :ref:`closedloop-configurations`.
 

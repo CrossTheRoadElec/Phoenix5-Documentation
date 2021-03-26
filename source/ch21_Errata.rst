@@ -3,6 +3,8 @@
 Errata
 ======
 
+.. _talonfx-remoteID-errata:
+
 Talon FX Remote Filter Device ID Must be 15 or Less
 ---------------------------------------------------------------- 
 When configuring Talon FX to have a remote sensor, the filter's device ID must be 15 or less.
