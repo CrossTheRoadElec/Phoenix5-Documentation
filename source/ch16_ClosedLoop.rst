@@ -492,7 +492,7 @@ As an example, we will use a differential drive train with 2 encoders on each si
 
   .. code-block:: java
 
-     _slave.follow(_ultimateMasterTalon, FollowerType.AuxOutput1); // follower will apply PID[0] - PID[1] while master applies PID[0] + PID[1], or vice versa
+     _follower.follow(_ultimateMasterTalon, FollowerType.AuxOutput1); // follower will apply PID[0] - PID[1] while master applies PID[0] + PID[1], or vice versa
 
 
  4. Configure PID[0] of the ultimate master motor controller. The example will use the sensor sum of the local encoder and of the other side's encoder.
