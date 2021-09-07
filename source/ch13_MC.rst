@@ -447,7 +447,7 @@ The below table details what neutral deadband strategy the Talon FX uses under t
 Ramping
 ------------------------------------------------------
 The motor controller can be set to honor a ramp rate to prevent instantaneous changes in throttle.
-This ramp rate is in effect regardless of which mode is selected (throttle, slave, or closed-loop). 
+This ramp rate is in effect regardless of which mode is selected (throttle, follower, or closed-loop). 
 
 Ramp can be set in time from neutral to full using configOpenLoopRampRate().
 
@@ -581,7 +581,7 @@ Included in the list of signals are:
 - Fault states, sticky fault states,
 - Limit switch pin states
 - Applied Throttle (duty cycle) regardless of control mode.
-- Applied Control mode: Voltage % (duty-cycle), Position/Velocity closed-loop, or slave follower.
+- Applied Control mode: Voltage % (duty-cycle), Position/Velocity closed-loop, or follower.
 - Brake State (coast vs brake)
 - Closed-Loop Error, the difference between closed-loop set point and actual position/velocity.
 - Sensor Position and Velocity, the signed output of the selected Feedback device (robot must select a Feedback device, or rely on default setting of Quadrature Encoder). 

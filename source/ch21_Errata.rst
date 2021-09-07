@@ -16,6 +16,8 @@ The associated fault will also be asserted and can be viewed in self-test snapsh
 
 The actual filter device ID set will be truncated to the original set value modulo 15.
 
+.. tip:: This is fixed in firmware version 21.0.1.0
+
 
 Java Simulation: WPI_TalonSRX/WPI_VictorSPX Null Pointer Exception
 -------------------------------------------------------------------------------------
