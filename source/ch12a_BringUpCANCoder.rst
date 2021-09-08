@@ -47,7 +47,7 @@ By default, this 0 point is when the magnet's north aligns with the LED on the C
 .. image:: img/bring-12a-configOffset.PNG
 
 
-.. note:: For mechanisms with a fixed range of motion, the offset should be set so that the discontinuity of the absolute measurement (ie, the rollover from 380 -> 0 or 180 -> -180) does not occur in the mechanism's range of motion.
+.. note:: For mechanisms with a fixed range of motion, the offset should be set so that the discontinuity of the absolute measurement (ie, the rollover from 360 -> 0 or 180 -> -180) does not occur in the mechanism's range of motion.
 
 
 CANCoder API
