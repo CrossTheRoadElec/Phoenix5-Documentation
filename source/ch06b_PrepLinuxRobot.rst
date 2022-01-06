@@ -141,7 +141,7 @@ You're now running Phoenix on your Linux device. Confirm there are no error mess
 .. warning:: If your CTRE CAN devices were previously used with a roboRIO it is likely they are FRC locked and will not enable without a roboRIO on the CAN bus.
 	See :ref:`Confirm FRC Unlock<frc-unlock>` for instructions to confirm FRC unlock.
 
-You can stop your Program with ``Ctrl+z``.
+You can stop your Program with ``Ctrl+C``.
 
 Modifying the SocketCan Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,7 +167,7 @@ With the CAN network up and running, Phoenix Tuner can be used with the Linux Ro
 
 .. note:: SSH must be enabled on the Linux Robot Controller to perform a field upgrade or modify a device's configuration using Phoenix Tuner.
 
-Connect both the Linux Robot Controller and Windows machine to the same network via WiFi or and ethernet connection.
+Connect both the Linux Robot Controller and Windows machine to the same network via WiFi or an ethernet connection.
 
 Enter the IP Address or Name of the Linux Robot Controller into Phoenix tuner.
 
@@ -231,7 +231,7 @@ Verify the robot controller - Tuner
 
 After installation is complete, Tuner will immediately connect to your device.
 
-Confirm the bottom status bar is green and healthy, and server version is present.  If this is not the case, you may need to re-start the Diagnostic Server by using the "Force Stop Server" and "Force Start Server" buttons.
+Confirm the bottom status bar is green and healthy, and server version is present.  If this is not the case and you are using the standalone server (legacy), you may need to re-start the Diagnostic Server by using the "Force Stop Server" and "Force Start Server" buttons.
 
 .. image:: img/tuner-5.png
 
