@@ -17,7 +17,7 @@ If using Quadrature or Pulse width sensor, rotate sensor while performing Self-t
 LED Strip Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `CANifier user’s guide <https://newsite.ctr-electronics.com/content/user-manual/CANifier%20User%27s%20Guide.pdf>`_ for wiring and controlling LED Strip.
+See `CANifier user’s guide <https://store.ctr-electronics.com/content/user-manual/CANifier%20User%27s%20Guide.pdf>`_ for wiring and controlling LED Strip.
 
 CANifier API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

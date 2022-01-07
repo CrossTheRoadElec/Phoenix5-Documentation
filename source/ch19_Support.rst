@@ -16,7 +16,7 @@ Contact information
 -------------------------------
 CTR Staff can be reached out with the contact information available at...
 
-https://newsite.ctr-electronics.com/contact-us/
+https://store.ctr-electronics.com/contact-us/
 
 The best method for contacting support is via our email (support@ctr-electronics.com). This allows for simple sharing of screenshots and supplemental file attachments.
 
