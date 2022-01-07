@@ -66,7 +66,7 @@ extensions = [
 ]
 # Javadoc
 javadoc_url_map = {
-    'com.ctre.phoenix' : ('http://newsite.ctr-electronics.com/content/api/java/html/', 'javadoc8'),
+    'com.ctre.phoenix' : ('http://store.ctr-electronics.com/content/api/java/html/', 'javadoc8'),
 }
 
 # Add any paths that contain templates here, relative to this directory.
