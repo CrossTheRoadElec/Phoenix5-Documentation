@@ -5,7 +5,7 @@ BLOG: FRC 2019 Kickoff
 
 Once again it is time to kick off a new FRC season!
 
-The Phoenix installer and non-Windows binary kit is `now available <http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
+The Phoenix installer and non-Windows binary kit is `now available <http://oldsite.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
 
 You can also find the latest firmware CRFs at each product page (the installer also installs them).
 

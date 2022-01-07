@@ -25,7 +25,7 @@ In this release the following components were updated:
 .. image:: ../img/blog-week6-1a.png
 
 
-The details of the update can be found in the `release notes <https://www.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.
+The details of the update can be found in the `release notes <https://oldsite.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.
 See the sections below for more information and good luck this build season!
 
 Omar Zrien
@@ -100,7 +100,7 @@ How To download
 Alternatively, users can download the individual components:
 
 - Release page on GitHub: https://github.com/CrossTheRoadElec/Phoenix-Releases/releases
-- Firmware can be downloaded from the product pages on http://www.ctr-electronics.com/
+- Firmware can be downloaded from the product pages on http://oldsite.ctr-electronics.com/
 - Additionally teams can pull the latest Phoenix API via the online method through VS Code, or via the non-Windows zip.
 
 Download instructions can be found `here <https://phoenix-documentation.readthedocs.io/en/latest/ch05_PrepWorkstation.html#what-to-download-and-why>`_.
