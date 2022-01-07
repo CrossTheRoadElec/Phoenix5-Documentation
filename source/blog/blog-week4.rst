@@ -23,7 +23,7 @@ How To download
 Alternatively, users can download the individual components:
 
 - Release page on GitHub: https://github.com/CrossTheRoadElec/Phoenix-Releases/releases
-- Firmware can be downloaded from the product pages on http://www.ctr-electronics.com/
+- Firmware can be downloaded from the product pages on http://oldsite.ctr-electronics.com/
 - Additionally teams can pull the latest Phoenix API via the online method through VS Code, or via the non-Windows zip.
 
 Download instructions can be found here
@@ -70,7 +70,7 @@ If this applies to your robot, we **recommend downloading latest Tuner (via Wind
 Misc Updates
 -----------------------------------------------------------------
 We've also made several minor corrections to the Self-test Snapshot results, and compatibility adjustments to match latest firmware.
-The details can be found in the `release notes <https://www.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.
+The details can be found in the `release notes <https://oldsite.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.
 
 New Phoenix API v15.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,4 +130,4 @@ If you are using the closed-loop features successfully, you may find that updati
 
 Additional firmware updates
 -----------------------------------------------------------------
-The additional firmware changes are also mentioned in the `release notes <https://www.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.
+The additional firmware changes are also mentioned in the `release notes <https://oldsite.ctr-electronics.com/downloads/release_notes/RELEASE_NOTES>`_.

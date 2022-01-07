@@ -39,7 +39,7 @@ For teams that want to start leveraging simulation features right now, the basic
 3. Open **Phoenix Tuner** and set the **Diagnostic Server Address** to ``localhost``. Simulated devices will appear in Phoenix Tuner in a few seconds.
 4. Develop as normal.
 
-.. tip:: We invite teams to leverage their preferred physics simulators by utilizing the `SimCollection <https://www.ctr-electronics.com/downloads/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1_talon_s_r_x_sim_collection.html>`_ functions in Talon SRX and Victor SPX as seen `here <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/a38b8d193a91eb9deae270daf49bde5730309322/Java%20General/MotionMagic/src/main/java/frc/robot/sim/TalonSRXSimProfile.java#L48>`_.
+.. tip:: We invite teams to leverage their preferred physics simulators by utilizing the `SimCollection <https://oldsite.ctr-electronics.com/downloads/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1_talon_s_r_x_sim_collection.html>`_ functions in Talon SRX and Victor SPX as seen `here <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/a38b8d193a91eb9deae270daf49bde5730309322/Java%20General/MotionMagic/src/main/java/frc/robot/sim/TalonSRXSimProfile.java#L48>`_.
 
 .. note:: Simulating non-FRC applications (not using WPI\_\* classes) will require calling ``Unmanaged.feedEnable(100);`` to enable simulated actuators.
 
@@ -49,9 +49,9 @@ Online API Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The online API documentation has been updated for 2021.
 
-C++ documentation can be found `here <https://www.ctr-electronics.com/downloads/api/cpp/html/index.html>`_.
+C++ documentation can be found `here <https://oldsite.ctr-electronics.com/downloads/api/cpp/html/index.html>`_.
 
-Java documentation can be found `here <https://www.ctr-electronics.com/downloads/api/java/html/index.html>`_.
+Java documentation can be found `here <https://oldsite.ctr-electronics.com/downloads/api/java/html/index.html>`_.
 
 **Java teams** should note that the **documentation jar** is installed locally after running our installer.
 

@@ -6,7 +6,7 @@ BLOG: FRC 2020 Kickoff
 Hello FRC Community!
 
 We've just release our 2020 version of Phoenix API 5.17.3.1.
-The Phoenix installer and non-Windows binary kit is `now available <http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
+The Phoenix installer and non-Windows binary kit is `now available <http://oldsite.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
 
 You can also find the latest firmware CRFs at each product page (the installer also installs them).
 

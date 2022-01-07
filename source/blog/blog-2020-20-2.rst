@@ -6,7 +6,7 @@ BLOG: Falcon 500 / Talon FX Critical Update
 Hello FRC Community!
 
 We've just released **Phoenix API 5.18.2.1** to address a reported issue with Falcon 500 (Talon FX).  **This release requires the new Talon FX firmware (20.3.0.2)**.
-The Phoenix installer and non-Windows binary kit is `now available <http://www.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
+The Phoenix installer and non-Windows binary kit is `now available <http://oldsite.ctr-electronics.com/control-system/hro.html#product_tabs_technical_resources>`_.
 
 You can also find the latest firmware CRFs at each product page (the installer also installs them).
 

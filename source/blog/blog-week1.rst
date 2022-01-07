@@ -23,7 +23,7 @@ Co-owner CTR-Electronics
 Updated API Docs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This week we went through our C++/Java API **filling in any missing comment block sections**.
-The online API doc has been updated for `C++ <http://www.ctr-electronics.com/downloads/api/cpp/html/index.html>`_ and `Java <http://www.ctr-electronics.com/downloads/api/java/html/index.html>`_.
+The online API doc has been updated for `C++ <http://oldsite.ctr-electronics.com/downloads/api/cpp/html/index.html>`_ and `Java <http://oldsite.ctr-electronics.com/downloads/api/java/html/index.html>`_.
 Of course if you still have questions, feel free to contact our support directly.
 
 Remember to update the firmware!

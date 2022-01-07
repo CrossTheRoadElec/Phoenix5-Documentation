@@ -106,7 +106,7 @@ How To download
 Alternatively, users can download the individual components:
 
 - Release page on GitHub: https://github.com/CrossTheRoadElec/Phoenix-Releases/releases
-- Firmware can be downloaded from the product pages on http://www.ctr-electronics.com/
+- Firmware can be downloaded from the product pages on http://oldsite.ctr-electronics.com/
 - Additionally teams can pull the latest Phoenix API via the online method through VS Code, or via the non-Windows zip.
 
 Download instructions can be found `here <https://phoenix-documentation.readthedocs.io/en/latest/ch05_PrepWorkstation.html#what-to-download-and-why>`_.

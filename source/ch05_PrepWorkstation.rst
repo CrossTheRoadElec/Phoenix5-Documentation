@@ -53,7 +53,7 @@ Environments: Windows-LabVIEW, Windows-C++/Java, HERO C#
 
 Phoenix Installer zip can be downloaded at:
 
-http://www.ctr-electronics.com/hro.html#product_tabs_technical_resources.
+https://newsite.ctr-electronics.com/software/.
 
 It is typically named Phoenix Framework_Windows_vW.X.Y.Z.zip
 
@@ -126,7 +126,7 @@ In this directory are the initial release firmware CRF files for all CTRE CAN bu
 
 The latest firmware to be used can be found in the :ref:`ch22_SoftReleaseNote`.
 
-.. note:: Additionally, newer updates may be provided online at http://www.ctr-electronics.com.
+.. note:: Additionally, newer updates may be provided online at https://newsite.ctr-electronics.com/software/.
 
 .. note:: There is no longer FRC versus non-FRC firmware for motor controllers.  Instead the latest firmware detects if the use case is FRC.  If so, the device will FRC-Lock, and will require the Driver Station for actuation.  
 
