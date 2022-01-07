@@ -28,3 +28,31 @@ If you wish to update all attached CANivores, check Update all CANivores. If a C
 Confirm Firmware Version column in the device list after field-upgrade.
 
 .. image:: img/bring-8a-field-upgrade.png
+
+Rename CANivores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CANivores can be given custom names for use within a robot program.
+Select the CANivore you wish to rename. Under the General CANivore Configuration section, set the new name and click "Change Name".
+
+.. note:: CANivore names cannot be longer than 32 characters.
+
+.. note:: To re-default the custom name, clear the “Name” text entry so it is blank and press “Change Name”.
+
+.. image:: img/bring-8a-name.png
+
+CANivore API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the constructors of CANivore-compatible CAN devices, there is an optional string parameter to set the device object's CAN bus.
+This string can be either the name of the CANivore or the CANivore's serial number.
+
+.. note:: On the roboRIO, if no CAN bus string is passed into the constructor, or the CAN bus string is empty, the device will use the roboRIO native CAN bus.
+	Otherwise, the device will use the first CANivore found.
+
+.. note:: You can explicitly specify that a device should use the roboRIO native CAN bus by passing down "rio" or "roborio".
+
+.. code-block:: cpp
+
+	TalonFX _fx_default{0};
+	TalonFX _fx_rio{1, "rio"};
+	TalonFX _fx_drivebase{0, "Drivebase"};
+	CANCoder _cc_elevator{0, "Elevator"};
