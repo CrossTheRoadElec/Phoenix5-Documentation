@@ -41,6 +41,7 @@ Follow these instructions in order!
    ch06b_PrepLinuxRobot
    ch07_InitHardTesting
    ch08_BringUpCAN
+   ch08a_BringUpCANivore
    ch09_BringUpPCM
    ch10_BringUpPDP
    ch11_BringUpPigeon
