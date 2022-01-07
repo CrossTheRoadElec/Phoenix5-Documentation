@@ -7,7 +7,7 @@ This section covers the basic firmware versions that are in use.
 
 For a complete and comprehensive list, see the full `Release Notes`_.
 
-.. _Release Notes: https://newsite.ctr-electronics.com/content/release-notes/RELEASE_NOTES.txt
+.. _Release Notes: https://store.ctr-electronics.com/content/release-notes/RELEASE_NOTES.txt
 
 
 Talon FX (Falcon 500) / Talon SRX / Victor SPX
