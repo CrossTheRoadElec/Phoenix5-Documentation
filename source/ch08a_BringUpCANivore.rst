@@ -89,6 +89,7 @@ caniv - CANivore CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 After running an action on the CANivores page of Phoenix Tuner, a small program called caniv will be deployed
 to the target system. caniv is a Command-line Interface (CLI) to interact with CANivores outside of Phoenix Tuner.
+Unlike the CANivores page in Phoenix Tuner, caniv does **not** require a running Phoenix Diagnostic Server.
 
 On Linux systems (including the roboRIO), caniv can be found at /usr/local/bin. On Windows systems, the program
 is in the Phoenix Tuner install location, under Binary\\windows\\ctre.
