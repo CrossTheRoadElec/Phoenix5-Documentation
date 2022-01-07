@@ -51,6 +51,7 @@ Follow these instructions in order!
    ch14a_BringUpRemoteSensors
    ch14b_BringUpDifferentialSensors
    ch15_WPIDrive
+   ch15a_Simulation
    ch16_ClosedLoop
    ch17_Faults
    ch18_CommonAPI
