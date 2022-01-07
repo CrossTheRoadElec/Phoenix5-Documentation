@@ -42,7 +42,7 @@ Select the CANivore you wish to rename. Under the General CANivore Configuration
 
 CANivore API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the constructors of CANivore-compatible CAN devices, there is an optional string parameter to set the device object's CAN bus.
+In the constructors for CANivore-compatible CAN devices, there is an optional string parameter to set the device's CAN bus.
 This string can be either the name of the CANivore or the CANivore's serial number.
 
 .. note:: On the roboRIO, if no CAN bus string is passed into the constructor, or the CAN bus string is empty, the device will use the roboRIO native CAN bus.
@@ -50,9 +50,9 @@ This string can be either the name of the CANivore or the CANivore's serial numb
 
 .. note:: You can explicitly specify that a device should use the roboRIO native CAN bus by passing down "rio" or "roborio".
 
-.. code-block:: cpp
+.. code-block:: java
 
-	TalonFX _fx_default{0};
-	TalonFX _fx_rio{1, "rio"};
-	TalonFX _fx_drivebase{0, "Drivebase"};
-	CANCoder _cc_elevator{0, "Elevator"};
+	TalonFX fx_default = new TalonFX(0);
+	TalonFX fx_rio = new TalonFX(1, "rio");
+	TalonFX fx_drivebase = new TalonFX(0, "Drivebase");
+	CANCoder cc_elevator = new CANCoder(0, "Elevator");
