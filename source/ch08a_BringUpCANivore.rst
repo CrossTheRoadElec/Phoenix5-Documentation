@@ -5,14 +5,14 @@ Bring Up: CANivore
 
 View attached CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open Phoenix Tuner and go to the CANivores tab, and click on the Refresh CANivores button to
-get a list of attached CANivores.
+Open Phoenix Tuner, go to the CANivores tab, and click on the Refresh CANivores button to get a list of CANivores
+attached to the target system. You can specify the target system in the Robot Controller Install tab.
 
 .. image:: img/bring-8a-list.png
 
 .. note:: The Phoenix Diagnostic Server must be running on the target system to use the CANivores page.
 
-.. tip:: If you are connecting to CANivores on Windows, there is a CANivore-usb option in the Diagnostic Server Address dropdown.
+.. tip:: If you are connecting to CANivores on your local Windows machine, there is a CANivore-usb option in the Diagnostic Server Address dropdown.
 	This option runs a diagnostic server within Tuner so you do not need to run a robot project to communicate with CANivores.
 	|_Windows_CANivore_USB_Image_|
 
