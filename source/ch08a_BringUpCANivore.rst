@@ -40,6 +40,16 @@ Select the CANivore you wish to rename. Under the General CANivore Configuration
 
 .. image:: img/bring-8a-name.png
 
+Configure CAN bus termination
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The CANivore has a 120-ohm programmable resistor for terminating the CAN bus. The resistor can be configured using the CAN Bus Termination
+Enable and Disable buttons in the CANivores tab of Phoenix Tuner.
+The current state of the terminating resistor can be seen in the "CAN Bus Termination" column of the list of CANivores.
+
+.. note:: A CAN bus requires two terminating resistors. If only one is present, communication over CAN may fail.
+
+.. image:: img/bring-8a-can-termination.png
+
 Configure ESP32
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The ESP32 module on a CANivore can be configured using the ESP32 State Enable and Disable buttons in the CANivores tab of Phoenix Tuner.
