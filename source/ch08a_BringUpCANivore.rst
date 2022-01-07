@@ -40,10 +40,21 @@ Select the CANivore you wish to rename. Under the General CANivore Configuration
 
 .. image:: img/bring-8a-name.png
 
+Configure ESP32
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The ESP32 module on a CANivore can be configured using the ESP32 State Enable and Disable buttons in the CANivores tab of Phoenix Tuner.
+Enabling the ESP32 provides Wifi and BT on the CANivore, as well as the ability to run custom code on the device.
+The current state of the ESP32 can be seen in the "ESP32 State" column of the list of CANivores.
+
+.. note:: FRC rules state that no device is allowed to emit wireless signals during an FRC competition.
+	Therefore, the ESP32 should be disabled during a competition.
+
+.. image:: img/bring-8a-ESP32.png
+
 CANivore API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the constructors for CANivore-compatible CAN devices, there is an optional string parameter to set the device's CAN bus.
-This string can be either the name of the CANivore or the CANivore's serial number.
+This string can be the CANivore's name or serial number.
 
 .. note:: On the roboRIO, if no CAN bus string is passed into the constructor, or the CAN bus string is empty, the device will use the roboRIO native CAN bus.
 	Otherwise, the device will use the first CANivore found.
@@ -56,3 +67,15 @@ This string can be either the name of the CANivore or the CANivore's serial numb
 	TalonFX fx_rio = new TalonFX(1, "rio");
 	TalonFX fx_drivebase = new TalonFX(0, "Drivebase");
 	CANCoder cc_elevator = new CANCoder(0, "Elevator");
+
+caniv - CANivore CLI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+After running an action on the CANivores page of Phoenix Tuner, a small program called caniv will be deployed
+to the target system. caniv is a Command-line Interface (CLI) to interact with CANivores outside of Phoenix Tuner.
+
+On Linux systems (including the roboRIO), caniv can be found at /usr/local/bin. On Windows systems, the program
+is in the Phoenix Tuner install location, under Binary\\windows\\ctre.
+
+To view a list of available commands, run caniv either with no parameters or with ``--help``.
+
+.. image:: img/bring-8a-caniv.png
