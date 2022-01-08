@@ -60,7 +60,7 @@ Therefore, in the SimCollection API, none of the following values will be invert
 - input to SimCollection.set\*Velocity()
 
 It is important to take this into account to avoid unexpected behavior. For example, using the output of ``getMotorOutputVoltage()`` to
-determine the input of ``SimCollection.set\*Velocity()`` will result in the sensor values being inverted in the API. However, using the
+determine the input of ``SimCollection.set*Velocity()`` will result in the sensor values being inverted in the API. However, using the
 output of ``SimCollection.getMotorOutputLeadVoltage()`` will result in the expected behavior.
 
 "Raw" Quadrature/Integrated Sensor Position
