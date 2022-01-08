@@ -85,6 +85,50 @@ This string can be the CANivore's name or serial number.
 	TalonFX fx_drivebase = new TalonFX(0, "Drivebase");
 	CANCoder cc_elevator = new CANCoder(0, "Elevator");
 
+CANivore Status Prints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When working with CANivore CAN buses in a robot program, Phoenix prints some messages to report the state of the
+CANivore connection. These messages can be useful to debug connection issues (bad USB vs bad CAN) or report bugs
+to CTR Electronics.
+
+.. list-table:: Connection Messages
+	:widths: 50 80
+  	:header-rows: 1
+
+	* - Message
+	  - Connection Status
+	* - CANbus Failed to Connect
+	  - Could not connect to a CANivore with the given name or serial number
+	* - CANbus Connected
+	  - Successfully found and connected to the CANivore with the given name or serial number
+	* - CANbus Disconnected
+	  - Detected that a CANivore USB device has been disconnected
+
+.. list-table:: CANivore Bring-up Messages (Linux only)
+	:widths: 50 80
+  	:header-rows: 1
+
+	* - Message
+	  - Bring-up Status
+	* - CANbus Failed Bring-up
+	  - Found and connected to the CANivore, but it could not configure the device or start the network
+	* - CANbus Successfully Started
+	  - Successfully configured the CANivore and started the network
+
+.. list-table:: Network State Messages
+	:widths: 50 80
+  	:header-rows: 1
+
+	* - Message
+	  - Network State
+	* - CANbus Network Down
+	  - | Linux: The SocketCAN network has been deactivated, USB-to-CAN activity has stopped
+	    | Windows: Could not open the communication channels for USB-to-CAN traffic
+	* - CANbus Network Up
+	  - | Linux: The SocketCAN network has been activated, USB-to-CAN activity has resumed
+	    | Windows: Successfully opened the communication channels for USB-to-CAN traffic
+     
+
 caniv - CANivore CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 After running an action on the CANivores page of Phoenix Tuner, a small program called caniv will be deployed
