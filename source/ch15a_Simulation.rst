@@ -14,6 +14,9 @@ Currently, the following devices are supported in simulation:
 - Pigeon IMU
 - Pigeon 2.0
 
+.. warning:: Multiple CAN buses using the CANivore API is not supported at this time. If you wish to run your robot code in simulation,
+	ensure devices have unique IDs across CAN buses.
+
 Simulation API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Each supported device has a SimCollection object to manage I/O with the simulation model.
