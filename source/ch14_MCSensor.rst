@@ -163,7 +163,7 @@ Sensor phase describes the relationship between the motor output direction (posi
 
 .. note:: Talon FX automatically phases your sensor for you. It will always be correct, provided you use the getSelected* API and have configured the selected feedback type to be integrated sensor.
 
-
+.. note:: Sensor phase is not the same as sensor direction. When SetInverted is called on a motor controller, the values reported by the selected sensor are also inverted. As a result, changing the SetInverted input does **not** require changing the sensor phase, whereas it would require changing a sensor direction setting.
 
 Measure Sensor Phase
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
