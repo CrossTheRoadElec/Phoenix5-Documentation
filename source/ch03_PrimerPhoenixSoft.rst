@@ -2,7 +2,7 @@ Primer: What is Phoenix Software
 ================================
 Phoenix is a package that targets LabVIEW, C++, and Java for the FRC Robotics Controller platform, i.e. the  NI roboRIO robot controller. 
 
-It includes the Application Programming Interface (API), which are the functions you call to manipulate the CTRE CAN bus devices: Talon FX, Talon SRX, Victor SPX, CANCoder, CANifier, and Pigeon IMU.
+It includes the Application Programming Interface (API), which are the functions you call to manipulate :ref:`Phoenix devices <Do I need to install any of this?>` on the CAN bus.
 
 .. note:: PCM and PDP API are built into the core WPI distribution.
 
@@ -15,7 +15,7 @@ Additionally, Phoenix shared libraries are also targeted for C++ on Linux (amd64
 Phoenix also includes a NETMF (C#) class library for the non-FRC HERO Robot Controller.
 This can replace the roboRIO in use cases that don’t require the full features of the FRC control system, and are not in use during competition.
 
-.. note:: With Phoenix framework, teams can control/leverage Talons, Victors, Pigeons, CANCoders, CANifiers outside of the roboRIO (e.g. Rasp-Pi or Jetson TX2), and use the roboRIO/DriverStation to safely enable/disable the actuators.
+.. note:: With Phoenix framework, teams can control/leverage :ref:`Phoenix devices <Do I need to install any of this?>` outside of the roboRIO (e.g. Rasp-Pi or Jetson TX2), and use the roboRIO/DriverStation to safely enable/disable the actuators.
 
 .. note:: Leveraging CTRE CAN devices from third-party CAN hardware was officially made FRC legal for the **2019 season**.
 

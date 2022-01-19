@@ -6,7 +6,9 @@ Before Installing Phoenix...
 It is strongly recommended to complete the base installation of FRC tools.
 https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/control-system-software.html
 
-.. warning:: You will need to image the roboRIO to 2020 software before continuing.  The **roboRIO** kickoff versions are **image 2020_v10**.
+.. warning:: You will need to image the roboRIO to latest software before continuing.  See FRC/NI documentation on `how to image the roboRIO`_.
+
+.. _how to image the roboRIO: https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-3/imaging-your-roborio.html?highlight=imaging-your-roborio
 
 Test base FRC Installation - FRC LabVIEW
 ----------------------------------------------------------------------------------

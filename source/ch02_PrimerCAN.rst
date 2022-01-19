@@ -4,10 +4,10 @@ Primer: CTRE CAN Devices
 CTR-Electronics has designed many of the available CAN bus devices for FRC-style robotics.
 This includes:
 
-- Talon FX, Talon SRX, and Victor SPX motor controllers (PWM and CAN)
-- CANCoder
-- Pigeon IMU
-- CANifier
+- Motor Controllers such as Talon FX, Talon SRX, and Victor SPX
+- Orientation devices such as Pigeon IMU and Pigeon 2.0
+- Sensors such as CANcoder and CANifier
+- Full list of :ref:`Phoenix devices <Do I need to install any of this?>`
 - Pneumatics Control Mode (PCM)
 - Power Distribution Panel (PDP)
 

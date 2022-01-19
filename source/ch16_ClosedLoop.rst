@@ -26,8 +26,6 @@ Regardless of which closed-loop control mode is used, the following statements a
 
 .. warning:: Although the velocity kF config of the Talon-SRX/Victor-SPX assumes 1023 is full output, do not confuse this with the arbitrary feed-forward parameter of the Set routine/VI, which accepts a value within [-1,+1]
 
-.. note:: A target goal of 2020 is to normalize the PID controller to interpret sensor using normalized units, and adjusting the PID output such that  ‘1’ is interpreted as full.  This may be released during the 2020 season.  If this is released, the default settings will provide the legacy units, but users will have the ablity to change them, similar to the current CANCoder API.
-
 Below are descriptions for the various control modes.
 
 Closed-Loop Control Modes
