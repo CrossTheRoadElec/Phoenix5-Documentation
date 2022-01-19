@@ -1,4 +1,4 @@
-﻿.. _ch13_MC:
+.. _ch13_MC:
 
 Bring Up: Talon FX/SRX and Victor SPX
 =====================================
@@ -249,6 +249,8 @@ Inverts
 ------------------------------------------------------
 To determine the desired invert of our motor controller, we will add two more lines of call.
 SetInverted is added to decide if motor should spin clockwise or counter clockwise when told to move positive/forward (green LEDs). 
+
+.. note:: The selected sensor's values are also inverted accordingly so **the sensor phase does not need to be adjusted** based on motor inversion.
 
 We also multiply the joystick so that forward is positive (intuitive).  This can be verified by watching the console print in the Driver Station.
 
