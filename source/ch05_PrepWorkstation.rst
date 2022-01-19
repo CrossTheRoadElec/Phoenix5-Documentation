@@ -52,7 +52,6 @@ Option 1: Windows installer (strongly recommended)
 Environments: Windows-LabVIEW, Windows-C++/Java, HERO C#
 
 Phoenix Installer zip can be downloaded at:
-
 https://store.ctr-electronics.com/software/.
 
 It is typically named Phoenix Framework_Windows_vW.X.Y.Z.zip
@@ -71,6 +70,14 @@ This will install:
   - Self-test Snapshot
   - Device ID and field-upgrade
 
+.. warning:: If using Microsoft Edge, the browser may flag the download for security reasons.
+	In the menu bar of the downloaded file, select "Keep".
+	|_Windows_Edge_Phoenix_Install_1_|
+	If the browser asks, confirm the download is trustworthy.
+	|_Windows_Edge_Phoenix_Install_2_|
+
+.. |_Windows_Edge_Phoenix_Install_1_| image:: img/edge-phoenix-1.png
+.. |_Windows_Edge_Phoenix_Install_2_| image:: img/edge-phoenix-2.png
 
 Option 2: Phoenix API via Non-Windows Zip 
 ----------------------------------------------------------------------------------
