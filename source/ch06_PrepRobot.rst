@@ -28,7 +28,7 @@ So we have **opted to deploy our binaries directly from Phoenix Tuner** to ensur
 
 As a result starting in 2022, LabVIEW users must install Phoenix API libraries into their roboRIO (after roboRIO is imaged).  Afterwards deploy your LabVIEW application as you would normally.
 
-.. tip:: Remember to specify the **Team Numer** or **Address** of the roboRIO under Diagnostic Server Adress.  We recommend using the USB cable and selecting "172.22.11.2" to avoid networking issues.
+.. tip:: Remember to specify the **Team Number** or **Address** of the roboRIO under Diagnostic Server Adress.  We recommend using the USB cable and selecting "172.22.11.2" to avoid networking issues.
 
 .. image:: img/tuner-deploy-labview.png
 
