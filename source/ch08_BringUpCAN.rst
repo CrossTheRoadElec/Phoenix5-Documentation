@@ -169,8 +169,7 @@ Moving forward, the first number of the version will represent the season (next 
 .. image:: img/bring-6.png
 
 Select the CRF under the Field-upgrade section then press Update Device.
-The CRFs are available in multiple places, and likely are already on your PC/
-See section “Device Firmware Files (crf)”.
+The CRFs are available in multiple places, and likely are already on your PC. See section :ref:`Device Firmware Files (crf)`.
 
 If there are multiple devices of same type (multiple Talon SRXs for example), you may check Update all devices.  This will automatically iterate through all the devices of the same type, and update them.  If a device field-upgrade fails, then the operation will complete.  Confirm Firmware Version column in the device list after field-upgrade.
 

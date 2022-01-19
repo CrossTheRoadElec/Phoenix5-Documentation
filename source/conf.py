@@ -62,7 +62,8 @@ extensions = [
     'sphinx.ext.intersphinx',
 	'ablog',
     'notfound.extension',
-    'sphinxext.opengraph'
+    'sphinxext.opengraph',
+    'sphinx.ext.autosectionlabel'
 ]
 # Javadoc
 javadoc_url_map = {

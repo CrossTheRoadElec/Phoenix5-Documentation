@@ -29,7 +29,7 @@ Field upgrade CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the CANivores tab of Phoenix Tuner, select the CANivore you wish to update.
 Select the CRF under the Field-upgrade section then press Update Device.
-The CRFs are available in multiple places, and likely are already on your PC. See section “Device Firmware Files (crf)”.
+The CRFs are available in multiple places, and likely are already on your PC. See section :ref:`Device Firmware Files (crf)`.
 
 If you wish to update all attached CANivores, check Update all CANivores. If a CANivore field-upgrade fails, then the operation will complete.
 Confirm Firmware Version column in the device list after field-upgrade.
@@ -53,18 +53,25 @@ The CANivore has a 120-ohm programmable resistor for terminating the CAN bus. Th
 Enable and Disable buttons in the CANivores tab of Phoenix Tuner.
 The current state of the terminating resistor can be seen in the "CAN Bus Termination" column of the list of CANivores.
 
-.. note:: A CAN bus requires two terminating resistors. If only one is present, communication over CAN may fail.
+.. note:: A CAN bus requires two terminating resistors - one at each extreme end. If only one is present, communication over CAN may fail.
 
 .. image:: img/bring-8a-can-termination.png
 
 Configure ESP32
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The ESP32 module on a CANivore can be configured using the ESP32 State Enable and Disable buttons in the CANivores tab of Phoenix Tuner.
-Enabling the ESP32 provides Wifi and BT on the CANivore, as well as the ability to run custom code on the device.
+The CANivore includes an **ESP32 module** which provides the ability to **run custom code**, which in turn allows **access to Wi-Fi and Bluetooth features**.
+By default, the ESP32 is disabled and held in reset.  Users can enable the ESP32 via Phoenix Tuner so that it is allowed to run.
+
+CANivore provides a software USB COM port, which typical ESP32 software tools can use to deploy and debug.
+
+**Examples will be coming soon!**
+
 The current state of the ESP32 can be seen in the "ESP32 State" column of the list of CANivores.
 
-.. note:: FRC rules state that no device is allowed to emit wireless signals during an FRC competition.
-	Therefore, the ESP32 should be disabled during a competition.
+.. tip:: For convenience, the software USB COM port is always available and can be used to deploy an ESP32 application even if setting is disabled.  However ESP will not boot up after power reset if setting is disabled.
+
+.. warning:: FRC rules *typically* require that no device is allowed to emit wireless signals during an FRC competition.
+	Teams are encouraged to read the latest game rules and disable ESP32 during competition use if need be.
 
 .. image:: img/bring-8a-ESP32.png
 
@@ -131,13 +138,15 @@ to CTR Electronics.
 
 caniv - CANivore CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-After running an action on the CANivores page of Phoenix Tuner, a small program called caniv will be deployed
-to the target system. caniv is a Command-line Interface (CLI) to interact with CANivores outside of Phoenix Tuner.
-Unlike the CANivores page in Phoenix Tuner, caniv does **not** require a running Phoenix Diagnostic Server.
+``caniv`` is a Command-line Interface (CLI) to interact with CANivores outside of Phoenix Tuner.
 
-On Linux systems (including the roboRIO), caniv can be found at /usr/local/bin. On Windows systems, the program
+After running any action on the CANivores page of Phoenix Tuner, Latest ``caniv`` is deployed to the target system. 
+
+.. note:: Unlike the CANivores page in Phoenix Tuner, ``caniv`` does **not** require a running Phoenix Diagnostic Server.
+
+On Linux systems (including the roboRIO), ``caniv`` can be found at /usr/local/bin. On Windows systems, the program
 is in the Phoenix Tuner install location, under Binary\\windows\\ctre.
 
-To view a list of available commands, run caniv either with no parameters or with ``--help``.
+To view a list of available commands, run ``caniv`` either with no parameters or with ``--help``.
 
 .. image:: img/bring-8a-caniv.png
