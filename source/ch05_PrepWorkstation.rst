@@ -14,8 +14,6 @@ If a team intends to use LabVIEW to develop robot software, be sure to complete 
 
 At this point it is recommended to create a simple template project and test deploy to the roboRIO.  Be sure the DriverStation can communicate with the robot controller, and that DS message log is functional.
 
-.. note:: LabVIEW is versioned 2019 due to its release schedule. Therefore, LV2019 is used for the 2020 season.
-
 Test base FRC Installation - FRC C++ / Java
 ----------------------------------------------------------------------------------
 It is recommended to install the FRC Driver Station Utilities. This will install the Driver Station software, which is necessary for:

@@ -21,16 +21,16 @@ If the roboRIO does not have a deployed application, a temporary Diagnostic Serv
 
 LabVIEW
 ----------------------------------------------------
-**NI LabVIEW** supports a feature that will automatically deploy the Phoenix API libraries to the roboRIO.
-After running the installer, 2020 LabVIEW robot projects will automatically install Phoenix into the roboRIO when the program is permanently deployed via "Run As Startup".
+In the past few seasons, we have relied on a NI LabVIEW feature that would automatically deploy the Phoenix API libraries to the roboRIO.
+However, we have found circumstances where the NI feature potentially corrupts our libraries during install.  
 
-The steps for first deploy are:
-  1. "Build" the FRC Boot-up Deployment
-  2. "Run as Startup"
-  3. Re-boot the roboRIO (see note below)
+So we have **opted to deploy our binaries directly from Phoenix Tuner** to ensure proper installation.
 
-.. note:: After first Run-as-Startup (since imaging the RIO), you may see an error in the Driver Station reporting that the Phoenix libraries are missing.  A reboot of the RIO will likely resolve this.  We recommend using the "Restart roboRIO" button in the Driver Station.
+As a result starting in 2022, LabVIEW users must install Phoenix API libraries into their roboRIO (after roboRIO is imaged).  Afterwards deploy your LabVIEW application as you would normally.
 
+.. tip:: Remember to specify the **Team Numer** or **Address** of the roboRIO under Diagnostic Server Adress.  We recommend using the USB cable and selecting "172.22.11.2" to avoid networking issues.
+
+.. image:: img/tuner-deploy-labview.png
 
 How to prepare Robot Controller
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
