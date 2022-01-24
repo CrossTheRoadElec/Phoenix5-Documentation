@@ -3,6 +3,20 @@
 Errata
 ======
 
+.. _labview-chainOpens-errata:
+
+LabVIEW Phoenix Open VIs must be chained to guarantee sequential execution
+---------------------------------------------------------------------------
+When opening Phoenix objects in LabVIEW, the Open VIs must be chained together so that they execute sequentially.
+See an example of chaining two Open VIs:
+
+.. image:: img/labview-chainerrors.png
+
+If the Open VIs are not chained together, this can result in:
+- Multiple Diagnostic Servers
+- Multiple enable signals (enable and disable will conflict, motor controllers will appear to not enable)
+- Occaisional program crash on deploy
+
 .. _talonfx-remoteID-errata:
 
 Talon FX Remote Filter Device ID Must be 15 or Less

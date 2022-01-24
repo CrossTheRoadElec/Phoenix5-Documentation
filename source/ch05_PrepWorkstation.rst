@@ -231,6 +231,8 @@ This palette can also be found in:
 - WPI Robotics Library -> Sensors -> Third Party
 - WPI Robotics Library -> Actuators -> Third Party
 
+.. warning:: LabVIEW teams currently need to chain Phoenix Open VIs together.  See the errata here: :ref:`labview-chainOpens-errata`
+
 FRC Windows – Open Phoenix Tuner
 ----------------------------------------------------------------------------------
 Open Phoenix Tuner

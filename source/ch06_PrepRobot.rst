@@ -75,6 +75,8 @@ Verify the robot controller - LabVIEW
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Create a pristine LabVIEW application.  Add a CTRE device to Begin.Vi.  For example, create a Talon SRX object, even if the device is not physically present.
 
+.. warning:: LabVIEW teams currently need to chain Phoenix Open VIs together.  See the errata here: :ref:`labview-chainOpens-errata`
+
 .. image:: img/verify-LV.png
 
 .. tip:: Drag drop the following into your Begin.vi
