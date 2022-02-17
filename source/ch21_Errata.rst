@@ -12,10 +12,13 @@ See an example of chaining two Open VIs:
 
 .. image:: img/labview-chainerrors.png
 
-If the Open VIs are not chained together, this can result in:
+If the Open VIs are not chained together, this can result in:  
+
 - Multiple Diagnostic Servers
 - Multiple enable signals (enable and disable will conflict, motor controllers will appear to not enable)
-- Occaisional program crash on deploy
+- Occasional program crash on deploy
+
+.. tip:: This is fixed in Phoenix version 5.21.1
 
 .. _talonfx-remoteID-errata:
 

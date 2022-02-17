@@ -141,7 +141,7 @@ The latest firmware to be used can be found in the :ref:`ch22_SoftReleaseNote`.
 Workstation Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are three installation methods listed below.  The simplest and recommended approach is to run the Windows Installer (Option 1).
+There are two installation methods listed below.  The simplest and recommended approach is to run the Windows Installer (Option 1).
 
 Option 1: Windows Offline Installer (C++/Java/LabVIEW, HERO C#)
 ----------------------------------------------------------------------------------
@@ -231,7 +231,7 @@ This palette can also be found in:
 - WPI Robotics Library -> Sensors -> Third Party
 - WPI Robotics Library -> Actuators -> Third Party
 
-.. warning:: LabVIEW teams currently need to chain Phoenix Open VIs together.  See the errata here: :ref:`labview-chainOpens-errata`
+.. warning:: LabVIEW teams not using latest Phoenix may need to chain Phoenix Open VIs together.  See the errata here: :ref:`labview-chainOpens-errata`
 
 FRC Windows – Open Phoenix Tuner
 ----------------------------------------------------------------------------------
