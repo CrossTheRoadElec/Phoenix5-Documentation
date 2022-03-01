@@ -50,6 +50,7 @@ Follow these instructions in order!
    ch11_BringUpPigeon
    ch12_BringUpCANifier
    ch12a_BringUpCANCoder
+   ch12b_BringUpCANdle
    ch13_MC
    ch14_MCSensor
    ch14a_BringUpRemoteSensors
