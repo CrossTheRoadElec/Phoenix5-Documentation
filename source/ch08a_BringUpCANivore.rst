@@ -81,16 +81,17 @@ In the constructors for CANivore-compatible CAN devices, there is an optional st
 This string can be the CANivore's name or serial number.
 
 .. note:: On the roboRIO, if no CAN bus string is passed into the constructor, or the CAN bus string is empty, the device will use the roboRIO native CAN bus.
-	Otherwise, the device will use the first CANivore found.
+
+.. note:: If there are multiple CANivores with the same name, the RoboRIO will use the first CANivore found.
 
 .. note:: You can explicitly specify that a device should use the roboRIO native CAN bus by passing down "rio" or "roborio".
 
 .. code-block:: java
 
-	TalonFX fx_default = new TalonFX(0);
-	TalonFX fx_rio = new TalonFX(1, "rio");
-	TalonFX fx_drivebase = new TalonFX(0, "Drivebase");
-	CANCoder cc_elevator = new CANCoder(0, "Elevator");
+	TalonFX fx_default = new TalonFX(0); // This constructs a TalonFX on the RIO native CAN bus
+	TalonFX fx_rio = new TalonFX(1, "rio"); // This constructs a TalonFX on the RIO native CAN bus
+	TalonFX fx_drivebase = new TalonFX(0, "Drivebase"); // This constructs a TalonFX on the CANivore bus named "Drivebase"
+	CANCoder cc_elevator = new CANCoder(0, "Elevator"); // This constructs a CANCoder on the CANivore bus named "Elevator"
 
 CANivore Status Prints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
