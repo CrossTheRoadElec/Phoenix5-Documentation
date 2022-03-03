@@ -48,6 +48,7 @@ Follow these instructions in order!
    ch09_BringUpPCM
    ch10_BringUpPDP
    ch11_BringUpPigeon
+   ch11a_BringUpPigeon2
    ch12_BringUpCANifier
    ch12a_BringUpCANCoder
    ch12b_BringUpCANdle
