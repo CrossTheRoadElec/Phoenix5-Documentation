@@ -1,6 +1,37 @@
 Common Device API
 =================
 
+Typical Device Utilization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++-------------------+-----------+--------------------------------------+
+| Configuration     | CAN 2.0   | CAN FD                               |
+|                   |           |                                      |
+|                   |           | (CANivore on Phoenix v5.21.1)        |
++===================+===========+======================================+
+| Talon FX          | 4.6%      |   2.0%                               |
++-------------------+-----------+--------------------------------------+
+| Pigeon 2.0        | 5.5%      |   2.5%                               |
++-------------------+-----------+--------------------------------------+
+| CANdle            | 2.2%      |   1.0%                               |
++-------------------+-----------+--------------------------------------+
+| CANcoder          | 1.8%      |   0.9%                               |
++-------------------+-----------+--------------------------------------+
+| Swerve Drive      | 49.7%     |   22.2%                              |
+|                   |           |                                      |
+| (8x Talon FX,     |           |                                      |
+| 4x CANcoder,      |           |                                      |
+| 1x Pigeon 2.0)    |           |                                      |
++-------------------+-----------+--------------------------------------+
+
+.. note:: Phoenix's Diagnostic server can add anywhere from 0 to 5% CAN bus utilization.
+
+.. note:: These values are base bus utilizations without changing any status frame periods.
+
+.. tip:: Users should keep the bus utilization below 90% for proper functionality.
+    
+.. note:: CANdle's device utilization is without LED usage. Animating or setting LEDs will increase bus utilization.
+
 Setting Status Frame Periods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 All Phoenix devices have a setStatusFramePeriod() routine/VI that allows for tweaking the frame periods of each status group.
