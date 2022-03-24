@@ -15,9 +15,9 @@ https://github.com/CrossTheRoadElec/Phoenix-Examples-LabVIEW
 
 Phoenix C++/Java API Documentation
 --------------------------------------------------------------
-https://store.ctr-electronics.com/content/api/java/html/index.html
+https://api.ctr-electronics.com/phoenix/release/java/
 
-https://store.ctr-electronics.com/content/api/cpp/html/index.html
+https://api.ctr-electronics.com/phoenix/release/cpp/
 
 FRC WPILib Docs
 --------------------------------------------------------------

@@ -67,5 +67,11 @@ Follow these instructions in order!
    ch22_SoftReleaseNote
    ch23_AddResource
 
+.. toctree:: 
+   :maxdepth: 1
+   :caption: API Docs
+   :hidden:
 
+   Phoenix Java API Docs <https://api.ctr-electronics.com/phoenix/release/java/>
+   Phoenix C++ API Docs <https://api.ctr-electronics.com/phoenix/release/cpp/>
 
