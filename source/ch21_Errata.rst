@@ -3,6 +3,34 @@
 Errata
 ======
 
+.. _pigeonimu-setfusedheading-units-errata:
+
+PigeonIMU Set Fused Heading accepts 1/64th of a degree
+-------------------------------------------------------
+The input to ``setFusedHeading`` in PigeonIMU uses 64 units per degree instead of degrees.
+
+To work around this, do one of the following:
+ - Use ``setYaw`` instead of ``setFusedHeading`` and ``getYaw`` instead of ``getFusedHeading``.
+ - Multiply the desired heading (in degrees) by 64 before calling ``setFusedHeading``.
+
+.. _canivore-intermittent-connection-errata:
+
+CANivore: Loss of communication under specific circumstances
+-------------------------------------------------------------------------------------
+Under a specific set of circumstances, CANivore will lose communications for 16 seconds and appear frozen (solid LEDs).
+The requirements are:
+ - CANivore must be using firmware 22.1.0.1.
+ - CANivore must be initially connected to USB (Status LED orange or green).
+ - After initial connection, CANivore must lose connection to **only** USB D+/D- **while maintaining connection** to USB 5V and Ground (Status LED fast-red strobe).
+ - After loss of D+/D-, CANivore must regain connection to D+/D- while maintaining connection to USB 5V and Ground.
+
+These circumstances do not reproduce the issue in every instance.
+
+| The issue was discovered by CTRE staff during routine quality checks.
+| No customers have reported this failure symptom to date.
+
+.. tip:: This is fixed in CANivore firmware version 22.2.0.0
+
 .. _labview-chainOpens-errata:
 
 LabVIEW Phoenix Open VIs must be chained to guarantee sequential execution
