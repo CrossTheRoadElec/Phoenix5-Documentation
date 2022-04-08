@@ -13,6 +13,40 @@ To work around this, do one of the following:
  - Use ``setYaw`` instead of ``setFusedHeading`` and ``getYaw`` instead of ``getFusedHeading``.
  - Multiply the desired heading (in degrees) by 64 before calling ``setFusedHeading``.
 
+.. _talonfx-neutral-brake-fault-errata:
+
+“Neutral Brake Curr Limit” is often set
+-------------------------------------------------------------------------------------
+
+Sometimes TalonFX will fault "Neutral Break Curr Limit" on **bootup**.
+
+"Neutral Break Curr Limit" means the TalonFX stator-current-limited *while it was neutral-braking*.
+This does **not** represent a failure condition as stator-limiting during neutral-brake is an intended feature of the product.
+Similar sticky faults exist for supply and stator current limits during motor output.
+
+However, sometimes the TalonFX will trip "Neutral Break Curr Limit" when the Talon FX beeps during the boot up procedure.
+
+**Workaround:** This sticky fault is harmless and *does not impact functionality*.
+However, if monitoring this flag is required, user application can clear sticky faults after boot-up, then monitor them during operation.
+Alternatively, user application can monitor the live fault flag during operation.
+
+.. _talonfx-persis-storage-failure-errata:
+
+“Persis Storage Failure” is often set
+-------------------------------------------------------------------------------------
+
+Sometimes TalonFX will fault "Persis Storage Failure".
+
+"Persis Storage Failure" means there is a hardware issue with the persistent memory storage in the Talon FX.
+
+However, "Persis Storage Failure" may be reported intermittently by the prom driver in the Talon FX.
+This can occur due to a known hardware-limitation (errata) with the microcontroller.
+The Talon firmware *already corrects for this hardware-limitation*, but the sticky fault may *still be reported for diagnostic purposes*.
+This may change in a future release of firmware.
+
+**Workaround:** There is no need to work around this issue.
+Sticky fault can be ignored.
+
 .. _canivore-intermittent-connection-errata:
 
 CANivore: Loss of communication under specific circumstances
