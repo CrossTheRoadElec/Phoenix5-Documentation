@@ -78,11 +78,15 @@ The current state of the ESP32 can be seen in the "ESP32 State" column of the li
 CANivore API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the constructors for CANivore-compatible CAN devices, there is an optional string parameter to set the device's CAN bus.
-This string can be the CANivore's name or serial number.
+This string can be the CANivore's name or serial number. On non-FRC Linux systems, this string can also be a SocketCAN interface.
 
-.. note:: On the roboRIO, if no CAN bus string is passed into the constructor, or the CAN bus string is empty, the device will use the roboRIO native CAN bus.
+If no CAN bus string is passed into the constructor, or the CAN bus string is empty:
 
-.. note:: If there are multiple CANivores with the same name, the RoboRIO will use the first CANivore found.
+ - On the roboRIO, the system will use the roboRIO native CAN bus.
+ - On Windows, the system will use the first CANivore found. (Requires Phoenix 5.22+)
+ - On non-FRC Linux systems, the system will use SocketCAN interface ``can0``.
+
+.. note:: If there are multiple CANivores with the same name, the system will use the first CANivore found.
 
 .. note:: You can explicitly specify that a device should use the roboRIO native CAN bus by passing down "rio" or "roborio".
 
