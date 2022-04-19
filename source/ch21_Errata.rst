@@ -47,6 +47,26 @@ This may change in a future release of firmware.
 **Workaround:** There is no need to work around this issue.
 Sticky fault can be ignored.
 
+.. _motorcontrol-motionmagic-overflow-errata:
+
+Motion Magic Target does not approach the API requested Target
+-------------------------------------------------------------------------------------
+Under very specific circumstances, the motion magic target position may not approach the final target position requested using Phoenix API. 
+The requirements are:
+ - Motor Controller firmware is <= 22.0
+ - Motion Magic S-Curve is set to a non-zero value.
+ - Must be in Motion Magic Control Mode
+ - Robot application frequently calls the set() method with new values.
+ - Set point changes exceed 16 bits
+
+**Workaround:**
+Any of the following will prevent the issue from occurring:
+ - Turn off S-Curve OR
+ - Update firmware to 22.1 OR
+ - Ensure set point changes are within 16 bits.
+
+.. tip:: This is fixed in all motor controller versions 22.1
+
 .. _canivore-intermittent-connection-errata:
 
 CANivore: Loss of communication under specific circumstances
