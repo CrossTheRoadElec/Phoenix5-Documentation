@@ -8,7 +8,10 @@ Supported systems
 Currently, the following systems are supported for CANivore development:
 
 - roboRIO
-- Windows
+- Windows (x86-64)
+- Linux desktop (x86-64)
+- Raspberry Pi (ARM 32-bit and 64-bit)
+- NVidia Jetson
 
 View attached CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,7 +126,7 @@ to CTR Electronics.
 	* - Message
 	  - Bring-up Status
 	* - CANbus Failed Bring-up
-	  - Found and connected to the CANivore, but it could not configure the device or start the network
+	  - Found and connected to the CANivore, but could not configure the device or start the network
 	* - CANbus Successfully Started
 	  - Successfully configured the CANivore and started the network
 
