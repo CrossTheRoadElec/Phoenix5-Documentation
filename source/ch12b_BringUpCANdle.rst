@@ -28,4 +28,4 @@ There is a basic example for using CAndle here:
 `C++ <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/C%2B%2B%20General/CANdle>`_ | `Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/CANdle>`_
 
 An advanced example using multiple animations can be found here:  
-`Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/CANdle-MultiAnimations/Java%20General/CANdle%20MultiAnimation>`_
+`Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/CANdle%20MultiAnimation>`_

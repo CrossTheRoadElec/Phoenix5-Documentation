@@ -6,7 +6,7 @@ Table of Contents
 - [Pull Requests](#pull-requests)
 
 ## Reporting Bugs
-Submitting bugs relevant to the API will typically be done in the [Phoenix-FRC-Lib](https://github.com/CrossTheRoadElec/Phoenix-frc-lib) repository. Use a descriptive title. Use the following format:
+Submitting bugs relevant to the API will typically be done in the [Phoenix-Releases](https://github.com/CrossTheRoadElec/Phoenix-Releases) repository. Use a descriptive title. Use the following format:
 ```
 Expected behavior, link to documentation referencing expected behavior beneficial.
 Observed behavior. Screenshots of self test strongly recommended.
@@ -18,7 +18,7 @@ Good example:
 Title: Motor output incorrect when Current Limit is Enabled
 Expected behavior: Motor output follows driven percent output or less when current limit is enabled (Section 9.3 of Talon SRX Software Reference Manual)
 Observed behavior: Motor output "sticks" to previous value or oscillates between driven percent output and off when current limit is enabled
-Procedure: Factory-Reset Talon SRX -> Configure Peak Limit to 5 amps -> Configure Continous Current to 5 amps -> Drive CIM Motor to full speed -> Observed Behavior
+Procedure: Factory-Reset Talon SRX -> Configure Peak Limit to 5 amps -> Configure Continuous Current to 5 amps -> Drive CIM Motor to full speed -> Observed Behavior
 Versions: Phoenix 5.3.1.0, Talon SRX Firmware 3.8, RoboRIO Image v17, WPILib Update 2018.4.1, Java
 ```
 ## Requesting a Feature

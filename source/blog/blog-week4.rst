@@ -14,7 +14,7 @@ In this release the following components were updated:
 - New Phoenix API v15.3
 - New Firmware for Talon SRX (4.15), Victor SPX (4.15) and Pigeon IMU (4.13).
 
-A breakdown of the changes are below, but due to the variety of improvements and how these components interact, we **strongly recommend collectively updating all three components** before `Stop Build Day <https://www.firstinspires.org/robotics/frc/season-calendar/stop-build-day>`_.
+A breakdown of the changes are below, but due to the variety of improvements and how these components interact, we **strongly recommend collectively updating all three components** before Stop Build Day.
 
 How To download
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,7 +57,7 @@ Some teams are beginning to move into the "tuning" phase of their mechanisms, so
 Phoenix Libraries cleared on roboRIO reboot 
 -----------------------------------------------------------------
 We received a couple reports where the roboRIO appears to be *losing Phoenix libraries after a power cycle*.
-The root-cause was determined to be **teams accidently using HERO LifeBoat** to install 2018 libraries in a location that prevents the 2019 libraries from loading correctly.
+The root-cause was determined to be **teams accidentally using HERO LifeBoat** to install 2018 libraries in a location that prevents the 2019 libraries from loading correctly.
 Details on this can be found at https://github.com/CrossTheRoadElec/Phoenix-Releases/issues/1
 
 **To solve this completely** we made two changes:
