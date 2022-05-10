@@ -45,7 +45,7 @@ So as a reminder, teams should ensure that their motor controllers are up to dat
 Phoenix on other platforms?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Some teams are already aware that *Phoenix isn't just a library targeted for the roboRIO*.
-For those of you perusing our `maven site <http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix>`_ you may have noticed *several Linux binaries*.
+For those of you perusing our maven site you may have noticed *several Linux binaries*.
 These have been used for leveraging Talons/Victors/CANifiers/Pigeon on third party hardware such as:
 
 - Raspberry PI + SocketCAN interface

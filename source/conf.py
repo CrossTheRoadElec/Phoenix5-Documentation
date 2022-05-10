@@ -78,7 +78,7 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# Only one langauge supported, no URL prefix
+# Only one language supported, no URL prefix
 # This is only needed when deploying a non-RTD server
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
@@ -145,14 +145,27 @@ htmlhelp_basename = 'Phoenixdoc'
 
 # -- Options for LaTeX output ------------------------------------------------
 
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, 'Phoenix.tex', 'Phoenix Documentation',
-     'CTRE', 'manual'),
-]
+latex_engine = "xelatex"
 
+# Disable xindy support
+# See: https://github.com/readthedocs/readthedocs.org/issues/5476
+latex_use_xindy = False
+
+latex_elements = {
+    "fontpkg": r"""
+	\setmainfont{DejaVu Serif}
+	\setsansfont{DejaVu Sans}
+	\setmonofont{DejaVu Sans Mono}""",
+    "preamble": r"""
+	\usepackage[titles]{tocloft}
+	\cftsetpnumwidth {1.25cm}\cftsetrmarg{1.5cm}
+	\setlength{\cftchapnumwidth}{0.75cm}
+	\setlength{\cftsecindent}{\cftchapnumwidth}
+	\setlength{\cftsecnumwidth}{1.25cm}
+	""",
+    "fncychap": r"\usepackage[Bjornstrup]{fncychap}",
+    "printindex": r"\footnotesize\raggedright\printindex",
+}
 
 # -- Options for manual page output ------------------------------------------
 
@@ -177,3 +190,23 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+# Disable checking anchors for linkcheck builder
+linkcheck_anchors = False
+
+# Set various linkcheck timeouts
+linkcheck_timeout = 30
+linkcheck_retries = 3
+linkcheck_workers = 1
+
+# Specify a standard user agent, as Sphinx default is blocked on some sites
+user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0"
+
+# Autosection labels prefix document path and filename
+# Helps handle label collisions throughout the documentation
+autosectionlabel_prefix_document = True
+
+# Linkcheck exclusions
+linkcheck_ignore = [
+    r".*canable.io.*",
+]
