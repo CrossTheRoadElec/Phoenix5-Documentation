@@ -38,7 +38,7 @@ blog_baseurl = u'True'
 # -- Project information -----------------------------------------------------
 
 project = 'Phoenix'
-copyright = '2021, CTRE'
+copyright = '2022, CTRE'
 author = 'CTRE'
 
 # The short X.Y version
