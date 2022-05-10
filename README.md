@@ -1,3 +1,5 @@
+# Phoenix Documentation
+
 The rendered documentation can be viewed at...
 
 https://phoenix-documentation.readthedocs.io/en/latest/index.html
@@ -6,12 +8,10 @@ Legacy documentation from past seasons can be found in the Legacy sub folder...
 
 https://github.com/CrossTheRoadElec/Phoenix-Documentation/tree/master/Legacy
 
+# Building locally
 
-To compile locally:
-
-1. Install any version of python 3.
-2. run python.exe -V in command prompt to ensure it is installed properly  
-	If command is not found, add it to system path- (Windows 10) This PC -> Properties ->  Advanced System Settings -> Enviornment variables -> Path  
-	Add C:\Program Files\Python310 (change if you have a different version of python 3)
-3. Run pip install -r requirements.txt to install dependencies
-4. Run test.bat to generate html files.
+1. Clone the repository with `git clone https://github.com/crosstheroadelec/phoenix-documentation.git`
+2. Ensure [Python 3.8 or greater](https://www.python.org/) is installed and added to the path.
+3. Install all required dependencies by running `pip install -r requirements.txt`
+4. Build the documentation by running `./make html` or `make html`.
+5. Documentation is under the `build/html` directory.

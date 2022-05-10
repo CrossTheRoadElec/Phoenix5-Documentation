@@ -58,17 +58,12 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-#	'javasphinx',
     'sphinx.ext.intersphinx',
 	'ablog',
     'notfound.extension',
     'sphinxext.opengraph',
     'sphinx.ext.autosectionlabel'
 ]
-# Javadoc
-javadoc_url_map = {
-    'com.ctre.phoenix' : ('http://store.ctr-electronics.com/content/api/java/html/', 'javadoc8'),
-}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -129,7 +124,7 @@ html_logo = 'img/ctre.png'
 
 # Theme tweaks on top of RTD
 def setup(app):
-    app.add_stylesheet('css/theme_ctre.css')  
+    app.add_css_file('css/theme_ctre.css')  
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -149,24 +144,6 @@ htmlhelp_basename = 'Phoenixdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
-
-latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
-}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -197,24 +174,6 @@ texinfo_documents = [
      author, 'Phoenix', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-# -- Options for Epub output -------------------------------------------------
-
-# Bibliographic Dublin Core info.
-epub_title = project
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#
-# epub_identifier = ''
-
-# A unique identification for the text.
-#
-# epub_uid = ''
-
-# A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------

@@ -9,10 +9,18 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
+set SPHINXOPTS=-W --keep-going
+set LINTER=doc8
+set LINTEROPTS=--ignore D001 --ignore D004
+set CONFEXCLUDE=--exclude-file source/conf.py
+set SIZEMAX=500
 
 if "%1" == "" goto help
 
-%SPHINXBUILD% >NUL 2>NUL
+if "%1" == "lint" goto lint
+
+
+CALL %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
 	echo.
 	echo.The 'sphinx-build' command was not found. Make sure you have Sphinx
@@ -30,6 +38,10 @@ goto end
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+goto end
+
+:lint
+%LINTER% %LINTEROPTS%
 
 :end
 popd
