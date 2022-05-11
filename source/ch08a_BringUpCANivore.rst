@@ -18,7 +18,7 @@ Currently, the following systems are supported for CANivore development:
 Non-FRC Linux Kernel Module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 On non-FRC Linux systems, the ``canivore-usb`` kernel module must be installed to add SocketCAN support for the CANivore.
-The kernel module is distributed through APT. Our deb package repository must be added to your APT sources list prior to the inital installation:
+The kernel module is distributed through APT. Our deb package repository must be added to your APT sources list prior to the initial installation:
 
 .. code-block:: bash
 
