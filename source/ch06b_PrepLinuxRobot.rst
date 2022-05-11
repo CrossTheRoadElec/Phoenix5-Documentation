@@ -20,7 +20,9 @@ Below are the currently supported Linux hardware platforms.  An additional Socke
 
 It is possible to use other hardware platforms, however hardware and software setup may be different than this documentation.
 
-.. note:: CTRE currently recommends the CANable for use as a SocketCAN device.  More information can be found here: https://canable.io/
+.. note:: CTRE currently recommends the CANable for use as a generic SocketCAN device.  More information can be found here: https://canable.io/
+
+.. note:: CTRE now supports using the :ref:`CANivore <ch08a_BringUpCANivore>` as a SocketCAN device with Phoenix CAN FD devices on supported Linux platforms.
 
 How to prepare Hardware?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

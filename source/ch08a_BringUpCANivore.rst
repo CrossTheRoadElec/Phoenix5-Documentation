@@ -56,7 +56,7 @@ Field upgrade CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the CANivores tab of Phoenix Tuner, select the CANivore you wish to update.
 Select the CRF under the Field-upgrade section then press Update Device.
-The CRFs are available in multiple places, and likely are already on your PC. See section :ref:`Device Firmware Files (crf)`.
+The CRFs are available in multiple places, and likely are already on your PC. See section :ref:`Device Firmware Files (crf) <ch05_PrepWorkstation:Device Firmware Files (crf)>`.
 
 If you wish to update all attached CANivores, check Update all CANivores. If a CANivore field-upgrade fails, then the operation will complete.
 Confirm Firmware Version column in the device list after field-upgrade.
