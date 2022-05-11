@@ -13,8 +13,8 @@ Supported Linux Controllers
 
 Below are the currently supported Linux hardware platforms.  An additional SocketCAN device is necessary to utilize the provided software as-is, otherwise a custom platform library is required.
 
- - NVidia Jetson TX2
- - NVidia Jetson Nano
+ - NVIDIA Jetson TX2
+ - NVIDIA Jetson Nano
  - Raspberry Pi 3
  - Raspberry Pi 4
 
@@ -29,7 +29,7 @@ How to prepare Hardware?
 
 Jetson TX2
 ------------------------------------------------------
-Follow the documentation provided by NVidia to setup the Jetson TX2: https://developer.nvidia.com/embedded/downloads
+Follow the documentation provided by NVIDIA to setup the Jetson TX2: https://developer.nvidia.com/embedded/downloads
 
 Raspberry Pi/Jetson Nano
 ------------------------------------------------------
