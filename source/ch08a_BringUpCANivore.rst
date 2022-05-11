@@ -11,7 +11,7 @@ Currently, the following systems are supported for CANivore development:
 - Windows (x86-64)
 - Linux desktop (x86-64)
 - Raspberry Pi (ARM 32-bit and 64-bit)
-- NVidia Jetson
+- NVIDIA Jetson
 
 .. note:: **Custom bit rates and CAN 2.0 are not supported at this time.** The parameters passed into SocketCAN are not applied by the firmware.
 
