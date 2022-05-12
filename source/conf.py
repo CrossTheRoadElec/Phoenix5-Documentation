@@ -38,7 +38,7 @@ blog_baseurl = u'True'
 # -- Project information -----------------------------------------------------
 
 project = 'Phoenix'
-copyright = '2021, CTRE'
+copyright = '2022, CTRE'
 author = 'CTRE'
 
 # The short X.Y version
@@ -58,17 +58,12 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-#	'javasphinx',
     'sphinx.ext.intersphinx',
 	'ablog',
     'notfound.extension',
     'sphinxext.opengraph',
     'sphinx.ext.autosectionlabel'
 ]
-# Javadoc
-javadoc_url_map = {
-    'com.ctre.phoenix' : ('http://store.ctr-electronics.com/content/api/java/html/', 'javadoc8'),
-}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -83,7 +78,7 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# Only one langauge supported, no URL prefix
+# Only one language supported, no URL prefix
 # This is only needed when deploying a non-RTD server
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
@@ -129,7 +124,7 @@ html_logo = 'img/ctre.png'
 
 # Theme tweaks on top of RTD
 def setup(app):
-    app.add_stylesheet('css/theme_ctre.css')  
+    app.add_css_file('css/theme_ctre.css')  
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -150,32 +145,27 @@ htmlhelp_basename = 'Phoenixdoc'
 
 # -- Options for LaTeX output ------------------------------------------------
 
+latex_engine = "xelatex"
+
+# Disable xindy support
+# See: https://github.com/readthedocs/readthedocs.org/issues/5476
+latex_use_xindy = False
+
 latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
+    "fontpkg": r"""
+	\setmainfont{DejaVu Serif}
+	\setsansfont{DejaVu Sans}
+	\setmonofont{DejaVu Sans Mono}""",
+    "preamble": r"""
+	\usepackage[titles]{tocloft}
+	\cftsetpnumwidth {1.25cm}\cftsetrmarg{1.5cm}
+	\setlength{\cftchapnumwidth}{0.75cm}
+	\setlength{\cftsecindent}{\cftchapnumwidth}
+	\setlength{\cftsecnumwidth}{1.25cm}
+	""",
+    "fncychap": r"\usepackage[Bjornstrup]{fncychap}",
+    "printindex": r"\footnotesize\raggedright\printindex",
 }
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, 'Phoenix.tex', 'Phoenix Documentation',
-     'CTRE', 'manual'),
-]
-
 
 # -- Options for manual page output ------------------------------------------
 
@@ -199,22 +189,24 @@ texinfo_documents = [
 ]
 
 
-# -- Options for Epub output -------------------------------------------------
-
-# Bibliographic Dublin Core info.
-epub_title = project
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#
-# epub_identifier = ''
-
-# A unique identification for the text.
-#
-# epub_uid = ''
-
-# A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
-
-
 # -- Extension configuration -------------------------------------------------
+
+# Disable checking anchors for linkcheck builder
+linkcheck_anchors = False
+
+# Set various linkcheck timeouts
+linkcheck_timeout = 30
+linkcheck_retries = 3
+linkcheck_workers = 1
+
+# Specify a standard user agent, as Sphinx default is blocked on some sites
+user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25.0"
+
+# Autosection labels prefix document path and filename
+# Helps handle label collisions throughout the documentation
+autosectionlabel_prefix_document = True
+
+# Linkcheck exclusions
+linkcheck_ignore = [
+    r".*canable.io.*",
+]

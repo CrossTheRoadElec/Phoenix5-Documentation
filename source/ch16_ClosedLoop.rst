@@ -583,7 +583,7 @@ Be sure that the first point has zeroPos set to true if you wish to zero the pos
 
 Java example:
 
-.. sphynx note: the comments are not arranged perfecty due to tabs=8 on RTD while VSCode uses tabs=4
+.. sphynx note: the comments are not arranged perfectly due to tabs=8 on RTD while VSCode uses tabs=4
 
 .. code-block:: java
 
@@ -639,7 +639,7 @@ This is called Motion Profile Arc control mode, and utilizes everything that's b
 
 Below is a guide on how to get Motion Profiling Arc up and running, using the new Buffered Stream API.
 
-.. note:: This is also an example that is available on `our examples repo <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java/MotionProfileArc_Simple>`_
+.. note:: This is also an example that is available on `our examples repo <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/MotionProfileArc_Simple>`_
 
 
 .. note:: The steps for using motion profile arc are very similar and reference the steps for creating a normal motion profile. Read them first

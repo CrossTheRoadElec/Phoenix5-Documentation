@@ -8,7 +8,31 @@ Supported systems
 Currently, the following systems are supported for CANivore development:
 
 - roboRIO
-- Windows
+- Windows (x86-64)
+- Linux desktop (x86-64)
+- Raspberry Pi (ARM 32-bit and 64-bit)
+- NVIDIA Jetson
+
+.. note:: **Custom bit rates and CAN 2.0 are not supported at this time.** The parameters passed into SocketCAN are not applied by the firmware.
+
+Non-FRC Linux Kernel Module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+On non-FRC Linux systems, the ``canivore-usb`` kernel module must be installed to add SocketCAN support for the CANivore.
+The kernel module is distributed through APT. Our deb package repository must be added to your APT sources list prior to the initial installation:
+
+.. code-block:: bash
+
+	sudo curl -s --compressed -o /usr/share/keyrings/ctr-pubkey.gpg "https://deb.ctr-electronics.com/ctr-pubkey.gpg"
+	sudo curl -s --compressed -o /etc/apt/sources.list.d/ctr.list "https://deb.ctr-electronics.com/ctr.list"
+
+After adding our sources, the kernel module can be installed and updated using the following:
+
+.. code-block:: bash
+
+	sudo apt update
+	sudo apt install canivore-usb
+
+.. tip:: To get a robot application up and running quickly, check out our `Phoenix SocketCAN Example <https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example>`_.
 
 View attached CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,6 +42,9 @@ attached to the target system. You can specify the target system in the Robot Co
 .. image:: img/bring-8a-list.png
 
 .. note:: The Phoenix Diagnostic Server must be running on the target system to use the CANivores page.
+
+.. note:: The CANivores tab **does not work on non-FRC Linux systems**. This will be fixed in a future update.
+	As a workaround, you can use the :ref:`caniv CLI<caniv-cli>` to configure your CANivores.
 
 .. tip:: If you are connecting to CANivores on your local Windows machine, there is a CANivore-usb option in the Diagnostic Server Address dropdown.
 	This option runs a diagnostic server within Tuner so you do not need to run a robot project to communicate with CANivores.
@@ -29,7 +56,7 @@ Field upgrade CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the CANivores tab of Phoenix Tuner, select the CANivore you wish to update.
 Select the CRF under the Field-upgrade section then press Update Device.
-The CRFs are available in multiple places, and likely are already on your PC. See section :ref:`Device Firmware Files (crf)`.
+The CRFs are available in multiple places, and likely are already on your PC. See section :ref:`Device Firmware Files (crf) <ch05_PrepWorkstation:Device Firmware Files (crf)>`.
 
 If you wish to update all attached CANivores, check Update all CANivores. If a CANivore field-upgrade fails, then the operation will complete.
 Confirm Firmware Version column in the device list after field-upgrade.
@@ -78,11 +105,15 @@ The current state of the ESP32 can be seen in the "ESP32 State" column of the li
 CANivore API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the constructors for CANivore-compatible CAN devices, there is an optional string parameter to set the device's CAN bus.
-This string can be the CANivore's name or serial number.
+This string can be the CANivore's name or serial number. On non-FRC Linux systems, this string can also be a SocketCAN interface.
 
-.. note:: On the roboRIO, if no CAN bus string is passed into the constructor, or the CAN bus string is empty, the device will use the roboRIO native CAN bus.
+If no CAN bus string is passed into the constructor, or the CAN bus string is empty:
 
-.. note:: If there are multiple CANivores with the same name, the RoboRIO will use the first CANivore found.
+ - On the roboRIO, the system will use the roboRIO native CAN bus.
+ - On Windows, the system will use the first CANivore found. (Requires Phoenix 5.22+)
+ - On non-FRC Linux systems, the system will use SocketCAN interface ``can0``.
+
+.. note:: If there are multiple CANivores with the same name, the system will use the first CANivore found.
 
 .. note:: You can explicitly specify that a device should use the roboRIO native CAN bus by passing down "rio" or "roborio".
 
@@ -119,7 +150,7 @@ to CTR Electronics.
 	* - Message
 	  - Bring-up Status
 	* - CANbus Failed Bring-up
-	  - Found and connected to the CANivore, but it could not configure the device or start the network
+	  - Found and connected to the CANivore, but could not configure the device or start the network
 	* - CANbus Successfully Started
 	  - Successfully configured the CANivore and started the network
 
@@ -136,6 +167,7 @@ to CTR Electronics.
 	  - | Linux: The SocketCAN network has been activated, USB-to-CAN activity has resumed
 	    | Windows: Successfully opened the communication channels for USB-to-CAN traffic
      
+.. _caniv-cli:
 
 caniv - CANivore CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

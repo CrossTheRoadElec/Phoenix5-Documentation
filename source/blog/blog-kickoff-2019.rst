@@ -28,7 +28,7 @@ New features below
 * Phoenix Tuner can be used to factory default config settings (as well as API).
 * Phoenix Tuner can field-upgrade all same-model devices with one click.
 * Phoenix Tuner can be used to perform Pigeon IMU temperature calibration.
-* New config routines to simplify management of persistent settings: configFactoryDefault and `configAllSettings <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java/Config%20All>`_
+* New config routines to simplify management of persistent settings: configFactoryDefault and `configAllSettings <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/Config%20All>`_
 * Compatibility with WPI distributed Visual Studio Code interface and GradleRIO build system.
 * Maven hosted API provides an alternative to using the Phoenix installer to get API binaries (however the offline install is highly recommended).
 * No more FRC versus nonFRC firmware, see "FRC Lock" features for explanation.

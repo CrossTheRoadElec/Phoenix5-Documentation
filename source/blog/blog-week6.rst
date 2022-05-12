@@ -45,7 +45,7 @@ This means that the sharp "corner" points typical of the simpler trapezoidal met
 
 .. image:: ../img/blog-week6-2.png
 
-.. note:: Image source: http://www.ni.com/product-documentation/4824/en/
+.. note:: Image source: https://electronics.stackexchange.com/questions/38573/smooth-a-motor-movement
 
 Due to the successful and widespread use of this control mode, we've enhanced it to allow for true S-Curve profiling.
 
