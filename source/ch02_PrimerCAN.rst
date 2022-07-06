@@ -7,7 +7,7 @@ This includes:
 - Motor Controllers such as Talon FX, Talon SRX, and Victor SPX
 - Orientation devices such as Pigeon IMU and Pigeon 2.0
 - Sensors such as CANcoder and CANifier
-- Full list of :ref:`Phoenix devices <Do I need to install any of this?>`
+- Full list of :doc:`Phoenix devices <ch04_DoINeedThis>`
 - Pneumatics Control Mode (PCM)
 - Power Distribution Panel (PDP)
 
