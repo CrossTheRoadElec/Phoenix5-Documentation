@@ -37,7 +37,7 @@ Press Factory Default to default the motor controller settings so that it has pr
 
 .. tip:: If changing a config live in the robot controller, use the Refresh/Revert button to confirm setting in Tuner.
 
-.. note:: CTRE devices can be factory defaulted via the API, and thru the B/C mechanical button.
+.. note:: CTRE devices can be factory defaulted via the API, and through the B/C mechanical button.
 
 .. note:: Neutral Mode will not change during factory default as it is stored separately from the other persistent configs.
 
