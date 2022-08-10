@@ -23,7 +23,7 @@ The kernel module is distributed through APT. Our deb package repository must be
 .. code-block:: bash
 
 	sudo curl -s --compressed -o /usr/share/keyrings/ctr-pubkey.gpg "https://deb.ctr-electronics.com/ctr-pubkey.gpg"
-	sudo curl -s --compressed -o /etc/apt/sources.list.d/ctr.list "https://deb.ctr-electronics.com/ctr.list"
+	sudo curl -s --compressed -o /etc/apt/sources.list.d/ctr2022.list "https://deb.ctr-electronics.com/ctr2022.list"
 
 After adding our sources, the kernel module can be installed and updated using the following:
 
