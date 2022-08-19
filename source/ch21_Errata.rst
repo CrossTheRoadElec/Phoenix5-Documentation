@@ -3,6 +3,17 @@
 Errata
 ======
 
+.. _cancoder-vh-configs-dont-show-errata:
+
+CANCoder vH configs don't show up in Tuner
+-------------------------------------------------------
+CANCoder vH configs do not show up on the Config Tab in Phoenix Tuner with API versions 5.21.2 and older.
+
+This does not affect the original CANCoder.
+For information on how to tell what hardware version a CANCoder is, see the :ref:`Bring Up: CANCoder - Versions <Hardware_Versions>` section.
+
+.. tip:: This is fixed in API version 5.21.3
+
 .. _pigeonimu-setfusedheading-units-errata:
 
 PigeonIMU Set Fused Heading accepts 1/64th of a degree
@@ -51,7 +62,7 @@ Sticky fault can be ignored.
 
 Motion Magic Target does not approach the API requested Target
 -------------------------------------------------------------------------------------
-Under very specific circumstances, the motion magic target position may not approach the final target position requested using Phoenix API. 
+Under very specific circumstances, the motion magic target position may not approach the final target position requested using Phoenix API.
 The requirements are:
  - Motor Controller firmware is <= 22.0
  - Motion Magic S-Curve is set to a non-zero value.
@@ -94,7 +105,7 @@ See an example of chaining two Open VIs:
 
 .. image:: img/labview-chainerrors.png
 
-If the Open VIs are not chained together, this can result in:  
+If the Open VIs are not chained together, this can result in:
 
 - Multiple Diagnostic Servers
 - Multiple enable signals (enable and disable will conflict, motor controllers will appear to not enable)
@@ -105,12 +116,12 @@ If the Open VIs are not chained together, this can result in:
 .. _talonfx-remoteID-errata:
 
 Talon FX Remote Filter Device ID Must be 15 or Less
----------------------------------------------------------------- 
+----------------------------------------------------------------
 When configuring Talon FX to have a remote sensor, the filter's device ID must be 15 or less.
 
 Attempting to set a Remote Filter Device ID >15 in Phoenix Tuner will result in a "DI_Mismatch" error.
 
-When running a robot program, the filter device ID will not be the expected value and so will generate an error that the remote sensor is missing on the bus.  
+When running a robot program, the filter device ID will not be the expected value and so will generate an error that the remote sensor is missing on the bus.
 The associated fault will also be asserted and can be viewed in self-test snapshot of the Talon FX.
 
 The actual filter device ID set will be truncated to the original set value modulo 15.
@@ -133,7 +144,7 @@ When running simulation, the following error can occur:
             at edu.wpi.first.wpilibj.RobotBase.lambda$startRobot$0(RobotBase.java:387)
             at java.base/java.lang.Thread.run(Thread.java:834)
 
-This occurs when multiple WPI_TalonSRX objects have been created with the same device ID or multiple WPI_VictorSPX objects have been created with the same device ID. 
+This occurs when multiple WPI_TalonSRX objects have been created with the same device ID or multiple WPI_VictorSPX objects have been created with the same device ID.
 Find and remove the extra objects from your java code.
 
 .. _Errata-hero:
@@ -205,7 +216,7 @@ To work around this, **press finish on the front panel of Robot Main** before yo
 TalonFX Current Reporting Status Frame Not Available
 ----------------------------------------------------
 The Status Frame that TalonFX uses when reporting its supply and stator current is not available under the StatusFrame or StatusFrameEnhanced enum.
-The enum will be modified to include this frame in a future update. 
+The enum will be modified to include this frame in a future update.
 Currently, the following can be done to modify the Current Measurement Status Frame period:
 
 .. code-block:: java
