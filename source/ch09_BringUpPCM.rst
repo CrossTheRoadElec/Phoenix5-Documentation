@@ -37,6 +37,8 @@ Then confirm using the Solenoid LED on the PCM and Self-test Snapshot in Tuner.
 
 .. image:: img/pcm-tuner-1.png
 
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+
 Generally creating a solenoid object is sufficient for the compressor features to function.
 In order for the compressor output to activate, all of the following conditions must be met:
 

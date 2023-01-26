@@ -1,5 +1,5 @@
-Primer: What is Phoenix Software
-================================
+Primer: What is Phoenix v5 Software
+===================================
 Phoenix is a package that targets LabVIEW, C++, and Java for the FRC Robotics Controller platform, i.e. the  NI roboRIO robot controller. 
 
 It includes the Application Programming Interface (API), which are the functions you call to manipulate :ref:`Phoenix devices <Do I need to install any of this?>` on the CAN bus.
@@ -38,6 +38,8 @@ Phoenix-Tuner v1 is the graphical interface that allows for configuration of Pho
 
 .. image:: img/tuner.png
 
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+
 It provides a variety of functionality to support all Phoenix CAN Bus devices.  The feature set includes:
 
 - Update device firmware (including PDP/PCM) 
@@ -50,8 +52,6 @@ It provides a variety of functionality to support all Phoenix CAN Bus devices.  
 - Check plots
 - Temperature Calibrate Pigeon-IMU
 - Confirm proper CAN bus wiring **without writing any software**.
-
-.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
 
 Now you can drive your motors and collect data *without writing any software*.
 

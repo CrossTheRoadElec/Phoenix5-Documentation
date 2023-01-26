@@ -29,6 +29,8 @@ Press Factory Default to default the motor controller settings so that it has pr
 
 .. image:: img/bring-16.png
 
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+
 .. tip:: Right-click anywhere in the property inspector and select Collapse-all to collapse each config group.
 
 .. tip:: Other configs can be set in this view for testing purposes. For example, you may want to restrict the maximum output for testing via the Peak output settings under “Motor Output”.
