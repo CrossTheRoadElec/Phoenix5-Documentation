@@ -34,7 +34,7 @@ https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example
 
 What is Phoenix Tuner?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Phoenix-Tuner is the graphical interface that allows for configuration of Phoenix CAN bus devices.
+Phoenix-Tuner v1 is the graphical interface that allows for configuration of Phoenix CAN bus devices.
 
 .. image:: img/tuner.png
 
@@ -50,6 +50,8 @@ It provides a variety of functionality to support all Phoenix CAN Bus devices.  
 - Check plots
 - Temperature Calibrate Pigeon-IMU
 - Confirm proper CAN bus wiring **without writing any software**.
+
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
 
 Now you can drive your motors and collect data *without writing any software*.
 
