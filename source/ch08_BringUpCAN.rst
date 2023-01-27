@@ -57,6 +57,7 @@ This capture is taken with no devices connected to the roboRIO.  roboRIO will ta
 
 .. image:: img/bring-1.png
 
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
 
 LEDs are red – now what?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

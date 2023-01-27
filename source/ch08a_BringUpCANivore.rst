@@ -46,6 +46,8 @@ attached to the target system. You can specify the target system in the Robot Co
 .. note:: The CANivores tab **does not work on non-FRC Linux systems**. This will be fixed in a future update.
 	As a workaround, you can use the :ref:`caniv CLI<caniv-cli>` to configure your CANivores.
 
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+
 .. tip:: If you are connecting to CANivores on your local Windows machine, there is a CANivore-usb option in the Diagnostic Server Address dropdown.
 	This option runs a diagnostic server within Tuner so you do not need to run a robot project to communicate with CANivores.
 	|_Windows_CANivore_USB_Image_|
