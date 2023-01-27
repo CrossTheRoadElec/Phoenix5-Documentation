@@ -14,6 +14,8 @@ If using Quadrature or Pulse width sensor, rotate sensor while performing Self-t
 
 .. image:: img/bring-15.png
 
+.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+
 LED Strip Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
