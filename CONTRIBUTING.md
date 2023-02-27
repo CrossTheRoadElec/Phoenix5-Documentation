@@ -36,7 +36,7 @@ Why: HERO is currently unable to utilize the many new features and new products 
 Test Plan: Port Java Examples to C#, use them to test all new features.
 ```
 ## Pull Requests
-Pull requests have the following guidlines:
+Pull requests have the following guidelines:
 - Descriptive title, no issue number in title
 - Follows the style sheet consistent with the rest of the code in the repository
 - Follows the below template
