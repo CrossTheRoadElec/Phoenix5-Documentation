@@ -64,17 +64,17 @@ Motion Magic Target does not approach the API requested Target
 -------------------------------------------------------------------------------------
 Under very specific circumstances, the motion magic target position may not approach the final target position requested using Phoenix API.
 The requirements are:
- - Motor Controller firmware is <= 22.0
- - Motion Magic S-Curve is set to a non-zero value.
- - Must be in Motion Magic Control Mode
- - Robot application frequently calls the set() method with new values.
- - Set point changes exceed 16 bits
+- Motor Controller firmware is <= 22.0
+- Motion Magic S-Curve is set to a non-zero value.
+- Must be in Motion Magic Control Mode
+- Robot application frequently calls the set() method with new values.
+- Set point changes exceed 16 bits
 
 **Workaround:**
 Any of the following will prevent the issue from occurring:
- - Turn off S-Curve OR
- - Update firmware to 22.1 OR
- - Ensure set point changes are within 16 bits.
+- Turn off S-Curve OR
+- Update firmware to 22.1 OR
+- Ensure set point changes are within 16 bits.
 
 .. tip:: This is fixed in all motor controller versions 22.1
 
@@ -84,10 +84,10 @@ CANivore: Loss of communication under specific circumstances
 -------------------------------------------------------------------------------------
 Under a specific set of circumstances, CANivore will lose communications for 16 seconds and appear frozen (solid LEDs).
 The requirements are:
- - CANivore must be using firmware 22.1.0.1.
- - CANivore must be initially connected to USB (Status LED orange or green).
- - After initial connection, CANivore must lose connection to **only** USB D+/D- **while maintaining connection** to USB 5V and Ground (Status LED fast-red strobe).
- - After loss of D+/D-, CANivore must regain connection to D+/D- while maintaining connection to USB 5V and Ground.
+- CANivore must be using firmware 22.1.0.1.
+- CANivore must be initially connected to USB (Status LED orange or green).
+- After initial connection, CANivore must lose connection to **only** USB D+/D- **while maintaining connection** to USB 5V and Ground (Status LED fast-red strobe).
+- After loss of D+/D-, CANivore must regain connection to D+/D- while maintaining connection to USB 5V and Ground.
 
 These circumstances do not reproduce the issue in every instance.
 

@@ -57,12 +57,13 @@ release = ''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'ablog',
+    'notfound.extension',
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-	'ablog',
-    'notfound.extension',
+    'sphinx.ext.autosectionlabel',
     'sphinxext.opengraph',
-    'sphinx.ext.autosectionlabel'
+    'sphinx_panels',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

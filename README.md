@@ -1,5 +1,7 @@
 # Phoenix Documentation
 
+[![Documentation Status](https://readthedocs.org/projects/phoenix-documentation/badge/?version=stable)](https://docs.ctre-phoenix.com/en/stable/?badge=stable) [![CI](https://github.com/CrossTheRoadElec/Phoenix-Documentation/actions/workflows/CI.yml/badge.svg)](https://github.com/CrossTheRoadElec/Phoenix-Documentation/actions/workflows/CI.yml)
+
 The rendered documentation can be viewed at...
 
 https://phoenix-documentation.readthedocs.io/en/latest/index.html
