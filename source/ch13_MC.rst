@@ -25,7 +25,7 @@ This can be done in the config tab (Windows => Config).
 
 Select the Victor or Talon in the center-top dropdown.  This will reveal all persistent config settings.  
 
-Press Factory Default to default the motor controller settings so that it has predicable behavior.  
+Press Factory Default to default the motor controller settings so that it has predictable behavior.  
 
 .. image:: img/bring-16.png
 
@@ -516,7 +516,7 @@ The limiting is characterized by three configs:
   TalonSRX talon = new TalonSRX(0);
   talon.configPeakCurrentLimit(30); // don't activate current limit until current exceeds 30 A ...
   talon.configPeakCurrentDuration(100); // ... for at least 100 ms
-  talon.configContinuousCurrentLimit(20); // once current-limiting is actived, hold at 20A
+  talon.configContinuousCurrentLimit(20); // once current-limiting is activated, hold at 20A
   talon.enableCurrentLimit(true);
 
 .. tip:: Image below can be dragged/dropped into LabVIEW editor.
