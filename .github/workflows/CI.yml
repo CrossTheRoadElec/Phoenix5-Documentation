@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@v3
+    - uses: actions/setup-python@v4
       with:
         python-version: 3.9
+        cache: 'pip'
     - name: Install Python Dependencies
       run: |
         pip install -r requirements.txt
@@ -40,9 +41,10 @@ jobs:
     - name: Checkout dev
       run: |
         git fetch origin dev --depth=1
-    - uses: actions/setup-python@v3
+    - uses: actions/setup-python@v4
       with:
         python-version: 3.9
+        cache: 'pip'
     - name: Install Dependencies
       run: |
         pip install -r requirements.txt
