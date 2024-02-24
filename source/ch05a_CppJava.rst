@@ -28,7 +28,7 @@ Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Li
 
 At the top of your screen, a menu will appear. Select "Install new libraries (offline)".
 
-.. tip:: Alternatively you can use "Install new libraries (online)" option with https://maven.ctr-electronics.com/release/com/ctre/phoenix6/latest/Phoenix6-frc2024-latest.json.  However this is **not recommended** as this requires a live Internet connection to use your FRC project.
+.. tip:: Alternatively you can use "Install new libraries (online)" option with https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2023-latest.json.  However this is **not recommended** as this requires a live Internet connection to use your FRC project.
 
 .. image:: img/verify-5.png
 
