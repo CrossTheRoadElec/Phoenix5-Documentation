@@ -13,7 +13,7 @@ jobs:
         cache: 'pip'
     - name: Install Python Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r source/requirements.txt
     - name: Install LaTeX
       run: |
         sudo apt-get update
@@ -47,7 +47,7 @@ jobs:
         cache: 'pip'
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r source/requirements.txt
     - name: Check Links
       run: |
         make linkcheck
