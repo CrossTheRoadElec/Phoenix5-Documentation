@@ -22,24 +22,7 @@ Once the project is created, ensure project builds.  Testing robot deploy is als
 FRC C++/Java – Add Phoenix 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Right-Click on "build.gradle" in the project tree, then select "Manage Vendor Libraries".
-
-.. image:: img/verify-4.png
-
-At the top of your screen, a menu will appear. Select "Install new libraries (offline)".
-
-.. tip:: Alternatively you can use "Install new libraries (online)" option with https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2023-latest.json.  However this is **not recommended** as this requires a live Internet connection to use your FRC project.
-
-.. image:: img/verify-5.png
-
-
-The menu will now display a list of vendor libraries you can install. Check "CTRE Phoenix", then click "OK"
-
-.. image:: img/verify-6.png
-
-.. note:: This will bring the library into the project references, however the library will not be loaded if the source code does not create a Phoenix object or call any Phoenix routines.  Therefore, you must create a Phoenix object to properly test the install.
-
-.. tip:: Teams can verify Phoenix is in their robot project by checking for the existence of vendordeps/Phoenix.json in the project directory.
+See the `WPILib documentation <https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html>`__ on installing vendordeps. 
 
 FRC C++ Build Test: Single Talon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
