@@ -19,13 +19,13 @@ By default CANdle is configured to use GRB addressable LED strips.  Use Phoenix 
 CANdle API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 CANdle's API calls can be found here:  
-`C++ <https://store.ctr-electronics.com/content/api/cpp/html/classctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`_ | `Java <https://store.ctr-electronics.com/content/api/java/html/classcom_1_1ctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`_
+`Java <https://store.ctr-electronics.com/content/api/java/html/classcom_1_1ctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`__ | `C++ <https://store.ctr-electronics.com/content/api/cpp/html/classctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`__ 
 
 
 Examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 There is a basic example for using CAndle here:  
-`C++ <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/C%2B%2B%20General/CANdle>`_ | `Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/CANdle>`_
+`Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/CANdle>`__ | `C++ <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/C%2B%2B%20General/CANdle>`__
 
 An advanced example using multiple animations can be found here:  
-`Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/CANdle%20MultiAnimation>`_
+`Java <https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/tree/master/Java%20General/CANdle%20MultiAnimation>`__

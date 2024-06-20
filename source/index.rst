@@ -9,7 +9,7 @@ Welcome to Phoenix's documentation!
 Below is the latest documentation for CTR-Electronics Phoenix software framework.
 This includes...
 
-* **Class library** for supported :ref:`Phoenix devices <Do I need to install any of this?>` for programming in C++, Java (FRC), LabVIEW (FRC), or C# (HERO).
+* **Class library** for supported Phoenix devices for programming in C++, Java (FRC), LabVIEW (FRC), or C# (HERO).
 * **Phoenix Tuner** Graphical Interface - provides configuration options, diagnostics, control and plotting.
 * **Phoenix Diagnostic Server** - install on to roboRIO for Tuner, and to perform HTTP API requests for diagnostic information.
 

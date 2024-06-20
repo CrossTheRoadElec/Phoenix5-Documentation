@@ -1,3 +1,5 @@
+:orphan:
+
 FRC Blogs
 ==============
 .. Phoenix documentation master file, created by
@@ -17,4 +19,3 @@ FRC Blogs
    blog-week4.rst
    blog-week1.rst
    blog-kickoff-2019.rst
-

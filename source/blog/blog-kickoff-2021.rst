@@ -6,7 +6,7 @@ BLOG: FRC 2021 Kickoff
 Hello FRC Community!
 
 We've just released our 2021 kickoff release of Phoenix Framework (**5.19.4.1**).
-The Phoenix Windows installer and zips for macOS and Linux are `now available <https://github.com/CrossTheRoadElec/Phoenix-Releases/releases>`_.
+The Phoenix Windows installer and zips for macOS and Linux are `now available <https://github.com/CrossTheRoadElec/Phoenix-Releases/releases>`__.
 
 You can find the latest firmware CRFs at each product page (the installer also installs them).
 
@@ -27,7 +27,7 @@ This includes:
 - **Supported Operating Systems:** Windows, Linux, macOS
 - **Supported Languages:** Java, C++
 
-If you encounter any limitations with Talon SRX or Victor SPX simulation, please contact support@ctr-electronics.com or file an issue tracker `here <https://github.com/CrossTheRoadElec/Phoenix-Releases/issues>`_.
+If you encounter any limitations with Talon SRX or Victor SPX simulation, please contact support@ctr-electronics.com or file an issue tracker `here <https://github.com/CrossTheRoadElec/Phoenix-Releases/issues>`__.
 
 Phoenix Simulation Examples
 +++++++++++++++++++++++++++++++++++
@@ -49,9 +49,9 @@ Online API Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The online API documentation has been updated for 2021.
 
-C++ documentation can be found `here <https://oldsite.ctr-electronics.com/downloads/api/cpp/html/index.html>`_.
+C++ documentation can be found `here <https://oldsite.ctr-electronics.com/downloads/api/cpp/html/index.html>`__.
 
-Java documentation can be found `here <https://oldsite.ctr-electronics.com/downloads/api/java/html/index.html>`_.
+Java documentation can be found `here <https://oldsite.ctr-electronics.com/downloads/api/java/html/index.html>`__.
 
 **Java teams** should note that the **documentation jar** is installed locally after running our installer.
 
