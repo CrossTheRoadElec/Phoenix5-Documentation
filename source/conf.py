@@ -65,6 +65,18 @@ extensions = [
     'sphinx.ext.autosectionlabel'
 ]
 
+rst_prolog = """
+.. warning:: 
+   
+   The following device objects are deprecated and will be removed from the Phoenix 5 library in 2025. Users are encouraged to migrate to the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/>`__ for deprecated devices.
+   
+   .. raw:: html
+   
+      <p>
+      - Pigeon2<br/>
+      - TalonFX<br/>
+      </p>
+"""
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 templates_path = [ablog.get_html_templates_path()]
@@ -92,7 +104,7 @@ else:
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

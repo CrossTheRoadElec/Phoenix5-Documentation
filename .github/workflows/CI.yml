@@ -6,13 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
       with:
         python-version: 3.9
+        cache: 'pip'
     - name: Install Python Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r source/requirements.txt
     - name: Install LaTeX
       run: |
         sudo apt-get update
@@ -21,7 +22,7 @@ jobs:
       run: |
         make html
     - name: Archive HTML
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: phoenix-html
         path: build/html/
@@ -29,30 +30,31 @@ jobs:
       run: |
         make latexpdf
     - name: Archive PDF
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: phoenix-pdf
         path: build/latex/phoenix.pdf
   check-links:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Checkout dev
       run: |
         git fetch origin dev --depth=1
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v4
       with:
         python-version: 3.9
+        cache: 'pip'
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r source/requirements.txt
     - name: Check Links
       run: |
         make linkcheck
   check-spelling:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: misspell
         uses: reviewdog/action-misspell@v1
         with:
