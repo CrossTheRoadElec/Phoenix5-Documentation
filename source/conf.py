@@ -95,6 +95,7 @@ master_doc = 'index'
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 if on_rtd:
+   html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
    notfound_no_urls_prefix = False
 else:
    notfound_no_urls_prefix = True
@@ -133,6 +134,11 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 html_logo = 'img/ctre.png'
+
+if on_rtd:
+    html_context = {
+        "READTHEDOCS": True
+    }
 
 # Theme tweaks on top of RTD
 def setup(app):
