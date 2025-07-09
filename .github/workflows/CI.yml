@@ -6,10 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: actions/setup-python@v4
       with:
-        python-version: 3.9
+        python-version: 3.11
         cache: 'pip'
     - name: Install Python Dependencies
       run: |
@@ -54,7 +54,7 @@ jobs:
   check-spelling:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: misspell
         uses: reviewdog/action-misspell@v1
         with:
