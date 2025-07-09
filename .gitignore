@@ -3,3 +3,4 @@ source/_build
 *.bak
 .vscode
 source/.vscode
+.venv
