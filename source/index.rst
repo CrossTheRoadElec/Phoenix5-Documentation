@@ -72,6 +72,6 @@ Follow these instructions in order!
    :caption: API Docs
    :hidden:
 
-   Phoenix Java API Docs <https://api.ctr-electronics.com/phoenix/release/java/>
-   Phoenix C++ API Docs <https://api.ctr-electronics.com/phoenix/release/cpp/>
+   Phoenix Java API Docs <https://api.ctr-electronics.com/phoenix/stable/java/>
+   Phoenix C++ API Docs <https://api.ctr-electronics.com/phoenix/stable/cpp/>
 
