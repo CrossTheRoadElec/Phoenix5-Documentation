@@ -3,6 +3,8 @@
 Bring Up: CANCoder
 ==================
 
+.. warning:: The CANcoder Phoenix 5 API has been removed in 2026. Users should migrate to the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/>`__.
+
 .. note:: As of late August 2022, there are multiple hardware versions of CANCoder available. This is due to the ongoing worldwide chip shortage causing CTR electronics to replace the original processor with a substitute. This new version of CANCoder requires a different firmware, but is otherwise functionally identical to the original. For details on how to determine what hardware version a CANCoder is, look at the :ref:`CANCoder Versions <Hardware_Versions>` section.
 
 Magnet Placement
@@ -17,7 +19,7 @@ By default, the position value is in units of degrees.
 
 .. image:: img/bring-12a-selftest.PNG
 
-.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+.. tip:: There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
 
 Choose Sensor Direction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,6 +3,8 @@
 Bring Up: Talon FX/SRX and Victor SPX
 =====================================
 
+.. warning:: The Talon FX Phoenix 5 API has been removed in 2025. Users should migrate to the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/>`__. The Talon SRX and Victor SPX remain supported in Phoenix 5.
+
 At this point all Talon and Victors should appear in Tuner with up to date firmware.  The next goal is to drive the motor controller manually.  
 This is done to confirm/test:
 
@@ -29,7 +31,7 @@ Press Factory Default to default the motor controller settings so that it has pr
 
 .. image:: img/bring-16.png
 
-.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+.. tip:: There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
 
 .. tip:: Right-click anywhere in the property inspector and select Collapse-all to collapse each config group.
 

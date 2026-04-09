@@ -24,7 +24,7 @@ Rotate IMU and confirm Yaw moves as expected.
 
 .. image:: img/bring-12.png
 
-.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+.. tip:: There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
 
 .. note:: Moving counter-clockwise is interpreted as a positive change.
 

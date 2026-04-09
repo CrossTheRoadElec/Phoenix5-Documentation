@@ -20,7 +20,7 @@ Blog Entries
 **Blog entries for 2022 and on will be posted at:** `CTR-Electronics Blog`_.
 
 
-.. _CTR-Electronics Blog: https://store.ctr-electronics.com/blog
+.. _CTR-Electronics Blog: https://store.ctr-electronics.com/blogs/news
 
 .. only:: html
 
