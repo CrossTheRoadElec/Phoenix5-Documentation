@@ -68,14 +68,7 @@ extensions = [
 rst_prolog = """
 .. warning:: 
    
-   The following device objects are deprecated and will be removed from the Phoenix 5 library in 2025. Users are encouraged to migrate to the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/>`__ for deprecated devices.
-   
-   .. raw:: html
-   
-      <p>
-      - Pigeon2<br/>
-      - TalonFX<br/>
-      </p>
+   The CANdle Phoenix 5 API is deprecated and will be removed in 2027. Additionally, Talon FX, CANcoder, and Pigeon 2 now require Phoenix 6. Users are encouraged to migrate to the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/>`__ for deprecated devices.
 """
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

@@ -187,7 +187,7 @@ of your main method. The line is commented out in the example program.
 
 .. warning:: The instructions below are available for legacy support. We recommend you instead run the Phoenix Diagnostics Server in your user program.
 
-.. warning:: The legacy instructions below currently do not work. See: https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example/issues/15
+.. warning:: The legacy instructions below currently do not work. See: https://github.com/CrossTheRoadElec/Phoenix5-Linux-Example/issues/15
 .. raw:: html
 
 	<strike>

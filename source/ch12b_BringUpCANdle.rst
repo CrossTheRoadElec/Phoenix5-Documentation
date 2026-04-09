@@ -3,6 +3,8 @@
 Bring Up: CANdle
 ==================
 
+.. warning:: The CANdle Phoenix 5 API is deprecated and will be removed in 2027. Users are encouraged to migrate to the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/>`__.
+
 For wiring see the CANdle Hardware User Manual on the product page:  
 
 https://store.ctr-electronics.com/candle/
@@ -19,7 +21,7 @@ By default CANdle is configured to use GRB addressable LED strips.  Use Phoenix 
 CANdle API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 CANdle's API calls can be found here:  
-`C++ <https://store.ctr-electronics.com/content/api/cpp/html/classctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`_ | `Java <https://store.ctr-electronics.com/content/api/java/html/classcom_1_1ctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`_
+`C++ <https://api.ctr-electronics.com/phoenix/stable/cpp/classctre_1_1phoenix_1_1led_1_1_c_a_ndle.html>`_ | `Java <https://api.ctr-electronics.com/phoenix/stable/java/com/ctre/phoenix/led/CANdle.html>`_
 
 
 Examples

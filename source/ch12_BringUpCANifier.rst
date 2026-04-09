@@ -14,12 +14,12 @@ If using Quadrature or Pulse width sensor, rotate sensor while performing Self-t
 
 .. image:: img/bring-15.png
 
-.. tip:: There is a modernized version called `Tuner X <https://pro.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix Pro <https://pro.docs.ctr-electronics.com/en/stable/>`__).
+.. tip:: There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
 
 LED Strip Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `CANifier user’s guide <https://store.ctr-electronics.com/content/user-manual/CANifier%20User%27s%20Guide.pdf>`_ for wiring and controlling LED Strip.
+See `CANifier user’s guide <https://ctre.download/files/user-manual/CANifier%20User's%20Guide.pdf>`_ for wiring and controlling LED Strip.
 
 CANifier API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
