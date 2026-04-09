@@ -13,31 +13,25 @@ Supported Linux Controllers
 
 Below are the currently supported Linux hardware platforms.  An additional SocketCAN device is necessary to utilize the provided software as-is, otherwise a custom platform library is required.
 
- - NVIDIA Jetson TX2
- - NVIDIA Jetson Nano
- - Raspberry Pi 3
- - Raspberry Pi 4
+ - NVIDIA Jetson (Jetpack 6 or newer)
+ - Raspberry Pi (ARM64)
 
 It is possible to use other hardware platforms, however hardware and software setup may be different than this documentation.
 
 .. note:: CTRE now supports using the :ref:`CANivore <ch08a_BringUpCANivore>` as a SocketCAN device with Phoenix CAN FD devices on supported Linux platforms.
 
-.. note:: CTRE currently recommends the CANable for use as a generic CAN 2.0 SocketCAN device.  More information can be found here: https://canable.io/
+.. note:: The CANable can be used as a generic CAN 2.0 SocketCAN device.  More information can be found here: https://canable.io/
 
 How to prepare Hardware?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Jetson TX2
-------------------------------------------------------
-Follow the documentation provided by NVIDIA to setup the Jetson TX2: https://developer.nvidia.com/embedded/downloads
-
-Raspberry Pi/Jetson Nano
+Raspberry Pi/NVIDIA Jetson
 ------------------------------------------------------
 Image your device with the respective image below. Other Images can also be used, although these images have been tested and are known to be supported.
 
-Raspbian Buster Image for Raspberry Pi: `Pi Image <https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-07-12/2019-07-10-raspbian-buster.zip>`_
+Raspberry Pi OS Image: `Pi Image <https://www.raspberrypi.com/software/operating-systems/>`_
 
-Jetson Nano Developer Kit SD Card Image: `Nano Image <https://developer.nvidia.com/jetson-nano-sd-card-image-r322>`_
+NVIDIA Jetson Linux SD Card Image: `Jetson Image <https://developer.nvidia.com/embedded/jetson-linux-archive>`_
 
 Etcher (available `here <https://www.balena.io/etcher/>`_) is the recommended tool for flashing the image to an SD card.  With Etcher open, select your downloaded image and the SD card target, then click "Flash!".
 
