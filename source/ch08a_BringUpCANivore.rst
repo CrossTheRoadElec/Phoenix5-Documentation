@@ -3,6 +3,8 @@
 Bring Up: CANivore 
 ==================
 
+.. warning:: This documentation is out of date. We recommend following the `Phoenix 6 CANivore <https://v6.docs.ctr-electronics.com/en/stable/docs/canivore/canivore-intro.html>`__ documentation for configuring and managing CANivores; this is compatible with Phoenix 5.
+
 Supported systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Currently, the following systems are supported for CANivore development:
@@ -10,7 +12,7 @@ Currently, the following systems are supported for CANivore development:
 - roboRIO
 - Windows (x86-64)
 - Linux desktop (x86-64)
-- Raspberry Pi (ARM 32-bit and 64-bit)
+- Raspberry Pi (ARM 64-bit)
 - NVIDIA Jetson
 
 .. note:: **Custom bit rates and CAN 2.0 are not supported at this time.** The parameters passed into SocketCAN are not applied by the firmware.
@@ -18,21 +20,9 @@ Currently, the following systems are supported for CANivore development:
 Non-FRC Linux Kernel Module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 On non-FRC Linux systems, the ``canivore-usb`` kernel module must be installed to add SocketCAN support for the CANivore.
-The kernel module is distributed through APT. Our deb package repository must be added to your APT sources list prior to the initial installation:
+The kernel module is distributed through APT. Follow the `Phoenix 6 Non-FRC Installation <https://v6.docs.ctr-electronics.com/en/stable/docs/installation/installation-nonfrc.html#linux-setup>`__ guide to install the kernel module.
 
-.. code-block:: bash
-
-	sudo curl -s --compressed -o /usr/share/keyrings/ctr-pubkey.gpg "https://deb.ctr-electronics.com/ctr-pubkey.gpg"
-	sudo curl -s --compressed -o /etc/apt/sources.list.d/ctr2022.list "https://deb.ctr-electronics.com/ctr2022.list"
-
-After adding our sources, the kernel module can be installed and updated using the following:
-
-.. code-block:: bash
-
-	sudo apt update
-	sudo apt install canivore-usb
-
-.. tip:: To get a robot application up and running quickly, check out our `Phoenix SocketCAN Example <https://github.com/CrossTheRoadElec/Phoenix-Linux-SocketCAN-Example>`_.
+.. tip:: To get a robot application up and running quickly, check out our `Phoenix 5 SocketCAN Example <https://github.com/CrossTheRoadElec/Phoenix5-Linux-Example>`_.
 
 View attached CANivores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -175,7 +165,7 @@ caniv - CANivore CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ``caniv`` is a Command-line Interface (CLI) to interact with CANivores outside of Phoenix Tuner.
 
-After running any action on the CANivores page of Phoenix Tuner, Latest ``caniv`` is deployed to the target system. 
+The latest ``caniv`` is already installed on the target system with the installation of the ``canivore-usb`` kernel module. 
 
 .. note:: Unlike the CANivores page in Phoenix Tuner, ``caniv`` does **not** require a running Phoenix Diagnostic Server.
 

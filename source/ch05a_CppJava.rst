@@ -22,7 +22,9 @@ Once the project is created, ensure project builds.  Testing robot deploy is als
 FRC C++/Java – Add Phoenix 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-See the `WPILib documentation <https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html>`__ on installing vendordeps. 
+See the `WPILib documentation <https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html>`__ on installing vendordeps.
+
+.. important:: Phoenix 5 users must also install the `Phoenix 6 vendordep <https://v6.docs.ctr-electronics.com/en/stable/docs/installation/installation-frc.html>`__.
 
 FRC C++ Build Test: Single Talon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
