@@ -1,6 +1,8 @@
 Prepare your workstation computer
 =================================
 
+.. important:: Newer devices are supported through the `Phoenix 6 library <https://v6.docs.ctr-electronics.com/en/stable/index.html>`__. Additionally, in FRC robot projects, the Phoenix 6 library must be installed alongside Phoenix 5.
+
 Before Installing Phoenix...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is strongly recommended to complete the base installation of FRC tools.
@@ -62,7 +64,7 @@ This will install:
 - The C++/Java Phoenix API (if selected in installer)
 - Device Firmware Files (that were tested with the release)
 - CTRE Support of RobotBuilder
-- Phoenix Tuner
+- Phoenix Tuner v1
 
   - Installs Phoenix API libraries into the roboRIO (required for LabVIEW)
   - Installs Phoenix Diagnostics Server into the RoboRIO (needed for CAN diagnostics). 
@@ -90,9 +92,11 @@ This essentially contains a maven-style repository that holds the API binaries a
 .. note:: This is auto installed when using the Windows full installer (Option 1).
 
 
-Phoenix Tuner
+Phoenix Tuner v1
 ----------------------------------------------------------------------------------
 Environments: Windows
+
+.. warning:: Phoenix Tuner v1 is no longer maintained. There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows, Android, macOS, and iOS devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
 
 If you are using option 2, you will need to download Phoenix Tuner separately.  
 Phoenix Tuner is available here...
@@ -109,6 +113,8 @@ This can be convenient for workstations that aren’t used for software developm
 
 Device Firmware Files (crf)
 ----------------------------------------------------------------------------------
+.. tip:: The new Phoenix Tuner X automatically downloads the latest firmware versions for devices.
+
 The test firmware files for all CTRE devices are packaged with the Windows Installer (and has been for years).  However, many FRC teams don’t notice, or prefer to download them directly from the product pages on the ctr-electronics.com website.  If Internet access is available, they can be downloaded as such.
 
 The FRC Software installer will create a directory with various firmware files/tools for many control system components.  
@@ -173,7 +179,7 @@ Installer can take anywhere from 30 seconds to 5 minutes depending on which Micr
 
 .. image:: img/install-3.png
 
-Final page will look like this.  The Phoenix Tuner link can be used to open Phoenix Tuner.  Alternatively, you can use the Windows Start Menu.
+Final page will look like this.  The Phoenix Tuner link can be used to open Phoenix Tuner v1.  Alternatively, you can use the Windows Start Menu.
 
 .. image:: img/install-4.png
 
@@ -188,7 +194,7 @@ https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/3rd-party-librar
 
 **Copy/paste the maven and vendordeps folder into frc2020 folder**.  This will override a pre-existing Phoenix installation if present.
 
-.. note:: This will not install Phoenix Tuner or firmware files.  If these are necessary (and they typically are) these can be downloaded separately or consider using the complete Phoenix Installer.
+.. note:: This will not install Phoenix Tuner v1 or firmware files.  If these are necessary (and they typically are) these can be downloaded separately or consider using the complete Phoenix Installer.
 
 
 Post Installation Steps
@@ -235,7 +241,7 @@ This palette can also be found in:
 
 FRC Windows – Open Phoenix Tuner
 ----------------------------------------------------------------------------------
-Open Phoenix Tuner
+Open Phoenix Tuner v1
 
 .. image:: img/tuner-1.png
 

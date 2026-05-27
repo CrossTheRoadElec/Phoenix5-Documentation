@@ -38,7 +38,7 @@ Phoenix-Tuner v1 is the graphical interface that allows for configuration of Pho
 
 .. image:: img/tuner.png
 
-.. tip:: There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows and Android devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
+.. warning:: Phoenix Tuner v1 is no longer maintained. There is a modernized version called `Tuner X <https://v6.docs.ctr-electronics.com/en/stable/docs/tuner/index.html>`__ that is available for Windows, Android, macOS, and iOS devices (works with Phoenix 5 and `Phoenix 6 <https://v6.docs.ctr-electronics.com/en/stable/>`__).
 
 It provides a variety of functionality to support all Phoenix CAN Bus devices.  The feature set includes:
 
