@@ -2,31 +2,32 @@
 
 [[package]]
 name = "ablog"
-version = "0.10.25"
+version = "0.11.13"
 description = "A Sphinx extension that converts any documentation or personal website project into a full-fledged blog."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.11"
 groups = ["main"]
 files = [
-    {file = "ablog-0.10.25-py3-none-any.whl", hash = "sha256:6ac4cbee5811c9be2dc43614ce86007d39992a444b2ac3793f42aedaf4a07b4b"},
-    {file = "ablog-0.10.25.tar.gz", hash = "sha256:92cef2431058c4ca9fc0bfbf505749e2b53b1df4cc4616f27ebdc353f95f0811"},
+    {file = "ablog-0.11.13-py3-none-any.whl", hash = "sha256:73eb092c2302e441262e202b0e59d7ee78e43e91ab1d8e4aacc4de2f1166d845"},
+    {file = "ablog-0.11.13.tar.gz", hash = "sha256:ae990d2c5c495ced6a33e0ec47d34355b828b81b97b6ad3786f682252d1ad36a"},
 ]
 
 [package.dependencies]
-docutils = "*"
+docutils = ">=0.18"
 feedgen = ">=0.9.0"
 invoke = ">=1.6.0"
-python-dateutil = ">=2.8.0"
-sphinx = ">=4.0.0"
-watchdog = ">=2.0.0"
+packaging = ">=19.0"
+python-dateutil = ">=2.8.2"
+sphinx = ">=7.0.0"
+watchdog = ">=2.1.0"
 
 [package.extras]
-all = ["ipython", "myst-parser (>=0.17.0)", "nbsphinx"]
-dev = ["alabaster", "ipython", "myst-parser (>=0.17.0)", "nbsphinx", "pytest (>=6.0.0)", "sphinx-automodapi"]
-docs = ["alabaster", "sphinx-automodapi"]
+all = ["ipython (>=7.30.0)", "myst-parser (>=0.17.0)", "nbsphinx (>=0.8.0)"]
+dev = ["alabaster (>=1.0.0)", "defusedxml (>=0.8.0rc2)", "ipython (>=7.30.0)", "myst-parser (>=0.17.0)", "nbsphinx (>=0.8.0)", "pytest", "pytest-cov", "sphinx-automodapi"]
+docs = ["alabaster (>=1.0.0)", "sphinx-automodapi"]
 markdown = ["myst-parser (>=0.17.0)"]
-notebook = ["ipython", "nbsphinx"]
-tests = ["pytest (>=6.0.0)"]
+notebook = ["ipython (>=7.30.0)", "nbsphinx (>=0.8.0)"]
+tests = ["defusedxml (>=0.8.0rc2)", "pytest", "pytest-cov"]
 
 [[package]]
 name = "alabaster"
@@ -943,27 +944,6 @@ files = [
 roman-numerals = "4.1.0"
 
 [[package]]
-name = "setuptools"
-version = "80.10.2"
-description = "Easily download, build, install, upgrade, and uninstall Python packages"
-optional = false
-python-versions = ">=3.9"
-groups = ["main"]
-files = [
-    {file = "setuptools-80.10.2-py3-none-any.whl", hash = "sha256:95b30ddfb717250edb492926c92b5221f7ef3fbcc2b07579bcd4a27da21d0173"},
-    {file = "setuptools-80.10.2.tar.gz", hash = "sha256:8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70"},
-]
-
-[package.extras]
-check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\"", "ruff (>=0.8.0) ; sys_platform != \"cygwin\""]
-core = ["importlib_metadata (>=6) ; python_version < \"3.10\"", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more_itertools", "more_itertools (>=8.8)", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1) ; python_version < \"3.11\"", "wheel (>=0.43.0)"]
-cover = ["pytest-cov"]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
-enabler = ["pytest-enabler (>=2.2)"]
-test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21) ; python_version >= \"3.9\" and sys_platform != \"cygwin\"", "jaraco.envs (>=2.2)", "jaraco.path (>=3.7.2)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf ; sys_platform != \"cygwin\"", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
-type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.develop (>=7.21) ; sys_platform != \"cygwin\"", "mypy (==1.14.*)", "pytest-mypy"]
-
-[[package]]
 name = "shutilwhich"
 version = "1.1.0"
 description = "shutil.which for those not using Python 3.3 yet."
@@ -1498,4 +1478,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "d2772bbd344551841e51e64e382b272578e105c2cecd2dd8ddb9da55b14cffdd"
+content-hash = "a5cb2003bda4c3d55997d7456bc905b9b71cb325f02fafa26dbc1bb9a3868c42"
