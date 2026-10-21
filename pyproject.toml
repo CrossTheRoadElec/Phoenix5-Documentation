@@ -6,12 +6,11 @@ authors = []
 
 [tool.poetry.dependencies]
 python = "^3.12"
-ablog = "==0.10.25"
+ablog = "==0.11.13"
 doc8 = "==2.0.0"
 docutils = "==0.21.2"
 latex = "==0.7.0"
 readthedocs-sphinx-ext = "^2"
-setuptools = "^80"
 sphinx = "==8.2.3"
 sphinx-rtd-theme = "==3.0.2"
 sphinx-hoverxref = "==1.0.1"
@@ -38,3 +37,6 @@ requests = "==2.34.2"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.10"
